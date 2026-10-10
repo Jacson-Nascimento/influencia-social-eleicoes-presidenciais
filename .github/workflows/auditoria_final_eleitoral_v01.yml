@@ -1,0 +1,48 @@
+name: Auditoria final documental dos votos TSE 2018 e 2022
+
+on:
+  push:
+    paths:
+      - '.github/workflows/auditoria_final_eleitoral_v01.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  auditoria:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: pip
+      - name: Instalar e testar
+        run: |
+          python -m pip install -r requirements.txt
+          python -m unittest discover -s tests -v
+      - name: Auditar totais por candidatura e turno
+        run: |
+          python scripts/19_auditoria_presidencial_2018_2022.py \
+            --arquivo2018 data/tratados/votos_presidente_municipio_2018_RESSALVA.csv \
+            --arquivo2022 data/tratados/votos_presidente_municipio_2022.csv \
+            --controles data/controles/totalizacao_2018_2022_fontes_tse.csv \
+            --pasta outputs/auditoria_documental_final_v01
+      - name: Arquivar evidências
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: conciliacao-2018-2022-com-ressalva-explicita
+          path: outputs/auditoria_documental_final_v01/
+          retention-days: 90
+      - name: Publicar ressalvas e controles auditados
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add -f outputs/auditoria_documental_final_v01/*.csv
+          git add outputs/auditoria_documental_final_v01/*.json
+          git commit -m 'Consolidar conciliação 2018/2022 com ressalva histórica detalhada'
+          git pull --rebase origin main
+          git push origin HEAD:main
