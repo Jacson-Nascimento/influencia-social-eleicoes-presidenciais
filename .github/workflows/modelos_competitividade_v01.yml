@@ -1,0 +1,72 @@
+name: Modelos de competitividade do segundo turno 2018 e 2022
+
+on:
+  push:
+    paths:
+      - '.github/workflows/modelos_competitividade_v01.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  modelagem:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: pip
+      - name: Instalar dependencias e validar testes
+        run: |
+          python -m pip install -r requirements.txt
+          python -m unittest discover -s tests -v
+      - name: Verificar insumos disponíveis
+        run: |
+          test -s outputs/competitividade_v01/competitividade_e_margem_assinada_segundo_turno.csv
+          test -s outputs/municipal_v01/chaves_tse_ibge_5570_centroides.csv
+          test -s outputs/municipal_v01/hhi_municipal_2018_2022.csv
+          test -s data/ibge_tratados/controles_pre_eleitorais_v02.csv
+      - name: Comparar modelos em segundo turno
+        run: |
+          python scripts/16_modelos_competitividade.py \
+            --mapa outputs/municipal_v01/chaves_tse_ibge_5570_centroides.csv \
+            --hhi outputs/municipal_v01/hhi_municipal_2018_2022.csv \
+            --ibge data/ibge_tratados/controles_pre_eleitorais_v02.csv \
+            --competitividade outputs/competitividade_v01/competitividade_e_margem_assinada_segundo_turno.csv \
+            --permutacoes 999 \
+            --pasta outputs/competitividade_modelos_v01
+      - name: Validar coerencia de resultados
+        run: |
+          python - <<'PY'
+          import pandas as pd
+          f='outputs/competitividade_modelos_v01/modelos_competitividade_e_direcao_k4_k8_k12.csv'
+          df=pd.read_csv(f)
+          assert len(df)==12
+          assert set(df.ano)=={2018,2022}
+          assert set(df.desfecho)=={'competitividade','direcao_pt13'}
+          assert set(df.k)=={4,8,12}
+          assert (df.n==5565).all()
+          assert df.delta_r2.ge(-1e-9).all()
+          assert (df.rmse_cv_local>0).all()
+          assert (df.rmse_cv_contexto>0).all()
+          print('Modelos e desfechos conferidos:',len(df))
+          PY
+      - name: Preservar artefatos executados
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: competitividade-modelos-2018-2022-v01
+          path: outputs/competitividade_modelos_v01/
+          retention-days: 90
+      - name: Versionar apenas depois da auditoria
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add -f outputs/competitividade_modelos_v01/*.csv
+          git add outputs/competitividade_modelos_v01/*.json
+          git commit -m 'Publicar comparacao de competitividade, contexto e sensibilidade direcional'
+          git pull --rebase origin main
+          git push origin HEAD:main
