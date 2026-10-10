@@ -1,4 +1,5 @@
 name: Sensibilidade Moran e controle de multiplicidade
+# Execução após correção do contrato de retorno da permutação
 
 on:
   push:
