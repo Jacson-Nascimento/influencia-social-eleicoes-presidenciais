@@ -1,0 +1,55 @@
+{
+  "ano": 2018,
+  "aprovado": false,
+  "turnos": [
+    {
+      "turno": 1,
+      "votos_validos_observados": 107050749,
+      "votos_validos_referencia": 107050673,
+      "residuo_total": 76,
+      "outros_observados": 26431688,
+      "outros_referencia": 26431678,
+      "candidatos": {
+        "17": {
+          "observado": 49277010,
+          "referencia": 49276990,
+          "diferenca": 20
+        },
+        "13": {
+          "observado": 31342051,
+          "referencia": 31342005,
+          "diferenca": 46
+        }
+      },
+      "uf_inclui_exterior": true,
+      "uf_quantidade": 28,
+      "municipios_uf_distintos": 5708,
+      "aprovado": false
+    },
+    {
+      "turno": 2,
+      "votos_validos_observados": 104838753,
+      "votos_validos_referencia": 104838753,
+      "residuo_total": 0,
+      "outros_observados": 0,
+      "outros_referencia": 0,
+      "candidatos": {
+        "17": {
+          "observado": 57797847,
+          "referencia": 57797847,
+          "diferenca": 0
+        },
+        "13": {
+          "observado": 47040906,
+          "referencia": 47040906,
+          "diferenca": 0
+        }
+      },
+      "uf_inclui_exterior": true,
+      "uf_quantidade": 28,
+      "municipios_uf_distintos": 5708,
+      "aprovado": true
+    }
+  ],
+  "limites": "Agregação territorial não identifica transferência individual ou influência causal."
+}

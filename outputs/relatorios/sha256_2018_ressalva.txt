@@ -1,0 +1,3 @@
+f880848ef4ba340b15cb91ff0754aa370d34ca7b7e605d6607c0f2a75009adc8  data/brutos/2018/votacao_candidato_munzona_2018.zip
+395389280 bytes
+https://cdn.tse.jus.br/estatistica/sead/odsele/votacao_candidato_munzona/votacao_candidato_munzona_2018.zip

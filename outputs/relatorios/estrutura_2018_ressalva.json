@@ -1,0 +1,41 @@
+{
+  "arquivo_csv_no_zip": "votacao_candidato_munzona_2018_BR.csv",
+  "linhas_csv_lidas": 93600,
+  "linhas_presidenciais_lidas": 93600,
+  "linhas_consolidadas": 85620,
+  "votos_nominais_somados_ambos_turnos": 211889502,
+  "unidades_uf": [
+    "AC",
+    "AL",
+    "AM",
+    "AP",
+    "BA",
+    "CE",
+    "DF",
+    "ES",
+    "GO",
+    "MA",
+    "MG",
+    "MS",
+    "MT",
+    "PA",
+    "PB",
+    "PE",
+    "PI",
+    "PR",
+    "RJ",
+    "RN",
+    "RO",
+    "RR",
+    "RS",
+    "SC",
+    "SE",
+    "SP",
+    "TO",
+    "ZZ"
+  ],
+  "turnos": [
+    1,
+    2
+  ]
+}
