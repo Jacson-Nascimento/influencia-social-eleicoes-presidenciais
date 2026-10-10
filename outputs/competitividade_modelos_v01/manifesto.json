@@ -1,0 +1,50 @@
+{
+  "autor": "Jacson Cruz do Nascimento",
+  "anos": [
+    2018,
+    2022
+  ],
+  "municipios_por_eleicao": 5565,
+  "excluidos_ibge": [
+    {
+      "SG_UF": "MS",
+      "CD_MUNICIPIO": 55050,
+      "CD_MUNICIPIO_IBGE": "5006275"
+    },
+    {
+      "SG_UF": "PA",
+      "CD_MUNICIPIO": 4863,
+      "CD_MUNICIPIO_IBGE": "1504752"
+    },
+    {
+      "SG_UF": "RS",
+      "CD_MUNICIPIO": 89540,
+      "CD_MUNICIPIO_IBGE": "4314548"
+    },
+    {
+      "SG_UF": "SC",
+      "CD_MUNICIPIO": 83909,
+      "CD_MUNICIPIO_IBGE": "4220000"
+    },
+    {
+      "SG_UF": "SC",
+      "CD_MUNICIPIO": 83925,
+      "CD_MUNICIPIO_IBGE": "4212650"
+    }
+  ],
+  "desfecho_principal": "competitividade = 1 - |v13 - voponente|/(v13 + voponente) no segundo turno",
+  "sensibilidade_direcional": "margem assinada candidatura 13 versus outra finalista, por eleição",
+  "modelos": "UF fixo + quatro características municipais versus UF fixo + características locais e médias IBGE de k municípios vizinhos",
+  "validacao": "cinco folds de UFs inteiras omitidas, modelos SEM efeito fixo de UF, com as mesmas amostras e atributos",
+  "matriz": "vizinhos centroides IBGE 2022 k=8 principal, k=4/12 sensibilidades",
+  "permutacoes_residuais": 999,
+  "controle_multiplicidade": "Holm para dois testes ano 2018/2022 em k8, separadamente por desfecho",
+  "restricoes": [
+    "2018 teve 76 votos de divergência no primeiro turno histórico do TSE, não ajustados.",
+    "Os coeficientes não estabelecem causalidade, contágio social ou mudança individual de voto.",
+    "Os atributos IBGE foram baixados em 2026 e podem ter revisões históricas; CV geográfica não é validação temporal ex ante.",
+    "O contexto não usa votos, margens ou competitividade dos municípios vizinhos como covariáveis.",
+    "R² maior com regressoras extras in-sample é propriedade mecânica de OLS.",
+    "A margem assinada difere da competitividade porque identifica lado com vantagem."
+  ]
+}

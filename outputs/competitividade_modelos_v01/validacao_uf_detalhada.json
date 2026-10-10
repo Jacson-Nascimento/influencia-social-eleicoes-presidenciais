@@ -1,0 +1,974 @@
+[
+  {
+    "ano": 2018,
+    "desfecho": "competitividade",
+    "k": 4,
+    "cv": {
+      "rmse_controles_locais": 0.2149859188823993,
+      "rmse_controles_mais_contexto": 0.21176507397790775,
+      "mudanca_relativa_rmse_pct": 1.4981655176464794,
+      "dobras_com_piora": 2,
+      "n_folds": 5,
+      "folds": [
+        {
+          "fold": 1,
+          "ufs_teste": [
+            "AC",
+            "CE",
+            "MG",
+            "PE",
+            "RO",
+            "SP"
+          ],
+          "n_teste": 1941,
+          "sse_controles_locais": 88.7794200455993,
+          "sse_controles_mais_contexto": 90.29591054847552
+        },
+        {
+          "fold": 2,
+          "ufs_teste": [
+            "AL",
+            "DF",
+            "MS",
+            "PI",
+            "RR",
+            "TO"
+          ],
+          "n_teste": 559,
+          "sse_controles_locais": 25.99372319450584,
+          "sse_controles_mais_contexto": 24.554236281386736
+        },
+        {
+          "fold": 3,
+          "ufs_teste": [
+            "AM",
+            "ES",
+            "MT",
+            "PR",
+            "RS"
+          ],
+          "n_teste": 1176,
+          "sse_controles_locais": 56.25706133141738,
+          "sse_controles_mais_contexto": 53.45818816030179
+        },
+        {
+          "fold": 4,
+          "ufs_teste": [
+            "AP",
+            "GO",
+            "PA",
+            "RJ",
+            "SC"
+          ],
+          "n_teste": 790,
+          "sse_controles_locais": 38.18258486134407,
+          "sse_controles_mais_contexto": 38.891716670509894
+        },
+        {
+          "fold": 5,
+          "ufs_teste": [
+            "BA",
+            "MA",
+            "PB",
+            "RN",
+            "SE"
+          ],
+          "n_teste": 1099,
+          "sse_controles_locais": 47.99564126018716,
+          "sse_controles_mais_contexto": 42.359293428300624
+        }
+      ]
+    }
+  },
+  {
+    "ano": 2018,
+    "desfecho": "competitividade",
+    "k": 8,
+    "cv": {
+      "rmse_controles_locais": 0.2149859188823993,
+      "rmse_controles_mais_contexto": 0.21086455236430968,
+      "mudanca_relativa_rmse_pct": 1.917040213384425,
+      "dobras_com_piora": 2,
+      "n_folds": 5,
+      "folds": [
+        {
+          "fold": 1,
+          "ufs_teste": [
+            "AC",
+            "CE",
+            "MG",
+            "PE",
+            "RO",
+            "SP"
+          ],
+          "n_teste": 1941,
+          "sse_controles_locais": 88.7794200455993,
+          "sse_controles_mais_contexto": 90.31465752141985
+        },
+        {
+          "fold": 2,
+          "ufs_teste": [
+            "AL",
+            "DF",
+            "MS",
+            "PI",
+            "RR",
+            "TO"
+          ],
+          "n_teste": 559,
+          "sse_controles_locais": 25.99372319450584,
+          "sse_controles_mais_contexto": 24.18752353835686
+        },
+        {
+          "fold": 3,
+          "ufs_teste": [
+            "AM",
+            "ES",
+            "MT",
+            "PR",
+            "RS"
+          ],
+          "n_teste": 1176,
+          "sse_controles_locais": 56.25706133141738,
+          "sse_controles_mais_contexto": 53.201667776886396
+        },
+        {
+          "fold": 4,
+          "ufs_teste": [
+            "AP",
+            "GO",
+            "PA",
+            "RJ",
+            "SC"
+          ],
+          "n_teste": 790,
+          "sse_controles_locais": 38.18258486134407,
+          "sse_controles_mais_contexto": 38.762348388163446
+        },
+        {
+          "fold": 5,
+          "ufs_teste": [
+            "BA",
+            "MA",
+            "PB",
+            "RN",
+            "SE"
+          ],
+          "n_teste": 1099,
+          "sse_controles_locais": 47.99564126018716,
+          "sse_controles_mais_contexto": 40.97518057992434
+        }
+      ]
+    }
+  },
+  {
+    "ano": 2018,
+    "desfecho": "competitividade",
+    "k": 12,
+    "cv": {
+      "rmse_controles_locais": 0.2149859188823993,
+      "rmse_controles_mais_contexto": 0.21048829044528228,
+      "mudanca_relativa_rmse_pct": 2.0920572196066884,
+      "dobras_com_piora": 2,
+      "n_folds": 5,
+      "folds": [
+        {
+          "fold": 1,
+          "ufs_teste": [
+            "AC",
+            "CE",
+            "MG",
+            "PE",
+            "RO",
+            "SP"
+          ],
+          "n_teste": 1941,
+          "sse_controles_locais": 88.7794200455993,
+          "sse_controles_mais_contexto": 90.48982064784317
+        },
+        {
+          "fold": 2,
+          "ufs_teste": [
+            "AL",
+            "DF",
+            "MS",
+            "PI",
+            "RR",
+            "TO"
+          ],
+          "n_teste": 559,
+          "sse_controles_locais": 25.99372319450584,
+          "sse_controles_mais_contexto": 24.123831007148592
+        },
+        {
+          "fold": 3,
+          "ufs_teste": [
+            "AM",
+            "ES",
+            "MT",
+            "PR",
+            "RS"
+          ],
+          "n_teste": 1176,
+          "sse_controles_locais": 56.25706133141738,
+          "sse_controles_mais_contexto": 53.26462236949343
+        },
+        {
+          "fold": 4,
+          "ufs_teste": [
+            "AP",
+            "GO",
+            "PA",
+            "RJ",
+            "SC"
+          ],
+          "n_teste": 790,
+          "sse_controles_locais": 38.18258486134407,
+          "sse_controles_mais_contexto": 38.59812661678455
+        },
+        {
+          "fold": 5,
+          "ufs_teste": [
+            "BA",
+            "MA",
+            "PB",
+            "RN",
+            "SE"
+          ],
+          "n_teste": 1099,
+          "sse_controles_locais": 47.99564126018716,
+          "sse_controles_mais_contexto": 40.08270746585411
+        }
+      ]
+    }
+  },
+  {
+    "ano": 2018,
+    "desfecho": "direcao_pt13",
+    "k": 4,
+    "cv": {
+      "rmse_controles_locais": 0.3148232403126628,
+      "rmse_controles_mais_contexto": 0.2711429997431616,
+      "mudanca_relativa_rmse_pct": 13.874528616794846,
+      "dobras_com_piora": 0,
+      "n_folds": 5,
+      "folds": [
+        {
+          "fold": 1,
+          "ufs_teste": [
+            "AC",
+            "CE",
+            "MG",
+            "PE",
+            "RO",
+            "SP"
+          ],
+          "n_teste": 1941,
+          "sse_controles_locais": 209.6291330340643,
+          "sse_controles_mais_contexto": 171.56990642686648
+        },
+        {
+          "fold": 2,
+          "ufs_teste": [
+            "AL",
+            "DF",
+            "MS",
+            "PI",
+            "RR",
+            "TO"
+          ],
+          "n_teste": 559,
+          "sse_controles_locais": 42.4584094505574,
+          "sse_controles_mais_contexto": 29.27866053470335
+        },
+        {
+          "fold": 3,
+          "ufs_teste": [
+            "AM",
+            "ES",
+            "MT",
+            "PR",
+            "RS"
+          ],
+          "n_teste": 1176,
+          "sse_controles_locais": 92.13348309753395,
+          "sse_controles_mais_contexto": 68.81300647639218
+        },
+        {
+          "fold": 4,
+          "ufs_teste": [
+            "AP",
+            "GO",
+            "PA",
+            "RJ",
+            "SC"
+          ],
+          "n_teste": 790,
+          "sse_controles_locais": 85.16423865583688,
+          "sse_controles_mais_contexto": 65.96315588496853
+        },
+        {
+          "fold": 5,
+          "ufs_teste": [
+            "BA",
+            "MA",
+            "PB",
+            "RN",
+            "SE"
+          ],
+          "n_teste": 1099,
+          "sse_controles_locais": 122.18232400897567,
+          "sse_controles_mais_contexto": 73.50586959066196
+        }
+      ]
+    }
+  },
+  {
+    "ano": 2018,
+    "desfecho": "direcao_pt13",
+    "k": 8,
+    "cv": {
+      "rmse_controles_locais": 0.3148232403126628,
+      "rmse_controles_mais_contexto": 0.2610190540434655,
+      "mudanca_relativa_rmse_pct": 17.090284127614705,
+      "dobras_com_piora": 0,
+      "n_folds": 5,
+      "folds": [
+        {
+          "fold": 1,
+          "ufs_teste": [
+            "AC",
+            "CE",
+            "MG",
+            "PE",
+            "RO",
+            "SP"
+          ],
+          "n_teste": 1941,
+          "sse_controles_locais": 209.6291330340643,
+          "sse_controles_mais_contexto": 160.4175873908392
+        },
+        {
+          "fold": 2,
+          "ufs_teste": [
+            "AL",
+            "DF",
+            "MS",
+            "PI",
+            "RR",
+            "TO"
+          ],
+          "n_teste": 559,
+          "sse_controles_locais": 42.4584094505574,
+          "sse_controles_mais_contexto": 27.081851353751166
+        },
+        {
+          "fold": 3,
+          "ufs_teste": [
+            "AM",
+            "ES",
+            "MT",
+            "PR",
+            "RS"
+          ],
+          "n_teste": 1176,
+          "sse_controles_locais": 92.13348309753395,
+          "sse_controles_mais_contexto": 67.82212630320635
+        },
+        {
+          "fold": 4,
+          "ufs_teste": [
+            "AP",
+            "GO",
+            "PA",
+            "RJ",
+            "SC"
+          ],
+          "n_teste": 790,
+          "sse_controles_locais": 85.16423865583688,
+          "sse_controles_mais_contexto": 61.31314523791564
+        },
+        {
+          "fold": 5,
+          "ufs_teste": [
+            "BA",
+            "MA",
+            "PB",
+            "RN",
+            "SE"
+          ],
+          "n_teste": 1099,
+          "sse_controles_locais": 122.18232400897567,
+          "sse_controles_mais_contexto": 62.514007397181594
+        }
+      ]
+    }
+  },
+  {
+    "ano": 2018,
+    "desfecho": "direcao_pt13",
+    "k": 12,
+    "cv": {
+      "rmse_controles_locais": 0.3148232403126628,
+      "rmse_controles_mais_contexto": 0.25579395903423424,
+      "mudanca_relativa_rmse_pct": 18.749975770468644,
+      "dobras_com_piora": 0,
+      "n_folds": 5,
+      "folds": [
+        {
+          "fold": 1,
+          "ufs_teste": [
+            "AC",
+            "CE",
+            "MG",
+            "PE",
+            "RO",
+            "SP"
+          ],
+          "n_teste": 1941,
+          "sse_controles_locais": 209.6291330340643,
+          "sse_controles_mais_contexto": 154.9218381150955
+        },
+        {
+          "fold": 2,
+          "ufs_teste": [
+            "AL",
+            "DF",
+            "MS",
+            "PI",
+            "RR",
+            "TO"
+          ],
+          "n_teste": 559,
+          "sse_controles_locais": 42.4584094505574,
+          "sse_controles_mais_contexto": 26.804727069010326
+        },
+        {
+          "fold": 3,
+          "ufs_teste": [
+            "AM",
+            "ES",
+            "MT",
+            "PR",
+            "RS"
+          ],
+          "n_teste": 1176,
+          "sse_controles_locais": 92.13348309753395,
+          "sse_controles_mais_contexto": 67.91795345296939
+        },
+        {
+          "fold": 4,
+          "ufs_teste": [
+            "AP",
+            "GO",
+            "PA",
+            "RJ",
+            "SC"
+          ],
+          "n_teste": 790,
+          "sse_controles_locais": 85.16423865583688,
+          "sse_controles_mais_contexto": 59.231573308371864
+        },
+        {
+          "fold": 5,
+          "ufs_teste": [
+            "BA",
+            "MA",
+            "PB",
+            "RN",
+            "SE"
+          ],
+          "n_teste": 1099,
+          "sse_controles_locais": 122.18232400897567,
+          "sse_controles_mais_contexto": 55.244915901890735
+        }
+      ]
+    }
+  },
+  {
+    "ano": 2022,
+    "desfecho": "competitividade",
+    "k": 4,
+    "cv": {
+      "rmse_controles_locais": 0.19420240731866698,
+      "rmse_controles_mais_contexto": 0.18633512879615582,
+      "mudanca_relativa_rmse_pct": 4.051071575854219,
+      "dobras_com_piora": 0,
+      "n_folds": 5,
+      "folds": [
+        {
+          "fold": 1,
+          "ufs_teste": [
+            "AC",
+            "CE",
+            "MG",
+            "PE",
+            "RO",
+            "SP"
+          ],
+          "n_teste": 1941,
+          "sse_controles_locais": 59.891757579674824,
+          "sse_controles_mais_contexto": 55.778385749064576
+        },
+        {
+          "fold": 2,
+          "ufs_teste": [
+            "AL",
+            "DF",
+            "MS",
+            "PI",
+            "RR",
+            "TO"
+          ],
+          "n_teste": 559,
+          "sse_controles_locais": 21.963804021951944,
+          "sse_controles_mais_contexto": 18.775760578797055
+        },
+        {
+          "fold": 3,
+          "ufs_teste": [
+            "AM",
+            "ES",
+            "MT",
+            "PR",
+            "RS"
+          ],
+          "n_teste": 1176,
+          "sse_controles_locais": 52.289697838550964,
+          "sse_controles_mais_contexto": 50.96016545701217
+        },
+        {
+          "fold": 4,
+          "ufs_teste": [
+            "AP",
+            "GO",
+            "PA",
+            "RJ",
+            "SC"
+          ],
+          "n_teste": 790,
+          "sse_controles_locais": 30.603717463056977,
+          "sse_controles_mais_contexto": 30.24497795927473
+        },
+        {
+          "fold": 5,
+          "ufs_teste": [
+            "BA",
+            "MA",
+            "PB",
+            "RN",
+            "SE"
+          ],
+          "n_teste": 1099,
+          "sse_controles_locais": 45.13263301831895,
+          "sse_controles_mais_contexto": 37.46185219951754
+        }
+      ]
+    }
+  },
+  {
+    "ano": 2022,
+    "desfecho": "competitividade",
+    "k": 8,
+    "cv": {
+      "rmse_controles_locais": 0.19420240731866698,
+      "rmse_controles_mais_contexto": 0.18451438073228443,
+      "mudanca_relativa_rmse_pct": 4.988623323543795,
+      "dobras_com_piora": 0,
+      "n_folds": 5,
+      "folds": [
+        {
+          "fold": 1,
+          "ufs_teste": [
+            "AC",
+            "CE",
+            "MG",
+            "PE",
+            "RO",
+            "SP"
+          ],
+          "n_teste": 1941,
+          "sse_controles_locais": 59.891757579674824,
+          "sse_controles_mais_contexto": 55.134645592212614
+        },
+        {
+          "fold": 2,
+          "ufs_teste": [
+            "AL",
+            "DF",
+            "MS",
+            "PI",
+            "RR",
+            "TO"
+          ],
+          "n_teste": 559,
+          "sse_controles_locais": 21.963804021951944,
+          "sse_controles_mais_contexto": 17.984733984735815
+        },
+        {
+          "fold": 3,
+          "ufs_teste": [
+            "AM",
+            "ES",
+            "MT",
+            "PR",
+            "RS"
+          ],
+          "n_teste": 1176,
+          "sse_controles_locais": 52.289697838550964,
+          "sse_controles_mais_contexto": 51.2139893613995
+        },
+        {
+          "fold": 4,
+          "ufs_teste": [
+            "AP",
+            "GO",
+            "PA",
+            "RJ",
+            "SC"
+          ],
+          "n_teste": 790,
+          "sse_controles_locais": 30.603717463056977,
+          "sse_controles_mais_contexto": 29.8832823176173
+        },
+        {
+          "fold": 5,
+          "ufs_teste": [
+            "BA",
+            "MA",
+            "PB",
+            "RN",
+            "SE"
+          ],
+          "n_teste": 1099,
+          "sse_controles_locais": 45.13263301831895,
+          "sse_controles_mais_contexto": 35.246871762942234
+        }
+      ]
+    }
+  },
+  {
+    "ano": 2022,
+    "desfecho": "competitividade",
+    "k": 12,
+    "cv": {
+      "rmse_controles_locais": 0.19420240731866698,
+      "rmse_controles_mais_contexto": 0.18342871320784743,
+      "mudanca_relativa_rmse_pct": 5.547662492741905,
+      "dobras_com_piora": 0,
+      "n_folds": 5,
+      "folds": [
+        {
+          "fold": 1,
+          "ufs_teste": [
+            "AC",
+            "CE",
+            "MG",
+            "PE",
+            "RO",
+            "SP"
+          ],
+          "n_teste": 1941,
+          "sse_controles_locais": 59.891757579674824,
+          "sse_controles_mais_contexto": 54.58879162937434
+        },
+        {
+          "fold": 2,
+          "ufs_teste": [
+            "AL",
+            "DF",
+            "MS",
+            "PI",
+            "RR",
+            "TO"
+          ],
+          "n_teste": 559,
+          "sse_controles_locais": 21.963804021951944,
+          "sse_controles_mais_contexto": 17.545748717364027
+        },
+        {
+          "fold": 3,
+          "ufs_teste": [
+            "AM",
+            "ES",
+            "MT",
+            "PR",
+            "RS"
+          ],
+          "n_teste": 1176,
+          "sse_controles_locais": 52.289697838550964,
+          "sse_controles_mais_contexto": 51.21680695213441
+        },
+        {
+          "fold": 4,
+          "ufs_teste": [
+            "AP",
+            "GO",
+            "PA",
+            "RJ",
+            "SC"
+          ],
+          "n_teste": 790,
+          "sse_controles_locais": 30.603717463056977,
+          "sse_controles_mais_contexto": 29.759561407207816
+        },
+        {
+          "fold": 5,
+          "ufs_teste": [
+            "BA",
+            "MA",
+            "PB",
+            "RN",
+            "SE"
+          ],
+          "n_teste": 1099,
+          "sse_controles_locais": 45.13263301831895,
+          "sse_controles_mais_contexto": 34.1295978877871
+        }
+      ]
+    }
+  },
+  {
+    "ano": 2022,
+    "desfecho": "direcao_pt13",
+    "k": 4,
+    "cv": {
+      "rmse_controles_locais": 0.2849901209779744,
+      "rmse_controles_mais_contexto": 0.24337508005302036,
+      "mudanca_relativa_rmse_pct": 14.602274907687155,
+      "dobras_com_piora": 0,
+      "n_folds": 5,
+      "folds": [
+        {
+          "fold": 1,
+          "ufs_teste": [
+            "AC",
+            "CE",
+            "MG",
+            "PE",
+            "RO",
+            "SP"
+          ],
+          "n_teste": 1941,
+          "sse_controles_locais": 135.7349232603397,
+          "sse_controles_mais_contexto": 113.80789624181358
+        },
+        {
+          "fold": 2,
+          "ufs_teste": [
+            "AL",
+            "DF",
+            "MS",
+            "PI",
+            "RR",
+            "TO"
+          ],
+          "n_teste": 559,
+          "sse_controles_locais": 48.617191345542025,
+          "sse_controles_mais_contexto": 38.9047999551791
+        },
+        {
+          "fold": 3,
+          "ufs_teste": [
+            "AM",
+            "ES",
+            "MT",
+            "PR",
+            "RS"
+          ],
+          "n_teste": 1176,
+          "sse_controles_locais": 101.22926958408466,
+          "sse_controles_mais_contexto": 68.8028060989564
+        },
+        {
+          "fold": 4,
+          "ufs_teste": [
+            "AP",
+            "GO",
+            "PA",
+            "RJ",
+            "SC"
+          ],
+          "n_teste": 790,
+          "sse_controles_locais": 71.47954544546462,
+          "sse_controles_mais_contexto": 52.37900876623846
+        },
+        {
+          "fold": 5,
+          "ufs_teste": [
+            "BA",
+            "MA",
+            "PB",
+            "RN",
+            "SE"
+          ],
+          "n_teste": 1099,
+          "sse_controles_locais": 94.9248591558691,
+          "sse_controles_mais_contexto": 55.72839461069276
+        }
+      ]
+    }
+  },
+  {
+    "ano": 2022,
+    "desfecho": "direcao_pt13",
+    "k": 8,
+    "cv": {
+      "rmse_controles_locais": 0.2849901209779744,
+      "rmse_controles_mais_contexto": 0.2321676457739368,
+      "mudanca_relativa_rmse_pct": 18.534844303645173,
+      "dobras_com_piora": 0,
+      "n_folds": 5,
+      "folds": [
+        {
+          "fold": 1,
+          "ufs_teste": [
+            "AC",
+            "CE",
+            "MG",
+            "PE",
+            "RO",
+            "SP"
+          ],
+          "n_teste": 1941,
+          "sse_controles_locais": 135.7349232603397,
+          "sse_controles_mais_contexto": 107.420794774219
+        },
+        {
+          "fold": 2,
+          "ufs_teste": [
+            "AL",
+            "DF",
+            "MS",
+            "PI",
+            "RR",
+            "TO"
+          ],
+          "n_teste": 559,
+          "sse_controles_locais": 48.617191345542025,
+          "sse_controles_mais_contexto": 36.58371412929232
+        },
+        {
+          "fold": 3,
+          "ufs_teste": [
+            "AM",
+            "ES",
+            "MT",
+            "PR",
+            "RS"
+          ],
+          "n_teste": 1176,
+          "sse_controles_locais": 101.22926958408466,
+          "sse_controles_mais_contexto": 62.21237534808947
+        },
+        {
+          "fold": 4,
+          "ufs_teste": [
+            "AP",
+            "GO",
+            "PA",
+            "RJ",
+            "SC"
+          ],
+          "n_teste": 790,
+          "sse_controles_locais": 71.47954544546462,
+          "sse_controles_mais_contexto": 47.861316927795606
+        },
+        {
+          "fold": 5,
+          "ufs_teste": [
+            "BA",
+            "MA",
+            "PB",
+            "RN",
+            "SE"
+          ],
+          "n_teste": 1099,
+          "sse_controles_locais": 94.9248591558691,
+          "sse_controles_mais_contexto": 45.885403437144504
+        }
+      ]
+    }
+  },
+  {
+    "ano": 2022,
+    "desfecho": "direcao_pt13",
+    "k": 12,
+    "cv": {
+      "rmse_controles_locais": 0.2849901209779744,
+      "rmse_controles_mais_contexto": 0.22700077901943194,
+      "mudanca_relativa_rmse_pct": 20.34784285137525,
+      "dobras_com_piora": 0,
+      "n_folds": 5,
+      "folds": [
+        {
+          "fold": 1,
+          "ufs_teste": [
+            "AC",
+            "CE",
+            "MG",
+            "PE",
+            "RO",
+            "SP"
+          ],
+          "n_teste": 1941,
+          "sse_controles_locais": 135.7349232603397,
+          "sse_controles_mais_contexto": 105.37198602771267
+        },
+        {
+          "fold": 2,
+          "ufs_teste": [
+            "AL",
+            "DF",
+            "MS",
+            "PI",
+            "RR",
+            "TO"
+          ],
+          "n_teste": 559,
+          "sse_controles_locais": 48.617191345542025,
+          "sse_controles_mais_contexto": 36.43703730020738
+        },
+        {
+          "fold": 3,
+          "ufs_teste": [
+            "AM",
+            "ES",
+            "MT",
+            "PR",
+            "RS"
+          ],
+          "n_teste": 1176,
+          "sse_controles_locais": 101.22926958408466,
+          "sse_controles_mais_contexto": 58.93308041989723
+        },
+        {
+          "fold": 4,
+          "ufs_teste": [
+            "AP",
+            "GO",
+            "PA",
+            "RJ",
+            "SC"
+          ],
+          "n_teste": 790,
+          "sse_controles_locais": 71.47954544546462,
+          "sse_controles_mais_contexto": 46.032637181819865
+        },
+        {
+          "fold": 5,
+          "ufs_teste": [
+            "BA",
+            "MA",
+            "PB",
+            "RN",
+            "SE"
+          ],
+          "n_teste": 1099,
+          "sse_controles_locais": 94.9248591558691,
+          "sse_controles_mais_contexto": 39.9861122741251
+        }
+      ]
+    }
+  }
+]
