@@ -1,0 +1,61 @@
+name: Sensibilidade de competitividade ponderada por votos
+
+on:
+  push:
+    paths:
+      - '.github/workflows/sensibilidade_competitividade_pesos_v01.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  ponderacao:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: pip
+      - name: Instalar dependencias e conferir testes
+        run: |
+          python -m pip install -r requirements.txt
+          python -m unittest discover -s tests -v
+      - name: Estimar resultados ponderados por votos validos municipais
+        run: |
+          python scripts/17_sensibilidade_ponderacao_eleitoral.py \
+            --mapa outputs/municipal_v01/chaves_tse_ibge_5570_centroides.csv \
+            --hhi outputs/municipal_v01/hhi_municipal_2018_2022.csv \
+            --ibge data/ibge_tratados/controles_pre_eleitorais_v02.csv \
+            --competitividade outputs/competitividade_v02/competitividade_e_margem_assinada_segundo_turno.csv \
+            --pasta outputs/competitividade_ponderada_v01
+      - name: Auditar dimensoes e integridade
+        run: |
+          python - <<'PY'
+          import pandas as pd
+          p='outputs/competitividade_ponderada_v01/modelos_ponderados_competitividade_e_direcao.csv'
+          d=pd.read_csv(p)
+          assert len(d)==12
+          assert d.n.eq(5565).all()
+          assert (d.delta_r2_ponderado >= -1e-9).all()
+          assert d.peso_total_votos_validos.gt(0).all()
+          print('12 especificacoes ponderadas conferidas.')
+          PY
+      - name: Guardar artefatos
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: competitividade-ponderada-2018-2022-v01
+          path: outputs/competitividade_ponderada_v01/
+          retention-days: 90
+      - name: Publicar resultados verificados
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add -f outputs/competitividade_ponderada_v01/*.csv
+          git add outputs/competitividade_ponderada_v01/*.json
+          git commit -m 'Versionar sensibilidade por votos válidos para competitividade e margem assinada'
+          git pull --rebase origin main
+          git push origin HEAD:main
