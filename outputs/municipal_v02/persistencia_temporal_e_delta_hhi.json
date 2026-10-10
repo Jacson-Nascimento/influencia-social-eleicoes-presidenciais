@@ -1,0 +1,54 @@
+{
+  "n_municipios": 5570,
+  "comparacoes_temporais": [
+    {
+      "turno": 1,
+      "pearson_bruto": 0.808330528586878,
+      "spearman_bruto": 0.753347606362292,
+      "pearson_apos_media_uf": 0.8147108359301156,
+      "n": 5570
+    },
+    {
+      "turno": 2,
+      "pearson_bruto": 0.9251868213555703,
+      "spearman_bruto": 0.8874177205360668,
+      "pearson_apos_media_uf": 0.9095389290181635,
+      "n": 5570
+    }
+  ],
+  "mudancas_entre_turnos": [
+    {
+      "ano": 2018,
+      "mediana_delta_hhi": 0.17251428132064253,
+      "media_delta_hhi": 0.17838110625062575,
+      "proporcao_municipios_delta_hhi_positivo": 1.0,
+      "moran_k8_bruto_delta_hhi": {
+        "moran_i": 0.7415889294727535,
+        "p_bicaudal": 0.0005,
+        "media_nula": -0.00016693119077743694
+      },
+      "moran_k8_apos_media_uf_delta_hhi": {
+        "moran_i": 0.44814743606121793,
+        "p_bicaudal": 0.0005,
+        "media_nula": -0.003764890858984733
+      }
+    },
+    {
+      "ano": 2022,
+      "mediana_delta_hhi": 0.05853320952933161,
+      "media_delta_hhi": 0.061649276673573686,
+      "proporcao_municipios_delta_hhi_positivo": 0.9987432675044884,
+      "moran_k8_bruto_delta_hhi": {
+        "moran_i": 0.6677997914471417,
+        "p_bicaudal": 0.0005,
+        "media_nula": 7.381681170900338e-05
+      },
+      "moran_k8_apos_media_uf_delta_hhi": {
+        "moran_i": 0.43960096153641604,
+        "p_bicaudal": 0.0005,
+        "media_nula": -0.0037395571425725507
+      }
+    }
+  ],
+  "advertencia": "A correlação temporal e o agrupamento de variações não identificam contágio entre eleitores nem mudança individual de votos. Diferença de 76 votos na base de 2018 sob ressalva."
+}
