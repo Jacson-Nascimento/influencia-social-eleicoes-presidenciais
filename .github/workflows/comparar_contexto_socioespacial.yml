@@ -1,0 +1,49 @@
+name: Comparar modelos convencionais e contexto territorial
+
+on:
+  push:
+    paths:
+      - '.github/workflows/comparar_contexto_socioespacial.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  contexto:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: pip
+      - name: Instalar dependencias e executar testes
+        run: |
+          python -m pip install -r requirements.txt
+          python -m unittest discover -s tests -v
+      - name: Comparar modelos com atributos de vizinhança IBGE
+        run: |
+          python scripts/14_comparacao_contexto_espacial.py \
+            --mapa outputs/municipal_v01/chaves_tse_ibge_5570_centroides.csv \
+            --hhi outputs/municipal_v01/hhi_municipal_2018_2022.csv \
+            --ibge data/ibge_tratados/controles_pre_eleitorais_v02.csv \
+            --pasta outputs/contexto_espacial_v01
+      - name: Arquivar resultados
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: modelos-contexto-socioespacial-v01
+          path: outputs/contexto_espacial_v01/
+          retention-days: 90
+          if-no-files-found: warn
+      - name: Publicar resultados validados sem sobrescrever
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add -f outputs/contexto_espacial_v01/*.csv
+          git add outputs/contexto_espacial_v01/*.json
+          git commit -m 'Registrar comparações locais e de contexto espacial IBGE para HHI eleitoral'
+          git pull --rebase origin main
+          git push origin HEAD:main
