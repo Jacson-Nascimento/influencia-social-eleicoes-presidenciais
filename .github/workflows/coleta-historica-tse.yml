@@ -1,0 +1,93 @@
+name: Coleta e auditoria TSE municipal
+
+on:
+  push:
+    paths:
+      - '.github/workflows/coleta-historica-tse.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  historico:
+    strategy:
+      fail-fast: false
+      matrix:
+        ano: [2018, 2022]
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: pip
+      - name: Preparar ambiente
+        run: python -m pip install -r requirements.txt
+      - name: Testes de regressão
+        run: python -m unittest discover -s tests -v
+      - name: Obter ZIP original da distribuição oficial
+        shell: bash
+        run: |
+          set -euo pipefail
+          ano="${{ matrix.ano }}"
+          mkdir -p "data/brutos/${ano}" "data/tratados" "outputs/relatorios"
+          arquivo="data/brutos/${ano}/votacao_candidato_munzona_${ano}.zip"
+          url="https://cdn.tse.jus.br/estatistica/sead/odsele/votacao_candidato_munzona/votacao_candidato_munzona_${ano}.zip"
+          curl --retry 4 --retry-all-errors --retry-delay 15 -fL --connect-timeout 30 --max-time 5400 "$url" -o "$arquivo"
+          unzip -tq "$arquivo" > "outputs/relatorios/integridade_zip_${ano}.txt"
+          sha256sum "$arquivo" | tee "outputs/relatorios/sha256_oficial_${ano}.txt"
+          stat -c "%n;%s bytes" "$arquivo" | tee -a "outputs/relatorios/sha256_oficial_${ano}.txt"
+          printf "%s\n" "$url" >> "outputs/relatorios/sha256_oficial_${ano}.txt"
+      - name: Consolidar municípios e auditar totais oficiais
+        shell: bash
+        run: |
+          set -euo pipefail
+          ano="${{ matrix.ano }}"
+          python scripts/05_consolidar_presidente_tse.py \
+            --arquivo "data/brutos/${ano}/votacao_candidato_munzona_${ano}.zip" \
+            --ano "$ano" \
+            --saida "data/tratados/votos_presidente_municipio_${ano}.csv" \
+            --relatorio "outputs/relatorios/estrutura_municipal_${ano}.json"
+          python scripts/06_auditar_totalizacao_municipal.py \
+            --arquivo "data/tratados/votos_presidente_municipio_${ano}.csv" \
+            --controles data/controles/totalizacao_2018_2022_fontes_tse.csv \
+            --ano "$ano" \
+            --saida "outputs/relatorios/auditoria_municipal_${ano}.json"
+          python scripts/03_indicadores.py \
+            --arquivo "data/tratados/votos_presidente_municipio_${ano}.csv" \
+            --saida "outputs/indicadores_municipais_${ano}.csv"
+      - name: Salvar logs e derivados como artefatos
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: dados-tratados-${{ matrix.ano }}
+          path: |
+            data/tratados/*.csv
+            outputs/relatorios/*.json
+            outputs/relatorios/*.txt
+            outputs/indicadores_municipais_*.csv
+          if-no-files-found: warn
+          retention-days: 90
+      - name: Publicar resultados apenas após conciliação aprovada
+        shell: bash
+        run: |
+          set -euo pipefail
+          ano="${{ matrix.ano }}"
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -f "data/tratados/votos_presidente_municipio_${ano}.csv"
+          git add -f "outputs/indicadores_municipais_${ano}.csv"
+          git add "outputs/relatorios/estrutura_municipal_${ano}.json" \
+            "outputs/relatorios/auditoria_municipal_${ano}.json" \
+            "outputs/relatorios/sha256_oficial_${ano}.txt" \
+            "outputs/relatorios/integridade_zip_${ano}.txt"
+          git commit -m "Publicar base municipal presidencial ${ano} auditada frente ao TSE"
+          for i in 1 2 3 4 5; do
+            git pull --rebase origin main
+            if git push origin HEAD:main; then exit 0; fi
+            sleep 12
+          done
+          echo "Falha ao versionar após cinco tentativas."
+          exit 1
