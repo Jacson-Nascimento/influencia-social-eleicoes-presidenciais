@@ -1,0 +1,58 @@
+name: Sensibilidade Moran e controle de multiplicidade
+
+on:
+  push:
+    paths:
+      - '.github/workflows/sensibilidade_moran_uf.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  sensibilidade:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: pip
+      - name: Instalar dependências e testar
+        run: |
+          python -m pip install -r requirements.txt
+          python -m pip install 'shapely>=2.0,<3.0'
+          python -m unittest discover -s tests -v
+      - name: Baixar versões geográficas oficiais e conferir hashes
+        run: |
+          set -euo pipefail
+          mkdir -p data/geografia_bruta
+          curl --retry 4 --retry-all-errors -fL --max-time 600 \
+            'https://servicodados.ibge.gov.br/api/v3/malhas/paises/BR?intrarregiao=UF&formato=application/vnd.geo%2Bjson&qualidade=minima' \
+            -o data/geografia_bruta/uf_IBGE.geojson
+          curl --retry 4 --retry-all-errors -fL --max-time 120 \
+            'https://servicodados.ibge.gov.br/api/v1/localidades/estados' \
+            -o data/geografia_bruta/ufs_IBGE.json
+          printf '%s  %s\n' \
+            '07c671aa87aa1ab296c446de6294df9827112782537b996c0a160284907e7c0f' \
+            data/geografia_bruta/uf_IBGE.geojson | sha256sum -c -
+          printf '%s  %s\n' \
+            '7ca1368dea3af83cba1af84ae8a7e88f1173c97586831d086cc8b3c1ba9c6596' \
+            data/geografia_bruta/ufs_IBGE.json | sha256sum -c -
+      - name: Testar quatro definições de vizinhança
+        run: |
+          python scripts/09_sensibilidade_moran_uf.py \
+            --geo data/geografia_bruta/uf_IBGE.geojson \
+            --metadata data/geografia_bruta/ufs_IBGE.json \
+            --votos2018 data/tratados/votos_presidente_municipio_2018_RESSALVA.csv \
+            --votos2022 data/tratados/votos_presidente_municipio_2022.csv \
+            --pasta outputs/espacial_v02
+      - name: Publicar arquivos reproduzíveis
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -f outputs/espacial_v02/*.csv
+          git add outputs/espacial_v02/*.json
+          git commit -m "Versionar sensibilidade Moran k=3..6 e p ajustados por Holm"
+          git pull --rebase origin main
+          git push origin HEAD:main
