@@ -15,7 +15,7 @@ import numpy as np
 
 BASE="https://apisidra.ibge.gov.br/values"
 SOURCES={
-  "censo2010": "/t/202/n6/all/v/93/p/2010/c1/0,5/c2/0,1?formato=json",
+  "censo2010": "/t/202/n6/all/v/93/p/2010/c1/0,1/c2/0,5?formato=json",
   "pib2016_2020": "/t/5938/n6/all/v/37/p/2016,2020?formato=json",
   "pop2017_2021": "/t/6579/n6/all/v/9324/p/2017,2021?formato=json",
 }
@@ -74,8 +74,8 @@ def transformar(root):
     if not {"D4C","D5C"}.issubset(census.columns):
         raise ValueError("Censo 2010 sem dimensões de sexo e situação de domicílio.")
     total=series(census,2010,93,"pop_2010",lambda d:d.D4C.eq("0")&d.D5C.eq("0"))
-    urban=series(census,2010,93,"urb_2010",lambda d:d.D4C.eq("0")&d.D5C.eq("1"))
-    women=series(census,2010,93,"mulheres_2010",lambda d:d.D4C.eq("5")&d.D5C.eq("0"))
+    urban=series(census,2010,93,"urb_2010",lambda d:d.D4C.eq("1")&d.D5C.eq("0"))
+    women=series(census,2010,93,"mulheres_2010",lambda d:d.D4C.eq("0")&d.D5C.eq("5"))
     pib=read("pib2016_2020",root)
     pop=read("pop2017_2021",root)
     a=total
@@ -85,6 +85,8 @@ def transformar(root):
                     series(pop,2017,9324,"pop_2017"),
                     series(pop,2021,9324,"pop_2021")):
         a=a.merge(series_,how="outer",on="CD_MUNICIPIO_IBGE",validate="one_to_one")
+    if urban.urb_2010.notna().sum()<5500 or women.mulheres_2010.notna().sum()<5500:
+        raise ValueError("Censo 2010 não contém valores válidos de urbanização e sexo em pelo menos 5.500 municípios.")
     a["urbanizacao_2010"]=a.urb_2010/a.pop_2010
     a["fracao_feminina_2010"]=a.mulheres_2010/a.pop_2010
     a["pibpc_proxy_2016_2017_reais"]=a.pib_mil_reais_2016*1000/a.pop_2017
@@ -98,6 +100,10 @@ def transformar(root):
             raise ValueError("Proporção fora do intervalo: "+c)
     for c in ("pibpc_proxy_2016_2017_reais","pibpc_proxy_2020_2021_reais","pop_2017","pop_2021"):
         if a[c].dropna().le(0).any():raise ValueError("Indicador não positivo: "+c)
+    if a[["urbanizacao_2010","fracao_feminina_2010","pop_2017","pibpc_proxy_2016_2017_reais"]].notna().all(axis=1).sum()<5500:
+        raise ValueError("Cobertura suficiente de controles de 2018 não alcançada.")
+    if a[["urbanizacao_2010","fracao_feminina_2010","pop_2021","pibpc_proxy_2020_2021_reais"]].notna().all(axis=1).sum()<5500:
+        raise ValueError("Cobertura suficiente de controles de 2022 não alcançada.")
     a.sort_values("CD_MUNICIPIO_IBGE",inplace=True)
     return a
 
