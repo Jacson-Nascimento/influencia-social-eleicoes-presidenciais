@@ -1,4 +1,5 @@
 name: Robustez com pesos populacionais e influencia de grandes cidades
+# Reexecução após tratamento de campos nulos do catálogo municipal IBGE
 
 on:
   push:
