@@ -45,4 +45,13 @@ python scripts/01_coletar_tse.py --dataset resultados-2022 --list
 A saída v02 serve para preservar o arquivo v01 existente; não sobrepor versões anteriores. Consulte `docs/REPLICACAO.md`.
 
 ## Estado da investigação
-O controle nacional da eleição de 2022 foi reconciliado aritmeticamente. A base municipal completa ainda não foi obtida neste ambiente; não há estimativas de influência social, relações causais ou projeções do segundo turno presidencial de 2026. Nenhum resultado do modelo organizacional original foi reclassificado como resultado eleitoral.
+A base municipal presidencial de 2022 foi coletada do ZIP oficial do TSE, consolidada e conciliada exatamente nos dois turnos. A base de 2018 foi igualmente coletada e disponibilizada **com ressalva**: há diferença de +76 votos no 1º turno entre o arquivo oficial baixado e a totalização histórica de referência; o 2º turno de 2018 conciliou integralmente. Não houve alterações artificiais para ajustar os dados. Ambos os anos cobrem 5.570 municípios brasileiros por turno; locais no exterior (ZZ) são documentados em separado. Nenhuma inferência causal de manada foi validada.
+
+- **Base auditada 2022:** [CSV aberto](data/tratados/votos_presidente_municipio_2022.csv)
+- **Base 2018 sob ressalva:** [CSV aberto](data/tratados/votos_presidente_municipio_2018_RESSALVA.csv)
+- **Comparativo territorial v02:** [resumo nacional](outputs/comparativo_v02/resumo_nacional_2018_2022.csv) e [resumo por UF](outputs/comparativo_v02/resumo_uf_2018_2022.csv)
+- **Relatório técnico:** [avaliação territorial de 2018 e 2022](docs/AVALIACAO_TERRITORIAL_2018_2022_2026-10-10.md)
+- **Auditoria 2018:** [JSON com divergências](outputs/relatorios/auditoria_2018_ressalva.json)
+- **Auditoria 2022:** [JSON conciliado](outputs/relatorios/auditoria_municipal_2022.json)
+
+As versões anteriores foram preservadas para auditoria. Os ZIPs originais são obtidos pelos links oficiais do TSE, com SHA-256 documentado em `outputs/relatorios/`. Nenhum resultado do modelo organizacional original foi reclassificado como resultado eleitoral.
