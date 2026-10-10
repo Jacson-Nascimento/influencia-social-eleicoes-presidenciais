@@ -1,0 +1,2 @@
+07c671aa87aa1ab296c446de6294df9827112782537b996c0a160284907e7c0f  data/geografia_bruta/uf_IBGE.geojson
+7ca1368dea3af83cba1af84ae8a7e88f1173c97586831d086cc8b3c1ba9c6596  data/geografia_bruta/ufs_IBGE.json

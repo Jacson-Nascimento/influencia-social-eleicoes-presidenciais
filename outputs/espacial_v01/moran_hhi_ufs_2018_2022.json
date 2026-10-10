@@ -1,0 +1,61 @@
+{
+  "natureza": "exploratória descritiva, não causal e não preditiva",
+  "escala": "27 unidades da federação",
+  "pesos": "k=4 vizinhos mais próximos pela distância de Haversine entre centroides da malha IBGE; matriz dirigida e normalizada por linha",
+  "referencia_geojson": "https://servicodados.ibge.gov.br/api/v3/malhas/paises/BR?intrarregiao=UF&formato=application/vnd.geo%2Bjson&qualidade=minima",
+  "referencia_metadata": "https://servicodados.ibge.gov.br/api/v1/localidades/estados",
+  "sha256_geojson": "07c671aa87aa1ab296c446de6294df9827112782537b996c0a160284907e7c0f",
+  "sha256_metadata": "7ca1368dea3af83cba1af84ae8a7e88f1173c97586831d086cc8b3c1ba9c6596",
+  "ressalva_2018": "diferença de +76 votos em 2018, turno 1, entre ZIP público e notícia histórica; não ajustada",
+  "resultados": [
+    {
+      "ano": 2018,
+      "turno": 1,
+      "medida": "HHI da composição de votos presidenciais válidos por UF",
+      "n_ufs": 27,
+      "vizinhos_knn": 4,
+      "I": 0.05762242965782758,
+      "p_permutacional_bicaudal": 0.4108,
+      "valor_medio_nulo": -0.03752567591432417,
+      "repeticoes": 9999,
+      "seed": 20261010
+    },
+    {
+      "ano": 2018,
+      "turno": 2,
+      "medida": "HHI da composição de votos presidenciais válidos por UF",
+      "n_ufs": 27,
+      "vizinhos_knn": 4,
+      "I": -0.0070428739325975286,
+      "p_permutacional_bicaudal": 0.7831,
+      "valor_medio_nulo": -0.03864678118138591,
+      "repeticoes": 9999,
+      "seed": 20261010
+    },
+    {
+      "ano": 2022,
+      "turno": 1,
+      "medida": "HHI da composição de votos presidenciais válidos por UF",
+      "n_ufs": 27,
+      "vizinhos_knn": 4,
+      "I": 0.40226349040304565,
+      "p_permutacional_bicaudal": 0.0009,
+      "valor_medio_nulo": -0.037001352644892016,
+      "repeticoes": 9999,
+      "seed": 20261010
+    },
+    {
+      "ano": 2022,
+      "turno": 2,
+      "medida": "HHI da composição de votos presidenciais válidos por UF",
+      "n_ufs": 27,
+      "vizinhos_knn": 4,
+      "I": 0.18651357202612362,
+      "p_permutacional_bicaudal": 0.0487,
+      "valor_medio_nulo": -0.03684033354016703,
+      "repeticoes": 9999,
+      "seed": 20261010
+    }
+  ],
+  "limitacoes": "Dependência territorial da concentração não equivale a contágio social. Amostra de apenas 27 UFs, geometria contemporânea e múltiplas comparações; interpretar p-valores como exploratórios."
+}
