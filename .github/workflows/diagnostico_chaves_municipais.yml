@@ -1,0 +1,48 @@
+name: Diagnóstico de correspondência territorial TSE IBGE
+
+on:
+  push:
+    paths:
+      - '.github/workflows/diagnostico_chaves_municipais.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  inspecionar:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - name: Download do dicionário municipal TSE-IBGE
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p tmp/insumos
+          curl -fL --retry 3 --max-time 300 'https://cdn.tse.jus.br/estatistica/sead/odsele/municipio_tse_ibge/municipio_tse_ibge.zip' -o tmp/insumos/municipio_tse_ibge.zip
+          unzip -tq tmp/insumos/municipio_tse_ibge.zip
+          sha256sum tmp/insumos/municipio_tse_ibge.zip
+          unzip -l tmp/insumos/municipio_tse_ibge.zip | head -30
+          python - <<'PY'
+          from zipfile import ZipFile
+          from pathlib import Path
+          f=Path('tmp/insumos/municipio_tse_ibge.zip')
+          with ZipFile(f) as z:
+              for x in z.namelist():
+                  if x.lower().endswith('.csv'):
+                      print('CSV INTERNO:',repr(x))
+                      with z.open(x) as io:
+                          for i in range(4):
+                              print('LINHA',i,repr(io.readline()[:700]))
+          PY
+      - name: Inspecionar fonte IBGE 2022
+        shell: bash
+        run: |
+          set -euo pipefail
+          curl -IL --retry 2 --max-time 120 'https://geoftp.ibge.gov.br/organizacao_do_territorio/malhas_territoriais/malhas_municipais/municipio_2022/Brasil/BR/BR_Municipios_2022.zip' | tail -22
+      - uses: actions/upload-artifact@v4
+        with:
+          name: correspondencia-tse-ibge-original
+          path: tmp/insumos/municipio_tse_ibge.zip
+          retention-days: 90
