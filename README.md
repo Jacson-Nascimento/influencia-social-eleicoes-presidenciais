@@ -4,7 +4,7 @@
 **ORCID:** https://orcid.org/0009-0006-6535-9569  
 **ISNI:** 0000 0005 3052 9869  
 **Início:** 8 de outubro de 2026  
-**Situação:** projeto empírico em preparação; sem estimação eleitoral.
+**Situação:** etapas descritivas nacional, estadual e municipal executadas; investigação causal e modelos fora da amostra ainda pendentes.
 
 ## Objetivo
 Investigar padrões de concentração, interação territorial e mudanças agregadas de preferências entre turnos presidenciais, avaliando se medidas espaciais acrescentam capacidade explicativa em relação a modelos simples.
@@ -66,3 +66,19 @@ Foram avaliadas as 27 UFs com HHI da composição de votos por candidatura, malh
 - [Ajuste Holm](outputs/espacial_v02/holm_quatro_testes.json)
 
 O próximo estágio exige ligação TSE-IBGE validada para malhas municipais históricas e avaliação de modelos espaciais fora da amostra. O estudo **não** apresenta previsão de vencedores ou probabilidades para 2026.
+
+## Avaliação municipal espacial e temporal (10/10/2026)
+
+A partir de votos presidenciais públicos do TSE, da correspondência oficial TSE-IBGE e da malha municipal do IBGE de 2022, foram relacionados 5.570 municípios em 2018 e 2022 sem perdas territoriais. O índice de Moran I do HHI municipal foi positivo nos dois anos e turnos, inclusive após centralização por UF. Para oito vizinhos, os valores brutos variaram de 0,6761 a 0,7898 e os centrados por UF, de 0,4353 a 0,4878. Todos os testes primários tiveram valor-p ajustado Holm de 0,0020. A correlação municipal do HHI entre 2018 e 2022 foi de 0,8083 no primeiro turno e 0,9252 no segundo.
+
+Esses valores **não demonstram manada, transferência individual de votos, causalidade ou previsões eleitorais**. Persistência temporal elevada é um alerta para fatores territoriais não observados. O HHI entre turnos está sujeito ao efeito mecânico da diminuição de candidaturas. A divergência documental de 76 votos no primeiro turno de 2018 permanece preservada e assinalada.
+
+- [Relatório empírico municipal](docs/RELATORIO_MUNICIPAL_ESPACIAL_2026-10-10.md)
+- [Protocolo municipal e limites](docs/PROTOCOLO_ESPACIAL_MUNICIPAL_2026-10-10.md)
+- [Índices de Moran e sensibilidades](outputs/municipal_v01/moran_municipal_sensibilidade.csv)
+- [Correspondência municipal e centroides](outputs/municipal_v01/chaves_tse_ibge_5570_centroides.csv)
+- [Estabilidade temporal e mudanças entre turnos](outputs/municipal_v02/persistencia_temporal_e_delta_hhi.json)
+- [Manifesto dos dados e hashes](outputs/municipal_v01/manifesto.json)
+- [Execução GitHub Actions aprovada](https://github.com/Jacson-Nascimento/influencia-social-eleicoes-presidenciais/actions/runs/38068129663)
+
+O artigo original de dinâmica de manada é metodologicamente distinto e não foi modificado.
