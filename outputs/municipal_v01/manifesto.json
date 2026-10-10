@@ -1,0 +1,18 @@
+{
+  "n_municipios": 5570,
+  "periodos": [
+    2018,
+    2022
+  ],
+  "malha_ano": 2022,
+  "origem_crosswalk": "https://dadosabertos.tse.jus.br/dataset/codigos-oficiais-de-uf-e-municipios-segundo-o-tse-e-o-ibge",
+  "sha256_crosswalk": "f55c9720d221a9956279f6cb225aafcae797e0cf8ac2289040c052ab4ea7c712",
+  "sha256_malha": "9c904fa1feb978a89042bfecd7758e571266f285d6122a4ff02ffe37bffb76a2",
+  "sha256_votos2018": "72cc7749a4d69416fece6e8b73aa448f2cc05a20b693d336891a6c3652f9a149",
+  "sha256_votos2022": "e5447a4563d1c4bfac6664bd8f9227f11fb1c6ef02f0ac848969fac4ac3cdfb1",
+  "metodo": "Moran I por kNN de centroides IBGE; k=8 primário, k=4/12 sensibilidade; permutações globais ou por UF",
+  "reps": 1999,
+  "holms": "4 testes por família bruto/centrado UF para k=8",
+  "ressalva_2018": "76 votos de divergência no primeiro turno frente à notícia histórica; dados inalterados",
+  "limite": "Associação espacial não demonstra influência interpessoal nem causalidade."
+}
