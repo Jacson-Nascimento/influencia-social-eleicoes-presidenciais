@@ -1,0 +1,71 @@
+name: Autocorrelacao municipal TSE IBGE 2018 2022
+
+on:
+  push:
+    paths:
+      - '.github/workflows/espacial_municipal_2018_2022.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  municipal:
+    runs-on: ubuntu-latest
+    timeout-minutes: 55
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: pip
+      - name: Instalar ferramentas e executar testes
+        run: |
+          python -m pip install -r requirements.txt
+          python -m pip install 'scipy>=1.12,<2' 'shapely>=2.0,<3' 'pyogrio>=0.11,<1'
+          python -m unittest discover -s tests -v
+      - name: Baixar correspondencia oficial e malha de 2022
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p tmp/municipal
+          url_tse='https://cdn.tse.jus.br/estatistica/sead/odsele/municipio_tse_ibge/municipio_tse_ibge.zip'
+          url_ibge='https://geoftp.ibge.gov.br/organizacao_do_territorio/malhas_territoriais/malhas_municipais/municipio_2022/Brasil/BR/BR_Municipios_2022.zip'
+          curl -fL --retry 4 --retry-all-errors --retry-delay 15 --connect-timeout 45 --max-time 900 "$url_tse" -o tmp/municipal/crosswalk_TSE_IBGE.zip
+          curl -fL --retry 4 --retry-all-errors --retry-delay 15 --connect-timeout 45 --max-time 1800 "$url_ibge" -o tmp/municipal/malha_IBGE_2022.zip
+          unzip -tq tmp/municipal/crosswalk_TSE_IBGE.zip
+          unzip -tq tmp/municipal/malha_IBGE_2022.zip
+          sha256sum tmp/municipal/*.zip > tmp/municipal/SHA256SUMS.txt
+          cat tmp/municipal/SHA256SUMS.txt
+      - name: Conciliar 5570 municipios e avaliar Moran
+        shell: bash
+        run: |
+          set -euo pipefail
+          python scripts/10_espacial_municipal.py \
+            --crosswalk tmp/municipal/crosswalk_TSE_IBGE.zip \
+            --malha tmp/municipal/malha_IBGE_2022.zip \
+            --base2018 data/tratados/votos_presidente_municipio_2018_RESSALVA.csv \
+            --base2022 data/tratados/votos_presidente_municipio_2022.csv \
+            --reps 1999 \
+            --saida outputs/municipal_v01
+      - name: Arquivar logs mesmo em caso de falha
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: auditoria-espacial-municipal-2018-2022
+          path: |
+            tmp/municipal/SHA256SUMS.txt
+            outputs/municipal_v01/
+          retention-days: 90
+          if-no-files-found: warn
+      - name: Versionar derivados aprovados sem tocar nas versões anteriores
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add -f outputs/municipal_v01/*.csv
+          git add outputs/municipal_v01/*.json
+          git commit -m 'Registrar Moran municipal, sensibilidade espacial e conciliação geográfica'
+          git pull --rebase origin main
+          git push origin HEAD:main
