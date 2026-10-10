@@ -4,7 +4,7 @@
 **ORCID:** https://orcid.org/0009-0006-6535-9569  
 **ISNI:** 0000 0005 3052 9869  
 **Início:** 8 de outubro de 2026  
-**Situação:** artigo de competitividade eleitoral, versões v02/v03, com análises dos segundos turnos, direção do voto, controles municipais, contexto de vizinhos e sensibilidade de ponderação; identificação causal e validação temporal estrita ainda pendentes.
+**Situação:** artigo de competitividade eleitoral, versão v04 com testes executados de ponderação populacional anterior às eleições, influência de capitais e grandes municípios, confronto bibliográfico e auditoria eleitoral final; trabalho editorial e inferência espacial mais exigente ainda pendentes.
 
 ## Objetivo
 Investigar padrões de concentração, interação territorial e mudanças agregadas de preferências entre turnos presidenciais, avaliando se medidas espaciais acrescentam capacidade explicativa em relação a modelos simples.
@@ -121,3 +121,21 @@ Essa discrepância entre ponderações é um resultado importante que deve perma
 - [Relatório dos modelos ponderados](docs/RELATORIO_SENSIBILIDADE_PONDERADA_2026-10-10.md).
 
 **Preservação:** versões anteriores de HHI, manuscrito v01/v02, dados e scripts originais permanecem disponíveis. O repositório do artigo de dinâmica de manada organizacional não foi alterado.
+
+## Quatro verificações finais para o manuscrito v04 (10/10/2026)
+
+Concluídas as verificações de robustez solicitadas para a versão submetível, mantendo intactos os insumos e as versões antigas:
+
+1. **Peso demográfico ex ante por ano de referência:** população IBGE 2017 para 2018 e 2021 para 2022 (versões acessadas em 2026). Na validação geográfica, contexto k=8 diminuiu o RMSE da competitividade em **−3,26%** (piora) em 2018 e **+0,40%** em 2022. Para margem assinada, **−0,89%** e **−1,87%**.
+2. **Capitais e cidades grandes:** identificação dos 27 códigos de capitais via API de localidades IBGE; exclusões de capitais, dos 56 (1%) e dos 279 (5%) municípios mais populosos. A margem assinada ponderada por população passa de −0,89%/−1,87% na amostra completa para +14,95%/+15,62% sem os maiores 5%. Esta sensibilidade é descritiva, não causal.
+3. **Literatura:** cinco antecedentes editoriais comparados. A novidade só pode ser afirmada de forma **incremental e condicionada**, não como primeira análise espacial eleitoral brasileira ou descoberta de efeitos de influência social.
+4. **Auditoria documental:** 2018, primeiro turno **sob ressalva de +76 votos** frente à matéria histórica do TSE, decompostos em 20/46/10. Segundo turno de 2018 e ambos os turnos de 2022 **integralmente conciliados**. O desfecho principal usa somente segundos turnos, sem dados do primeiro turno de 2018.
+
+- [Manuscrito acadêmico atualizado, v04](docs/MANUSCRITO_COMPETITIVIDADE_V04_2026-10-10.md).
+- [Relatório de fechamento das quatro verificações](docs/FECHAMENTO_QUATRO_VERIFICACOES_2026-10-10.md).
+- [Matriz de literatura](docs/REVISAO_LITERATURA_COMPETITIVIDADE_2026-10-10.md).
+- [Dados de robustez demográfica e capitais](outputs/robustez_demografica_v01/robustez_pesos_populacao_e_grandes_cidades.csv).
+- [Manifesto da robustez](outputs/robustez_demografica_v01/manifesto.json).
+- [Auditoria documental independente](outputs/auditoria_documental_final_v01/manifesto_auditoria_2018_2022.json).
+
+**Condição editorial restante:** revisar integralmente os antecedentes científicos e o texto final, analisar inferência apropriada à dependência espacial, normalizar tabelas/equações e completar submissão conforme critérios do periódico escolhido. Os achados não identificam causalidade nem validam previsões eleitorais fora do tempo.
