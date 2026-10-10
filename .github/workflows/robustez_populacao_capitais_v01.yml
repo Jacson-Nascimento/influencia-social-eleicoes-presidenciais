@@ -1,0 +1,85 @@
+name: Robustez com pesos populacionais e influencia de grandes cidades
+
+on:
+  push:
+    paths:
+      - '.github/workflows/robustez_populacao_capitais_v01.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  robustez:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: pip
+      - name: Instalar dependencias e rodar testes
+        run: |
+          python -m pip install -r requirements.txt
+          python -m unittest discover -s tests -v
+      - name: Consultar identificadores municipais do IBGE
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p tmp/ibge data/ibge_brutos/localidades_v01
+          curl -fL --retry 4 --retry-all-errors --retry-delay 15 --max-time 500 \
+            'https://servicodados.ibge.gov.br/api/v1/localidades/municipios' \
+            -o tmp/ibge/municipios_ibge_api.json
+          python - <<'PY'
+          import json
+          x=json.load(open("tmp/ibge/municipios_ibge_api.json"))
+          assert isinstance(x,list) and len(x)>=5500
+          print("Municípios no catálogo IBGE:",len(x))
+          PY
+          gzip -n -9 -c tmp/ibge/municipios_ibge_api.json > data/ibge_brutos/localidades_v01/municipios_ibge_api.json.gz
+          sha256sum tmp/ibge/municipios_ibge_api.json data/ibge_brutos/localidades_v01/municipios_ibge_api.json.gz
+      - name: Validar capitais e estimar modelos com população anterior
+        run: |
+          python scripts/18_robustez_demografica_capitais.py \
+            --mapa outputs/municipal_v01/chaves_tse_ibge_5570_centroides.csv \
+            --hhi outputs/municipal_v01/hhi_municipal_2018_2022.csv \
+            --ibge data/ibge_tratados/controles_pre_eleitorais_v02.csv \
+            --competitividade outputs/competitividade_v02/competitividade_e_margem_assinada_segundo_turno.csv \
+            --municipios-ibge-json tmp/ibge/municipios_ibge_api.json \
+            --pasta outputs/robustez_demografica_v01
+      - name: Verificar 32 especificacoes, amostras e capitais
+        run: |
+          python - <<'PY'
+          import pandas as pd
+          p='outputs/robustez_demografica_v01/'
+          x=pd.read_csv(p+'robustez_pesos_populacao_e_grandes_cidades.csv')
+          cap=pd.read_csv(p+'capitais_identificadas_ibge.csv')
+          assert len(x)==32
+          assert len(cap)==27 and cap.SG_UF.nunique()==27
+          assert x.n.between(5200,5565).all()
+          assert set(x.peso)=={'igual','populacao_anterior'}
+          assert set(x.amostra)=={'todos','sem_capitais','sem_1pct_maiores','sem_5pct_maiores'}
+          assert (x.incremento_r2>=-1e-8).all()
+          print("Validação: 32 modelos e 27 capitais.")
+          PY
+      - name: Guardar evidencias para auditoria
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: robustez-populacional-capitais-v01
+          path: |
+            data/ibge_brutos/localidades_v01/municipios_ibge_api.json.gz
+            outputs/robustez_demografica_v01/
+          retention-days: 90
+          if-no-files-found: warn
+      - name: Publicar arquivos versionados aprovados
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add -f data/ibge_brutos/localidades_v01/municipios_ibge_api.json.gz
+          git add -f outputs/robustez_demografica_v01/*.csv
+          git add outputs/robustez_demografica_v01/*.json
+          git commit -m 'Publicar robustez com população 2017/2021, exclusão de capitais e cidades grandes'
+          git pull --rebase origin main
+          git push origin HEAD:main
