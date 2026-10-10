@@ -49,9 +49,13 @@ def capitais_do_ibge(blob):
     municipios=[]
     match=[]
     for d in all_municipios:
-        uf=d.get("microrregiao",{}).get("mesorregiao",{}).get("UF",{}).get("sigla")
-        if uf is None:
-            uf=d.get("regiao-imediata",{}).get("regiao-intermediaria",{}).get("UF",{}).get("sigla")
+        micro=d.get("microrregiao") or {}
+        meso=micro.get("mesorregiao") or {}
+        uf=(meso.get("UF") or {}).get("sigla")
+        if not uf:
+            imediata=d.get("regiao-imediata") or {}
+            intermediaria=imediata.get("regiao-intermediaria") or {}
+            uf=(intermediaria.get("UF") or {}).get("sigla")
         if not uf: raise ValueError("UF não resolvida na resposta IBGE.")
         name=d["nome"]
         code=str(d["id"])
