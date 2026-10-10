@@ -55,3 +55,14 @@ A base municipal presidencial de 2022 foi coletada do ZIP oficial do TSE, consol
 - **Auditoria 2022:** [JSON conciliado](outputs/relatorios/auditoria_municipal_2022.json)
 
 As versões anteriores foram preservadas para auditoria. Os ZIPs originais são obtidos pelos links oficiais do TSE, com SHA-256 documentado em `outputs/relatorios/`. Nenhum resultado do modelo organizacional original foi reclassificado como resultado eleitoral.
+
+## Análise espacial exploratória (UF)
+
+Foram avaliadas as 27 UFs com HHI da composição de votos por candidatura, malha IBGE, Moran I global, 9.999 permutações e pesos por k vizinhos (3 a 6). No cenário de referência k=4, a autocorrelação de 2022 no primeiro turno foi I=0,402263, p bruto=0,0009 e p ajustado Holm=0,0036. Os demais testes de referência não apresentaram p ajustado abaixo de 0,05. **Associação espacial não é evidência causal de influência social.**
+
+- [Relatório espacial e sensibilidade](docs/AVALIACAO_ESPACIAL_E_SENSIBILIDADE_2026-10-10.md)
+- [Resultados Moran e geometria](outputs/espacial_v01/moran_hhi_ufs_2018_2022.json)
+- [Sensibilidade k=3..6](outputs/espacial_v02/sensibilidade_knn_moran.csv)
+- [Ajuste Holm](outputs/espacial_v02/holm_quatro_testes.json)
+
+O próximo estágio exige ligação TSE-IBGE validada para malhas municipais históricas e avaliação de modelos espaciais fora da amostra. O estudo **não** apresenta previsão de vencedores ou probabilidades para 2026.
