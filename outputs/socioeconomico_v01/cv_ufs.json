@@ -1,0 +1,310 @@
+[
+  {
+    "ano": 2018,
+    "turno": 1,
+    "criterio": "UF totalmente excluída do treino; nenhum efeito fixo de UF em ambos os modelos CV",
+    "n_folds": 5,
+    "rmse_global_medio": 0.10274967038683672,
+    "rmse_controles": 0.0941385843680472,
+    "folds": [
+      {
+        "fold": 1,
+        "ufs_teste": [
+          "AC",
+          "CE",
+          "MG",
+          "PE",
+          "RO",
+          "SP"
+        ],
+        "n_teste": 1941,
+        "sse_baseline_media": 16.629768560688156,
+        "sse_controles": 14.673110333572017
+      },
+      {
+        "fold": 2,
+        "ufs_teste": [
+          "AL",
+          "DF",
+          "MS",
+          "PI",
+          "RR",
+          "TO"
+        ],
+        "n_teste": 559,
+        "sse_baseline_media": 9.12865582910423,
+        "sse_controles": 6.045849776339233
+      },
+      {
+        "fold": 3,
+        "ufs_teste": [
+          "AM",
+          "ES",
+          "MT",
+          "PR",
+          "RS"
+        ],
+        "n_teste": 1176,
+        "sse_baseline_media": 7.232541333895574,
+        "sse_controles": 7.629940949713667
+      },
+      {
+        "fold": 4,
+        "ufs_teste": [
+          "AP",
+          "GO",
+          "PA",
+          "RJ",
+          "SC"
+        ],
+        "n_teste": 790,
+        "sse_baseline_media": 5.295419828158871,
+        "sse_controles": 7.142304881122181
+      },
+      {
+        "fold": 5,
+        "ufs_teste": [
+          "BA",
+          "MA",
+          "PB",
+          "RN",
+          "SE"
+        ],
+        "n_teste": 1099,
+        "sse_baseline_media": 20.466072813172143,
+        "sse_controles": 13.82623067610588
+      }
+    ]
+  },
+  {
+    "ano": 2018,
+    "turno": 2,
+    "criterio": "UF totalmente excluída do treino; nenhum efeito fixo de UF em ambos os modelos CV",
+    "n_folds": 5,
+    "rmse_global_medio": 0.09710733691595151,
+    "rmse_controles": 0.08736041143073872,
+    "folds": [
+      {
+        "fold": 1,
+        "ufs_teste": [
+          "AC",
+          "CE",
+          "MG",
+          "PE",
+          "RO",
+          "SP"
+        ],
+        "n_teste": 1941,
+        "sse_baseline_media": 13.836442994435595,
+        "sse_controles": 13.754084750166104
+      },
+      {
+        "fold": 2,
+        "ufs_teste": [
+          "AL",
+          "DF",
+          "MS",
+          "PI",
+          "RR",
+          "TO"
+        ],
+        "n_teste": 559,
+        "sse_baseline_media": 8.81436212813131,
+        "sse_controles": 5.444468004385217
+      },
+      {
+        "fold": 3,
+        "ufs_teste": [
+          "AM",
+          "ES",
+          "MT",
+          "PR",
+          "RS"
+        ],
+        "n_teste": 1176,
+        "sse_baseline_media": 8.227987240283273,
+        "sse_controles": 7.419774688684737
+      },
+      {
+        "fold": 4,
+        "ufs_teste": [
+          "AP",
+          "GO",
+          "PA",
+          "RJ",
+          "SC"
+        ],
+        "n_teste": 790,
+        "sse_baseline_media": 5.476302028767332,
+        "sse_controles": 5.983084351290141
+      },
+      {
+        "fold": 5,
+        "ufs_teste": [
+          "BA",
+          "MA",
+          "PB",
+          "RN",
+          "SE"
+        ],
+        "n_teste": 1099,
+        "sse_baseline_media": 16.12193673176617,
+        "sse_controles": 9.869786071435115
+      }
+    ]
+  },
+  {
+    "ano": 2022,
+    "turno": 1,
+    "criterio": "UF totalmente excluída do treino; nenhum efeito fixo de UF em ambos os modelos CV",
+    "n_folds": 5,
+    "rmse_global_medio": 0.09842262930392595,
+    "rmse_controles": 0.07778225056941443,
+    "folds": [
+      {
+        "fold": 1,
+        "ufs_teste": [
+          "AC",
+          "CE",
+          "MG",
+          "PE",
+          "RO",
+          "SP"
+        ],
+        "n_teste": 1941,
+        "sse_baseline_media": 15.187936445988178,
+        "sse_controles": 9.496671993404838
+      },
+      {
+        "fold": 2,
+        "ufs_teste": [
+          "AL",
+          "DF",
+          "MS",
+          "PI",
+          "RR",
+          "TO"
+        ],
+        "n_teste": 559,
+        "sse_baseline_media": 8.58758267769876,
+        "sse_controles": 4.499518395725124
+      },
+      {
+        "fold": 3,
+        "ufs_teste": [
+          "AM",
+          "ES",
+          "MT",
+          "PR",
+          "RS"
+        ],
+        "n_teste": 1176,
+        "sse_baseline_media": 6.599616450362055,
+        "sse_controles": 6.553529936934857
+      },
+      {
+        "fold": 4,
+        "ufs_teste": [
+          "AP",
+          "GO",
+          "PA",
+          "RJ",
+          "SC"
+        ],
+        "n_teste": 790,
+        "sse_baseline_media": 3.8331511637458435,
+        "sse_controles": 3.6764884673778706
+      },
+      {
+        "fold": 5,
+        "ufs_teste": [
+          "BA",
+          "MA",
+          "PB",
+          "RN",
+          "SE"
+        ],
+        "n_teste": 1099,
+        "sse_baseline_media": 19.69994594458566,
+        "sse_controles": 9.44247807933156
+      }
+    ]
+  },
+  {
+    "ano": 2022,
+    "turno": 2,
+    "criterio": "UF totalmente excluída do treino; nenhum efeito fixo de UF em ambos os modelos CV",
+    "n_folds": 5,
+    "rmse_global_medio": 0.08768319297992047,
+    "rmse_controles": 0.07254497746678892,
+    "folds": [
+      {
+        "fold": 1,
+        "ufs_teste": [
+          "AC",
+          "CE",
+          "MG",
+          "PE",
+          "RO",
+          "SP"
+        ],
+        "n_teste": 1941,
+        "sse_baseline_media": 11.663551601079243,
+        "sse_controles": 7.830551427045109
+      },
+      {
+        "fold": 2,
+        "ufs_teste": [
+          "AL",
+          "DF",
+          "MS",
+          "PI",
+          "RR",
+          "TO"
+        ],
+        "n_teste": 559,
+        "sse_baseline_media": 7.376480430388422,
+        "sse_controles": 4.165603922973937
+      },
+      {
+        "fold": 3,
+        "ufs_teste": [
+          "AM",
+          "ES",
+          "MT",
+          "PR",
+          "RS"
+        ],
+        "n_teste": 1176,
+        "sse_baseline_media": 5.498336507527337,
+        "sse_controles": 5.884184156105739
+      },
+      {
+        "fold": 4,
+        "ufs_teste": [
+          "AP",
+          "GO",
+          "PA",
+          "RJ",
+          "SC"
+        ],
+        "n_teste": 790,
+        "sse_baseline_media": 3.3597960076114015,
+        "sse_controles": 3.5163909154441773
+      },
+      {
+        "fold": 5,
+        "ufs_teste": [
+          "BA",
+          "MA",
+          "PB",
+          "RN",
+          "SE"
+        ],
+        "n_teste": 1099,
+        "sse_baseline_media": 14.887460526265462,
+        "sse_controles": 7.890605528661757
+      }
+    ]
+  }
+]

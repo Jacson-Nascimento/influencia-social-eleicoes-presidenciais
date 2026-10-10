@@ -1,0 +1,52 @@
+{
+  "n_municipios_completos": 5565,
+  "n_municipios_excluidos": 5,
+  "municipios_excluidos": [
+    {
+      "SG_UF": "MS",
+      "CD_MUNICIPIO": 55050,
+      "CD_MUNICIPIO_IBGE": "5006275"
+    },
+    {
+      "SG_UF": "PA",
+      "CD_MUNICIPIO": 4863,
+      "CD_MUNICIPIO_IBGE": "1504752"
+    },
+    {
+      "SG_UF": "RS",
+      "CD_MUNICIPIO": 89540,
+      "CD_MUNICIPIO_IBGE": "4314548"
+    },
+    {
+      "SG_UF": "SC",
+      "CD_MUNICIPIO": 83909,
+      "CD_MUNICIPIO_IBGE": "4220000"
+    },
+    {
+      "SG_UF": "SC",
+      "CD_MUNICIPIO": 83925,
+      "CD_MUNICIPIO_IBGE": "4212650"
+    }
+  ],
+  "sem_chave_entre_ibge_e_tse": [],
+  "controles": [
+    "log população estimada anterior",
+    "log PIB/população proxy de anos distintos",
+    "fração urbana Censo 2010",
+    "fração mulheres Censo 2010"
+  ],
+  "fontes": {
+    "ibge": "data/ibge_tratados/controles_pre_eleitorais_v02.csv",
+    "mapa": "outputs/municipal_v01/chaves_tse_ibge_5570_centroides.csv",
+    "hhi": "outputs/municipal_v01/hhi_municipal_2018_2022.csv"
+  },
+  "sha256_insumos": {
+    "ibge": "acc47aec45045cffc2facb49b6608cd4a52c77c4fbe738b050d37194b1f60ce5",
+    "mapa": "c9fce07d2568ad58bef9e5c69664e8aa3b80f309dfba38a672cc1ed1cc293f8e",
+    "hhi": "c11da7ccef0236577c2831ea6295ca33870d57a49056907a9623754f69678c68"
+  },
+  "especificacoes": "OLS UF fixo versus UF fixo + controles; Moran residual centrado por UF, permutações restritas, k=8 primário e k=4/12 sensibilidades; CV separado por UF sem efeitos fixos",
+  "permutacoes": 999,
+  "advertencia": "Modelos não causais, coeficientes sem interpretação de mudança individual de voto. Moran residual e sua permutação são diagnósticos aproximados após ajuste de regressão; valores-p não equivalem a testes causais formais. As proxies PIB/pop estão em anos diferentes.",
+  "vintage": "Dados IBGE consultados em 2026, eventualmente revisados; não se alega conjunto informacional disponível ex ante."
+}

@@ -1,0 +1,17 @@
+ano,turno,controle,beta_padronizado_descritivo
+2018,1,log_pop,0.0058691207
+2018,1,log_pibpc_proxy,-0.0110228107
+2018,1,urbanizacao_2010,-0.0169752600
+2018,1,fracao_feminina_2010,0.0004885453
+2018,2,log_pop,0.0057485103
+2018,2,log_pibpc_proxy,-0.0092724367
+2018,2,urbanizacao_2010,-0.0156325652
+2018,2,fracao_feminina_2010,0.0044241592
+2022,1,log_pop,-0.0053570443
+2022,1,log_pibpc_proxy,-0.0122911892
+2022,1,urbanizacao_2010,-0.0157332312
+2022,1,fracao_feminina_2010,0.0043380189
+2022,2,log_pop,-0.0000466019
+2022,2,log_pibpc_proxy,-0.0096802227
+2022,2,urbanizacao_2010,-0.0162658079
+2022,2,fracao_feminina_2010,0.0059658589
