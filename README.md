@@ -4,7 +4,7 @@
 **ORCID:** https://orcid.org/0009-0006-6535-9569  
 **ISNI:** 0000 0005 3052 9869  
 **Início:** 8 de outubro de 2026  
-**Situação:** etapas descritivas nacional, estadual e municipal executadas; investigação causal e modelos fora da amostra ainda pendentes.
+**Situação:** análise municipal, controles socioeconômicos e comparação de contexto territorial com validação por UFs concluídas; investigação causal e validação temporal estrita ainda pendentes.
 
 ## Objetivo
 Investigar padrões de concentração, interação territorial e mudanças agregadas de preferências entre turnos presidenciais, avaliando se medidas espaciais acrescentam capacidade explicativa em relação a modelos simples.
@@ -82,3 +82,22 @@ Esses valores **não demonstram manada, transferência individual de votos, caus
 - [Execução GitHub Actions aprovada](https://github.com/Jacson-Nascimento/influencia-social-eleicoes-presidenciais/actions/runs/38068129663)
 
 O artigo original de dinâmica de manada é metodologicamente distinto e não foi modificado.
+
+## Controles socioeconômicos e comparação de contexto espacial (10/10/2026)
+
+As tabelas oficiais IBGE 202 (Censo 2010), 5938 (PIB 2016 e 2020) e 6579 (população 2017 e 2021) foram baixadas, registradas com SHA-256 e disponibilizadas na versão v02 corrigida. Dos 5.570 municípios eleitorais, 5.565 apresentam todas as covariáveis exigidas. Nenhum valor ausente foi preenchido artificialmente; a primeira extração incompleta v01 foi preservada para auditoria.
+
+Nas regressões descritivas com efeitos fixos de UF, incluir controles locais aumentou R² em 2,31 a 4,58 pontos percentuais. Moran I dos resíduos permaneceu elevado, entre 0,4246 e 0,4825 para oito vizinhos, após ajuste de UF e controles.
+
+Extensões com médias de características IBGE de oito municípios próximos geraram acréscimo in-sample de 0,36 a 0,79 ponto percentual de R² e, na validação com UFs mantidas fora do treinamento, reduções de RMSE entre 0,95% e 7,70% conforme eleição e turno. O contexto usa apenas covariáveis, nunca HHI ou votos dos vizinhos. **Ganhos estatísticos de contexto territorial não comprovam comportamento de manada ou influência social causal.**
+
+- [Relatório de controles socioeconômicos](docs/RELATORIO_CONTROLES_SOCIOECONOMICOS_2026-10-10.md)
+- [Relatório de contexto territorial](docs/RELATORIO_COMPARACAO_CONTEXTO_ESPACIAL_2026-10-10.md)
+- [Dados IBGE derivados v02](data/ibge_tratados/controles_pre_eleitorais_v02.csv)
+- [Manifesto de fontes IBGE v02](outputs/controles_ibge_v02/manifesto.json)
+- [Tabela de regressões](outputs/socioeconomico_v01/modelos_e_moran_residual.csv)
+- [Comparação convencional vs contexto k=4,8,12](outputs/contexto_espacial_v01/comparacao_contexto_espacial_k4_k8_k12.csv)
+- [Script de replicação dos modelos](scripts/13_modelos_controles_socioeconomicos.py)
+- [Script de comparação espacial](scripts/14_comparacao_contexto_espacial.py)
+
+**Próximo requisito científico:** testes adicionais de especificação, controles independentes de vulnerabilidade e escolaridade, análise de sensibilidade das matrizes e desenhos de identificação plausíveis antes de discutir causalidade; toda extrapolação temporal deve assegurar vintages informacionais disponíveis à época. O repositório deste artigo permanece independente do estudo organizacional publicado no Zenodo.
