@@ -1,4 +1,5 @@
 name: Modelos municipais com controles IBGE e autocorrelacao residual
+# Reexecutar após ajuste no ambiente de testes compartilhado
 
 on:
   push:
