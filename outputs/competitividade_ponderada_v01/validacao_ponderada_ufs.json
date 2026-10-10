@@ -1,0 +1,1022 @@
+[
+  {
+    "ano": 2018,
+    "desfecho": "competitividade",
+    "k": 4,
+    "detalhes": {
+      "rmse_local": 0.18910426001009847,
+      "rmse_contexto": 0.19267449296036293,
+      "reducao_rmse_pct": -1.8879706623604358,
+      "dobras_com_piora": 4,
+      "folds": [
+        {
+          "fold": 1,
+          "n": 1941,
+          "ufs": [
+            "AC",
+            "CE",
+            "MG",
+            "PE",
+            "RO",
+            "SP"
+          ],
+          "sse_local": 1405405.8438573107,
+          "sse_contexto": 1494960.7581906363,
+          "peso_votos_validos": 43958625
+        },
+        {
+          "fold": 2,
+          "n": 559,
+          "ufs": [
+            "AL",
+            "DF",
+            "MS",
+            "PI",
+            "RR",
+            "TO"
+          ],
+          "sse_local": 224046.84868113606,
+          "sse_contexto": 226925.31383570476,
+          "peso_votos_validos": 7224279
+        },
+        {
+          "fold": 3,
+          "n": 1176,
+          "ufs": [
+            "AM",
+            "ES",
+            "MT",
+            "PR",
+            "RS"
+          ],
+          "sse_local": 781208.3310246416,
+          "sse_contexto": 768140.0161863123,
+          "peso_votos_validos": 17748739
+        },
+        {
+          "fold": 4,
+          "n": 790,
+          "ufs": [
+            "AP",
+            "GO",
+            "PA",
+            "RJ",
+            "SC"
+          ],
+          "sse_local": 684589.0276239882,
+          "sse_contexto": 739500.4152973085,
+          "peso_votos_validos": 19689448
+        },
+        {
+          "fold": 5,
+          "n": 1099,
+          "ufs": [
+            "BA",
+            "MA",
+            "PB",
+            "RN",
+            "SE"
+          ],
+          "sse_local": 646105.2675993321,
+          "sse_contexto": 654433.7779824792,
+          "peso_votos_validos": 16001707
+        }
+      ]
+    }
+  },
+  {
+    "ano": 2018,
+    "desfecho": "direcao_pt13",
+    "k": 4,
+    "detalhes": {
+      "rmse_local": 0.26851627835582415,
+      "rmse_contexto": 0.2843561729923248,
+      "reducao_rmse_pct": -5.899044457748079,
+      "dobras_com_piora": 2,
+      "folds": [
+        {
+          "fold": 1,
+          "n": 1941,
+          "ufs": [
+            "AC",
+            "CE",
+            "MG",
+            "PE",
+            "RO",
+            "SP"
+          ],
+          "sse_local": 2815083.3572568498,
+          "sse_contexto": 3927720.2947506364,
+          "peso_votos_validos": 43958625
+        },
+        {
+          "fold": 2,
+          "n": 559,
+          "ufs": [
+            "AL",
+            "DF",
+            "MS",
+            "PI",
+            "RR",
+            "TO"
+          ],
+          "sse_local": 333522.80785096495,
+          "sse_contexto": 302814.4505074326,
+          "peso_votos_validos": 7224279
+        },
+        {
+          "fold": 3,
+          "n": 1176,
+          "ufs": [
+            "AM",
+            "ES",
+            "MT",
+            "PR",
+            "RS"
+          ],
+          "sse_local": 1084429.4368702376,
+          "sse_contexto": 942891.9807877378,
+          "peso_votos_validos": 17748739
+        },
+        {
+          "fold": 4,
+          "n": 790,
+          "ufs": [
+            "AP",
+            "GO",
+            "PA",
+            "RJ",
+            "SC"
+          ],
+          "sse_local": 1407812.465658512,
+          "sse_contexto": 1643403.6511486396,
+          "peso_votos_validos": 19689448
+        },
+        {
+          "fold": 5,
+          "n": 1099,
+          "ufs": [
+            "BA",
+            "MA",
+            "PB",
+            "RN",
+            "SE"
+          ],
+          "sse_local": 1902559.4269929007,
+          "sse_contexto": 1642805.137594562,
+          "peso_votos_validos": 16001707
+        }
+      ]
+    }
+  },
+  {
+    "ano": 2018,
+    "desfecho": "competitividade",
+    "k": 8,
+    "detalhes": {
+      "rmse_local": 0.18910426001009847,
+      "rmse_contexto": 0.19530434505998354,
+      "reducao_rmse_pct": -3.27865963968975,
+      "dobras_com_piora": 5,
+      "folds": [
+        {
+          "fold": 1,
+          "n": 1941,
+          "ufs": [
+            "AC",
+            "CE",
+            "MG",
+            "PE",
+            "RO",
+            "SP"
+          ],
+          "sse_local": 1405405.8438573107,
+          "sse_contexto": 1542427.1321362124,
+          "peso_votos_validos": 43958625
+        },
+        {
+          "fold": 2,
+          "n": 559,
+          "ufs": [
+            "AL",
+            "DF",
+            "MS",
+            "PI",
+            "RR",
+            "TO"
+          ],
+          "sse_local": 224046.84868113606,
+          "sse_contexto": 230019.08364504296,
+          "peso_votos_validos": 7224279
+        },
+        {
+          "fold": 3,
+          "n": 1176,
+          "ufs": [
+            "AM",
+            "ES",
+            "MT",
+            "PR",
+            "RS"
+          ],
+          "sse_local": 781208.3310246416,
+          "sse_contexto": 818294.2553609043,
+          "peso_votos_validos": 17748739
+        },
+        {
+          "fold": 4,
+          "n": 790,
+          "ufs": [
+            "AP",
+            "GO",
+            "PA",
+            "RJ",
+            "SC"
+          ],
+          "sse_local": 684589.0276239882,
+          "sse_contexto": 741841.0907392332,
+          "peso_votos_validos": 19689448
+        },
+        {
+          "fold": 5,
+          "n": 1099,
+          "ufs": [
+            "BA",
+            "MA",
+            "PB",
+            "RN",
+            "SE"
+          ],
+          "sse_local": 646105.2675993321,
+          "sse_contexto": 658128.1812269103,
+          "peso_votos_validos": 16001707
+        }
+      ]
+    }
+  },
+  {
+    "ano": 2018,
+    "desfecho": "direcao_pt13",
+    "k": 8,
+    "detalhes": {
+      "rmse_local": 0.26851627835582415,
+      "rmse_contexto": 0.2699449765627761,
+      "reducao_rmse_pct": -0.532071357349413,
+      "dobras_com_piora": 2,
+      "folds": [
+        {
+          "fold": 1,
+          "n": 1941,
+          "ufs": [
+            "AC",
+            "CE",
+            "MG",
+            "PE",
+            "RO",
+            "SP"
+          ],
+          "sse_local": 2815083.3572568498,
+          "sse_contexto": 3348294.5183950905,
+          "peso_votos_validos": 43958625
+        },
+        {
+          "fold": 2,
+          "n": 559,
+          "ufs": [
+            "AL",
+            "DF",
+            "MS",
+            "PI",
+            "RR",
+            "TO"
+          ],
+          "sse_local": 333522.80785096495,
+          "sse_contexto": 320493.8956469391,
+          "peso_votos_validos": 7224279
+        },
+        {
+          "fold": 3,
+          "n": 1176,
+          "ufs": [
+            "AM",
+            "ES",
+            "MT",
+            "PR",
+            "RS"
+          ],
+          "sse_local": 1084429.4368702376,
+          "sse_contexto": 876861.5699010352,
+          "peso_votos_validos": 17748739
+        },
+        {
+          "fold": 4,
+          "n": 790,
+          "ufs": [
+            "AP",
+            "GO",
+            "PA",
+            "RJ",
+            "SC"
+          ],
+          "sse_local": 1407812.465658512,
+          "sse_contexto": 1506846.5494193695,
+          "peso_votos_validos": 19689448
+        },
+        {
+          "fold": 5,
+          "n": 1099,
+          "ufs": [
+            "BA",
+            "MA",
+            "PB",
+            "RN",
+            "SE"
+          ],
+          "sse_local": 1902559.4269929007,
+          "sse_contexto": 1571397.1363740284,
+          "peso_votos_validos": 16001707
+        }
+      ]
+    }
+  },
+  {
+    "ano": 2018,
+    "desfecho": "competitividade",
+    "k": 12,
+    "detalhes": {
+      "rmse_local": 0.18910426001009847,
+      "rmse_contexto": 0.19781893676247655,
+      "reducao_rmse_pct": -4.608397902782678,
+      "dobras_com_piora": 5,
+      "folds": [
+        {
+          "fold": 1,
+          "n": 1941,
+          "ufs": [
+            "AC",
+            "CE",
+            "MG",
+            "PE",
+            "RO",
+            "SP"
+          ],
+          "sse_local": 1405405.8438573107,
+          "sse_contexto": 1591028.0118375528,
+          "peso_votos_validos": 43958625
+        },
+        {
+          "fold": 2,
+          "n": 559,
+          "ufs": [
+            "AL",
+            "DF",
+            "MS",
+            "PI",
+            "RR",
+            "TO"
+          ],
+          "sse_local": 224046.84868113606,
+          "sse_contexto": 230411.6943735254,
+          "peso_votos_validos": 7224279
+        },
+        {
+          "fold": 3,
+          "n": 1176,
+          "ufs": [
+            "AM",
+            "ES",
+            "MT",
+            "PR",
+            "RS"
+          ],
+          "sse_local": 781208.3310246416,
+          "sse_contexto": 857323.5944079539,
+          "peso_votos_validos": 17748739
+        },
+        {
+          "fold": 4,
+          "n": 790,
+          "ufs": [
+            "AP",
+            "GO",
+            "PA",
+            "RJ",
+            "SC"
+          ],
+          "sse_local": 684589.0276239882,
+          "sse_contexto": 752726.4184087721,
+          "peso_votos_validos": 19689448
+        },
+        {
+          "fold": 5,
+          "n": 1099,
+          "ufs": [
+            "BA",
+            "MA",
+            "PB",
+            "RN",
+            "SE"
+          ],
+          "sse_local": 646105.2675993321,
+          "sse_contexto": 662644.3200673641,
+          "peso_votos_validos": 16001707
+        }
+      ]
+    }
+  },
+  {
+    "ano": 2018,
+    "desfecho": "direcao_pt13",
+    "k": 12,
+    "detalhes": {
+      "rmse_local": 0.26851627835582415,
+      "rmse_contexto": 0.25470707278748084,
+      "reducao_rmse_pct": 5.1427815300061805,
+      "dobras_com_piora": 2,
+      "folds": [
+        {
+          "fold": 1,
+          "n": 1941,
+          "ufs": [
+            "AC",
+            "CE",
+            "MG",
+            "PE",
+            "RO",
+            "SP"
+          ],
+          "sse_local": 2815083.3572568498,
+          "sse_contexto": 2841829.939010875,
+          "peso_votos_validos": 43958625
+        },
+        {
+          "fold": 2,
+          "n": 559,
+          "ufs": [
+            "AL",
+            "DF",
+            "MS",
+            "PI",
+            "RR",
+            "TO"
+          ],
+          "sse_local": 333522.80785096495,
+          "sse_contexto": 284495.80144980113,
+          "peso_votos_validos": 7224279
+        },
+        {
+          "fold": 3,
+          "n": 1176,
+          "ufs": [
+            "AM",
+            "ES",
+            "MT",
+            "PR",
+            "RS"
+          ],
+          "sse_local": 1084429.4368702376,
+          "sse_contexto": 784486.3404999864,
+          "peso_votos_validos": 17748739
+        },
+        {
+          "fold": 4,
+          "n": 790,
+          "ufs": [
+            "AP",
+            "GO",
+            "PA",
+            "RJ",
+            "SC"
+          ],
+          "sse_local": 1407812.465658512,
+          "sse_contexto": 1420592.4864055528,
+          "peso_votos_validos": 19689448
+        },
+        {
+          "fold": 5,
+          "n": 1099,
+          "ufs": [
+            "BA",
+            "MA",
+            "PB",
+            "RN",
+            "SE"
+          ],
+          "sse_local": 1902559.4269929007,
+          "sse_contexto": 1456071.9489465104,
+          "peso_votos_validos": 16001707
+        }
+      ]
+    }
+  },
+  {
+    "ano": 2022,
+    "desfecho": "competitividade",
+    "k": 4,
+    "detalhes": {
+      "rmse_local": 0.1603558071585328,
+      "rmse_contexto": 0.15877719650346608,
+      "reducao_rmse_pct": 0.9844424614482713,
+      "dobras_com_piora": 2,
+      "folds": [
+        {
+          "fold": 1,
+          "n": 1941,
+          "ufs": [
+            "AC",
+            "CE",
+            "MG",
+            "PE",
+            "RO",
+            "SP"
+          ],
+          "sse_local": 948533.9090584356,
+          "sse_contexto": 901863.4637480022,
+          "peso_votos_validos": 50256328
+        },
+        {
+          "fold": 2,
+          "n": 559,
+          "ufs": [
+            "AL",
+            "DF",
+            "MS",
+            "PI",
+            "RR",
+            "TO"
+          ],
+          "sse_local": 187760.0421321498,
+          "sse_contexto": 166181.35722592307,
+          "peso_votos_validos": 8057919
+        },
+        {
+          "fold": 3,
+          "n": 1176,
+          "ufs": [
+            "AM",
+            "ES",
+            "MT",
+            "PR",
+            "RS"
+          ],
+          "sse_local": 651590.3526928709,
+          "sse_contexto": 643629.8180832509,
+          "peso_votos_validos": 19334135
+        },
+        {
+          "fold": 4,
+          "n": 790,
+          "ufs": [
+            "AP",
+            "GO",
+            "PA",
+            "RJ",
+            "SC"
+          ],
+          "sse_local": 640927.8198260433,
+          "sse_contexto": 652281.7319409639,
+          "peso_votos_validos": 22636872
+        },
+        {
+          "fold": 5,
+          "n": 1099,
+          "ufs": [
+            "BA",
+            "MA",
+            "PB",
+            "RN",
+            "SE"
+          ],
+          "sse_local": 611041.9162602939,
+          "sse_contexto": 616341.0415510577,
+          "peso_votos_validos": 17932675
+        }
+      ]
+    }
+  },
+  {
+    "ano": 2022,
+    "desfecho": "direcao_pt13",
+    "k": 4,
+    "detalhes": {
+      "rmse_local": 0.24547355417108882,
+      "rmse_contexto": 0.2593881974181474,
+      "reducao_rmse_pct": -5.668489745889458,
+      "dobras_com_piora": 2,
+      "folds": [
+        {
+          "fold": 1,
+          "n": 1941,
+          "ufs": [
+            "AC",
+            "CE",
+            "MG",
+            "PE",
+            "RO",
+            "SP"
+          ],
+          "sse_local": 2612247.141110599,
+          "sse_contexto": 3648336.3343874454,
+          "peso_votos_validos": 50256328
+        },
+        {
+          "fold": 2,
+          "n": 559,
+          "ufs": [
+            "AL",
+            "DF",
+            "MS",
+            "PI",
+            "RR",
+            "TO"
+          ],
+          "sse_local": 396424.18286347424,
+          "sse_contexto": 366647.5748911414,
+          "peso_votos_validos": 8057919
+        },
+        {
+          "fold": 3,
+          "n": 1176,
+          "ufs": [
+            "AM",
+            "ES",
+            "MT",
+            "PR",
+            "RS"
+          ],
+          "sse_local": 1280816.3827636805,
+          "sse_contexto": 1159702.4181372926,
+          "peso_votos_validos": 19334135
+        },
+        {
+          "fold": 4,
+          "n": 790,
+          "ufs": [
+            "AP",
+            "GO",
+            "PA",
+            "RJ",
+            "SC"
+          ],
+          "sse_local": 1371374.6630551615,
+          "sse_contexto": 1516228.7954093008,
+          "peso_votos_validos": 22636872
+        },
+        {
+          "fold": 5,
+          "n": 1099,
+          "ufs": [
+            "BA",
+            "MA",
+            "PB",
+            "RN",
+            "SE"
+          ],
+          "sse_local": 1462626.7999766474,
+          "sse_contexto": 1263051.5890538655,
+          "peso_votos_validos": 17932675
+        }
+      ]
+    }
+  },
+  {
+    "ano": 2022,
+    "desfecho": "competitividade",
+    "k": 8,
+    "detalhes": {
+      "rmse_local": 0.1603558071585328,
+      "rmse_contexto": 0.15981463957299388,
+      "reducao_rmse_pct": 0.3374792563663684,
+      "dobras_com_piora": 3,
+      "folds": [
+        {
+          "fold": 1,
+          "n": 1941,
+          "ufs": [
+            "AC",
+            "CE",
+            "MG",
+            "PE",
+            "RO",
+            "SP"
+          ],
+          "sse_local": 948533.9090584356,
+          "sse_contexto": 907551.0959048013,
+          "peso_votos_validos": 50256328
+        },
+        {
+          "fold": 2,
+          "n": 559,
+          "ufs": [
+            "AL",
+            "DF",
+            "MS",
+            "PI",
+            "RR",
+            "TO"
+          ],
+          "sse_local": 187760.0421321498,
+          "sse_contexto": 164680.02037314585,
+          "peso_votos_validos": 8057919
+        },
+        {
+          "fold": 3,
+          "n": 1176,
+          "ufs": [
+            "AM",
+            "ES",
+            "MT",
+            "PR",
+            "RS"
+          ],
+          "sse_local": 651590.3526928709,
+          "sse_contexto": 674993.0210437361,
+          "peso_votos_validos": 19334135
+        },
+        {
+          "fold": 4,
+          "n": 790,
+          "ufs": [
+            "AP",
+            "GO",
+            "PA",
+            "RJ",
+            "SC"
+          ],
+          "sse_local": 640927.8198260433,
+          "sse_contexto": 655477.2002123417,
+          "peso_votos_validos": 22636872
+        },
+        {
+          "fold": 5,
+          "n": 1099,
+          "ufs": [
+            "BA",
+            "MA",
+            "PB",
+            "RN",
+            "SE"
+          ],
+          "sse_local": 611041.9162602939,
+          "sse_contexto": 616669.5703995079,
+          "peso_votos_validos": 17932675
+        }
+      ]
+    }
+  },
+  {
+    "ano": 2022,
+    "desfecho": "direcao_pt13",
+    "k": 8,
+    "detalhes": {
+      "rmse_local": 0.24547355417108882,
+      "rmse_contexto": 0.24994244806020632,
+      "reducao_rmse_pct": -1.820519487000542,
+      "dobras_com_piora": 2,
+      "folds": [
+        {
+          "fold": 1,
+          "n": 1941,
+          "ufs": [
+            "AC",
+            "CE",
+            "MG",
+            "PE",
+            "RO",
+            "SP"
+          ],
+          "sse_local": 2612247.141110599,
+          "sse_contexto": 3325722.087961435,
+          "peso_votos_validos": 50256328
+        },
+        {
+          "fold": 2,
+          "n": 559,
+          "ufs": [
+            "AL",
+            "DF",
+            "MS",
+            "PI",
+            "RR",
+            "TO"
+          ],
+          "sse_local": 396424.18286347424,
+          "sse_contexto": 393479.86567452713,
+          "peso_votos_validos": 8057919
+        },
+        {
+          "fold": 3,
+          "n": 1176,
+          "ufs": [
+            "AM",
+            "ES",
+            "MT",
+            "PR",
+            "RS"
+          ],
+          "sse_local": 1280816.3827636805,
+          "sse_contexto": 1041566.7687272117,
+          "peso_votos_validos": 19334135
+        },
+        {
+          "fold": 4,
+          "n": 790,
+          "ufs": [
+            "AP",
+            "GO",
+            "PA",
+            "RJ",
+            "SC"
+          ],
+          "sse_local": 1371374.6630551615,
+          "sse_contexto": 1445643.2366387695,
+          "peso_votos_validos": 22636872
+        },
+        {
+          "fold": 5,
+          "n": 1099,
+          "ufs": [
+            "BA",
+            "MA",
+            "PB",
+            "RN",
+            "SE"
+          ],
+          "sse_local": 1462626.7999766474,
+          "sse_contexto": 1178807.1594963567,
+          "peso_votos_validos": 17932675
+        }
+      ]
+    }
+  },
+  {
+    "ano": 2022,
+    "desfecho": "competitividade",
+    "k": 12,
+    "detalhes": {
+      "rmse_local": 0.1603558071585328,
+      "rmse_contexto": 0.16010259369491087,
+      "reducao_rmse_pct": 0.15790726142620204,
+      "dobras_com_piora": 3,
+      "folds": [
+        {
+          "fold": 1,
+          "n": 1941,
+          "ufs": [
+            "AC",
+            "CE",
+            "MG",
+            "PE",
+            "RO",
+            "SP"
+          ],
+          "sse_local": 948533.9090584356,
+          "sse_contexto": 915121.910774477,
+          "peso_votos_validos": 50256328
+        },
+        {
+          "fold": 2,
+          "n": 559,
+          "ufs": [
+            "AL",
+            "DF",
+            "MS",
+            "PI",
+            "RR",
+            "TO"
+          ],
+          "sse_local": 187760.0421321498,
+          "sse_contexto": 162869.3374686325,
+          "peso_votos_validos": 8057919
+        },
+        {
+          "fold": 3,
+          "n": 1176,
+          "ufs": [
+            "AM",
+            "ES",
+            "MT",
+            "PR",
+            "RS"
+          ],
+          "sse_local": 651590.3526928709,
+          "sse_contexto": 674062.2281216178,
+          "peso_votos_validos": 19334135
+        },
+        {
+          "fold": 4,
+          "n": 790,
+          "ufs": [
+            "AP",
+            "GO",
+            "PA",
+            "RJ",
+            "SC"
+          ],
+          "sse_local": 640927.8198260433,
+          "sse_contexto": 647100.4708105596,
+          "peso_votos_validos": 22636872
+        },
+        {
+          "fold": 5,
+          "n": 1099,
+          "ufs": [
+            "BA",
+            "MA",
+            "PB",
+            "RN",
+            "SE"
+          ],
+          "sse_local": 611041.9162602939,
+          "sse_contexto": 631107.3720485959,
+          "peso_votos_validos": 17932675
+        }
+      ]
+    }
+  },
+  {
+    "ano": 2022,
+    "desfecho": "direcao_pt13",
+    "k": 12,
+    "detalhes": {
+      "rmse_local": 0.24547355417108882,
+      "rmse_contexto": 0.23464663193807148,
+      "reducao_rmse_pct": 4.410626745344329,
+      "dobras_com_piora": 2,
+      "folds": [
+        {
+          "fold": 1,
+          "n": 1941,
+          "ufs": [
+            "AC",
+            "CE",
+            "MG",
+            "PE",
+            "RO",
+            "SP"
+          ],
+          "sse_local": 2612247.141110599,
+          "sse_contexto": 2827718.5731295785,
+          "peso_votos_validos": 50256328
+        },
+        {
+          "fold": 2,
+          "n": 559,
+          "ufs": [
+            "AL",
+            "DF",
+            "MS",
+            "PI",
+            "RR",
+            "TO"
+          ],
+          "sse_local": 396424.18286347424,
+          "sse_contexto": 355424.44066387776,
+          "peso_votos_validos": 8057919
+        },
+        {
+          "fold": 3,
+          "n": 1176,
+          "ufs": [
+            "AM",
+            "ES",
+            "MT",
+            "PR",
+            "RS"
+          ],
+          "sse_local": 1280816.3827636805,
+          "sse_contexto": 891680.5767237705,
+          "peso_votos_validos": 19334135
+        },
+        {
+          "fold": 4,
+          "n": 790,
+          "ufs": [
+            "AP",
+            "GO",
+            "PA",
+            "RJ",
+            "SC"
+          ],
+          "sse_local": 1371374.6630551615,
+          "sse_contexto": 1371691.3328773282,
+          "peso_votos_validos": 22636872
+        },
+        {
+          "fold": 5,
+          "n": 1099,
+          "ufs": [
+            "BA",
+            "MA",
+            "PB",
+            "RN",
+            "SE"
+          ],
+          "sse_local": 1462626.7999766474,
+          "sse_contexto": 1062450.9803692175,
+          "peso_votos_validos": 17932675
+        }
+      ]
+    }
+  }
+]

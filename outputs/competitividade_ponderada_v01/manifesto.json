@@ -1,0 +1,10 @@
+{
+  "objeto": "Sensibilidade descritiva, não causal",
+  "pesos": "Votos nominais válidos totais no segundo turno por município, constantes por desfecho de cada eleição.",
+  "amostra": 5565,
+  "n_excluidos": 5,
+  "contraste": "Mesma amostra e mesmos atributos dos modelos não ponderados; a ponderação dá peso relativo maior aos municípios com mais votos válidos.",
+  "aviso": "Validação geográfica não equivale a previsão ex ante; votos observados do segundo turno só são usados como pesos de avaliação, não como variáveis de previsão ou informação disponível antes da eleição.",
+  "restricao": "Ponderação usa tamanho eleitoral observado ex post. Não utilizar resultado como evidência de desempenho prospectivo.",
+  "script": "scripts/17_sensibilidade_ponderacao_eleitoral.py"
+}
