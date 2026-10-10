@@ -29,9 +29,9 @@ def analisar(arquivos):
                                                    observed=True, sort=True):
             votos = part["QT_VOTOS_NOMINAIS"].astype("float64").to_numpy()
             total = int(votos.sum())
-            if total == 0:
-                continue
-            p = votos[votos > 0] / total
+            # Contar também localidades eleitorais sem votos nominais válidos.
+            # Excluí-las reduziria artificialmente a cobertura da UF ZZ.
+            p = votos[votos > 0] / total if total > 0 else np.array([])
             grupos.append({"ano": ano, "turno": int(turno), "uf": uf,
                            "municipio_tse": int(muni), "validos": total,
                            "finalistas": int(part["VOTOS_FINALISTAS"].sum()),
@@ -48,6 +48,7 @@ def analisar(arquivos):
             nacional.append({
                 "ano": ano, "turno": turno, "votos_validos": int(todos.validos.sum()),
                 "municipios_brasil": len(munis), "localidades_exterior": len(exterior),
+                "localidades_exterior_com_votos": int((exterior.validos > 0).sum()),
                 "votos_validos_exterior": int(exterior.validos.sum()),
                 "mediana_hhi_brasil": float(munis.hhi.median()),
                 "media_hhi_ponderada_brasil": float(np.average(munis.hhi, weights=munis.validos)),
