@@ -1,0 +1,28 @@
+{
+  "status_2018_1t": "SOB RESSALVA DOCUMENTAL, NÃO CONCILIADO",
+  "diferenca_total_2018_1t": 76,
+  "decomposicao_diferenca_2018_1t": {
+    "candidato_17": 20,
+    "candidato_13": 46,
+    "outros": 10
+  },
+  "controle_2018_1t": "https://www.tse.jus.br/comunicacao/noticias/2018/Outubro/concluida-totalizacao-de-votos-do-1o-turno-das-eleicoes-2018",
+  "status_2018_2t": "CONCILIADO INTEGRALMENTE",
+  "status_2022_1t": "CONCILIADO INTEGRALMENTE",
+  "status_2022_2t": "CONCILIADO INTEGRALMENTE",
+  "impacto_objeto_central": "O desfecho do estudo é definido com dados de segundo turno, cujos totais conferem com TSE. O 1º turno de 2018 é análise complementar sob ressalva e não integra o modelo principal.",
+  "percentual_de_divergencia_1t": 7.099441588751151e-05,
+  "critica": "Não identificada causa da diferença entre arquivo distribuído e matéria histórica, sem hipótese atribuída e sem alterar voto.",
+  "sha256_insumos": {
+    "votos2018": "72cc7749a4d69416fece6e8b73aa448f2cc05a20b693d336891a6c3652f9a149",
+    "votos2022": "e5447a4563d1c4bfac6664bd8f9227f11fb1c6ef02f0ac848969fac4ac3cdfb1",
+    "controles_historicos": "07c349ab13800c8ff9b67ee7ff6bd657dec7ab810bfe734741008316d28cd208"
+  },
+  "regras": [
+    "Sem duplicações na chave município-candidatura-turno.",
+    "Sem votos negativos.",
+    "Cobertura completa de 5.570 municípios brasileiros em cada turno.",
+    "Candidato 13 e 17/22 e 'outros' conciliados conforme arquivo de referência.",
+    "Não usar ausência de divergência no segundo turno para alegar consistência perfeita no primeiro turno."
+  ]
+}
