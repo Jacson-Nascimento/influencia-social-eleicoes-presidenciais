@@ -1,0 +1,3 @@
+f7d1ea8ec71ff37d9b3af8ebbc06387b1e86f4c187d4a2ea81ce1f16f67d96bc  data/brutos/2022/votacao_candidato_munzona_2022.zip
+data/brutos/2022/votacao_candidato_munzona_2022.zip;596166602 bytes
+https://cdn.tse.jus.br/estatistica/sead/odsele/votacao_candidato_munzona/votacao_candidato_munzona_2022.zip

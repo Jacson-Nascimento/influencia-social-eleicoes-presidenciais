@@ -1,0 +1,41 @@
+{
+  "arquivo_csv_no_zip": "votacao_candidato_munzona_2022_BR.csv",
+  "linhas_csv_lidas": 81679,
+  "linhas_presidenciais_lidas": 81679,
+  "linhas_consolidadas": 74763,
+  "votos_nominais_somados_ambos_turnos": 236782072,
+  "unidades_uf": [
+    "AC",
+    "AL",
+    "AM",
+    "AP",
+    "BA",
+    "CE",
+    "DF",
+    "ES",
+    "GO",
+    "MA",
+    "MG",
+    "MS",
+    "MT",
+    "PA",
+    "PB",
+    "PE",
+    "PI",
+    "PR",
+    "RJ",
+    "RN",
+    "RO",
+    "RR",
+    "RS",
+    "SC",
+    "SE",
+    "SP",
+    "TO",
+    "ZZ"
+  ],
+  "turnos": [
+    1,
+    2
+  ]
+}
