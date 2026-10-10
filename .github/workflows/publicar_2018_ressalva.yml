@@ -1,0 +1,100 @@
+name: Auditoria 2018 e comparativo territorial
+
+on:
+  push:
+    paths:
+      - '.github/workflows/publicar_2018_ressalva.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  auditado_com_ressalva:
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: pip
+      - name: Instalar e testar
+        run: |
+          python -m pip install -r requirements.txt
+          python -m unittest discover -s tests -v
+      - name: Baixar e verificar arquivo oficial TSE 2018
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p data/brutos/2018 data/tratados outputs/relatorios
+          zip="data/brutos/2018/votacao_candidato_munzona_2018.zip"
+          url="https://cdn.tse.jus.br/estatistica/sead/odsele/votacao_candidato_munzona/votacao_candidato_munzona_2018.zip"
+          curl -fL --retry 4 --retry-all-errors --retry-delay 15 --max-time 5400 "$url" -o "$zip"
+          unzip -tq "$zip" > outputs/relatorios/integridade_zip_2018_ressalva.txt
+          sha256sum "$zip" > outputs/relatorios/sha256_2018_ressalva.txt
+          stat -c "%s bytes" "$zip" >> outputs/relatorios/sha256_2018_ressalva.txt
+          printf "%s\n" "$url" >> outputs/relatorios/sha256_2018_ressalva.txt
+      - name: Consolidar e preservar divergência documental de 2018
+        shell: bash
+        run: |
+          set -euo pipefail
+          python scripts/05_consolidar_presidente_tse.py \
+            --arquivo data/brutos/2018/votacao_candidato_munzona_2018.zip \
+            --ano 2018 \
+            --saida data/tratados/votos_presidente_municipio_2018_RESSALVA.csv \
+            --relatorio outputs/relatorios/estrutura_2018_ressalva.json
+          set +e
+          python scripts/06_auditar_totalizacao_municipal.py \
+            --arquivo data/tratados/votos_presidente_municipio_2018_RESSALVA.csv \
+            --controles data/controles/totalizacao_2018_2022_fontes_tse.csv \
+            --ano 2018 \
+            --saida outputs/relatorios/auditoria_2018_ressalva.json
+          retorno="$?"
+          set -e
+          if [ "$retorno" -eq 0 ]; then
+            echo "O arquivo mudou e os controles foram conciliados. Revisar protocolo antes de divulgar esta versão."
+            exit 1
+          fi
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          r=json.loads(Path("outputs/relatorios/auditoria_2018_ressalva.json").read_text())
+          by={x["turno"]:x for x in r["turnos"]}
+          assert r["aprovado"] is False
+          assert by[1]["residuo_total"] == 76
+          assert by[1]["candidatos"]["17"]["diferenca"] == 20
+          assert by[1]["candidatos"]["13"]["diferenca"] == 46
+          assert by[1]["outros_observados"]-by[1]["outros_referencia"] == 10
+          assert by[2]["aprovado"] is True
+          print("Ressalva histórica preservada; não houve ajuste de votos.")
+          PY
+      - name: Calcular estatísticas exploratórias para os dois anos
+        run: |
+          python scripts/07_comparativo_territorial.py \
+            --base2018 data/tratados/votos_presidente_municipio_2018_RESSALVA.csv \
+            --base2022 data/tratados/votos_presidente_municipio_2022.csv \
+            --pasta outputs/comparativo_v01
+      - name: Guardar artefatos de auditoria
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: territorios-2018-2022-com-ressalva
+          path: |
+            data/tratados/votos_presidente_municipio_2018_RESSALVA.csv
+            outputs/relatorios/*ressalva*
+            outputs/comparativo_v01/*
+          retention-days: 90
+          if-no-files-found: warn
+      - name: Publicar com identificação da ressalva
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -f data/tratados/votos_presidente_municipio_2018_RESSALVA.csv
+          git add -f outputs/comparativo_v01/*.csv
+          git add outputs/comparativo_v01/*.json outputs/relatorios/*ressalva*
+          git commit -m "Publicar microdados agregados 2018 sob ressalva e comparativo 2018-2022"
+          git pull --rebase origin main
+          git push origin HEAD:main
