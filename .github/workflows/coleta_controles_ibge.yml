@@ -27,26 +27,26 @@ jobs:
       - name: Coletar tabelas SIDRA 202, 5938 e 6579
         run: |
           python scripts/12_coletar_controles_ibge.py \
-            --pasta data/ibge_brutos/sidra_v01 \
-            --saida data/ibge_tratados/controles_pre_eleitorais_v01.csv \
-            --manifesto outputs/controles_ibge_v01/manifesto.json
+            --pasta data/ibge_brutos/sidra_v02 \
+            --saida data/ibge_tratados/controles_pre_eleitorais_v02.csv \
+            --manifesto outputs/controles_ibge_v02/manifesto.json
       - name: Disponibilizar amostras e auditoria
         uses: actions/upload-artifact@v4
         if: always()
         with:
           name: ibge-controles-originais-e-metadata
           path: |
-            data/ibge_brutos/sidra_v01/
-            data/ibge_tratados/controles_pre_eleitorais_v01.csv
-            outputs/controles_ibge_v01/manifesto.json
+            data/ibge_brutos/sidra_v02/
+            data/ibge_tratados/controles_pre_eleitorais_v02.csv
+            outputs/controles_ibge_v02/manifesto.json
           retention-days: 90
           if-no-files-found: warn
       - name: Versionar dados abertos e manifestos
         run: |
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git add -f data/ibge_brutos/sidra_v01/*.json.gz data/ibge_tratados/*.csv
-          git add outputs/controles_ibge_v01/manifesto.json
+          git add -f data/ibge_brutos/sidra_v02/*.json.gz data/ibge_tratados/*.csv
+          git add outputs/controles_ibge_v02/manifesto.json
           git commit -m 'Registrar controles IBGE censitários e econômicos com metadados SHA256'
           git pull --rebase origin main
           git push origin HEAD:main
