@@ -1,0 +1,18 @@
+{
+  "2018": {
+    "municipios_pareados": 5570,
+    "frac_municipios_aumento_validos": 0.2640933572710952,
+    "frac_municipios_reducao_validos": 0.7346499102333932,
+    "mediana_variacao_absoluta": -112.0,
+    "mediana_variacao_percentual": -2.553728086085183,
+    "condicao": "ressalva documentada de 76 votos no 1º turno"
+  },
+  "2022": {
+    "municipios_pareados": 5570,
+    "frac_municipios_aumento_validos": 0.5917414721723518,
+    "frac_municipios_reducao_validos": 0.4053859964093357,
+    "mediana_variacao_absoluta": 30.0,
+    "mediana_variacao_percentual": 0.5129062655801375,
+    "condicao": "totalização nacional conciliada"
+  }
+}
