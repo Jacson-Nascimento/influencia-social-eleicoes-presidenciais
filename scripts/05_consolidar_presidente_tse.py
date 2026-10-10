@@ -32,7 +32,12 @@ def escolher_csv(nomes, ano):
     if len(correspondencias) == 1:
         return correspondencias[0]
     if len(correspondencias) > 1:
-        raise ValueError("Há arquivos BR e BRASIL simultaneamente: requer auditoria.")
+        # BR é a abrangência nacional presidencial documentada pelo TSE.
+        # BRASIL pode conter todos os cargos e todas as UFs e seria redundante.
+        arquivo_br = [n for n in correspondencias if Path(n).name.lower().endswith("_br.csv")]
+        if len(arquivo_br) != 1:
+            raise ValueError("Não é possível decidir com segurança o arquivo nacional.")
+        return arquivo_br[0]
     if len(nomes) == 1:
         return nomes[0]
     raise ValueError("Não foi identificado um CSV nacional único e inequívoco: " +
