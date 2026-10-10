@@ -1,0 +1,29 @@
+name: Verificação de integridade científica
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  testes:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - name: Obter repositório
+        uses: actions/checkout@v4
+      - name: Preparar Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: 'pip'
+      - name: Instalar dependências
+        run: python -m pip install -r requirements.txt
+      - name: Executar testes automatizados
+        run: python -m unittest discover -s tests -v
+      - name: Auditoria histórica independente
+        run: |
+          python scripts/04_conferir_agregados_historicos.py \
+            --arquivo data/controles/totalizacao_presidencial_2022_tse.csv \
+            --saida outputs/relatorios/auditoria_agregados_2022_ci.json
