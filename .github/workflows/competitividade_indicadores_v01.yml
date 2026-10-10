@@ -39,13 +39,22 @@ jobs:
           t2=pd.read_csv(pasta/'competitividade_e_margem_assinada_segundo_turno.csv')
           t1=pd.read_csv(pasta/'indicadores_complementares_primeiro_turno.csv')
           assert len(t1)==len(t2)==11140
-          for ano,esperado in ((2018,104838753),(2022,118552353)):
+          for ano,esperado,arquivo in (
+              (2018,104838753,'data/tratados/votos_presidente_municipio_2018_RESSALVA.csv'),
+              (2022,118552353,'data/tratados/votos_presidente_municipio_2022.csv')):
               r=t2[t2.ano==ano]
+              full=pd.read_csv(arquivo)
+              g=full[full.NR_TURNO==2]
+              exterior=int(g.loc[g.SG_UF=='ZZ','QT_VOTOS_NOMINAIS'].sum())
+              brasileiros=int(g.loc[g.SG_UF!='ZZ','QT_VOTOS_NOMINAIS'].sum())
               assert len(r)==5570
               assert 0<=r.competitividade_2t.min()<=r.competitividade_2t.max()<=1
               assert (abs(r.competitividade_2t-(1-abs(r.margem_assinada_pt13)))<1e-10).all()
-              assert abs(r.total_validos.sum()-esperado)==0
-          print('Competitividade e totais do segundo turno conciliados com TSE.')
+              assert int(g.QT_VOTOS_NOMINAIS.sum())==esperado
+              assert int(r.total_validos.sum())==brasileiros
+              assert int(r.total_validos.sum())+exterior==esperado
+              print(f'{ano}: Brasil {brasileiros}; exterior {exterior}; total {esperado}.')
+          print('Conciliação dos totais nacionais e das unidades brasileiras aprovada.')
           PY
       - name: Artefatos da análise
         if: always()
