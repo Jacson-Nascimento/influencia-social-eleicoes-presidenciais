@@ -4,7 +4,7 @@
 **ORCID:** https://orcid.org/0009-0006-6535-9569  
 **ISNI:** 0000 0005 3052 9869  
 **Início:** 8 de outubro de 2026  
-**Situação:** análise municipal, controles socioeconômicos e comparação de contexto territorial com validação por UFs concluídas; investigação causal e validação temporal estrita ainda pendentes.
+**Situação:** artigo de competitividade eleitoral, versões v02/v03, com análises dos segundos turnos, direção do voto, controles municipais, contexto de vizinhos e sensibilidade de ponderação; identificação causal e validação temporal estrita ainda pendentes.
 
 ## Objetivo
 Investigar padrões de concentração, interação territorial e mudanças agregadas de preferências entre turnos presidenciais, avaliando se medidas espaciais acrescentam capacidade explicativa em relação a modelos simples.
@@ -101,3 +101,23 @@ Extensões com médias de características IBGE de oito municípios próximos ge
 - [Script de comparação espacial](scripts/14_comparacao_contexto_espacial.py)
 
 **Próximo requisito científico:** testes adicionais de especificação, controles independentes de vulnerabilidade e escolaridade, análise de sensibilidade das matrizes e desenhos de identificação plausíveis antes de discutir causalidade; toda extrapolação temporal deve assegurar vintages informacionais disponíveis à época. O repositório deste artigo permanece independente do estudo organizacional publicado no Zenodo.
+
+## Foco atual: competitividade presidencial no segundo turno (10/10/2026)
+
+**Pergunta:** Em que medida as características socioeconômicas dos municípios e de seus vizinhos explicam as diferenças territoriais de competitividade nas eleições presidenciais brasileiras de 2018 e 2022?
+
+A variável principal deixou de ser o HHI. Agora é a competitividade entre as duas candidaturas finalistas de segundo turno, **C = 1 - |v13 - voponente| / (v13 + voponente)**, em escala de 0 a 1. A margem assinada **M = (v13 - voponente) / (v13 + voponente)** preserva a direção da votação. O primeiro turno recebe análise complementar com os dois líderes locais, sua cobertura dos votos válidos e o número efetivo de candidaturas.
+
+**Resultados principais:** 5.570 municípios nos indicadores e 5.565 nos modelos com IBGE. Medianas da competitividade em 2018 e 2022: 0,6148 e 0,6988. Na validação por UFs inteiras, o contexto de oito vizinhos reduziu o RMSE **sem ponderação** em 1,92% (2018) e 4,99% (2022) para competitividade; para a margem assinada, 17,09% e 18,53%. Contudo, **ponderado pelo total de votos válidos**, o ganho da competitividade virou **piora de 3,28%** em 2018 e melhora de apenas **0,34%** em 2022. Para a margem assinada, houve piora ponderada de 0,53% em 2018 e de 1,82% em 2022. Portanto **não há evidência estável de superioridade geral** do modelo contextual.
+
+Essa discrepância entre ponderações é um resultado importante que deve permanecer explícito. Os modelos são associativos, não demonstram influência social causal, não projetam vencedores e não podem ser extrapolados diretamente para a eleição de 2026.
+
+- [Manuscrito atual, v03](docs/MANUSCRITO_COMPETITIVIDADE_V03_2026-10-10.md).
+- [Protocolo da competitividade](docs/PROTOCOLO_COMPETITIVIDADE_ELEITORAL_V01.md).
+- [Indicadores segundo turno, versão v02](outputs/competitividade_v02/competitividade_e_margem_assinada_segundo_turno.csv).
+- [Indicadores complementares primeiro turno, v02](outputs/competitividade_v02/indicadores_complementares_primeiro_turno.csv).
+- [Modelos para competitividade e direção](outputs/competitividade_modelos_v01/modelos_competitividade_e_direcao_k4_k8_k12.csv).
+- [Sensibilidade ponderada por votos](outputs/competitividade_ponderada_v01/modelos_ponderados_competitividade_e_direcao.csv).
+- [Relatório dos modelos ponderados](docs/RELATORIO_SENSIBILIDADE_PONDERADA_2026-10-10.md).
+
+**Preservação:** versões anteriores de HHI, manuscrito v01/v02, dados e scripts originais permanecem disponíveis. O repositório do artigo de dinâmica de manada organizacional não foi alterado.
