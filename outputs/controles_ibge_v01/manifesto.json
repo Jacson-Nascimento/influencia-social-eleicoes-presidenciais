@@ -1,0 +1,48 @@
+{
+  "escopo": "Controles socioeconômicos e demográficos municipais antecedentes",
+  "fontes": [
+    {
+      "recurso": "censo2010",
+      "url": "https://apisidra.ibge.gov.br/values/t/202/n6/all/v/93/p/2010/c1/0,5/c2/0,1?formato=json",
+      "sha256_gzip": "be678096440d9176f6a2c19386a5ccfb7370ee290441d6556288a60518c2a3a5",
+      "n_registros": 22260,
+      "bytes_comprimidos": 168694,
+      "baixado_utc": "2026-10-10T16:59:38.492112+00:00"
+    },
+    {
+      "recurso": "pib2016_2020",
+      "url": "https://apisidra.ibge.gov.br/values/t/5938/n6/all/v/37/p/2016,2020?formato=json",
+      "sha256_gzip": "412abfdfd117ec3464029965c729985c04da2178c2ab1bc67799fbe763bc6830",
+      "n_registros": 11140,
+      "bytes_comprimidos": 141877,
+      "baixado_utc": "2026-10-10T16:59:40.102562+00:00"
+    },
+    {
+      "recurso": "pop2017_2021",
+      "url": "https://apisidra.ibge.gov.br/values/t/6579/n6/all/v/9324/p/2017,2021?formato=json",
+      "sha256_gzip": "475a93b6adeff1e3f8742fdaca882bc843fb3c00e68a207befd1e34baabeed33",
+      "n_registros": 11142,
+      "bytes_comprimidos": 132021,
+      "baixado_utc": "2026-10-10T16:59:47.110946+00:00"
+    }
+  ],
+  "n_municipios_uniao": 5571,
+  "completos_censo2010": 0,
+  "completos_2018": 0,
+  "completos_2022": 0,
+  "descricao": "PIB per capita proxy combina PIB em milhares de reais do ano anterior ao denominador estimado de população do ano posterior. NÃO equivale ao indicador oficial de PIB per capita; anos distintos e preços correntes.",
+  "defasagem": {
+    "eleicao_2018": {
+      "pib": 2016,
+      "pop": 2017,
+      "censo": 2010
+    },
+    "eleicao_2022": {
+      "pib": 2020,
+      "pop": 2021,
+      "censo": 2010
+    }
+  },
+  "limites": "Séries oficiais podem ter revisão retrospectiva. Dados com ano de referência anterior à eleição não implicam que a edição atualmente publicada já estivesse disponível na época; evitar afirmação de validação preditiva em tempo real.",
+  "sha256_saida": "9970bc9c8c72a3a81bca3a61df1f6d7036b728842b8e99ad45df2e850d646da8"
+}
