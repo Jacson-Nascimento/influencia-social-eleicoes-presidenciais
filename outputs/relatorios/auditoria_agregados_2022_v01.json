@@ -1,0 +1,19 @@
+{
+  "ano": 2022,
+  "escopo": "Presidência, Brasil inteiro, votos válidos",
+  "observacao": "Comparação descritiva; não identifica mudança de voto individual.",
+  "votos_validos_primeiro_turno": 118229719,
+  "votos_validos_segundo_turno": 118552353,
+  "diferenca_votos_validos": 322634,
+  "outros_candidatos_primeiro_turno": 9897870,
+  "diferencas_por_candidatura": {
+    "13": 3086495,
+    "22": 7134009
+  },
+  "identidade_aritmetica_verificada": true,
+  "fontes": [
+    "https://www.tse.jus.br/comunicacao/noticias/2022/Outubro/100-das-secoes-totalizadas-confira-como-ficou-o-quadro-eleitoral-apos-o-1o-turno",
+    "https://www.tse.jus.br/comunicacao/noticias/2022/Outubro/100-das-secoes-totalizadas-confira-como-ficou-o-quadro-eleitoral-apos-o-2o-turno/"
+  ],
+  "restricao": "Não extrapolar resultados de 2022 para 2026."
+}

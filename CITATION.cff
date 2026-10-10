@@ -1,0 +1,9 @@
+cff-version: 1.2.0
+message: "Citar o autor e a versão do repositório; citar também os dados originais do TSE."
+title: "Dinâmica de Influência Social e Comportamento Eleitoral no Brasil"
+authors:
+  - family-names: Nascimento
+    given-names: Jacson Cruz do
+    orcid: https://orcid.org/0009-0006-6535-9569
+version: 0.2.0
+license: MIT

@@ -1,0 +1,13 @@
+.venv/
+__pycache__/
+.pytest_cache/
+*.pyc
+.DS_Store
+# Preservar brutos externos localmente e publicar apenas quando conferida licença/atribuição.
+data/brutos/*/
+data/tratados/*.csv
+outputs/*.csv
+outputs/*.png
+!data/brutos/.gitkeep
+!data/tratados/.gitkeep
+!outputs/.gitkeep
