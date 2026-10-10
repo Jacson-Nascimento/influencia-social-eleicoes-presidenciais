@@ -1,0 +1,65 @@
+name: Autocorrelacao espacial descritiva por UF
+
+on:
+  push:
+    paths:
+      - '.github/workflows/analise_espacial_uf.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  espacial:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: pip
+      - name: Preparar dependências
+        run: |
+          python -m pip install -r requirements.txt
+          python -m pip install 'shapely>=2.0,<3.0'
+          python -m unittest discover -s tests -v
+      - name: Coletar geometria e metadados oficiais IBGE
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p data/geografia_bruta
+          curl -fL --retry 4 --retry-all-errors --retry-delay 10 --max-time 600 \
+            'https://servicodados.ibge.gov.br/api/v3/malhas/paises/BR?intrarregiao=UF&formato=application/vnd.geo%2Bjson&qualidade=minima' \
+            -o data/geografia_bruta/uf_IBGE.geojson
+          curl -fL --retry 4 --retry-all-errors --retry-delay 10 --max-time 120 \
+            'https://servicodados.ibge.gov.br/api/v1/localidades/estados' \
+            -o data/geografia_bruta/ufs_IBGE.json
+          python -m json.tool data/geografia_bruta/uf_IBGE.geojson >/dev/null
+          python -m json.tool data/geografia_bruta/ufs_IBGE.json >/dev/null
+          sha256sum data/geografia_bruta/* | tee data/geografia_bruta/SHA256SUMS.txt
+      - name: Testar associação espacial exploratória
+        run: |
+          python scripts/08_autocorrelacao_uf.py \
+            --votos2018 data/tratados/votos_presidente_municipio_2018_RESSALVA.csv \
+            --votos2022 data/tratados/votos_presidente_municipio_2022.csv \
+            --geo data/geografia_bruta/uf_IBGE.geojson \
+            --metadata data/geografia_bruta/ufs_IBGE.json \
+            --saida outputs/espacial_v01/moran_hhi_ufs_2018_2022.json
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: ibge-uf-geometria-e-moran
+          path: |
+            data/geografia_bruta/*
+            outputs/espacial_v01/*
+          retention-days: 90
+          if-no-files-found: warn
+      - name: Versionar resultado, sem sobrescrever bases anteriores
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/geografia_bruta/SHA256SUMS.txt
+          git add -f outputs/espacial_v01/*.json
+          git commit -m "Publicar análise espacial exploratória de HHI por UF com permutação"
+          git pull --rebase origin main
+          git push origin HEAD:main
