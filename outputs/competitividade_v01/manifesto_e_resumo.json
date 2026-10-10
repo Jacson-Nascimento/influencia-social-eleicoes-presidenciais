@@ -1,0 +1,55 @@
+{
+  "autor": "Jacson Cruz do Nascimento",
+  "indicador_principal": "C2=1-abs(v13-voponente)/(v13+voponente)=1-abs(margem_assinada_pt13), apenas 2º turno.",
+  "indice_secundario": "Top2 municipal condicional e sua cobertura sobre votos válidos; HHI e número efetivo de candidaturas no 1º turno.",
+  "indice_direcao": "(v13-voponente)/(v13+voponente), 2º turno, com identificação de candidatos por ano.",
+  "candidaturas": {
+    "2018": {
+      "13": "Fernando Haddad (PT)",
+      "17": "Jair Bolsonaro (PSL)"
+    },
+    "2022": {
+      "13": "Luiz Inácio Lula da Silva (PT)",
+      "22": "Jair Bolsonaro (PL)"
+    }
+  },
+  "avisos": [
+    "Mesma legenda PT/número 13, candidatos diferentes 2018/2022.",
+    "C2 mede competitividade municipal, não eleição competitiva entre partidos em geral.",
+    "Empate municipal C2=1, votação integral para um candidato C2=0.",
+    "Sem inferência individual, causal ou preditiva.",
+    "2018 permanece sob ressalva de 76 votos no primeiro turno comparado com notícia histórica do TSE."
+  ],
+  "sha256_insumos": {
+    "2018": "72cc7749a4d69416fece6e8b73aa448f2cc05a20b693d336891a6c3652f9a149",
+    "2022": "e5447a4563d1c4bfac6664bd8f9227f11fb1c6ef02f0ac848969fac4ac3cdfb1"
+  },
+  "resumo": [
+    {
+      "ano": 2018,
+      "municipios": 5570,
+      "mediana_competitividade_segundo_turno": 0.6148434970068745,
+      "media_competitividade_segundo_turno_nao_ponderada": 0.6105406841470624,
+      "competitividade_nacional_ponderada_pela_votacao": 0.8979583568426934,
+      "fracao_municipios_vantagem_pt13": 0.5044883303411131,
+      "frac_municipios_margem_zero": 0.0,
+      "mediana_cobertura_top2_primeiro_turno": 0.8177264974312946,
+      "mediana_competitividade_top2_condicional_primeiro": 0.5859734927807781,
+      "n_cidades_primeiro_turno_top2_diferentes_finalistas": 795,
+      "votos_nacionais_segundo_turno": 104653352
+    },
+    {
+      "ano": 2022,
+      "municipios": 5570,
+      "mediana_competitividade_segundo_turno": 0.6988422022201002,
+      "media_competitividade_segundo_turno_nao_ponderada": 0.6710422853909845,
+      "competitividade_nacional_ponderada_pela_votacao": 0.9819710057785355,
+      "fracao_municipios_vantagem_pt13": 0.5606822262118492,
+      "frac_municipios_margem_zero": 0.0003590664272890485,
+      "mediana_cobertura_top2_primeiro_turno": 0.9408709477817927,
+      "mediana_competitividade_top2_condicional_primeiro": 0.6968810381564987,
+      "n_cidades_primeiro_turno_top2_diferentes_finalistas": 0,
+      "votos_nacionais_segundo_turno": 118254184
+    }
+  ]
+}
