@@ -1,0 +1,1094 @@
+[
+  {
+    "ano": 2018,
+    "turno": 1,
+    "k": 4,
+    "n_municipios": 5565,
+    "r2_uf_locais": 0.45963089945322644,
+    "r2_uf_locais_e_vizinhos": 0.46226893102174416,
+    "incremento_r2": 0.002638031568517718,
+    "moran_residuo_local": 0.47309733047598196,
+    "moran_residuo_com_contexto": 0.47176173458367193,
+    "rmse_cv_local": 0.0941385843680472,
+    "rmse_cv_contexto": 0.09331037186422687,
+    "reduz_rmse_cv_pct": 0.8797800703931574,
+    "dobras_com_piora": 1,
+    "detalhe_cv": {
+      "rmse_controles_locais": 0.0941385843680472,
+      "rmse_controles_mais_contexto": 0.09331037186422687,
+      "mudanca_relativa_rmse_pct": 0.8797800703931574,
+      "dobras_com_piora": 1,
+      "n_folds": 5,
+      "folds": [
+        {
+          "fold": 1,
+          "ufs_teste": [
+            "AC",
+            "CE",
+            "MG",
+            "PE",
+            "RO",
+            "SP"
+          ],
+          "n_teste": 1941,
+          "sse_controles_locais": 14.673110333572017,
+          "sse_controles_mais_contexto": 14.442887086823152
+        },
+        {
+          "fold": 2,
+          "ufs_teste": [
+            "AL",
+            "DF",
+            "MS",
+            "PI",
+            "RR",
+            "TO"
+          ],
+          "n_teste": 559,
+          "sse_controles_locais": 6.045849776339233,
+          "sse_controles_mais_contexto": 5.794248758690843
+        },
+        {
+          "fold": 3,
+          "ufs_teste": [
+            "AM",
+            "ES",
+            "MT",
+            "PR",
+            "RS"
+          ],
+          "n_teste": 1176,
+          "sse_controles_locais": 7.629940949713667,
+          "sse_controles_mais_contexto": 7.355666857716214
+        },
+        {
+          "fold": 4,
+          "ufs_teste": [
+            "AP",
+            "GO",
+            "PA",
+            "RJ",
+            "SC"
+          ],
+          "n_teste": 790,
+          "sse_controles_locais": 7.142304881122181,
+          "sse_controles_mais_contexto": 7.7260750829238365
+        },
+        {
+          "fold": 5,
+          "ufs_teste": [
+            "BA",
+            "MA",
+            "PB",
+            "RN",
+            "SE"
+          ],
+          "n_teste": 1099,
+          "sse_controles_locais": 13.82623067610588,
+          "sse_controles_mais_contexto": 13.13460610710123
+        }
+      ]
+    }
+  },
+  {
+    "ano": 2018,
+    "turno": 1,
+    "k": 8,
+    "n_municipios": 5565,
+    "r2_uf_locais": 0.45963089945322644,
+    "r2_uf_locais_e_vizinhos": 0.4635304205587908,
+    "incremento_r2": 0.003899521105564352,
+    "moran_residuo_local": 0.4245643042473033,
+    "moran_residuo_com_contexto": 0.4226386916974053,
+    "rmse_cv_local": 0.0941385843680472,
+    "rmse_cv_contexto": 0.09323986019351159,
+    "reduz_rmse_cv_pct": 0.9546820579136086,
+    "dobras_com_piora": 1,
+    "detalhe_cv": {
+      "rmse_controles_locais": 0.0941385843680472,
+      "rmse_controles_mais_contexto": 0.09323986019351159,
+      "mudanca_relativa_rmse_pct": 0.9546820579136086,
+      "dobras_com_piora": 1,
+      "n_folds": 5,
+      "folds": [
+        {
+          "fold": 1,
+          "ufs_teste": [
+            "AC",
+            "CE",
+            "MG",
+            "PE",
+            "RO",
+            "SP"
+          ],
+          "n_teste": 1941,
+          "sse_controles_locais": 14.673110333572017,
+          "sse_controles_mais_contexto": 14.468518330803244
+        },
+        {
+          "fold": 2,
+          "ufs_teste": [
+            "AL",
+            "DF",
+            "MS",
+            "PI",
+            "RR",
+            "TO"
+          ],
+          "n_teste": 559,
+          "sse_controles_locais": 6.045849776339233,
+          "sse_controles_mais_contexto": 5.7005655917649545
+        },
+        {
+          "fold": 3,
+          "ufs_teste": [
+            "AM",
+            "ES",
+            "MT",
+            "PR",
+            "RS"
+          ],
+          "n_teste": 1176,
+          "sse_controles_locais": 7.629940949713667,
+          "sse_controles_mais_contexto": 7.354412593021456
+        },
+        {
+          "fold": 4,
+          "ufs_teste": [
+            "AP",
+            "GO",
+            "PA",
+            "RJ",
+            "SC"
+          ],
+          "n_teste": 790,
+          "sse_controles_locais": 7.142304881122181,
+          "sse_controles_mais_contexto": 7.8653499853573825
+        },
+        {
+          "fold": 5,
+          "ufs_teste": [
+            "BA",
+            "MA",
+            "PB",
+            "RN",
+            "SE"
+          ],
+          "n_teste": 1099,
+          "sse_controles_locais": 13.82623067610588,
+          "sse_controles_mais_contexto": 12.991435557412562
+        }
+      ]
+    }
+  },
+  {
+    "ano": 2018,
+    "turno": 1,
+    "k": 12,
+    "n_municipios": 5565,
+    "r2_uf_locais": 0.45963089945322644,
+    "r2_uf_locais_e_vizinhos": 0.4649456977657582,
+    "incremento_r2": 0.005314798312531788,
+    "moran_residuo_local": 0.3907064970476697,
+    "moran_residuo_com_contexto": 0.38851082969718204,
+    "rmse_cv_local": 0.0941385843680472,
+    "rmse_cv_contexto": 0.09314355004573276,
+    "reduz_rmse_cv_pct": 1.0569888308753688,
+    "dobras_com_piora": 1,
+    "detalhe_cv": {
+      "rmse_controles_locais": 0.0941385843680472,
+      "rmse_controles_mais_contexto": 0.09314355004573276,
+      "mudanca_relativa_rmse_pct": 1.0569888308753688,
+      "dobras_com_piora": 1,
+      "n_folds": 5,
+      "folds": [
+        {
+          "fold": 1,
+          "ufs_teste": [
+            "AC",
+            "CE",
+            "MG",
+            "PE",
+            "RO",
+            "SP"
+          ],
+          "n_teste": 1941,
+          "sse_controles_locais": 14.673110333572017,
+          "sse_controles_mais_contexto": 14.414277708038417
+        },
+        {
+          "fold": 2,
+          "ufs_teste": [
+            "AL",
+            "DF",
+            "MS",
+            "PI",
+            "RR",
+            "TO"
+          ],
+          "n_teste": 559,
+          "sse_controles_locais": 6.045849776339233,
+          "sse_controles_mais_contexto": 5.632603504704955
+        },
+        {
+          "fold": 3,
+          "ufs_teste": [
+            "AM",
+            "ES",
+            "MT",
+            "PR",
+            "RS"
+          ],
+          "n_teste": 1176,
+          "sse_controles_locais": 7.629940949713667,
+          "sse_controles_mais_contexto": 7.3856119033772725
+        },
+        {
+          "fold": 4,
+          "ufs_teste": [
+            "AP",
+            "GO",
+            "PA",
+            "RJ",
+            "SC"
+          ],
+          "n_teste": 790,
+          "sse_controles_locais": 7.142304881122181,
+          "sse_controles_mais_contexto": 7.951075247337746
+        },
+        {
+          "fold": 5,
+          "ufs_teste": [
+            "BA",
+            "MA",
+            "PB",
+            "RN",
+            "SE"
+          ],
+          "n_teste": 1099,
+          "sse_controles_locais": 13.82623067610588,
+          "sse_controles_mais_contexto": 12.896818529195098
+        }
+      ]
+    }
+  },
+  {
+    "ano": 2018,
+    "turno": 2,
+    "k": 4,
+    "n_municipios": 5565,
+    "r2_uf_locais": 0.4597362039569859,
+    "r2_uf_locais_e_vizinhos": 0.4623295484478872,
+    "incremento_r2": 0.002593344490901317,
+    "moran_residuo_local": 0.5309186790188337,
+    "moran_residuo_com_contexto": 0.530706908731591,
+    "rmse_cv_local": 0.08736041143073872,
+    "rmse_cv_contexto": 0.08596670866170866,
+    "reduz_rmse_cv_pct": 1.5953482203263398,
+    "dobras_com_piora": 2,
+    "detalhe_cv": {
+      "rmse_controles_locais": 0.08736041143073872,
+      "rmse_controles_mais_contexto": 0.08596670866170866,
+      "mudanca_relativa_rmse_pct": 1.5953482203263398,
+      "dobras_com_piora": 2,
+      "n_folds": 5,
+      "folds": [
+        {
+          "fold": 1,
+          "ufs_teste": [
+            "AC",
+            "CE",
+            "MG",
+            "PE",
+            "RO",
+            "SP"
+          ],
+          "n_teste": 1941,
+          "sse_controles_locais": 13.754084750166104,
+          "sse_controles_mais_contexto": 14.01670969835044
+        },
+        {
+          "fold": 2,
+          "ufs_teste": [
+            "AL",
+            "DF",
+            "MS",
+            "PI",
+            "RR",
+            "TO"
+          ],
+          "n_teste": 559,
+          "sse_controles_locais": 5.444468004385217,
+          "sse_controles_mais_contexto": 5.118426910565635
+        },
+        {
+          "fold": 3,
+          "ufs_teste": [
+            "AM",
+            "ES",
+            "MT",
+            "PR",
+            "RS"
+          ],
+          "n_teste": 1176,
+          "sse_controles_locais": 7.419774688684737,
+          "sse_controles_mais_contexto": 7.03495462959709
+        },
+        {
+          "fold": 4,
+          "ufs_teste": [
+            "AP",
+            "GO",
+            "PA",
+            "RJ",
+            "SC"
+          ],
+          "n_teste": 790,
+          "sse_controles_locais": 5.983084351290141,
+          "sse_controles_mais_contexto": 6.037182648004727
+        },
+        {
+          "fold": 5,
+          "ufs_teste": [
+            "BA",
+            "MA",
+            "PB",
+            "RN",
+            "SE"
+          ],
+          "n_teste": 1099,
+          "sse_controles_locais": 9.869786071435115,
+          "sse_controles_mais_contexto": 8.919606478059384
+        }
+      ]
+    }
+  },
+  {
+    "ano": 2018,
+    "turno": 2,
+    "k": 8,
+    "n_municipios": 5565,
+    "r2_uf_locais": 0.4597362039569859,
+    "r2_uf_locais_e_vizinhos": 0.46338338941066637,
+    "incremento_r2": 0.0036471854536804793,
+    "moran_residuo_local": 0.482529602603584,
+    "moran_residuo_com_contexto": 0.48186525314383316,
+    "rmse_cv_local": 0.08736041143073872,
+    "rmse_cv_contexto": 0.08558130499720448,
+    "reduz_rmse_cv_pct": 2.0365133409939973,
+    "dobras_com_piora": 2,
+    "detalhe_cv": {
+      "rmse_controles_locais": 0.08736041143073872,
+      "rmse_controles_mais_contexto": 0.08558130499720448,
+      "mudanca_relativa_rmse_pct": 2.0365133409939973,
+      "dobras_com_piora": 2,
+      "n_folds": 5,
+      "folds": [
+        {
+          "fold": 1,
+          "ufs_teste": [
+            "AC",
+            "CE",
+            "MG",
+            "PE",
+            "RO",
+            "SP"
+          ],
+          "n_teste": 1941,
+          "sse_controles_locais": 13.754084750166104,
+          "sse_controles_mais_contexto": 14.009841184037576
+        },
+        {
+          "fold": 2,
+          "ufs_teste": [
+            "AL",
+            "DF",
+            "MS",
+            "PI",
+            "RR",
+            "TO"
+          ],
+          "n_teste": 559,
+          "sse_controles_locais": 5.444468004385217,
+          "sse_controles_mais_contexto": 5.042514428549797
+        },
+        {
+          "fold": 3,
+          "ufs_teste": [
+            "AM",
+            "ES",
+            "MT",
+            "PR",
+            "RS"
+          ],
+          "n_teste": 1176,
+          "sse_controles_locais": 7.419774688684737,
+          "sse_controles_mais_contexto": 7.016086657223887
+        },
+        {
+          "fold": 4,
+          "ufs_teste": [
+            "AP",
+            "GO",
+            "PA",
+            "RJ",
+            "SC"
+          ],
+          "n_teste": 790,
+          "sse_controles_locais": 5.983084351290141,
+          "sse_controles_mais_contexto": 5.989216134424549
+        },
+        {
+          "fold": 5,
+          "ufs_teste": [
+            "BA",
+            "MA",
+            "PB",
+            "RN",
+            "SE"
+          ],
+          "n_teste": 1099,
+          "sse_controles_locais": 9.869786071435115,
+          "sse_controles_mais_contexto": 8.701290688125741
+        }
+      ]
+    }
+  },
+  {
+    "ano": 2018,
+    "turno": 2,
+    "k": 12,
+    "n_municipios": 5565,
+    "r2_uf_locais": 0.4597362039569859,
+    "r2_uf_locais_e_vizinhos": 0.4646346183505945,
+    "incremento_r2": 0.004898414393608608,
+    "moran_residuo_local": 0.4490391040149526,
+    "moran_residuo_com_contexto": 0.44834043998522033,
+    "rmse_cv_local": 0.08736041143073872,
+    "rmse_cv_contexto": 0.08541332626780061,
+    "reduz_rmse_cv_pct": 2.2287957795182787,
+    "dobras_com_piora": 1,
+    "detalhe_cv": {
+      "rmse_controles_locais": 0.08736041143073872,
+      "rmse_controles_mais_contexto": 0.08541332626780061,
+      "mudanca_relativa_rmse_pct": 2.2287957795182787,
+      "dobras_com_piora": 1,
+      "n_folds": 5,
+      "folds": [
+        {
+          "fold": 1,
+          "ufs_teste": [
+            "AC",
+            "CE",
+            "MG",
+            "PE",
+            "RO",
+            "SP"
+          ],
+          "n_teste": 1941,
+          "sse_controles_locais": 13.754084750166104,
+          "sse_controles_mais_contexto": 14.046019362925174
+        },
+        {
+          "fold": 2,
+          "ufs_teste": [
+            "AL",
+            "DF",
+            "MS",
+            "PI",
+            "RR",
+            "TO"
+          ],
+          "n_teste": 559,
+          "sse_controles_locais": 5.444468004385217,
+          "sse_controles_mais_contexto": 5.010319393855072
+        },
+        {
+          "fold": 3,
+          "ufs_teste": [
+            "AM",
+            "ES",
+            "MT",
+            "PR",
+            "RS"
+          ],
+          "n_teste": 1176,
+          "sse_controles_locais": 7.419774688684737,
+          "sse_controles_mais_contexto": 7.052408105351552
+        },
+        {
+          "fold": 4,
+          "ufs_teste": [
+            "AP",
+            "GO",
+            "PA",
+            "RJ",
+            "SC"
+          ],
+          "n_teste": 790,
+          "sse_controles_locais": 5.983084351290141,
+          "sse_controles_mais_contexto": 5.944712915706656
+        },
+        {
+          "fold": 5,
+          "ufs_teste": [
+            "BA",
+            "MA",
+            "PB",
+            "RN",
+            "SE"
+          ],
+          "n_teste": 1099,
+          "sse_controles_locais": 9.869786071435115,
+          "sse_controles_mais_contexto": 8.545643254643657
+        }
+      ]
+    }
+  },
+  {
+    "ano": 2022,
+    "turno": 1,
+    "k": 4,
+    "n_municipios": 5565,
+    "r2_uf_locais": 0.6303833032752533,
+    "r2_uf_locais_e_vizinhos": 0.6363504021329078,
+    "incremento_r2": 0.0059670988576545625,
+    "moran_residuo_local": 0.5148873030312777,
+    "moran_residuo_com_contexto": 0.5134250521326652,
+    "rmse_cv_local": 0.07778225056941443,
+    "rmse_cv_contexto": 0.07305586006981205,
+    "reduz_rmse_cv_pct": 6.076438345512334,
+    "dobras_com_piora": 0,
+    "detalhe_cv": {
+      "rmse_controles_locais": 0.07778225056941443,
+      "rmse_controles_mais_contexto": 0.07305586006981205,
+      "mudanca_relativa_rmse_pct": 6.076438345512334,
+      "dobras_com_piora": 0,
+      "n_folds": 5,
+      "folds": [
+        {
+          "fold": 1,
+          "ufs_teste": [
+            "AC",
+            "CE",
+            "MG",
+            "PE",
+            "RO",
+            "SP"
+          ],
+          "n_teste": 1941,
+          "sse_controles_locais": 9.496671993404838,
+          "sse_controles_mais_contexto": 8.534499264093546
+        },
+        {
+          "fold": 2,
+          "ufs_teste": [
+            "AL",
+            "DF",
+            "MS",
+            "PI",
+            "RR",
+            "TO"
+          ],
+          "n_teste": 559,
+          "sse_controles_locais": 4.499518395725124,
+          "sse_controles_mais_contexto": 3.8377899775875144
+        },
+        {
+          "fold": 3,
+          "ufs_teste": [
+            "AM",
+            "ES",
+            "MT",
+            "PR",
+            "RS"
+          ],
+          "n_teste": 1176,
+          "sse_controles_locais": 6.553529936934857,
+          "sse_controles_mais_contexto": 6.095633432385819
+        },
+        {
+          "fold": 4,
+          "ufs_teste": [
+            "AP",
+            "GO",
+            "PA",
+            "RJ",
+            "SC"
+          ],
+          "n_teste": 790,
+          "sse_controles_locais": 3.6764884673778706,
+          "sse_controles_mais_contexto": 3.4708641389941537
+        },
+        {
+          "fold": 5,
+          "ufs_teste": [
+            "BA",
+            "MA",
+            "PB",
+            "RN",
+            "SE"
+          ],
+          "n_teste": 1099,
+          "sse_controles_locais": 9.44247807933156,
+          "sse_controles_mais_contexto": 7.76250129979384
+        }
+      ]
+    }
+  },
+  {
+    "ano": 2022,
+    "turno": 1,
+    "k": 8,
+    "n_municipios": 5565,
+    "r2_uf_locais": 0.6303833032752533,
+    "r2_uf_locais_e_vizinhos": 0.6382653242920471,
+    "incremento_r2": 0.007882021016793805,
+    "moran_residuo_local": 0.4621130913866925,
+    "moran_residuo_com_contexto": 0.46006527967569116,
+    "rmse_cv_local": 0.07778225056941443,
+    "rmse_cv_contexto": 0.07179537840452274,
+    "reduz_rmse_cv_pct": 7.696964437341504,
+    "dobras_com_piora": 0,
+    "detalhe_cv": {
+      "rmse_controles_locais": 0.07778225056941443,
+      "rmse_controles_mais_contexto": 0.07179537840452274,
+      "mudanca_relativa_rmse_pct": 7.696964437341504,
+      "dobras_com_piora": 0,
+      "n_folds": 5,
+      "folds": [
+        {
+          "fold": 1,
+          "ufs_teste": [
+            "AC",
+            "CE",
+            "MG",
+            "PE",
+            "RO",
+            "SP"
+          ],
+          "n_teste": 1941,
+          "sse_controles_locais": 9.496671993404838,
+          "sse_controles_mais_contexto": 8.37555767706791
+        },
+        {
+          "fold": 2,
+          "ufs_teste": [
+            "AL",
+            "DF",
+            "MS",
+            "PI",
+            "RR",
+            "TO"
+          ],
+          "n_teste": 559,
+          "sse_controles_locais": 4.499518395725124,
+          "sse_controles_mais_contexto": 3.6763088118617233
+        },
+        {
+          "fold": 3,
+          "ufs_teste": [
+            "AM",
+            "ES",
+            "MT",
+            "PR",
+            "RS"
+          ],
+          "n_teste": 1176,
+          "sse_controles_locais": 6.553529936934857,
+          "sse_controles_mais_contexto": 6.027919198631744
+        },
+        {
+          "fold": 4,
+          "ufs_teste": [
+            "AP",
+            "GO",
+            "PA",
+            "RJ",
+            "SC"
+          ],
+          "n_teste": 790,
+          "sse_controles_locais": 3.6764884673778706,
+          "sse_controles_mais_contexto": 3.3179519366251173
+        },
+        {
+          "fold": 5,
+          "ufs_teste": [
+            "BA",
+            "MA",
+            "PB",
+            "RN",
+            "SE"
+          ],
+          "n_teste": 1099,
+          "sse_controles_locais": 9.44247807933156,
+          "sse_controles_mais_contexto": 7.287479820597019
+        }
+      ]
+    }
+  },
+  {
+    "ano": 2022,
+    "turno": 1,
+    "k": 12,
+    "n_municipios": 5565,
+    "r2_uf_locais": 0.6303833032752533,
+    "r2_uf_locais_e_vizinhos": 0.6399163387010391,
+    "incremento_r2": 0.009533035425785874,
+    "moran_residuo_local": 0.4275835804491884,
+    "moran_residuo_com_contexto": 0.42518474427009445,
+    "rmse_cv_local": 0.07778225056941443,
+    "rmse_cv_contexto": 0.07102002556834447,
+    "reduz_rmse_cv_pct": 8.69378933055584,
+    "dobras_com_piora": 0,
+    "detalhe_cv": {
+      "rmse_controles_locais": 0.07778225056941443,
+      "rmse_controles_mais_contexto": 0.07102002556834447,
+      "mudanca_relativa_rmse_pct": 8.69378933055584,
+      "dobras_com_piora": 0,
+      "n_folds": 5,
+      "folds": [
+        {
+          "fold": 1,
+          "ufs_teste": [
+            "AC",
+            "CE",
+            "MG",
+            "PE",
+            "RO",
+            "SP"
+          ],
+          "n_teste": 1941,
+          "sse_controles_locais": 9.496671993404838,
+          "sse_controles_mais_contexto": 8.228838208561374
+        },
+        {
+          "fold": 2,
+          "ufs_teste": [
+            "AL",
+            "DF",
+            "MS",
+            "PI",
+            "RR",
+            "TO"
+          ],
+          "n_teste": 559,
+          "sse_controles_locais": 4.499518395725124,
+          "sse_controles_mais_contexto": 3.584332696202045
+        },
+        {
+          "fold": 3,
+          "ufs_teste": [
+            "AM",
+            "ES",
+            "MT",
+            "PR",
+            "RS"
+          ],
+          "n_teste": 1176,
+          "sse_controles_locais": 6.553529936934857,
+          "sse_controles_mais_contexto": 5.958248112370912
+        },
+        {
+          "fold": 4,
+          "ufs_teste": [
+            "AP",
+            "GO",
+            "PA",
+            "RJ",
+            "SC"
+          ],
+          "n_teste": 790,
+          "sse_controles_locais": 3.6764884673778706,
+          "sse_controles_mais_contexto": 3.283871833255711
+        },
+        {
+          "fold": 5,
+          "ufs_teste": [
+            "BA",
+            "MA",
+            "PB",
+            "RN",
+            "SE"
+          ],
+          "n_teste": 1099,
+          "sse_controles_locais": 9.44247807933156,
+          "sse_controles_mais_contexto": 7.013701186177958
+        }
+      ]
+    }
+  },
+  {
+    "ano": 2022,
+    "turno": 2,
+    "k": 4,
+    "n_municipios": 5565,
+    "r2_uf_locais": 0.550496095551624,
+    "r2_uf_locais_e_vizinhos": 0.5552982655300358,
+    "incremento_r2": 0.004802169978411763,
+    "moran_residuo_local": 0.5231325501821609,
+    "moran_residuo_com_contexto": 0.5229359322586733,
+    "rmse_cv_local": 0.07254497746678892,
+    "rmse_cv_contexto": 0.06951087902368615,
+    "reduz_rmse_cv_pct": 4.182368716692738,
+    "dobras_com_piora": 0,
+    "detalhe_cv": {
+      "rmse_controles_locais": 0.07254497746678892,
+      "rmse_controles_mais_contexto": 0.06951087902368615,
+      "mudanca_relativa_rmse_pct": 4.182368716692738,
+      "dobras_com_piora": 0,
+      "n_folds": 5,
+      "folds": [
+        {
+          "fold": 1,
+          "ufs_teste": [
+            "AC",
+            "CE",
+            "MG",
+            "PE",
+            "RO",
+            "SP"
+          ],
+          "n_teste": 1941,
+          "sse_controles_locais": 7.830551427045109,
+          "sse_controles_mais_contexto": 7.246556141301066
+        },
+        {
+          "fold": 2,
+          "ufs_teste": [
+            "AL",
+            "DF",
+            "MS",
+            "PI",
+            "RR",
+            "TO"
+          ],
+          "n_teste": 559,
+          "sse_controles_locais": 4.165603922973937,
+          "sse_controles_mais_contexto": 3.6855710985142083
+        },
+        {
+          "fold": 3,
+          "ufs_teste": [
+            "AM",
+            "ES",
+            "MT",
+            "PR",
+            "RS"
+          ],
+          "n_teste": 1176,
+          "sse_controles_locais": 5.884184156105739,
+          "sse_controles_mais_contexto": 5.706386516694735
+        },
+        {
+          "fold": 4,
+          "ufs_teste": [
+            "AP",
+            "GO",
+            "PA",
+            "RJ",
+            "SC"
+          ],
+          "n_teste": 790,
+          "sse_controles_locais": 3.5163909154441773,
+          "sse_controles_mais_contexto": 3.4170848138596184
+        },
+        {
+          "fold": 5,
+          "ufs_teste": [
+            "BA",
+            "MA",
+            "PB",
+            "RN",
+            "SE"
+          ],
+          "n_teste": 1099,
+          "sse_controles_locais": 7.890605528661757,
+          "sse_controles_mais_contexto": 6.83315864385275
+        }
+      ]
+    }
+  },
+  {
+    "ano": 2022,
+    "turno": 2,
+    "k": 8,
+    "n_municipios": 5565,
+    "r2_uf_locais": 0.550496095551624,
+    "r2_uf_locais_e_vizinhos": 0.5569747863232268,
+    "incremento_r2": 0.006478690771602791,
+    "moran_residuo_local": 0.47116839449424747,
+    "moran_residuo_com_contexto": 0.47091864248297655,
+    "rmse_cv_local": 0.07254497746678892,
+    "rmse_cv_contexto": 0.0688375696554403,
+    "reduz_rmse_cv_pct": 5.110495503352901,
+    "dobras_com_piora": 0,
+    "detalhe_cv": {
+      "rmse_controles_locais": 0.07254497746678892,
+      "rmse_controles_mais_contexto": 0.0688375696554403,
+      "mudanca_relativa_rmse_pct": 5.110495503352901,
+      "dobras_com_piora": 0,
+      "n_folds": 5,
+      "folds": [
+        {
+          "fold": 1,
+          "ufs_teste": [
+            "AC",
+            "CE",
+            "MG",
+            "PE",
+            "RO",
+            "SP"
+          ],
+          "n_teste": 1941,
+          "sse_controles_locais": 7.830551427045109,
+          "sse_controles_mais_contexto": 7.17449274021315
+        },
+        {
+          "fold": 2,
+          "ufs_teste": [
+            "AL",
+            "DF",
+            "MS",
+            "PI",
+            "RR",
+            "TO"
+          ],
+          "n_teste": 559,
+          "sse_controles_locais": 4.165603922973937,
+          "sse_controles_mais_contexto": 3.5686718157480897
+        },
+        {
+          "fold": 3,
+          "ufs_teste": [
+            "AM",
+            "ES",
+            "MT",
+            "PR",
+            "RS"
+          ],
+          "n_teste": 1176,
+          "sse_controles_locais": 5.884184156105739,
+          "sse_controles_mais_contexto": 5.740279607005501
+        },
+        {
+          "fold": 4,
+          "ufs_teste": [
+            "AP",
+            "GO",
+            "PA",
+            "RJ",
+            "SC"
+          ],
+          "n_teste": 790,
+          "sse_controles_locais": 3.5163909154441773,
+          "sse_controles_mais_contexto": 3.3382907137628113
+        },
+        {
+          "fold": 5,
+          "ufs_teste": [
+            "BA",
+            "MA",
+            "PB",
+            "RN",
+            "SE"
+          ],
+          "n_teste": 1099,
+          "sse_controles_locais": 7.890605528661757,
+          "sse_controles_mais_contexto": 6.548635316386617
+        }
+      ]
+    }
+  },
+  {
+    "ano": 2022,
+    "turno": 2,
+    "k": 12,
+    "n_municipios": 5565,
+    "r2_uf_locais": 0.550496095551624,
+    "r2_uf_locais_e_vizinhos": 0.5584304523126324,
+    "incremento_r2": 0.007934356761008399,
+    "moran_residuo_local": 0.43553253078266746,
+    "moran_residuo_com_contexto": 0.434876765206322,
+    "rmse_cv_local": 0.07254497746678892,
+    "rmse_cv_contexto": 0.06843300626474359,
+    "reduz_rmse_cv_pct": 5.668168005052852,
+    "dobras_com_piora": 0,
+    "detalhe_cv": {
+      "rmse_controles_locais": 0.07254497746678892,
+      "rmse_controles_mais_contexto": 0.06843300626474359,
+      "mudanca_relativa_rmse_pct": 5.668168005052852,
+      "dobras_com_piora": 0,
+      "n_folds": 5,
+      "folds": [
+        {
+          "fold": 1,
+          "ufs_teste": [
+            "AC",
+            "CE",
+            "MG",
+            "PE",
+            "RO",
+            "SP"
+          ],
+          "n_teste": 1941,
+          "sse_controles_locais": 7.830551427045109,
+          "sse_controles_mais_contexto": 7.104887417224774
+        },
+        {
+          "fold": 2,
+          "ufs_teste": [
+            "AL",
+            "DF",
+            "MS",
+            "PI",
+            "RR",
+            "TO"
+          ],
+          "n_teste": 559,
+          "sse_controles_locais": 4.165603922973937,
+          "sse_controles_mais_contexto": 3.506998885668713
+        },
+        {
+          "fold": 3,
+          "ufs_teste": [
+            "AM",
+            "ES",
+            "MT",
+            "PR",
+            "RS"
+          ],
+          "n_teste": 1176,
+          "sse_controles_locais": 5.884184156105739,
+          "sse_controles_mais_contexto": 5.757696045271984
+        },
+        {
+          "fold": 4,
+          "ufs_teste": [
+            "AP",
+            "GO",
+            "PA",
+            "RJ",
+            "SC"
+          ],
+          "n_teste": 790,
+          "sse_controles_locais": 3.5163909154441773,
+          "sse_controles_mais_contexto": 3.3028392275805305
+        },
+        {
+          "fold": 5,
+          "ufs_teste": [
+            "BA",
+            "MA",
+            "PB",
+            "RN",
+            "SE"
+          ],
+          "n_teste": 1099,
+          "sse_controles_locais": 7.890605528661757,
+          "sse_controles_mais_contexto": 6.388898292139376
+        }
+      ]
+    }
+  }
+]

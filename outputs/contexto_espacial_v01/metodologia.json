@@ -1,0 +1,41 @@
+{
+  "objeto": "HHI municipal observado 2018/2022, não votos individuais",
+  "amostra_municipios": 5565,
+  "municipios_excluidos": [
+    {
+      "SG_UF": "MS",
+      "CD_MUNICIPIO": 55050,
+      "CD_MUNICIPIO_IBGE": "5006275"
+    },
+    {
+      "SG_UF": "PA",
+      "CD_MUNICIPIO": 4863,
+      "CD_MUNICIPIO_IBGE": "1504752"
+    },
+    {
+      "SG_UF": "RS",
+      "CD_MUNICIPIO": 89540,
+      "CD_MUNICIPIO_IBGE": "4314548"
+    },
+    {
+      "SG_UF": "SC",
+      "CD_MUNICIPIO": 83909,
+      "CD_MUNICIPIO_IBGE": "4220000"
+    },
+    {
+      "SG_UF": "SC",
+      "CD_MUNICIPIO": 83925,
+      "CD_MUNICIPIO_IBGE": "4212650"
+    }
+  ],
+  "comparacao": "UF + covariáveis locais versus UF + covariáveis locais + médias de covariáveis dos k vizinhos (in-sample); CV excluindo UF completa sem efeitos fixos estaduais",
+  "k_primario": 8,
+  "k_sensibilidade": [
+    4,
+    12
+  ],
+  "vizinhos": "Médias de quatro covariáveis IBGE nos k centroides mais próximos, não incluem valores de HHI, votos, identidade ou escolha de candidaturas vizinhas.",
+  "sem_uso_de_rotulos_vizinhos": true,
+  "observacao_transducao": "Atributos IBGE dos municípios de teste entram nas médias dos vizinhos, mas a votação/HHI dos municípios de teste nunca é usada para treinar parâmetros. Cenário de covariáveis públicas observadas, não predição eleitoral estrita em tempo real.",
+  "interpretacao": "Associação e extrapolação geográfica descritivas, não manada causal. Vintages IBGE 2026 revisáveis; contiguidade territorial, outras matrizes e identificação social não testadas."
+}
