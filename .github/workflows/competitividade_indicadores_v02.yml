@@ -1,0 +1,74 @@
+name: Indicadores de competitividade eleitoral municipal v02
+
+on:
+  push:
+    paths:
+      - '.github/workflows/competitividade_indicadores_v02.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  indicadores:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: pip
+      - name: Dependencias e testes
+        run: |
+          python -m pip install -r requirements.txt
+          python -m unittest discover -s tests -v
+      - name: Construir os indicadores dos dois turnos
+        run: |
+          python scripts/15_indicadores_competitividade.py \
+            --base2018 data/tratados/votos_presidente_municipio_2018_RESSALVA.csv \
+            --base2022 data/tratados/votos_presidente_municipio_2022.csv \
+            --pasta outputs/competitividade_v02
+      - name: Validar cobertura e identidade de votos
+        run: |
+          python - <<'PY'
+          import json
+          import pandas as pd
+          from pathlib import Path
+          pasta=Path('outputs/competitividade_v02')
+          t2=pd.read_csv(pasta/'competitividade_e_margem_assinada_segundo_turno.csv')
+          t1=pd.read_csv(pasta/'indicadores_complementares_primeiro_turno.csv')
+          assert len(t1)==len(t2)==11140
+          for ano,esperado,arquivo in (
+              (2018,104838753,'data/tratados/votos_presidente_municipio_2018_RESSALVA.csv'),
+              (2022,118552353,'data/tratados/votos_presidente_municipio_2022.csv')):
+              r=t2[t2.ano==ano]
+              full=pd.read_csv(arquivo)
+              g=full[full.NR_TURNO==2]
+              exterior=int(g.loc[g.SG_UF=='ZZ','QT_VOTOS_NOMINAIS'].sum())
+              brasileiros=int(g.loc[g.SG_UF!='ZZ','QT_VOTOS_NOMINAIS'].sum())
+              assert len(r)==5570
+              assert 0<=r.competitividade_2t.min()<=r.competitividade_2t.max()<=1
+              assert (abs(r.competitividade_2t-(1-abs(r.margem_assinada_pt13)))<1e-10).all()
+              assert int(g.QT_VOTOS_NOMINAIS.sum())==esperado
+              assert int(r.total_validos.sum())==brasileiros
+              assert int(r.total_validos.sum())+exterior==esperado
+              print(f'{ano}: Brasil {brasileiros}; exterior {exterior}; total {esperado}.')
+          print('Conciliação dos totais nacionais e das unidades brasileiras aprovada.')
+          PY
+      - name: Artefatos da análise
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: competitividade-municipal-2018-2022-v02
+          path: outputs/competitividade_v02/
+          retention-days: 90
+      - name: Publicar apenas arquivos aprovados
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add -f outputs/competitividade_v02/*.csv
+          git add outputs/competitividade_v02/*.json
+          git commit -m 'Versionar competitividade municipal de 2º turno e controles de 1º turno'
+          git pull --rebase origin main
+          git push origin HEAD:main
