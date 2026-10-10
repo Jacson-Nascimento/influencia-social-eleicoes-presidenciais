@@ -1,0 +1,38 @@
+{
+  "aviso": "p ajustado somente entre os quatro testes fixados em k=4; k=3,5,6 são sensibilidades descritivas",
+  "metodo": "Holm, bicaudal, 9999 permutações por teste e seed 20261010",
+  "resultados": [
+    {
+      "ano": 2018,
+      "turno": 1,
+      "k_vizinhos": 4,
+      "I": 0.05762242965782758,
+      "p_permutacional": 0.4108,
+      "p_ajustado_holm": 0.8216
+    },
+    {
+      "ano": 2018,
+      "turno": 2,
+      "k_vizinhos": 4,
+      "I": -0.007042873932597517,
+      "p_permutacional": 0.7831,
+      "p_ajustado_holm": 0.8216
+    },
+    {
+      "ano": 2022,
+      "turno": 1,
+      "k_vizinhos": 4,
+      "I": 0.4022634904030456,
+      "p_permutacional": 0.0009,
+      "p_ajustado_holm": 0.0036
+    },
+    {
+      "ano": 2022,
+      "turno": 2,
+      "k_vizinhos": 4,
+      "I": 0.18651357202612356,
+      "p_permutacional": 0.0487,
+      "p_ajustado_holm": 0.1461
+    }
+  ]
+}
