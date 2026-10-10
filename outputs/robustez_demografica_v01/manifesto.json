@@ -1,0 +1,30 @@
+{
+  "consulta_municipios": "https://servicodados.ibge.gov.br/api/v1/localidades/municipios",
+  "sha256_catalogo_ibge": "86ecdccdf97d72e7e5e46f0854cfcea8bacc28154cc1bc4ed0e6110e3a6c9c02",
+  "n_capitais_verificadas": 27,
+  "n_especificacoes": 32,
+  "anos": [
+    2018,
+    2022
+  ],
+  "pesos": {
+    "2018": "IBGE estimativa de população de 2017, consultada em 2026",
+    "2022": "IBGE estimativa de população de 2021, consultada em 2026"
+  },
+  "cenarios": [
+    "todos",
+    "sem_capitais",
+    "sem_1pct_maiores",
+    "sem_5pct_maiores"
+  ],
+  "efeito_exclusao": "Vizinhança espacial k=8 recalculada após cada restrição da amostra.",
+  "limites": [
+    "Comparação retrospectiva por UF, sem previsibilidade eleitoral ex ante.",
+    "Fonte IBGE foi acessada em 2026 e pode conter revisões.",
+    "Ponderação populacional não se confunde com total de votos válidos.",
+    "Efeitos fixos de UF incluídos apenas nos ajustes in-sample, não na CV de UFs excluídas.",
+    "As exclusões alteram amostra e vizinhança; interpretar como teste de sensibilidade, não estimativas causais.",
+    "DF deixa de integrar a amostra ao excluir a capital única.",
+    "Cinco municípios sem Censo 2010 completo já excluídos em todas as análises."
+  ]
+}

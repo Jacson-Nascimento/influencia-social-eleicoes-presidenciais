@@ -1,0 +1,2730 @@
+[
+  {
+    "ano": 2018,
+    "desfecho": "competitividade",
+    "amostra": "todos",
+    "peso": "igual",
+    "cv": {
+      "rmse_local": 0.2149859188823993,
+      "rmse_contexto": 0.21086455236430968,
+      "ganho_rmse_pct": 1.917040213384425,
+      "dobras_com_piora": 2,
+      "dobras": [
+        {
+          "fold": 1,
+          "ufs_teste": [
+            "AC",
+            "CE",
+            "MG",
+            "PE",
+            "RO",
+            "SP"
+          ],
+          "n_municipios": 1941,
+          "peso_total": 1941.0,
+          "sse_local": 88.7794200455993,
+          "sse_contexto": 90.31465752141985
+        },
+        {
+          "fold": 2,
+          "ufs_teste": [
+            "AL",
+            "DF",
+            "MS",
+            "PI",
+            "RR",
+            "TO"
+          ],
+          "n_municipios": 559,
+          "peso_total": 559.0,
+          "sse_local": 25.99372319450584,
+          "sse_contexto": 24.18752353835686
+        },
+        {
+          "fold": 3,
+          "ufs_teste": [
+            "AM",
+            "ES",
+            "MT",
+            "PR",
+            "RS"
+          ],
+          "n_municipios": 1176,
+          "peso_total": 1176.0,
+          "sse_local": 56.25706133141738,
+          "sse_contexto": 53.201667776886396
+        },
+        {
+          "fold": 4,
+          "ufs_teste": [
+            "AP",
+            "GO",
+            "PA",
+            "RJ",
+            "SC"
+          ],
+          "n_municipios": 790,
+          "peso_total": 790.0,
+          "sse_local": 38.18258486134407,
+          "sse_contexto": 38.762348388163446
+        },
+        {
+          "fold": 5,
+          "ufs_teste": [
+            "BA",
+            "MA",
+            "PB",
+            "RN",
+            "SE"
+          ],
+          "n_municipios": 1099,
+          "peso_total": 1099.0,
+          "sse_local": 47.99564126018716,
+          "sse_contexto": 40.97518057992434
+        }
+      ]
+    }
+  },
+  {
+    "ano": 2018,
+    "desfecho": "competitividade",
+    "amostra": "todos",
+    "peso": "populacao_anterior",
+    "cv": {
+      "rmse_local": 0.18807314499374952,
+      "rmse_contexto": 0.19419808747427766,
+      "ganho_rmse_pct": -3.256681053922769,
+      "dobras_com_piora": 5,
+      "dobras": [
+        {
+          "fold": 1,
+          "ufs_teste": [
+            "AC",
+            "CE",
+            "MG",
+            "PE",
+            "RO",
+            "SP"
+          ],
+          "n_municipios": 1941,
+          "peso_total": 87343535.0,
+          "sse_local": 2759924.387764604,
+          "sse_contexto": 3021124.293337144
+        },
+        {
+          "fold": 2,
+          "ufs_teste": [
+            "AL",
+            "DF",
+            "MS",
+            "PI",
+            "RR",
+            "TO"
+          ],
+          "n_municipios": 559,
+          "peso_total": 14415151.0,
+          "sse_local": 436469.21435369813,
+          "sse_contexto": 452257.02815853985
+        },
+        {
+          "fold": 3,
+          "ufs_teste": [
+            "AM",
+            "ES",
+            "MT",
+            "PR",
+            "RS"
+          ],
+          "n_municipios": 1176,
+          "peso_total": 34065433.0,
+          "sse_local": 1457789.642859534,
+          "sse_contexto": 1527819.0520865817
+        },
+        {
+          "fold": 4,
+          "ufs_teste": [
+            "AP",
+            "GO",
+            "PA",
+            "RJ",
+            "SC"
+          ],
+          "n_municipios": 790,
+          "peso_total": 39625210.0,
+          "sse_local": 1365126.4305424243,
+          "sse_contexto": 1482927.6316737575
+        },
+        {
+          "fold": 5,
+          "ufs_teste": [
+            "BA",
+            "MA",
+            "PB",
+            "RN",
+            "SE"
+          ],
+          "n_municipios": 1099,
+          "peso_total": 32165353.0,
+          "sse_local": 1324334.6823218255,
+          "sse_contexto": 1345623.1497916654
+        }
+      ]
+    }
+  },
+  {
+    "ano": 2018,
+    "desfecho": "direcao_pt13",
+    "amostra": "todos",
+    "peso": "igual",
+    "cv": {
+      "rmse_local": 0.3148232403126628,
+      "rmse_contexto": 0.2610190540434655,
+      "ganho_rmse_pct": 17.090284127614705,
+      "dobras_com_piora": 0,
+      "dobras": [
+        {
+          "fold": 1,
+          "ufs_teste": [
+            "AC",
+            "CE",
+            "MG",
+            "PE",
+            "RO",
+            "SP"
+          ],
+          "n_municipios": 1941,
+          "peso_total": 1941.0,
+          "sse_local": 209.6291330340643,
+          "sse_contexto": 160.4175873908392
+        },
+        {
+          "fold": 2,
+          "ufs_teste": [
+            "AL",
+            "DF",
+            "MS",
+            "PI",
+            "RR",
+            "TO"
+          ],
+          "n_municipios": 559,
+          "peso_total": 559.0,
+          "sse_local": 42.4584094505574,
+          "sse_contexto": 27.081851353751166
+        },
+        {
+          "fold": 3,
+          "ufs_teste": [
+            "AM",
+            "ES",
+            "MT",
+            "PR",
+            "RS"
+          ],
+          "n_municipios": 1176,
+          "peso_total": 1176.0,
+          "sse_local": 92.13348309753395,
+          "sse_contexto": 67.82212630320635
+        },
+        {
+          "fold": 4,
+          "ufs_teste": [
+            "AP",
+            "GO",
+            "PA",
+            "RJ",
+            "SC"
+          ],
+          "n_municipios": 790,
+          "peso_total": 790.0,
+          "sse_local": 85.16423865583688,
+          "sse_contexto": 61.31314523791564
+        },
+        {
+          "fold": 5,
+          "ufs_teste": [
+            "BA",
+            "MA",
+            "PB",
+            "RN",
+            "SE"
+          ],
+          "n_municipios": 1099,
+          "peso_total": 1099.0,
+          "sse_local": 122.18232400897567,
+          "sse_contexto": 62.514007397181594
+        }
+      ]
+    }
+  },
+  {
+    "ano": 2018,
+    "desfecho": "direcao_pt13",
+    "amostra": "todos",
+    "peso": "populacao_anterior",
+    "cv": {
+      "rmse_local": 0.26651128758081305,
+      "rmse_contexto": 0.26887916656424904,
+      "ganho_rmse_pct": -0.8884723063438683,
+      "dobras_com_piora": 2,
+      "dobras": [
+        {
+          "fold": 1,
+          "ufs_teste": [
+            "AC",
+            "CE",
+            "MG",
+            "PE",
+            "RO",
+            "SP"
+          ],
+          "n_municipios": 1941,
+          "peso_total": 87343535.0,
+          "sse_local": 5478630.389768789,
+          "sse_contexto": 6534786.651555419
+        },
+        {
+          "fold": 2,
+          "ufs_teste": [
+            "AL",
+            "DF",
+            "MS",
+            "PI",
+            "RR",
+            "TO"
+          ],
+          "n_municipios": 559,
+          "peso_total": 14415151.0,
+          "sse_local": 642963.5363777524,
+          "sse_contexto": 621227.0803202409
+        },
+        {
+          "fold": 3,
+          "ufs_teste": [
+            "AM",
+            "ES",
+            "MT",
+            "PR",
+            "RS"
+          ],
+          "n_municipios": 1176,
+          "peso_total": 34065433.0,
+          "sse_local": 2032887.0449440503,
+          "sse_contexto": 1695297.0648988844
+        },
+        {
+          "fold": 4,
+          "ufs_teste": [
+            "AP",
+            "GO",
+            "PA",
+            "RJ",
+            "SC"
+          ],
+          "n_municipios": 790,
+          "peso_total": 39625210.0,
+          "sse_local": 2756210.9763101027,
+          "sse_contexto": 2963860.9536829465
+        },
+        {
+          "fold": 5,
+          "ufs_teste": [
+            "BA",
+            "MA",
+            "PB",
+            "RN",
+            "SE"
+          ],
+          "n_municipios": 1099,
+          "peso_total": 32165353.0,
+          "sse_local": 3835818.995903947,
+          "sse_contexto": 3194540.589176124
+        }
+      ]
+    }
+  },
+  {
+    "ano": 2018,
+    "desfecho": "competitividade",
+    "amostra": "sem_capitais",
+    "peso": "igual",
+    "cv": {
+      "rmse_local": 0.21218936482449108,
+      "rmse_contexto": 0.20818321040169535,
+      "ganho_rmse_pct": 1.8880090555477893,
+      "dobras_com_piora": 2,
+      "dobras": [
+        {
+          "fold": 1,
+          "ufs_teste": [
+            "AC",
+            "CE",
+            "MS",
+            "PI",
+            "RR",
+            "TO"
+          ],
+          "n_municipios": 656,
+          "peso_total": 656.0,
+          "sse_local": 29.859788859096867,
+          "sse_contexto": 26.95373612337036
+        },
+        {
+          "fold": 2,
+          "ufs_teste": [
+            "AL",
+            "ES",
+            "MT",
+            "PR",
+            "RS"
+          ],
+          "n_municipios": 1211,
+          "peso_total": 1211.0,
+          "sse_local": 57.789173939170894,
+          "sse_contexto": 54.523538879662546
+        },
+        {
+          "fold": 3,
+          "ufs_teste": [
+            "AM",
+            "GO",
+            "PA",
+            "RJ",
+            "SC"
+          ],
+          "n_municipios": 831,
+          "peso_total": 831.0,
+          "sse_local": 39.793933011529404,
+          "sse_contexto": 40.239284996027365
+        },
+        {
+          "fold": 4,
+          "ufs_teste": [
+            "AP",
+            "MA",
+            "PB",
+            "RN",
+            "SE"
+          ],
+          "n_municipios": 693,
+          "peso_total": 693.0,
+          "sse_local": 27.26486699228485,
+          "sse_contexto": 23.630988097267704
+        },
+        {
+          "fold": 5,
+          "ufs_teste": [
+            "BA",
+            "MG",
+            "PE",
+            "RO",
+            "SP"
+          ],
+          "n_municipios": 2147,
+          "peso_total": 2147.0,
+          "sse_local": 94.6369576020289,
+          "sse_contexto": 94.67075138157307
+        }
+      ]
+    }
+  },
+  {
+    "ano": 2018,
+    "desfecho": "competitividade",
+    "amostra": "sem_capitais",
+    "peso": "populacao_anterior",
+    "cv": {
+      "rmse_local": 0.19562294658618767,
+      "rmse_contexto": 0.19989484878847522,
+      "ganho_rmse_pct": -2.183742897669433,
+      "dobras_com_piora": 4,
+      "dobras": [
+        {
+          "fold": 1,
+          "ufs_teste": [
+            "AC",
+            "CE",
+            "MS",
+            "PI",
+            "RR",
+            "TO"
+          ],
+          "n_municipios": 656,
+          "peso_total": 12495823.0,
+          "sse_local": 494035.4198162118,
+          "sse_contexto": 501047.64496890944
+        },
+        {
+          "fold": 2,
+          "ufs_teste": [
+            "AL",
+            "ES",
+            "MT",
+            "PR",
+            "RS"
+          ],
+          "n_municipios": 1211,
+          "peso_total": 28001955.0,
+          "sse_local": 1251180.9821407646,
+          "sse_contexto": 1337679.083915286
+        },
+        {
+          "fold": 3,
+          "ufs_teste": [
+            "AM",
+            "GO",
+            "PA",
+            "RJ",
+            "SC"
+          ],
+          "n_municipios": 831,
+          "peso_total": 30836354.0,
+          "sse_local": 1186005.010726784,
+          "sse_contexto": 1241626.0689075887
+        },
+        {
+          "fold": 4,
+          "ufs_teste": [
+            "AP",
+            "MA",
+            "PB",
+            "RN",
+            "SE"
+          ],
+          "n_municipios": 693,
+          "peso_total": 13705170.0,
+          "sse_local": 530350.5371349152,
+          "sse_contexto": 519501.74424612103
+        },
+        {
+          "fold": 5,
+          "ufs_teste": [
+            "BA",
+            "MG",
+            "PE",
+            "RO",
+            "SP"
+          ],
+          "n_municipios": 2147,
+          "peso_total": 73100070.0,
+          "sse_local": 2590158.867385757,
+          "sse_contexto": 2719070.667851684
+        }
+      ]
+    }
+  },
+  {
+    "ano": 2018,
+    "desfecho": "direcao_pt13",
+    "amostra": "sem_capitais",
+    "peso": "igual",
+    "cv": {
+      "rmse_local": 0.3076687610468791,
+      "rmse_contexto": 0.25782416473414127,
+      "ganho_rmse_pct": 16.20073358866066,
+      "dobras_com_piora": 0,
+      "dobras": [
+        {
+          "fold": 1,
+          "ufs_teste": [
+            "AC",
+            "CE",
+            "MS",
+            "PI",
+            "RR",
+            "TO"
+          ],
+          "n_municipios": 656,
+          "peso_total": 656.0,
+          "sse_local": 58.90560241526353,
+          "sse_contexto": 38.04738947318836
+        },
+        {
+          "fold": 2,
+          "ufs_teste": [
+            "AL",
+            "ES",
+            "MT",
+            "PR",
+            "RS"
+          ],
+          "n_municipios": 1211,
+          "peso_total": 1211.0,
+          "sse_local": 91.73453682583954,
+          "sse_contexto": 68.09767720523917
+        },
+        {
+          "fold": 3,
+          "ufs_teste": [
+            "AM",
+            "GO",
+            "PA",
+            "RJ",
+            "SC"
+          ],
+          "n_municipios": 831,
+          "peso_total": 831.0,
+          "sse_local": 87.4930826938562,
+          "sse_contexto": 62.287623792090045
+        },
+        {
+          "fold": 4,
+          "ufs_teste": [
+            "AP",
+            "MA",
+            "PB",
+            "RN",
+            "SE"
+          ],
+          "n_municipios": 693,
+          "peso_total": 693.0,
+          "sse_local": 62.479772404278165,
+          "sse_contexto": 30.592772797466687
+        },
+        {
+          "fold": 5,
+          "ufs_teste": [
+            "BA",
+            "MG",
+            "PE",
+            "RO",
+            "SP"
+          ],
+          "n_municipios": 2147,
+          "peso_total": 2147.0,
+          "sse_local": 223.61445407134818,
+          "sse_contexto": 169.1036716937252
+        }
+      ]
+    }
+  },
+  {
+    "ano": 2018,
+    "desfecho": "direcao_pt13",
+    "amostra": "sem_capitais",
+    "peso": "populacao_anterior",
+    "cv": {
+      "rmse_local": 0.2862729574092726,
+      "rmse_contexto": 0.26837593480457655,
+      "ganho_rmse_pct": 6.251733578561325,
+      "dobras_com_piora": 1,
+      "dobras": [
+        {
+          "fold": 1,
+          "ufs_teste": [
+            "AC",
+            "CE",
+            "MS",
+            "PI",
+            "RR",
+            "TO"
+          ],
+          "n_municipios": 656,
+          "peso_total": 12495823.0,
+          "sse_local": 1328356.010163019,
+          "sse_contexto": 844652.1515458472
+        },
+        {
+          "fold": 2,
+          "ufs_teste": [
+            "AL",
+            "ES",
+            "MT",
+            "PR",
+            "RS"
+          ],
+          "n_municipios": 1211,
+          "peso_total": 28001955.0,
+          "sse_local": 1785093.2701109655,
+          "sse_contexto": 1191432.1190323157
+        },
+        {
+          "fold": 3,
+          "ufs_teste": [
+            "AM",
+            "GO",
+            "PA",
+            "RJ",
+            "SC"
+          ],
+          "n_municipios": 831,
+          "peso_total": 30836354.0,
+          "sse_local": 2464406.1221153066,
+          "sse_contexto": 2293236.794984693
+        },
+        {
+          "fold": 4,
+          "ufs_teste": [
+            "AP",
+            "MA",
+            "PB",
+            "RN",
+            "SE"
+          ],
+          "n_municipios": 693,
+          "peso_total": 13705170.0,
+          "sse_local": 1024232.6022804572,
+          "sse_contexto": 649752.8775302474
+        },
+        {
+          "fold": 5,
+          "ufs_teste": [
+            "BA",
+            "MG",
+            "PE",
+            "RO",
+            "SP"
+          ],
+          "n_municipios": 2147,
+          "peso_total": 73100070.0,
+          "sse_local": 6357782.408933422,
+          "sse_contexto": 6411015.911129383
+        }
+      ]
+    }
+  },
+  {
+    "ano": 2018,
+    "desfecho": "competitividade",
+    "amostra": "sem_1pct_maiores",
+    "peso": "igual",
+    "cv": {
+      "rmse_local": 0.21242309141083573,
+      "rmse_contexto": 0.2084324996765271,
+      "ganho_rmse_pct": 1.8786054321140855,
+      "dobras_com_piora": 1,
+      "dobras": [
+        {
+          "fold": 1,
+          "ufs_teste": [
+            "AC",
+            "CE",
+            "MS",
+            "PI",
+            "RR",
+            "TO"
+          ],
+          "n_municipios": 659,
+          "peso_total": 659.0,
+          "sse_local": 30.004318763685006,
+          "sse_contexto": 27.399974189515742
+        },
+        {
+          "fold": 2,
+          "ufs_teste": [
+            "AL",
+            "ES",
+            "MT",
+            "PR",
+            "RS"
+          ],
+          "n_municipios": 1208,
+          "peso_total": 1208.0,
+          "sse_local": 57.65051822627565,
+          "sse_contexto": 54.4940815913295
+        },
+        {
+          "fold": 3,
+          "ufs_teste": [
+            "AM",
+            "GO",
+            "PA",
+            "RJ",
+            "SC"
+          ],
+          "n_municipios": 821,
+          "peso_total": 821.0,
+          "sse_local": 39.429447443351165,
+          "sse_contexto": 39.7300835297251
+        },
+        {
+          "fold": 4,
+          "ufs_teste": [
+            "AP",
+            "MA",
+            "PB",
+            "RN",
+            "SE"
+          ],
+          "n_municipios": 693,
+          "peso_total": 693.0,
+          "sse_local": 27.467068061509394,
+          "sse_contexto": 23.90008754528198
+        },
+        {
+          "fold": 5,
+          "ufs_teste": [
+            "BA",
+            "MG",
+            "PE",
+            "RO",
+            "SP"
+          ],
+          "n_municipios": 2128,
+          "peso_total": 2128.0,
+          "sse_local": 94.03439333800907,
+          "sse_contexto": 93.80935817417043
+        }
+      ]
+    }
+  },
+  {
+    "ano": 2018,
+    "desfecho": "competitividade",
+    "amostra": "sem_1pct_maiores",
+    "peso": "populacao_anterior",
+    "cv": {
+      "rmse_local": 0.20260721349327693,
+      "rmse_contexto": 0.20651286608490127,
+      "ganho_rmse_pct": -1.9276967114272774,
+      "dobras_com_piora": 4,
+      "dobras": [
+        {
+          "fold": 1,
+          "ufs_teste": [
+            "AC",
+            "CE",
+            "MS",
+            "PI",
+            "RR",
+            "TO"
+          ],
+          "n_municipios": 659,
+          "peso_total": 13498073.0,
+          "sse_local": 528461.9276854665,
+          "sse_contexto": 542663.2464486544
+        },
+        {
+          "fold": 2,
+          "ufs_teste": [
+            "AL",
+            "ES",
+            "MT",
+            "PR",
+            "RS"
+          ],
+          "n_municipios": 1208,
+          "peso_total": 26334273.0,
+          "sse_local": 1191417.2592513314,
+          "sse_contexto": 1315292.253078101
+        },
+        {
+          "fold": 3,
+          "ufs_teste": [
+            "AM",
+            "GO",
+            "PA",
+            "RJ",
+            "SC"
+          ],
+          "n_municipios": 821,
+          "peso_total": 24516100.0,
+          "sse_local": 1071527.9053862332,
+          "sse_contexto": 1140048.913893926
+        },
+        {
+          "fold": 4,
+          "ufs_teste": [
+            "AP",
+            "MA",
+            "PB",
+            "RN",
+            "SE"
+          ],
+          "n_municipios": 693,
+          "peso_total": 13705170.0,
+          "sse_local": 552582.5606604578,
+          "sse_contexto": 541016.1869326613
+        },
+        {
+          "fold": 5,
+          "ufs_teste": [
+            "BA",
+            "MG",
+            "PE",
+            "RO",
+            "SP"
+          ],
+          "n_municipios": 2128,
+          "peso_total": 60433867.0,
+          "sse_local": 2340877.6180270826,
+          "sse_contexto": 2367133.1745059905
+        }
+      ]
+    }
+  },
+  {
+    "ano": 2018,
+    "desfecho": "direcao_pt13",
+    "amostra": "sem_1pct_maiores",
+    "peso": "igual",
+    "cv": {
+      "rmse_local": 0.30781445347851544,
+      "rmse_contexto": 0.2573975339735441,
+      "ganho_rmse_pct": 16.378996806428486,
+      "dobras_com_piora": 0,
+      "dobras": [
+        {
+          "fold": 1,
+          "ufs_teste": [
+            "AC",
+            "CE",
+            "MS",
+            "PI",
+            "RR",
+            "TO"
+          ],
+          "n_municipios": 659,
+          "peso_total": 659.0,
+          "sse_local": 59.33975469974554,
+          "sse_contexto": 38.56078687005087
+        },
+        {
+          "fold": 2,
+          "ufs_teste": [
+            "AL",
+            "ES",
+            "MT",
+            "PR",
+            "RS"
+          ],
+          "n_municipios": 1208,
+          "peso_total": 1208.0,
+          "sse_local": 91.49101400114193,
+          "sse_contexto": 68.35635006847929
+        },
+        {
+          "fold": 3,
+          "ufs_teste": [
+            "AM",
+            "GO",
+            "PA",
+            "RJ",
+            "SC"
+          ],
+          "n_municipios": 821,
+          "peso_total": 821.0,
+          "sse_local": 86.56907411179162,
+          "sse_contexto": 61.15225162322637
+        },
+        {
+          "fold": 4,
+          "ufs_teste": [
+            "AP",
+            "MA",
+            "PB",
+            "RN",
+            "SE"
+          ],
+          "n_municipios": 693,
+          "peso_total": 693.0,
+          "sse_local": 62.371164723897095,
+          "sse_contexto": 30.44004899621595
+        },
+        {
+          "fold": 5,
+          "ufs_teste": [
+            "BA",
+            "MG",
+            "PE",
+            "RO",
+            "SP"
+          ],
+          "n_municipios": 2128,
+          "peso_total": 2128.0,
+          "sse_local": 222.20529783988053,
+          "sse_contexto": 166.4810415826283
+        }
+      ]
+    }
+  },
+  {
+    "ano": 2018,
+    "desfecho": "direcao_pt13",
+    "amostra": "sem_1pct_maiores",
+    "peso": "populacao_anterior",
+    "cv": {
+      "rmse_local": 0.28843055914415866,
+      "rmse_contexto": 0.25520923908595794,
+      "ganho_rmse_pct": 11.517961257911157,
+      "dobras_com_piora": 0,
+      "dobras": [
+        {
+          "fold": 1,
+          "ufs_teste": [
+            "AC",
+            "CE",
+            "MS",
+            "PI",
+            "RR",
+            "TO"
+          ],
+          "n_municipios": 659,
+          "peso_total": 13498073.0,
+          "sse_local": 1427017.9708687225,
+          "sse_contexto": 946100.789606642
+        },
+        {
+          "fold": 2,
+          "ufs_teste": [
+            "AL",
+            "ES",
+            "MT",
+            "PR",
+            "RS"
+          ],
+          "n_municipios": 1208,
+          "peso_total": 26334273.0,
+          "sse_local": 1625211.3597262227,
+          "sse_contexto": 1202582.634920096
+        },
+        {
+          "fold": 3,
+          "ufs_teste": [
+            "AM",
+            "GO",
+            "PA",
+            "RJ",
+            "SC"
+          ],
+          "n_municipios": 821,
+          "peso_total": 24516100.0,
+          "sse_local": 2009566.032319211,
+          "sse_contexto": 1643722.3810905337
+        },
+        {
+          "fold": 4,
+          "ufs_teste": [
+            "AP",
+            "MA",
+            "PB",
+            "RN",
+            "SE"
+          ],
+          "n_municipios": 693,
+          "peso_total": 13705170.0,
+          "sse_local": 979272.2685528001,
+          "sse_contexto": 598598.9572039718
+        },
+        {
+          "fold": 5,
+          "ufs_teste": [
+            "BA",
+            "MG",
+            "PE",
+            "RO",
+            "SP"
+          ],
+          "n_municipios": 2128,
+          "peso_total": 60433867.0,
+          "sse_local": 5480009.013500115,
+          "sse_contexto": 4628928.149496932
+        }
+      ]
+    }
+  },
+  {
+    "ano": 2018,
+    "desfecho": "competitividade",
+    "amostra": "sem_5pct_maiores",
+    "peso": "igual",
+    "cv": {
+      "rmse_local": 0.21217559299332045,
+      "rmse_contexto": 0.20795214471268272,
+      "ganho_rmse_pct": 1.990543879743362,
+      "dobras_com_piora": 0,
+      "dobras": [
+        {
+          "fold": 1,
+          "ufs_teste": [
+            "AC",
+            "CE",
+            "MS",
+            "PI",
+            "RR",
+            "TO"
+          ],
+          "n_municipios": 645,
+          "peso_total": 645.0,
+          "sse_local": 29.28904172077435,
+          "sse_contexto": 27.576070351803445
+        },
+        {
+          "fold": 2,
+          "ufs_teste": [
+            "AL",
+            "ES",
+            "MT",
+            "PR",
+            "RS"
+          ],
+          "n_municipios": 1166,
+          "peso_total": 1166.0,
+          "sse_local": 55.51484418032471,
+          "sse_contexto": 52.16725608882551
+        },
+        {
+          "fold": 3,
+          "ufs_teste": [
+            "AM",
+            "GO",
+            "PA",
+            "RJ",
+            "SC"
+          ],
+          "n_municipios": 774,
+          "peso_total": 774.0,
+          "sse_local": 37.6928472233201,
+          "sse_contexto": 37.45711140412102
+        },
+        {
+          "fold": 4,
+          "ufs_teste": [
+            "AP",
+            "MA",
+            "PB",
+            "RN",
+            "SE"
+          ],
+          "n_municipios": 681,
+          "peso_total": 681.0,
+          "sse_local": 26.32329985078831,
+          "sse_contexto": 22.797991285530323
+        },
+        {
+          "fold": 5,
+          "ufs_teste": [
+            "BA",
+            "MG",
+            "PE",
+            "RO",
+            "SP"
+          ],
+          "n_municipios": 2020,
+          "peso_total": 2020.0,
+          "sse_local": 89.14766426207962,
+          "sse_contexto": 88.58985434705525
+        }
+      ]
+    }
+  },
+  {
+    "ano": 2018,
+    "desfecho": "competitividade",
+    "amostra": "sem_5pct_maiores",
+    "peso": "populacao_anterior",
+    "cv": {
+      "rmse_local": 0.20466627286738936,
+      "rmse_contexto": 0.204326821404309,
+      "ganho_rmse_pct": 0.16585608284385625,
+      "dobras_com_piora": 2,
+      "dobras": [
+        {
+          "fold": 1,
+          "ufs_teste": [
+            "AC",
+            "CE",
+            "MS",
+            "PI",
+            "RR",
+            "TO"
+          ],
+          "n_municipios": 645,
+          "peso_total": 10386276.0,
+          "sse_local": 352646.2304824418,
+          "sse_contexto": 346448.64508391044
+        },
+        {
+          "fold": 2,
+          "ufs_teste": [
+            "AL",
+            "ES",
+            "MT",
+            "PR",
+            "RS"
+          ],
+          "n_municipios": 1166,
+          "peso_total": 17497709.0,
+          "sse_local": 842377.8227336889,
+          "sse_contexto": 856034.0458542325
+        },
+        {
+          "fold": 3,
+          "ufs_teste": [
+            "AM",
+            "GO",
+            "PA",
+            "RJ",
+            "SC"
+          ],
+          "n_municipios": 774,
+          "peso_total": 15797707.0,
+          "sse_local": 785634.9534644589,
+          "sse_contexto": 825831.5983142295
+        },
+        {
+          "fold": 4,
+          "ufs_teste": [
+            "AP",
+            "MA",
+            "PB",
+            "RN",
+            "SE"
+          ],
+          "n_municipios": 681,
+          "peso_total": 11305767.0,
+          "sse_local": 394048.4152076679,
+          "sse_contexto": 382925.38027106354
+        },
+        {
+          "fold": 5,
+          "ufs_teste": [
+            "BA",
+            "MG",
+            "PE",
+            "RO",
+            "SP"
+          ],
+          "n_municipios": 2020,
+          "peso_total": 38649189.0,
+          "sse_local": 1547571.012062792,
+          "sse_contexto": 1498038.8791877874
+        }
+      ]
+    }
+  },
+  {
+    "ano": 2018,
+    "desfecho": "direcao_pt13",
+    "amostra": "sem_5pct_maiores",
+    "peso": "igual",
+    "cv": {
+      "rmse_local": 0.30899451181660664,
+      "rmse_contexto": 0.2583505440604893,
+      "ganho_rmse_pct": 16.389924681308056,
+      "dobras_com_piora": 0,
+      "dobras": [
+        {
+          "fold": 1,
+          "ufs_teste": [
+            "AC",
+            "CE",
+            "MS",
+            "PI",
+            "RR",
+            "TO"
+          ],
+          "n_municipios": 645,
+          "peso_total": 645.0,
+          "sse_local": 57.38611998992917,
+          "sse_contexto": 36.902768941534305
+        },
+        {
+          "fold": 2,
+          "ufs_teste": [
+            "AL",
+            "ES",
+            "MT",
+            "PR",
+            "RS"
+          ],
+          "n_municipios": 1166,
+          "peso_total": 1166.0,
+          "sse_local": 88.80284937642664,
+          "sse_contexto": 68.03831349746272
+        },
+        {
+          "fold": 3,
+          "ufs_teste": [
+            "AM",
+            "GO",
+            "PA",
+            "RJ",
+            "SC"
+          ],
+          "n_municipios": 774,
+          "peso_total": 774.0,
+          "sse_local": 83.12680584767091,
+          "sse_contexto": 59.536547986913504
+        },
+        {
+          "fold": 4,
+          "ufs_teste": [
+            "AP",
+            "MA",
+            "PB",
+            "RN",
+            "SE"
+          ],
+          "n_municipios": 681,
+          "peso_total": 681.0,
+          "sse_local": 61.28055327209437,
+          "sse_contexto": 30.080711964852455
+        },
+        {
+          "fold": 5,
+          "ufs_teste": [
+            "BA",
+            "MG",
+            "PE",
+            "RO",
+            "SP"
+          ],
+          "n_municipios": 2020,
+          "peso_total": 2020.0,
+          "sse_local": 214.0983091609701,
+          "sse_contexto": 158.2557467252675
+        }
+      ]
+    }
+  },
+  {
+    "ano": 2018,
+    "desfecho": "direcao_pt13",
+    "amostra": "sem_5pct_maiores",
+    "peso": "populacao_anterior",
+    "cv": {
+      "rmse_local": 0.2994403024419464,
+      "rmse_contexto": 0.2546710407344196,
+      "ganho_rmse_pct": 14.95098066039604,
+      "dobras_com_piora": 0,
+      "dobras": [
+        {
+          "fold": 1,
+          "ufs_teste": [
+            "AC",
+            "CE",
+            "MS",
+            "PI",
+            "RR",
+            "TO"
+          ],
+          "n_municipios": 645,
+          "peso_total": 10386276.0,
+          "sse_local": 931689.6283699581,
+          "sse_contexto": 602727.1559276863
+        },
+        {
+          "fold": 2,
+          "ufs_teste": [
+            "AL",
+            "ES",
+            "MT",
+            "PR",
+            "RS"
+          ],
+          "n_municipios": 1166,
+          "peso_total": 17497709.0,
+          "sse_local": 1259400.343763356,
+          "sse_contexto": 982120.8051798615
+        },
+        {
+          "fold": 3,
+          "ufs_teste": [
+            "AM",
+            "GO",
+            "PA",
+            "RJ",
+            "SC"
+          ],
+          "n_municipios": 774,
+          "peso_total": 15797707.0,
+          "sse_local": 1471618.9567452539,
+          "sse_contexto": 1110751.7865347262
+        },
+        {
+          "fold": 4,
+          "ufs_teste": [
+            "AP",
+            "MA",
+            "PB",
+            "RN",
+            "SE"
+          ],
+          "n_municipios": 681,
+          "peso_total": 11305767.0,
+          "sse_local": 792106.0670576105,
+          "sse_contexto": 422647.7841427767
+        },
+        {
+          "fold": 5,
+          "ufs_teste": [
+            "BA",
+            "MG",
+            "PE",
+            "RO",
+            "SP"
+          ],
+          "n_municipios": 2020,
+          "peso_total": 38649189.0,
+          "sse_local": 3941067.7348692366,
+          "sse_contexto": 2954776.2893214347
+        }
+      ]
+    }
+  },
+  {
+    "ano": 2022,
+    "desfecho": "competitividade",
+    "amostra": "todos",
+    "peso": "igual",
+    "cv": {
+      "rmse_local": 0.19420240731866698,
+      "rmse_contexto": 0.18451438073228443,
+      "ganho_rmse_pct": 4.988623323543795,
+      "dobras_com_piora": 0,
+      "dobras": [
+        {
+          "fold": 1,
+          "ufs_teste": [
+            "AC",
+            "CE",
+            "MG",
+            "PE",
+            "RO",
+            "SP"
+          ],
+          "n_municipios": 1941,
+          "peso_total": 1941.0,
+          "sse_local": 59.891757579674824,
+          "sse_contexto": 55.134645592212614
+        },
+        {
+          "fold": 2,
+          "ufs_teste": [
+            "AL",
+            "DF",
+            "MS",
+            "PI",
+            "RR",
+            "TO"
+          ],
+          "n_municipios": 559,
+          "peso_total": 559.0,
+          "sse_local": 21.963804021951944,
+          "sse_contexto": 17.984733984735815
+        },
+        {
+          "fold": 3,
+          "ufs_teste": [
+            "AM",
+            "ES",
+            "MT",
+            "PR",
+            "RS"
+          ],
+          "n_municipios": 1176,
+          "peso_total": 1176.0,
+          "sse_local": 52.289697838550964,
+          "sse_contexto": 51.2139893613995
+        },
+        {
+          "fold": 4,
+          "ufs_teste": [
+            "AP",
+            "GO",
+            "PA",
+            "RJ",
+            "SC"
+          ],
+          "n_municipios": 790,
+          "peso_total": 790.0,
+          "sse_local": 30.603717463056977,
+          "sse_contexto": 29.8832823176173
+        },
+        {
+          "fold": 5,
+          "ufs_teste": [
+            "BA",
+            "MA",
+            "PB",
+            "RN",
+            "SE"
+          ],
+          "n_municipios": 1099,
+          "peso_total": 1099.0,
+          "sse_local": 45.13263301831895,
+          "sse_contexto": 35.246871762942234
+        }
+      ]
+    }
+  },
+  {
+    "ano": 2022,
+    "desfecho": "competitividade",
+    "amostra": "todos",
+    "peso": "populacao_anterior",
+    "cv": {
+      "rmse_local": 0.15917063934410314,
+      "rmse_contexto": 0.15852698417917996,
+      "ganho_rmse_pct": 0.40438058650483455,
+      "dobras_com_piora": 3,
+      "dobras": [
+        {
+          "fold": 1,
+          "ufs_teste": [
+            "AC",
+            "CE",
+            "MG",
+            "PE",
+            "RO",
+            "SP"
+          ],
+          "n_municipios": 1941,
+          "peso_total": 89698582.0,
+          "sse_local": 1663387.7533088564,
+          "sse_contexto": 1589077.4808782276
+        },
+        {
+          "fold": 2,
+          "ufs_teste": [
+            "AL",
+            "DF",
+            "MS",
+            "PI",
+            "RR",
+            "TO"
+          ],
+          "n_municipios": 559,
+          "peso_total": 14842479.0,
+          "sse_local": 351247.6398420311,
+          "sse_contexto": 309965.7887848754
+        },
+        {
+          "fold": 3,
+          "ufs_teste": [
+            "AM",
+            "ES",
+            "MT",
+            "PR",
+            "RS"
+          ],
+          "n_municipios": 1176,
+          "peso_total": 35006783.0,
+          "sse_local": 1149381.2066559144,
+          "sse_contexto": 1184824.1314536456
+        },
+        {
+          "fold": 4,
+          "ufs_teste": [
+            "AP",
+            "GO",
+            "PA",
+            "RJ",
+            "SC"
+          ],
+          "n_municipios": 790,
+          "peso_total": 41623512.0,
+          "sse_local": 1147948.071958935,
+          "sse_contexto": 1172762.2818787312
+        },
+        {
+          "fold": 5,
+          "ufs_teste": [
+            "BA",
+            "MA",
+            "PB",
+            "RN",
+            "SE"
+          ],
+          "n_municipios": 1099,
+          "peso_total": 32097828.0,
+          "sse_local": 1091272.4710133746,
+          "sse_contexto": 1102996.5313978624
+        }
+      ]
+    }
+  },
+  {
+    "ano": 2022,
+    "desfecho": "direcao_pt13",
+    "amostra": "todos",
+    "peso": "igual",
+    "cv": {
+      "rmse_local": 0.2849901209779744,
+      "rmse_contexto": 0.2321676457739368,
+      "ganho_rmse_pct": 18.534844303645173,
+      "dobras_com_piora": 0,
+      "dobras": [
+        {
+          "fold": 1,
+          "ufs_teste": [
+            "AC",
+            "CE",
+            "MG",
+            "PE",
+            "RO",
+            "SP"
+          ],
+          "n_municipios": 1941,
+          "peso_total": 1941.0,
+          "sse_local": 135.7349232603397,
+          "sse_contexto": 107.420794774219
+        },
+        {
+          "fold": 2,
+          "ufs_teste": [
+            "AL",
+            "DF",
+            "MS",
+            "PI",
+            "RR",
+            "TO"
+          ],
+          "n_municipios": 559,
+          "peso_total": 559.0,
+          "sse_local": 48.617191345542025,
+          "sse_contexto": 36.58371412929232
+        },
+        {
+          "fold": 3,
+          "ufs_teste": [
+            "AM",
+            "ES",
+            "MT",
+            "PR",
+            "RS"
+          ],
+          "n_municipios": 1176,
+          "peso_total": 1176.0,
+          "sse_local": 101.22926958408466,
+          "sse_contexto": 62.21237534808947
+        },
+        {
+          "fold": 4,
+          "ufs_teste": [
+            "AP",
+            "GO",
+            "PA",
+            "RJ",
+            "SC"
+          ],
+          "n_municipios": 790,
+          "peso_total": 790.0,
+          "sse_local": 71.47954544546462,
+          "sse_contexto": 47.861316927795606
+        },
+        {
+          "fold": 5,
+          "ufs_teste": [
+            "BA",
+            "MA",
+            "PB",
+            "RN",
+            "SE"
+          ],
+          "n_municipios": 1099,
+          "peso_total": 1099.0,
+          "sse_local": 94.9248591558691,
+          "sse_contexto": 45.885403437144504
+        }
+      ]
+    }
+  },
+  {
+    "ano": 2022,
+    "desfecho": "direcao_pt13",
+    "amostra": "todos",
+    "peso": "populacao_anterior",
+    "cv": {
+      "rmse_local": 0.24383503180615232,
+      "rmse_contexto": 0.24839770587640134,
+      "ganho_rmse_pct": -1.8712135153230656,
+      "dobras_com_piora": 2,
+      "dobras": [
+        {
+          "fold": 1,
+          "ufs_teste": [
+            "AC",
+            "CE",
+            "MG",
+            "PE",
+            "RO",
+            "SP"
+          ],
+          "n_municipios": 1941,
+          "peso_total": 89698582.0,
+          "sse_local": 4688587.638936754,
+          "sse_contexto": 5878644.909607241
+        },
+        {
+          "fold": 2,
+          "ufs_teste": [
+            "AL",
+            "DF",
+            "MS",
+            "PI",
+            "RR",
+            "TO"
+          ],
+          "n_municipios": 559,
+          "peso_total": 14842479.0,
+          "sse_local": 738397.9156260043,
+          "sse_contexto": 710753.1704976084
+        },
+        {
+          "fold": 3,
+          "ufs_teste": [
+            "AM",
+            "ES",
+            "MT",
+            "PR",
+            "RS"
+          ],
+          "n_municipios": 1176,
+          "peso_total": 35006783.0,
+          "sse_local": 2196011.9121636525,
+          "sse_contexto": 1834754.7917651418
+        },
+        {
+          "fold": 4,
+          "ufs_teste": [
+            "AP",
+            "GO",
+            "PA",
+            "RJ",
+            "SC"
+          ],
+          "n_municipios": 790,
+          "peso_total": 41623512.0,
+          "sse_local": 2441848.626075237,
+          "sse_contexto": 2605842.5365848877
+        },
+        {
+          "fold": 5,
+          "ufs_teste": [
+            "BA",
+            "MA",
+            "PB",
+            "RN",
+            "SE"
+          ],
+          "n_municipios": 1099,
+          "peso_total": 32097828.0,
+          "sse_local": 2615184.725378751,
+          "sse_contexto": 2129016.147295435
+        }
+      ]
+    }
+  },
+  {
+    "ano": 2022,
+    "desfecho": "competitividade",
+    "amostra": "sem_capitais",
+    "peso": "igual",
+    "cv": {
+      "rmse_local": 0.19136975364528822,
+      "rmse_contexto": 0.18332768265671448,
+      "ganho_rmse_pct": 4.2023730685675895,
+      "dobras_com_piora": 0,
+      "dobras": [
+        {
+          "fold": 1,
+          "ufs_teste": [
+            "AC",
+            "CE",
+            "MS",
+            "PI",
+            "RR",
+            "TO"
+          ],
+          "n_municipios": 656,
+          "peso_total": 656.0,
+          "sse_local": 27.39505922202787,
+          "sse_contexto": 22.060427411443225
+        },
+        {
+          "fold": 2,
+          "ufs_teste": [
+            "AL",
+            "ES",
+            "MT",
+            "PR",
+            "RS"
+          ],
+          "n_municipios": 1211,
+          "peso_total": 1211.0,
+          "sse_local": 52.62404159406837,
+          "sse_contexto": 52.018947973104574
+        },
+        {
+          "fold": 3,
+          "ufs_teste": [
+            "AM",
+            "GO",
+            "PA",
+            "RJ",
+            "SC"
+          ],
+          "n_municipios": 831,
+          "peso_total": 831.0,
+          "sse_local": 32.513814314202904,
+          "sse_contexto": 32.14066460005451
+        },
+        {
+          "fold": 4,
+          "ufs_teste": [
+            "AP",
+            "MA",
+            "PB",
+            "RN",
+            "SE"
+          ],
+          "n_municipios": 693,
+          "peso_total": 693.0,
+          "sse_local": 25.230271077577076,
+          "sse_contexto": 19.992633395991366
+        },
+        {
+          "fold": 5,
+          "ufs_teste": [
+            "BA",
+            "MG",
+            "PE",
+            "RO",
+            "SP"
+          ],
+          "n_municipios": 2147,
+          "peso_total": 2147.0,
+          "sse_local": 65.0515686877342,
+          "sse_contexto": 59.91418586562658
+        }
+      ]
+    }
+  },
+  {
+    "ano": 2022,
+    "desfecho": "competitividade",
+    "amostra": "sem_capitais",
+    "peso": "populacao_anterior",
+    "cv": {
+      "rmse_local": 0.16848556318767724,
+      "rmse_contexto": 0.17025586424162842,
+      "ganho_rmse_pct": -1.0507137943796574,
+      "dobras_com_piora": 4,
+      "dobras": [
+        {
+          "fold": 1,
+          "ufs_teste": [
+            "AC",
+            "CE",
+            "MS",
+            "PI",
+            "RR",
+            "TO"
+          ],
+          "n_municipios": 656,
+          "peso_total": 12870349.0,
+          "sse_local": 446487.45747850393,
+          "sse_contexto": 409903.6694676834
+        },
+        {
+          "fold": 2,
+          "ufs_teste": [
+            "AL",
+            "ES",
+            "MT",
+            "PR",
+            "RS"
+          ],
+          "n_municipios": 1211,
+          "peso_total": 28621138.0,
+          "sse_local": 1036676.2458961105,
+          "sse_contexto": 1142375.5985320206
+        },
+        {
+          "fold": 3,
+          "ufs_teste": [
+            "AM",
+            "GO",
+            "PA",
+            "RJ",
+            "SC"
+          ],
+          "n_municipios": 831,
+          "peso_total": 32405860.0,
+          "sse_local": 1045991.3236428335,
+          "sse_contexto": 1059467.6434725886
+        },
+        {
+          "fold": 4,
+          "ufs_teste": [
+            "AP",
+            "MA",
+            "PB",
+            "RN",
+            "SE"
+          ],
+          "n_municipios": 693,
+          "peso_total": 13956750.0,
+          "sse_local": 383416.18743800523,
+          "sse_contexto": 387885.217258824
+        },
+        {
+          "fold": 5,
+          "ufs_teste": [
+            "BA",
+            "MG",
+            "PE",
+            "RO",
+            "SP"
+          ],
+          "n_municipios": 2147,
+          "peso_total": 74499049.0,
+          "sse_local": 1696210.047441041,
+          "sse_contexto": 1706508.143319037
+        }
+      ]
+    }
+  },
+  {
+    "ano": 2022,
+    "desfecho": "direcao_pt13",
+    "amostra": "sem_capitais",
+    "peso": "igual",
+    "cv": {
+      "rmse_local": 0.27982283571010363,
+      "rmse_contexto": 0.23070232800838544,
+      "ganho_rmse_pct": 17.55414549247404,
+      "dobras_com_piora": 0,
+      "dobras": [
+        {
+          "fold": 1,
+          "ufs_teste": [
+            "AC",
+            "CE",
+            "MS",
+            "PI",
+            "RR",
+            "TO"
+          ],
+          "n_municipios": 656,
+          "peso_total": 656.0,
+          "sse_local": 62.755175463002985,
+          "sse_contexto": 46.03962504427645
+        },
+        {
+          "fold": 2,
+          "ufs_teste": [
+            "AL",
+            "ES",
+            "MT",
+            "PR",
+            "RS"
+          ],
+          "n_municipios": 1211,
+          "peso_total": 1211.0,
+          "sse_local": 99.94351393968341,
+          "sse_contexto": 61.01182952978351
+        },
+        {
+          "fold": 3,
+          "ufs_teste": [
+            "AM",
+            "GO",
+            "PA",
+            "RJ",
+            "SC"
+          ],
+          "n_municipios": 831,
+          "peso_total": 831.0,
+          "sse_local": 74.23016113666883,
+          "sse_contexto": 50.22114609094929
+        },
+        {
+          "fold": 4,
+          "ufs_teste": [
+            "AP",
+            "MA",
+            "PB",
+            "RN",
+            "SE"
+          ],
+          "n_municipios": 693,
+          "peso_total": 693.0,
+          "sse_local": 47.40622069863122,
+          "sse_contexto": 23.118234218781684
+        },
+        {
+          "fold": 5,
+          "ufs_teste": [
+            "BA",
+            "MG",
+            "PE",
+            "RO",
+            "SP"
+          ],
+          "n_municipios": 2147,
+          "peso_total": 2147.0,
+          "sse_local": 149.29486651527782,
+          "sse_contexto": 114.3612633705393
+        }
+      ]
+    }
+  },
+  {
+    "ano": 2022,
+    "desfecho": "direcao_pt13",
+    "amostra": "sem_capitais",
+    "peso": "populacao_anterior",
+    "cv": {
+      "rmse_local": 0.2607162741717537,
+      "rmse_contexto": 0.24839598662343965,
+      "ganho_rmse_pct": 4.7255537029490275,
+      "dobras_com_piora": 1,
+      "dobras": [
+        {
+          "fold": 1,
+          "ufs_teste": [
+            "AC",
+            "CE",
+            "MS",
+            "PI",
+            "RR",
+            "TO"
+          ],
+          "n_municipios": 656,
+          "peso_total": 12870349.0,
+          "sse_local": 1104476.3337001912,
+          "sse_contexto": 807030.3098636128
+        },
+        {
+          "fold": 2,
+          "ufs_teste": [
+            "AL",
+            "ES",
+            "MT",
+            "PR",
+            "RS"
+          ],
+          "n_municipios": 1211,
+          "peso_total": 28621138.0,
+          "sse_local": 1970551.6111508715,
+          "sse_contexto": 1313220.6552230124
+        },
+        {
+          "fold": 3,
+          "ufs_teste": [
+            "AM",
+            "GO",
+            "PA",
+            "RJ",
+            "SC"
+          ],
+          "n_municipios": 831,
+          "peso_total": 32405860.0,
+          "sse_local": 2268461.4739010236,
+          "sse_contexto": 2161358.521025766
+        },
+        {
+          "fold": 4,
+          "ufs_teste": [
+            "AP",
+            "MA",
+            "PB",
+            "RN",
+            "SE"
+          ],
+          "n_municipios": 693,
+          "peso_total": 13956750.0,
+          "sse_local": 747224.6478385129,
+          "sse_contexto": 533562.3526790696
+        },
+        {
+          "fold": 5,
+          "ufs_teste": [
+            "BA",
+            "MG",
+            "PE",
+            "RO",
+            "SP"
+          ],
+          "n_municipios": 2147,
+          "peso_total": 74499049.0,
+          "sse_local": 4944912.367973163,
+          "sse_contexto": 5202109.188991819
+        }
+      ]
+    }
+  },
+  {
+    "ano": 2022,
+    "desfecho": "competitividade",
+    "amostra": "sem_1pct_maiores",
+    "peso": "igual",
+    "cv": {
+      "rmse_local": 0.19150792176220335,
+      "rmse_contexto": 0.1834449133942448,
+      "ganho_rmse_pct": 4.210274067915819,
+      "dobras_com_piora": 0,
+      "dobras": [
+        {
+          "fold": 1,
+          "ufs_teste": [
+            "AC",
+            "CE",
+            "MS",
+            "PI",
+            "RR",
+            "TO"
+          ],
+          "n_municipios": 658,
+          "peso_total": 658.0,
+          "sse_local": 27.457094633260883,
+          "sse_contexto": 22.210881513251117
+        },
+        {
+          "fold": 2,
+          "ufs_teste": [
+            "AL",
+            "ES",
+            "MT",
+            "PR",
+            "RS"
+          ],
+          "n_municipios": 1207,
+          "peso_total": 1207.0,
+          "sse_local": 52.40813150640662,
+          "sse_contexto": 51.790548437168184
+        },
+        {
+          "fold": 3,
+          "ufs_teste": [
+            "AM",
+            "GO",
+            "PA",
+            "RJ",
+            "SC"
+          ],
+          "n_municipios": 821,
+          "peso_total": 821.0,
+          "sse_local": 32.029023077309745,
+          "sse_contexto": 31.609623773454054
+        },
+        {
+          "fold": 4,
+          "ufs_teste": [
+            "AP",
+            "MA",
+            "PB",
+            "RN",
+            "SE"
+          ],
+          "n_municipios": 693,
+          "peso_total": 693.0,
+          "sse_local": 25.41701431657339,
+          "sse_contexto": 20.165721794302023
+        },
+        {
+          "fold": 5,
+          "ufs_teste": [
+            "BA",
+            "MG",
+            "PE",
+            "RO",
+            "SP"
+          ],
+          "n_municipios": 2130,
+          "peso_total": 2130.0,
+          "sse_local": 64.73287656055857,
+          "sse_contexto": 59.61229218429747
+        }
+      ]
+    }
+  },
+  {
+    "ano": 2022,
+    "desfecho": "competitividade",
+    "amostra": "sem_1pct_maiores",
+    "peso": "populacao_anterior",
+    "cv": {
+      "rmse_local": 0.17366880220152306,
+      "rmse_contexto": 0.17599030109949912,
+      "ganho_rmse_pct": -1.3367391658993664,
+      "dobras_com_piora": 2,
+      "dobras": [
+        {
+          "fold": 1,
+          "ufs_teste": [
+            "AC",
+            "CE",
+            "MS",
+            "PI",
+            "RR",
+            "TO"
+          ],
+          "n_municipios": 658,
+          "peso_total": 13603150.0,
+          "sse_local": 454287.12073880894,
+          "sse_contexto": 409953.6139061961
+        },
+        {
+          "fold": 2,
+          "ufs_teste": [
+            "AL",
+            "ES",
+            "MT",
+            "PR",
+            "RS"
+          ],
+          "n_municipios": 1207,
+          "peso_total": 26404194.0,
+          "sse_local": 962939.5992204213,
+          "sse_contexto": 1088213.8298489149
+        },
+        {
+          "fold": 3,
+          "ufs_teste": [
+            "AM",
+            "GO",
+            "PA",
+            "RJ",
+            "SC"
+          ],
+          "n_municipios": 821,
+          "peso_total": 25785456.0,
+          "sse_local": 891358.69967222,
+          "sse_contexto": 931909.3312932291
+        },
+        {
+          "fold": 4,
+          "ufs_teste": [
+            "AP",
+            "MA",
+            "PB",
+            "RN",
+            "SE"
+          ],
+          "n_municipios": 693,
+          "peso_total": 13956750.0,
+          "sse_local": 404140.6384736839,
+          "sse_contexto": 403122.3070942561
+        },
+        {
+          "fold": 5,
+          "ufs_teste": [
+            "BA",
+            "MG",
+            "PE",
+            "RO",
+            "SP"
+          ],
+          "n_municipios": 2130,
+          "peso_total": 62293249.0,
+          "sse_local": 1571405.9020882063,
+          "sse_contexto": 1566233.7370842034
+        }
+      ]
+    }
+  },
+  {
+    "ano": 2022,
+    "desfecho": "direcao_pt13",
+    "amostra": "sem_1pct_maiores",
+    "peso": "igual",
+    "cv": {
+      "rmse_local": 0.27976680102614154,
+      "rmse_contexto": 0.22978809426448332,
+      "ganho_rmse_pct": 17.864416570638124,
+      "dobras_com_piora": 0,
+      "dobras": [
+        {
+          "fold": 1,
+          "ufs_teste": [
+            "AC",
+            "CE",
+            "MS",
+            "PI",
+            "RR",
+            "TO"
+          ],
+          "n_municipios": 658,
+          "peso_total": 658.0,
+          "sse_local": 63.00117575892591,
+          "sse_contexto": 46.308439031970565
+        },
+        {
+          "fold": 2,
+          "ufs_teste": [
+            "AL",
+            "ES",
+            "MT",
+            "PR",
+            "RS"
+          ],
+          "n_municipios": 1207,
+          "peso_total": 1207.0,
+          "sse_local": 99.48252783965212,
+          "sse_contexto": 60.791350801858925
+        },
+        {
+          "fold": 3,
+          "ufs_teste": [
+            "AM",
+            "GO",
+            "PA",
+            "RJ",
+            "SC"
+          ],
+          "n_municipios": 821,
+          "peso_total": 821.0,
+          "sse_local": 73.4195923003015,
+          "sse_contexto": 49.15224837446275
+        },
+        {
+          "fold": 4,
+          "ufs_teste": [
+            "AP",
+            "MA",
+            "PB",
+            "RN",
+            "SE"
+          ],
+          "n_municipios": 693,
+          "peso_total": 693.0,
+          "sse_local": 47.31197773637268,
+          "sse_contexto": 23.020910898773568
+        },
+        {
+          "fold": 5,
+          "ufs_teste": [
+            "BA",
+            "MG",
+            "PE",
+            "RO",
+            "SP"
+          ],
+          "n_municipios": 2130,
+          "peso_total": 2130.0,
+          "sse_local": 147.97119779155906,
+          "sse_contexto": 111.6163994686924
+        }
+      ]
+    }
+  },
+  {
+    "ano": 2022,
+    "desfecho": "direcao_pt13",
+    "amostra": "sem_1pct_maiores",
+    "peso": "populacao_anterior",
+    "cv": {
+      "rmse_local": 0.2597465554881792,
+      "rmse_contexto": 0.2326629181963983,
+      "ganho_rmse_pct": 10.426947622415515,
+      "dobras_com_piora": 0,
+      "dobras": [
+        {
+          "fold": 1,
+          "ufs_teste": [
+            "AC",
+            "CE",
+            "MS",
+            "PI",
+            "RR",
+            "TO"
+          ],
+          "n_municipios": 658,
+          "peso_total": 13603150.0,
+          "sse_local": 1172238.1656377655,
+          "sse_contexto": 852754.1154812714
+        },
+        {
+          "fold": 2,
+          "ufs_teste": [
+            "AL",
+            "ES",
+            "MT",
+            "PR",
+            "RS"
+          ],
+          "n_municipios": 1207,
+          "peso_total": 26404194.0,
+          "sse_local": 1743880.1319802725,
+          "sse_contexto": 1160583.301306128
+        },
+        {
+          "fold": 3,
+          "ufs_teste": [
+            "AM",
+            "GO",
+            "PA",
+            "RJ",
+            "SC"
+          ],
+          "n_municipios": 821,
+          "peso_total": 25785456.0,
+          "sse_local": 1860239.740611096,
+          "sse_contexto": 1500949.1001734342
+        },
+        {
+          "fold": 4,
+          "ufs_teste": [
+            "AP",
+            "MA",
+            "PB",
+            "RN",
+            "SE"
+          ],
+          "n_municipios": 693,
+          "peso_total": 13956750.0,
+          "sse_local": 707759.5201592079,
+          "sse_contexto": 505878.287796885
+        },
+        {
+          "fold": 5,
+          "ufs_teste": [
+            "BA",
+            "MG",
+            "PE",
+            "RO",
+            "SP"
+          ],
+          "n_municipios": 2130,
+          "peso_total": 62293249.0,
+          "sse_local": 4099264.794723824,
+          "sse_contexto": 3668900.7496644817
+        }
+      ]
+    }
+  },
+  {
+    "ano": 2022,
+    "desfecho": "competitividade",
+    "amostra": "sem_5pct_maiores",
+    "peso": "igual",
+    "cv": {
+      "rmse_local": 0.1919783746523355,
+      "rmse_contexto": 0.18345152819288216,
+      "ganho_rmse_pct": 4.441566126859387,
+      "dobras_com_piora": 0,
+      "dobras": [
+        {
+          "fold": 1,
+          "ufs_teste": [
+            "AC",
+            "CE",
+            "MS",
+            "PI",
+            "RR",
+            "TO"
+          ],
+          "n_municipios": 645,
+          "peso_total": 645.0,
+          "sse_local": 27.1521392211907,
+          "sse_contexto": 22.40872439633125
+        },
+        {
+          "fold": 2,
+          "ufs_teste": [
+            "AL",
+            "ES",
+            "MT",
+            "PR",
+            "RS"
+          ],
+          "n_municipios": 1165,
+          "peso_total": 1165.0,
+          "sse_local": 50.5444558282465,
+          "sse_contexto": 49.64288150515928
+        },
+        {
+          "fold": 3,
+          "ufs_teste": [
+            "AM",
+            "GO",
+            "PA",
+            "RJ",
+            "SC"
+          ],
+          "n_municipios": 771,
+          "peso_total": 771.0,
+          "sse_local": 30.48305747694431,
+          "sse_contexto": 29.72938788412381
+        },
+        {
+          "fold": 4,
+          "ufs_teste": [
+            "AP",
+            "MA",
+            "PB",
+            "RN",
+            "SE"
+          ],
+          "n_municipios": 681,
+          "peso_total": 681.0,
+          "sse_local": 24.905049865448184,
+          "sse_contexto": 19.63444528423866
+        },
+        {
+          "fold": 5,
+          "ufs_teste": [
+            "BA",
+            "MG",
+            "PE",
+            "RO",
+            "SP"
+          ],
+          "n_municipios": 2024,
+          "peso_total": 2024.0,
+          "sse_local": 61.73450843050043,
+          "sse_contexto": 56.48205338580908
+        }
+      ]
+    }
+  },
+  {
+    "ano": 2022,
+    "desfecho": "competitividade",
+    "amostra": "sem_5pct_maiores",
+    "peso": "populacao_anterior",
+    "cv": {
+      "rmse_local": 0.1813791854592435,
+      "rmse_contexto": 0.17967658918167342,
+      "ganho_rmse_pct": 0.9386944115220198,
+      "dobras_com_piora": 2,
+      "dobras": [
+        {
+          "fold": 1,
+          "ufs_teste": [
+            "AC",
+            "CE",
+            "MS",
+            "PI",
+            "RR",
+            "TO"
+          ],
+          "n_municipios": 645,
+          "peso_total": 10689232.0,
+          "sse_local": 341981.36745375267,
+          "sse_contexto": 299702.55239658116
+        },
+        {
+          "fold": 2,
+          "ufs_teste": [
+            "AL",
+            "ES",
+            "MT",
+            "PR",
+            "RS"
+          ],
+          "n_municipios": 1165,
+          "peso_total": 17592880.0,
+          "sse_local": 736665.7304991253,
+          "sse_contexto": 785042.3577961451
+        },
+        {
+          "fold": 3,
+          "ufs_teste": [
+            "AM",
+            "GO",
+            "PA",
+            "RJ",
+            "SC"
+          ],
+          "n_municipios": 771,
+          "peso_total": 16149968.0,
+          "sse_local": 663538.9247488054,
+          "sse_contexto": 668905.0699025847
+        },
+        {
+          "fold": 4,
+          "ufs_teste": [
+            "AP",
+            "MA",
+            "PB",
+            "RN",
+            "SE"
+          ],
+          "n_municipios": 681,
+          "peso_total": 11489570.0,
+          "sse_local": 304983.80281890417,
+          "sse_contexto": 285106.66883773543
+        },
+        {
+          "fold": 5,
+          "ufs_teste": [
+            "BA",
+            "MG",
+            "PE",
+            "RO",
+            "SP"
+          ],
+          "n_municipios": 2024,
+          "peso_total": 39391309.0,
+          "sse_local": 1088474.8748325086,
+          "sse_contexto": 1038296.1047394819
+        }
+      ]
+    }
+  },
+  {
+    "ano": 2022,
+    "desfecho": "direcao_pt13",
+    "amostra": "sem_5pct_maiores",
+    "peso": "igual",
+    "cv": {
+      "rmse_local": 0.2805136772106539,
+      "rmse_contexto": 0.2290419565094451,
+      "ganho_rmse_pct": 18.349094850927973,
+      "dobras_com_piora": 0,
+      "dobras": [
+        {
+          "fold": 1,
+          "ufs_teste": [
+            "AC",
+            "CE",
+            "MS",
+            "PI",
+            "RR",
+            "TO"
+          ],
+          "n_municipios": 645,
+          "peso_total": 645.0,
+          "sse_local": 61.85358282329464,
+          "sse_contexto": 45.211950592091114
+        },
+        {
+          "fold": 2,
+          "ufs_teste": [
+            "AL",
+            "ES",
+            "MT",
+            "PR",
+            "RS"
+          ],
+          "n_municipios": 1165,
+          "peso_total": 1165.0,
+          "sse_local": 96.18819726910354,
+          "sse_contexto": 59.501306982819585
+        },
+        {
+          "fold": 3,
+          "ufs_teste": [
+            "AM",
+            "GO",
+            "PA",
+            "RJ",
+            "SC"
+          ],
+          "n_municipios": 771,
+          "peso_total": 771.0,
+          "sse_local": 69.51044243380235,
+          "sse_contexto": 46.51042353148064
+        },
+        {
+          "fold": 4,
+          "ufs_teste": [
+            "AP",
+            "MA",
+            "PB",
+            "RN",
+            "SE"
+          ],
+          "n_municipios": 681,
+          "peso_total": 681.0,
+          "sse_local": 46.437665978935954,
+          "sse_contexto": 22.448222859966638
+        },
+        {
+          "fold": 5,
+          "ufs_teste": [
+            "BA",
+            "MG",
+            "PE",
+            "RO",
+            "SP"
+          ],
+          "n_municipios": 2024,
+          "peso_total": 2024.0,
+          "sse_local": 141.95447301331967,
+          "sse_contexto": 103.63280754473365
+        }
+      ]
+    }
+  },
+  {
+    "ano": 2022,
+    "desfecho": "direcao_pt13",
+    "amostra": "sem_5pct_maiores",
+    "peso": "populacao_anterior",
+    "cv": {
+      "rmse_local": 0.27005413700313735,
+      "rmse_contexto": 0.22787035952677195,
+      "ganho_rmse_pct": 15.62048926355656,
+      "dobras_com_piora": 0,
+      "dobras": [
+        {
+          "fold": 1,
+          "ufs_teste": [
+            "AC",
+            "CE",
+            "MS",
+            "PI",
+            "RR",
+            "TO"
+          ],
+          "n_municipios": 645,
+          "peso_total": 10689232.0,
+          "sse_local": 871309.0596831288,
+          "sse_contexto": 649234.8778929505
+        },
+        {
+          "fold": 2,
+          "ufs_teste": [
+            "AL",
+            "ES",
+            "MT",
+            "PR",
+            "RS"
+          ],
+          "n_municipios": 1165,
+          "peso_total": 17592880.0,
+          "sse_local": 1347053.9916236587,
+          "sse_contexto": 879354.6949402248
+        },
+        {
+          "fold": 3,
+          "ufs_teste": [
+            "AM",
+            "GO",
+            "PA",
+            "RJ",
+            "SC"
+          ],
+          "n_municipios": 771,
+          "peso_total": 16149968.0,
+          "sse_local": 1271255.609249545,
+          "sse_contexto": 949342.0370116227
+        },
+        {
+          "fold": 4,
+          "ufs_teste": [
+            "AP",
+            "MA",
+            "PB",
+            "RN",
+            "SE"
+          ],
+          "n_municipios": 681,
+          "peso_total": 11489570.0,
+          "sse_local": 569307.0660678849,
+          "sse_contexto": 349628.2381850319
+        },
+        {
+          "fold": 5,
+          "ufs_teste": [
+            "BA",
+            "MG",
+            "PE",
+            "RO",
+            "SP"
+          ],
+          "n_municipios": 2024,
+          "peso_total": 39391309.0,
+          "sse_local": 2892175.6411190676,
+          "sse_contexto": 2121556.0883159875
+        }
+      ]
+    }
+  }
+]
