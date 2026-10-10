@@ -50,7 +50,7 @@ def avaliar(geo, meta, arquivos):
                 resultado = base.permutacao(vetor, W, rep=9999, seed=20261010)
                 rows.append({"ano": ano, "turno": turno, "k_vizinhos": k,
                              "I": resultado["I"],
-                             "p_permutacional": resultado["p_permutacional"]})
+                             "p_permutacional": resultado["p_permutacional_bicaudal"]})
     df = pd.DataFrame(rows).sort_values(["ano", "turno", "k_vizinhos"]).reset_index(drop=True)
     ref = df[df.k_vizinhos == 4].copy()
     ref["p_ajustado_holm"] = holm_quatro(ref.p_permutacional.to_numpy(dtype=float))
