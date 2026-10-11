@@ -59,7 +59,7 @@ def auditar(manu,modelos,pesos,robustez,ci,concil):
             if abs(float(r.iloc[0].ganho_rmse_cv_pct)-float(b.iloc[0].ganho_rmse_observado_pct))>1e-6:
                 errs.append(f"Bootstrap e robustez inconsistentes para {(ano,desfecho)}")
             pct=f"{float(r.iloc[0].ganho_rmse_cv_pct):+.2f}".replace(".",",")
-            if pct not in txt:
+            if pct not in txt and pct.replace("-","−") not in txt:
                 errs.append(f"Resultado {pct} de {(ano,desfecho)} ausente do manuscrito")
     diff=aud[(aud.ano==2018)&(aud.turno==1)&(aud.tipo=="total_validos")]
     if len(diff)!=1 or int(diff.iloc[0].diferenca)!=76:errs.append("Divergência auditada 2018 não é 76.")
