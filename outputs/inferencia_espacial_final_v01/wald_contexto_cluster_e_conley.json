@@ -1,0 +1,170 @@
+[
+  {
+    "ano": 2018,
+    "desfecho": "competitividade",
+    "peso": "igual",
+    "k": 8,
+    "n": 5565,
+    "uf_cluster_F4": 1.0746083234310446,
+    "uf_cluster_p_F4_26": 0.3891955432863892,
+    "conley_100km_wald_chi2_4": 14.68011129974664,
+    "conley_100km_p_qui2_4": 0.0054128162333340595,
+    "conley_100km_pares": 168265,
+    "conley_250km_wald_chi2_4": 7.886425664877765,
+    "conley_250km_p_qui2_4": 0.09582828934693668,
+    "conley_250km_pares": 813576,
+    "coef_contexto_padronizado": [
+      -0.016263119768003445,
+      0.032751037849145126,
+      -0.001478632635365254,
+      0.0023470396903897683
+    ]
+  },
+  {
+    "ano": 2018,
+    "desfecho": "competitividade",
+    "peso": "populacao_anterior",
+    "k": 8,
+    "n": 5565,
+    "uf_cluster_F4": 1.8699445800392098,
+    "uf_cluster_p_F4_26": 0.1458912413190457,
+    "conley_100km_wald_chi2_4": 10.331531075812364,
+    "conley_100km_p_qui2_4": 0.03519844990434622,
+    "conley_100km_pares": 168265,
+    "conley_250km_wald_chi2_4": 10.06775989348193,
+    "conley_250km_p_qui2_4": 0.039301613603609495,
+    "conley_250km_pares": 813576,
+    "coef_contexto_padronizado": [
+      0.016821917498666794,
+      0.032957042194400876,
+      -0.018336733754248602,
+      0.014782240925377055
+    ]
+  },
+  {
+    "ano": 2018,
+    "desfecho": "direcao_pt13",
+    "peso": "igual",
+    "k": 8,
+    "n": 5565,
+    "uf_cluster_F4": 17.13928628673877,
+    "uf_cluster_p_F4_26": 5.354530901812981e-07,
+    "conley_100km_wald_chi2_4": 115.94705791359718,
+    "conley_100km_p_qui2_4": 3.9180808566548094e-24,
+    "conley_100km_pares": 168265,
+    "conley_250km_wald_chi2_4": 57.07439519414616,
+    "conley_250km_p_qui2_4": 1.1934984049992359e-11,
+    "conley_250km_pares": 813576,
+    "coef_contexto_padronizado": [
+      0.00926999704666609,
+      -0.08152201614144783,
+      -0.05379650490253146,
+      0.03589829273994766
+    ]
+  },
+  {
+    "ano": 2018,
+    "desfecho": "direcao_pt13",
+    "peso": "populacao_anterior",
+    "k": 8,
+    "n": 5565,
+    "uf_cluster_F4": 6.955700485209604,
+    "uf_cluster_p_F4_26": 0.0006021662478506905,
+    "conley_100km_wald_chi2_4": 32.00161690132923,
+    "conley_100km_p_qui2_4": 1.911642855541054e-06,
+    "conley_100km_pares": 168265,
+    "conley_250km_wald_chi2_4": 24.349950059030853,
+    "conley_250km_p_qui2_4": 6.795561201732507e-05,
+    "conley_250km_pares": 813576,
+    "coef_contexto_padronizado": [
+      0.023755653727309367,
+      -0.016933154317186894,
+      -0.041330576758834336,
+      0.06139653663298991
+    ]
+  },
+  {
+    "ano": 2022,
+    "desfecho": "competitividade",
+    "peso": "igual",
+    "k": 8,
+    "n": 5565,
+    "uf_cluster_F4": 1.4653936832482912,
+    "uf_cluster_p_F4_26": 0.24131559970550218,
+    "conley_100km_wald_chi2_4": 22.341792059976356,
+    "conley_100km_p_qui2_4": 0.00017134208553887972,
+    "conley_100km_pares": 168265,
+    "conley_250km_wald_chi2_4": 11.601006128247564,
+    "conley_250km_p_qui2_4": 0.020578540392960778,
+    "conley_250km_pares": 813576,
+    "coef_contexto_padronizado": [
+      -0.0018186016667687543,
+      0.026181188182083814,
+      0.01739698970910092,
+      -0.013303404413115977
+    ]
+  },
+  {
+    "ano": 2022,
+    "desfecho": "competitividade",
+    "peso": "populacao_anterior",
+    "k": 8,
+    "n": 5565,
+    "uf_cluster_F4": 7.197823585689876,
+    "uf_cluster_p_F4_26": 0.0004844266800430681,
+    "conley_100km_wald_chi2_4": 25.350858825852224,
+    "conley_100km_p_qui2_4": 4.276336996317697e-05,
+    "conley_100km_pares": 168265,
+    "conley_250km_wald_chi2_4": 21.027144934139645,
+    "conley_250km_p_qui2_4": 0.0003127689205520496,
+    "conley_250km_pares": 813576,
+    "coef_contexto_padronizado": [
+      0.026768689242836707,
+      0.002588628241644575,
+      0.0015474512302398047,
+      -0.011333475479105903
+    ]
+  },
+  {
+    "ano": 2022,
+    "desfecho": "direcao_pt13",
+    "peso": "igual",
+    "k": 8,
+    "n": 5565,
+    "uf_cluster_F4": 17.745085154967583,
+    "uf_cluster_p_F4_26": 3.8865532284025415e-07,
+    "conley_100km_wald_chi2_4": 132.88409878216322,
+    "conley_100km_p_qui2_4": 9.408390658268165e-28,
+    "conley_100km_pares": 168265,
+    "conley_250km_wald_chi2_4": 68.97028213410474,
+    "conley_250km_p_qui2_4": 3.744036405400927e-14,
+    "conley_250km_pares": 813576,
+    "coef_contexto_padronizado": [
+      0.01098396722582351,
+      -0.07746487287017945,
+      -0.043130848399272115,
+      0.04273325481170076
+    ]
+  },
+  {
+    "ano": 2022,
+    "desfecho": "direcao_pt13",
+    "peso": "populacao_anterior",
+    "k": 8,
+    "n": 5565,
+    "uf_cluster_F4": 6.838180809301021,
+    "uf_cluster_p_F4_26": 0.0006700679447595321,
+    "conley_100km_wald_chi2_4": 48.42131897400182,
+    "conley_100km_p_qui2_4": 7.709538616258895e-10,
+    "conley_100km_pares": 168265,
+    "conley_250km_wald_chi2_4": 36.64381314837218,
+    "conley_250km_p_qui2_4": 2.1327848874794238e-07,
+    "conley_250km_pares": 813576,
+    "coef_contexto_padronizado": [
+      0.028714860759431058,
+      -0.032434321864672655,
+      -0.03347920869969781,
+      0.05860944724026537
+    ]
+  }
+]
