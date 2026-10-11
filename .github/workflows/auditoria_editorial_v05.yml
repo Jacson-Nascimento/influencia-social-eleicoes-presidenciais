@@ -1,4 +1,4 @@
-name: Auditoria editorial final do manuscrito v05
+name: Auditoria editorial final do manuscrito v05 – equacoes corrigidas
 # Reexecução após correção dos delimitadores LaTeX nas equações
 
 on:
@@ -33,19 +33,19 @@ jobs:
             --robustez outputs/robustez_demografica_v01/robustez_pesos_populacao_e_grandes_cidades.csv \
             --bootstrap outputs/inferencia_espacial_final_v01/incerteza_rmse_bootstrap_uf.csv \
             --conciliacao outputs/auditoria_documental_final_v01/reconciliacao_candidatos_e_totais.csv \
-            --saida outputs/auditoria_editorial_v05/resultado_auditoria.json
+            --saida outputs/auditoria_editorial_v05_equacoes/resultado_auditoria.json
       - uses: actions/upload-artifact@v4
         if: always()
         with:
-          name: auditoria-editorial-v05
-          path: outputs/auditoria_editorial_v05/
+          name: auditoria-editorial-v05-equacoes
+          path: outputs/auditoria_editorial_v05_equacoes/
           retention-days: 90
           if-no-files-found: warn
       - name: Publicar relatório aprovado
         run: |
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git add outputs/auditoria_editorial_v05/resultado_auditoria.json
+          git add outputs/auditoria_editorial_v05_equacoes/resultado_auditoria.json
           git commit -m 'Registrar auditoria editorial automatizada do manuscrito v05'
           git pull --rebase origin main
           git push origin HEAD:main
