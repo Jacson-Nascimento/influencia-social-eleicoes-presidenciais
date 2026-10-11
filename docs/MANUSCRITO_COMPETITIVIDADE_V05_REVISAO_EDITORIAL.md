@@ -88,19 +88,19 @@ Os totais nacionais dos segundos turnos e ambos os turnos de 2022 foram reconcil
 
 ### Competitividade e direção do voto no segundo turno
 
-Em cada município \\(i\\) e eleição \\(e\\), sejam \\(V_{13,ie}\\) os votos da candidatura nº 13 e \\(V_{o,ie}\\) os votos da outra candidatura finalista. O total dos votos nominais válidos para os dois finalistas é \\(T_{ie}=V_{13,ie}+V_{o,ie}\\).
+Em cada município \(i\) e eleição \(e\), sejam \(V_{13,ie}\) os votos da candidatura nº 13 e \(V_{o,ie}\) os votos da outra candidatura finalista. O total dos votos nominais válidos para os dois finalistas é \(T_{ie}=V_{13,ie}+V_{o,ie}\).
 
-\\[
-C_{ie}=1-\\left|\\frac{V_{13,ie}-V_{o,ie}}{T_{ie}}\\right|.
-\\]
+\[
+C_{ie}=1-\left|\frac{V_{13,ie}-V_{o,ie}}{T_{ie}}\right|.
+\]
 
-A competitividade \\(C_{ie}\\) vale 1 quando há empate e 0 quando uma candidatura recebe todos os votos válidos locais. Para estudar a **direção do voto**, define-se separadamente:
+A competitividade \(C_{ie}\) vale 1 quando há empate e 0 quando uma candidatura recebe todos os votos válidos locais. Para estudar a **direção do voto**, define-se separadamente:
 
-\\[
-M_{ie}=\\frac{V_{13,ie}-V_{o,ie}}{T_{ie}}, \\quad C_{ie}=1-|M_{ie}|.
-\\]
+\[
+M_{ie}=\frac{V_{13,ie}-V_{o,ie}}{T_{ie}}, \quad C_{ie}=1-|M_{ie}|.
+\]
 
-Em 2018, nº 13 identifica Fernando Haddad (PT) e nº 17 identifica Jair Bolsonaro (PSL). Em 2022, nº 13 identifica Luiz Inácio Lula da Silva (PT) e nº 22 identifica Jair Bolsonaro (PL). Portanto, \\(M\\) informa qual lado teve maior votação, mas não pode ser interpretada como preferência individual estável pela mesma pessoa no tempo.
+Em 2018, nº 13 identifica Fernando Haddad (PT) e nº 17 identifica Jair Bolsonaro (PSL). Em 2022, nº 13 identifica Luiz Inácio Lula da Silva (PT) e nº 22 identifica Jair Bolsonaro (PL). Portanto, \(M\) informa qual lado teve maior votação, mas não pode ser interpretada como preferência individual estável pela mesma pessoa no tempo.
 
 O índice original HHI é mantido apenas para comparação histórica e não constitui variável dependente principal desta versão.
 
@@ -148,16 +148,16 @@ Em particular, a ponderação pelo número de votos válidos observados após a 
 
 Para cada eleição estima-se separadamente um modelo local e uma extensão contextual:
 
-\\[
-C_{ie}=\\alpha_e+\\gamma_{UF(i),e}+\\boldsymbol{\\beta}_e'X_{ie}+u_{ie},
-\\]
+\[
+C_{ie}=\alpha_e+\gamma_{UF(i),e}+\boldsymbol{\beta}_e'X_{ie}+u_{ie},
+\]
 
-\\[
-C_{ie}=\\alpha_e+\\gamma_{UF(i),e}+\\boldsymbol{\\beta}_e'X_{ie}
-+\\boldsymbol{\\theta}_e'W_kX_{ie}+u_{ie}.
-\\]
+\[
+C_{ie}=\alpha_e+\gamma_{UF(i),e}+\boldsymbol{\beta}_e'X_{ie}
++\boldsymbol{\theta}_e'W_kX_{ie}+u_{ie}.
+\]
 
-A matriz \\(W_k\\) contém os \\(k\\) municípios mais próximos por centroide geográfico, definidos a partir da malha municipal de 2022; a média dos atributos dos vizinhos é calculada para k=8, com k=4 e k=12 para análise de sensibilidade. \\(X\\) contém log da população, log da proxy de produto por pessoa, urbanização 2010 e proporção feminina 2010.
+A matriz \(W_k\) contém os \(k\) municípios mais próximos por centroide geográfico, definidos a partir da malha municipal de 2022; a média dos atributos dos vizinhos é calculada para k=8, com k=4 e k=12 para análise de sensibilidade. \(X\) contém log da população, log da proxy de produto por pessoa, urbanização 2010 e proporção feminina 2010.
 
 **Não há votos, margem, competitividade ou HHI dos vizinhos como regressoras.** A extensão é contextual e não estima contágio eleitoral.
 
@@ -165,7 +165,7 @@ A matriz \\(W_k\\) contém os \\(k\\) municípios mais próximos por centroide g
 
 A avaliação dentro da amostra compara o R² das regressões com efeitos fixos de UF. Como covariáveis extras não podem reduzir o R² usual de OLS na mesma amostra, também se avalia a generalização geográfica: cinco grupos de UFs inteiras são omitidos do treino, sem efeitos fixos de UF em qualquer modelo desse exercício, e compara-se o RMSE dos dois modelos.
 
-A margem assinada \\(M\\) substitui \\(C\\) em uma análise de sensibilidade com as mesmas covariáveis, territórios e vizinhança. Assim é possível distinguir explicação da intensidade da competitividade de explicação do lado com vantagem em cada município.
+A margem assinada \(M\) substitui \(C\) em uma análise de sensibilidade com as mesmas covariáveis, territórios e vizinhança. Assim é possível distinguir explicação da intensidade da competitividade de explicação do lado com vantagem em cada município.
 
 O índice de Moran dos resíduos serve para verificar a permanência de autocorrelação espacial após os controles, não como demonstração causal. Permutações de resíduos de modelos estimados são tratadas como diagnóstico exploratório.
 
