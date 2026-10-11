@@ -1,4 +1,4 @@
-# Geografia da competitividade eleitoral no Brasil: fatores socioeconômicos e contexto espacial nos segundos turnos presidenciais de 2018 e 2022
+# Geografia da competitividade eleitoral no Brasil: contexto socioeconômico e eleições presidenciais de 2018 e 2022
 
 **Jacson Cruz do Nascimento**  
 Mestre em Economia, pesquisador independente, Brasília, Brasil.  
@@ -189,6 +189,9 @@ A inferência de coeficientes e a inferência de desempenho externo respondem a 
 
 ### Distribuição municipal da competitividade
 
+
+**Tabela 1 — Descrição da competitividade eleitoral municipal por eleição**
+
 | Indicador municipal, não ponderado | 2018 | 2022 |
 |---|---:|---:|
 | Municípios analisados | 5.570 | 5.570 |
@@ -199,14 +202,23 @@ A inferência de coeficientes e a inferência de desempenho externo respondem a 
 | Mediana da competitividade condicional entre os dois líderes locais do 1º turno | 0,585973 | 0,696881 |
 | Municípios em que os dois líderes locais do 1º turno não coincidem com os finalistas nacionais | 795 | 0 |
 
+*Fonte: elaboração própria com base nos resultados nominais do TSE (2018 e 2022). Nota: o primeiro turno de 2018 possui ressalva documental de 76 votos; ver observação na seção de dados.*
+
+
 A mediana municipal da competitividade foi maior em 2022, mas a diferença entre municípios não deve ser confundida com diferença entre totais nacionais ponderados por número de votos. O registro da candidatura nº 13 permite verificar a direção local, mas refere-se a pessoas diferentes nos dois pleitos.
 
 ### Competitividade do segundo turno, especificação principal de oito vizinhos
+
+
+**Tabela 2 — Comparação dos modelos da competitividade e validação geográfica com oito vizinhos**
 
 | Ano | R² local + UF | R² com contexto + UF | Acréscimo de R² | Redução de RMSE na validação por UFs |
 |---|---:|---:|---:|---:|
 | 2018 | 0,425523 | 0,430325 | +0,480 ponto percentual | 1,92% |
 | 2022 | 0,521130 | 0,527468 | +0,634 ponto percentual | 4,99% |
+
+*Fonte: elaboração própria com base em TSE e IBGE; cinco dobras de validação com UFs omitidas.*
+
 
 Em 2018, duas das cinco partições territoriais apresentaram piora de erro com o contexto, apesar do ganho total agregado. Em 2022, houve melhora nas cinco partições. Os resultados sugerem contribuição estatística positiva, de magnitude limitada, das características socioeconômicas dos municípios vizinhos para a competitividade local.
 
@@ -214,10 +226,16 @@ Os índices de Moran I dos resíduos foram 0,460704 no modelo local e 0,458557 n
 
 ### Sensibilidade com margem assinada do voto
 
+
+**Tabela 3 — Comparação dos modelos da margem assinada do voto com oito vizinhos**
+
 | Ano | R² local + UF | R² com contexto + UF | Acréscimo de R² | Redução de RMSE na validação por UFs |
 |---|---:|---:|---:|---:|
 | 2018 | 0,808386 | 0,821872 | +1,349 ponto percentual | 17,09% |
 | 2022 | 0,772391 | 0,789344 | +1,695 ponto percentual | 18,53% |
+
+*Fonte: elaboração própria com base em TSE e IBGE; cinco dobras de validação com UFs omitidas.*
+
 
 O contexto dos vizinhos apresenta melhora de generalização geográfica muito maior para a **direção relativa de votos** que para a competitividade. Isso não implica que vizinhos causem a preferência por determinada candidatura: pode refletir características comuns da estrutura regional.
 
@@ -233,10 +251,16 @@ Essa sensibilidade reforça que escolher um único tamanho de vizinhança após 
 
 O resultado principal muda de interpretação quando os municípios recebem pesos proporcionais à quantidade de votos nominais válidos do segundo turno.
 
+
+**Tabela 4 — Sensibilidade à ponderação por votos válidos do segundo turno**
+
 | Desfecho | 2018: redução de RMSE sem pesos | 2018: com pesos | 2022: sem pesos | 2022: com pesos |
 |---|---:|---:|---:|---:|
 | Competitividade | +1,92% | **-3,28%** | +4,99% | **+0,34%** |
 | Margem assinada | +17,09% | **-0,53%** | +18,53% | **-1,82%** |
+
+*Fonte: elaboração própria com base em TSE; pesos municipais pelo número de votos nominais válidos.*
+
 
 Um sinal negativo significa piora do erro ao incluir as características dos vizinhos. O teste usa a mesma amostra de 5.565 municípios, mas modifica a função de perda e os coeficientes estimados ao privilegiar localidades com mais votos.
 
@@ -250,14 +274,23 @@ A sensibilidade com k=4 e k=12 confirma a instabilidade: competitividade pondera
 
 Para verificar se a instabilidade associada à ponderação decorre da utilização dos votos válidos observados, a validação foi refeita com **estimativas populacionais de 2017 (eleição de 2018) e de 2021 (eleição de 2022)**. São referências anteriores aos pleitos, mas recuperadas em versões do IBGE consultadas em 2026, que podem ter sido revisadas. Não se trata, portanto, de backtest estritamente histórico.
 
+
+**Tabela 5 — Sensibilidade à ponderação por estimativas populacionais anteriores aos pleitos**
+
 | Desfecho, k=8 | 2018, peso uniforme | 2018, população anterior | 2022, peso uniforme | 2022, população anterior |
 |---|---:|---:|---:|---:|
 | Competitividade | +1,92% | **−3,26%** | +4,99% | **+0,40%** |
 | Margem assinada | +17,09% | **−0,89%** | +18,53% | **−1,87%** |
 
+*Fonte: elaboração própria com base em TSE e IBGE; população de 2017 e 2021, versões acessadas em 2026.*
+
+
 O sinal do incremento de generalização depende fortemente da ponderação. Os ganhos com municípios tratados como unidades equivalentes não se reproduzem quando se utiliza a população anterior como peso. Isso reforça o achado da sensibilidade por votos válidos, sem depender de utilizar o comparecimento observado como peso.
 
 A influência de localidades grandes foi avaliada em quatro amostras: 5.565 municípios completos; 5.538 municípios excluindo 27 capitais; 5.509 municípios excluindo os 56 mais populosos; e 5.286 municípios excluindo os 279 mais populosos. Em cada amostra a matriz de oito vizinhos foi reconstruída, e as UFs inteiras foram mantidas como unidades de validação. A exclusão de Brasília elimina o DF na amostra sem capitais ou sem grandes municípios; os experimentos restritos têm 26 UFs.
+
+
+**Tabela 6 — Sensibilidade à exclusão de capitais e grandes municípios, ponderação populacional**
 
 | Amostra, população anterior, k=8 | Competitividade 2018 | Competitividade 2022 | Margem assinada 2018 | Margem assinada 2022 |
 |---|---:|---:|---:|---:|
@@ -265,6 +298,9 @@ A influência de localidades grandes foi avaliada em quatro amostras: 5.565 muni
 | Sem capitais | −2,18% | −1,05% | +6,25% | +4,73% |
 | Sem 1% mais populosos | −1,93% | −1,34% | +11,52% | +10,43% |
 | Sem 5% mais populosos | +0,17% | +0,94% | +14,95% | +15,62% |
+
+*Fonte: elaboração própria com base em TSE e IBGE; matriz de oito vizinhos recalculada nas amostras restritas.*
+
 
 Na competitividade, a exclusão de grandes cidades atenua a piora ponderada de 2018, mas não demonstra um ganho relevante e estável. Na margem assinada, o modelo contextual passa a apresentar maior ganho com o afastamento dos grandes centros. Isso indica **heterogeneidade por porte municipal**; não demonstra que os grandes municípios causem a redução do desempenho, visto que a mudança de amostra também modifica a vizinhança e a composição dos conjuntos de validação.
 
@@ -298,7 +334,21 @@ O confronto com Nicolau (2026) reforça a necessidade de não generalizar result
 
 É necessário evitar uma conclusão exagerada: os R² e RMSE são medidas descritivas/preditivas para **indicadores agregados de eleições passadas**. Não estabelecem exogeneidade das covariáveis, influência interpessoal, transferência individual de votos ou capacidade de antecipar resultado de eleição futura. A dependência residual pode ter origens socioeconômicas, institucionais e históricas não incluídas na especificação.
 
-## Conclusões provisórias e pendências
+### Confronto das interpretações e alcance dos achados
+
+O conjunto de verificações permite responder à pergunta do artigo sem recorrer a interpretações baseadas em comportamento individual não observado. As características próprias dos municípios e suas diferenças estaduais apresentam associação com a competitividade e com a margem assinada dos finalistas. Acrescentar atributos econômicos e demográficos médios das localidades próximas melhora o ajuste das regressões no próprio conjunto de dados. Contudo, esse ganho dentro da amostra não constitui demonstração de maior poder de explicação generalizável. A comparação de modelos aninhados por mínimos quadrados tende a favorecer mecanicamente especificações com mais regressores quando o critério é apenas o coeficiente de determinação usual.
+
+Quando a avaliação é realizada em UFs não utilizadas no treinamento, aparecem ganhos positivos sob peso igual dos municípios. Ao mudar a importância relativa atribuída a cada município, a interpretação se altera: a competitividade de 2018 apresenta piora sob pesos populacionais anteriores à eleição, enquanto a de 2022 apresenta ganho próximo de zero e intervalo amplo. Na margem assinada a diferença entre resultados ponderados e não ponderados é mais marcada. Não há, portanto, justificativa para anunciar que o contexto dos vizinhos sempre melhora a modelagem eleitoral municipal.
+
+A diferença entre estimar o município típico e estimar o conjunto de municípios com peso populacional maior merece tratamento substantivo. O Brasil combina uma grande quantidade de localidades pequenas e um conjunto restrito de centros populosos. Como consequência, uma pequena melhora generalizada entre cidades pequenas pode coexistir com uma piora concentrada em grandes centros, dominando o resultado ponderado. O experimento de exclusão de capitais e dos municípios mais populosos reproduz a sensibilidade a essa composição, sobretudo para a margem assinada. A comparação, contudo, altera a rede de vizinhança e a própria amostra e, portanto, não deve ser interpretada como contrafactual causal do desaparecimento das metrópoles.
+
+Há também uma razão estatística para evitar conclusões excessivas a partir de valores-p. Quando os resíduos contêm associação espacial, diferentes formas de modelar sua covariância conduzem a incertezas diferentes. Nos modelos de competitividade com peso municipal uniforme, os testes de Wald agrupados por UF não rejeitaram conjuntamente a hipótese de coeficientes contextuais nulos ao nível usual de 5%, enquanto algumas configurações de HAC por distância produziram resultados distintos. Não se trata de escolher a matriz que devolve o resultado desejado. A divergência indica que a informação fornecida pelos dados é sensível às hipóteses de independência, à distância de correlação permitida e ao recorte territorial.
+
+Os intervalos de reamostragem de UFs são úteis para comunicar incerteza na comparação de desempenho, mas também não encerram o problema. Estados próximos podem compartilhar componentes não observados; retirar uma UF do treinamento não impede que características de outras UFs fronteiriças permaneçam no conjunto que estima os parâmetros. O método mede generalização geográfica em um desenho específico de cinco dobras, e não a capacidade de prever comportamento de um pleito presidencial posterior. Uma validação temporal genuína dependeria de dados disponíveis em cada época e de uma escolha antecipada de especificação e critérios de avaliação.
+
+A principal contribuição deste artigo é, por isso, uma constatação de **condicionalidade mensurável**. A comparação entre dados locais e contexto socioeconômico produz resultados diferentes quando mudam o desfecho — competitividade simétrica ou direção partidária da margem — e a medida de importância estatística — cada município, seus habitantes ou seus votos válidos. Evidências com tal grau de dependência de desenho não constituem prova de mecanismo de imitação ou difusão social. Indicam antes que as interpretações territoriais devem declarar explicitamente qual população de referência, qual indicador e qual regime de incerteza está sendo considerado.
+
+## Considerações finais e limites para publicação
 
 A inclusão de características socioeconômicas de municípios próximos eleva o R² dentro da amostra e produz melhorias modestas de generalização geográfica da competitividade quando cada município tem peso igual. Contudo, esse benefício não se mantém de forma consistente quando o ajuste e a avaliação são ponderados pelos votos válidos municipais. A margem assinada apresenta ganhos ainda maiores na análise não ponderada, mas a melhora também desaparece na especificação ponderada de oito vizinhos. Assim, as conclusões apontam contribuição **condicionada à métrica de avaliação**, não superioridade geral de modelos socioespaciais. A autocorrelação residual permanece expressiva em todas as alternativas.
 
@@ -328,24 +378,28 @@ A versão anterior do artigo sobre HHI foi preservada como documento de trabalho
 
 ## Referências e fontes acadêmicas verificadas
 
-BRAGA, Maria do Socorro; ZOLNERKEVIC, Aleksei. Padrões de votação no tempo e no espaço: classificando as eleições presidenciais brasileiras. *Opinião Pública*, 26(1), p. 1–33, 2020. https://periodicos.sbu.unicamp.br/ojs/index.php/op/article/view/8659514.
+ALKMIM, Antonio Carlos; TERRON, Sonia Luiza. O Brasil é realmente um país polarizado? Análise das eleições presidenciais de 1989 a 2018. *Estudos Avançados*, v. 36, n. 106, p. 7–32, 2022. DOI: https://doi.org/10.1590/s0103-4014.2022.36106.002.
 
-ALKMIM, Antonio Carlos; TERRON, Sonia Luiza. O Brasil é realmente um país polarizado? Análise das eleições presidenciais de 1989 a 2018. *Estudos Avançados*, 36(106), 2022. DOI: https://doi.org/10.1590/s0103-4014.2022.36106.002.
+BRAGA, Maria do Socorro; ZOLNERKEVIC, Aleksei. Padrões de votação no tempo e no espaço: classificando as eleições presidenciais brasileiras. *Opinião Pública*, v. 26, n. 1, p. 1–33, 2020. DOI: https://doi.org/10.1590/1807-019120202611.
 
-MASULLO, Yata Anderson Gonzaga; SILVA JUNIOR, Rubens Pereira e. Geografia do voto: influências das singularidades territoriais nas eleições presidenciais do Brasil ao Maranhão. *Revista do Departamento de Geografia*, 2024. DOI: https://doi.org/10.11606/eISSN.2236-2878.rdg.2024.207979.
+CAMERON, A. Colin; MILLER, Douglas L. A practitioner's guide to cluster-robust inference. *Journal of Human Resources*, v. 50, n. 2, p. 317–372, 2015. DOI: https://doi.org/10.3368/jhr.50.2.317.
 
-RESENDE, Gustavo Sousa; AZEVEDO, Daniel Abreu de. Conjuntura de fronteira e voto nas eleições presidenciais de 2022: uma análise do efeito contextual do espaço. *Caderno de Geografia*, 35(83), p. 1195, 2025. DOI: https://doi.org/10.5752/P.2318-2962.2025v35n83p1195.
+CONLEY, Timothy G. GMM estimation with cross sectional dependence. *Journal of Econometrics*, v. 92, n. 1, p. 1–45, 1999. DOI: https://doi.org/10.1016/S0304-4076(98)00084-0.
 
-NICOLAU, Jairo. Ascensão urbana e recuo metropolitano: a geografia eleitoral de Jair Bolsonaro em 2018 e 2022. *Estudos Avançados*, 40(117), 2026. DOI: https://doi.org/10.1590/s0103-4014.2026.40117.005.
+INSTITUTO BRASILEIRO DE GEOGRAFIA E ESTATÍSTICA (IBGE). *Sistema IBGE de Recuperação Automática (SIDRA)*. Tabelas 202 (Censo 2010), 5938 (PIB dos Municípios) e 6579 (estimativas de população). Disponível em: https://sidra.ibge.gov.br. Acesso em: 10 out. 2026.
 
-KING, Gary. *A Solution to the Ecological Inference Problem: Reconstructing Individual Behavior from Aggregate Data*. Princeton: Princeton University Press, 1997.
+KING, Gary. *A solution to the ecological inference problem: reconstructing individual behavior from aggregate data*. Princeton: Princeton University Press, 1997.
 
-MORAN, P. A. P. Notes on Continuous Stochastic Phenomena. *Biometrika*, v. 37, n. 1–2, p. 17–23, 1950. DOI: https://doi.org/10.1093/biomet/37.1-2.17.
+MASULLO, Yata Anderson Gonzaga; SILVA JUNIOR, Rubens Pereira e. Geografia do voto: influências das singularidades territoriais nas eleições presidenciais do Brasil ao Maranhão. *Revista do Departamento de Geografia*, v. 44, e207979, 2024. DOI: https://doi.org/10.11606/eISSN.2236-2878.rdg.2024.207979.
 
-OPENSHAW, Stan. *Ecological Fallacies and the Analysis of Areal Census Data*. Environment and Planning A, 1984. DOI: https://doi.org/10.1068/a160017.
+MORAN, Patrick A. P. Notes on continuous stochastic phenomena. *Biometrika*, v. 37, n. 1–2, p. 17–23, 1950. DOI: https://doi.org/10.1093/biomet/37.1-2.17.
 
-NASCIMENTO, Jacson Cruz do. *Dinâmica de Manada Organizacional: um arcabouço teórico-computacional para hierarquia, influência social, silêncio e independência informacional*. Zenodo, 2026. https://doi.org/10.5281/zenodo.21985858.
+NASCIMENTO, Jacson Cruz do. *Dinâmica de Manada Organizacional: um arcabouço teórico-computacional para hierarquia, influência social, silêncio e independência informacional*. Zenodo, 2026. DOI: https://doi.org/10.5281/zenodo.21985858.
 
-TRIBUNAL SUPERIOR ELEITORAL (TSE). *Portal de Dados Abertos*. Resultados presidenciais de 2018 e 2022. https://dadosabertos.tse.jus.br.
+NICOLAU, Jairo. Ascensão urbana e recuo metropolitano: a geografia eleitoral de Jair Bolsonaro em 2018 e 2022. *Estudos Avançados*, v. 40, n. 117, 2026. DOI: https://doi.org/10.1590/s0103-4014.2026.40117.005.
 
-INSTITUTO BRASILEIRO DE GEOGRAFIA E ESTATÍSTICA (IBGE). *SIDRA*. Tabelas 202, 5938 e 6579. https://sidra.ibge.gov.br.
+OPENSHAW, Stan. Ecological fallacies and the analysis of areal census data. *Environment and Planning A*, 1984. DOI: https://doi.org/10.1068/a160017.
+
+RESENDE, Gustavo Sousa; AZEVEDO, Daniel Abreu de. Conjuntura de fronteira e voto nas eleições presidenciais de 2022: uma análise do efeito contextual do espaço. *Caderno de Geografia*, v. 35, n. 83, p. 1195, 2025. DOI: https://doi.org/10.5752/P.2318-2962.2025v35n83p1195.
+
+TRIBUNAL SUPERIOR ELEITORAL (TSE). *Portal de Dados Abertos*. Resultados eleitorais por município e zona em 2018 e 2022 e correspondência oficial de geocódigos municipais. Disponível em: https://dadosabertos.tse.jus.br. Acesso em: 10 out. 2026.
