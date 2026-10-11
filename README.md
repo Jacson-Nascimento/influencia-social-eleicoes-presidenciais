@@ -139,3 +139,22 @@ Concluídas as verificações de robustez solicitadas para a versão submetível
 - [Auditoria documental independente](outputs/auditoria_documental_final_v01/manifesto_auditoria_2018_2022.json).
 
 **Condição editorial restante:** revisar integralmente os antecedentes científicos e o texto final, analisar inferência apropriada à dependência espacial, normalizar tabelas/equações e completar submissão conforme critérios do periódico escolhido. Os achados não identificam causalidade nem validam previsões eleitorais fora do tempo.
+
+## Revisão editorial e metodológica v05 — 10/10/2026
+
+O **[manuscrito revisado v05](docs/MANUSCRITO_COMPETITIVIDADE_V05_REVISAO_EDITORIAL.md)** substitui a v04 como versão de trabalho mais recente, mas mantém todas as versões anteriores preservadas. O estudo permanece descritivo, não causal e independente da simulação organizacional. Foi confirmada a incerteza dos ganhos de desempenho por **bootstrap de 27 UFs** (4.999 repetições) e foram calculados testes conjuntos com **erros agrupados por UF** e covariância espacial **Conley HAC, raios 100/250 km**.
+
+O ganho de contexto na **competitividade** com peso uniforme foi de 1,92% em 2018 (IC 95%: +0,11% a +4,42%) e 4,99% em 2022 (IC: +2,57% a +8,10%). Com **população anterior** como peso, os ganhos foram −3,26% em 2018 (IC: −4,54% a −1,63%) e +0,40% em 2022 (IC: −1,87% a +2,83%). A diferença de direção do resultado também foi auditada na análise de margem assinada. Não há ganho populacional estável de generalização.
+
+A nota documental sobre **+76 votos no primeiro turno de 2018** foi incorporada expressamente ao manuscrito sem explicação causal inventada: +20 candidatura 17, +46 candidatura 13, +10 outras. O estudo principal utiliza segundos turnos totalmente conciliados.
+
+**Periódico de referência provisório:** *Opinião Pública* (CESOP/Unicamp). Os requisitos editoriais foram verificados na página oficial de submissão: mínimo 7.000 e máximo 14.000 palavras, resumo até 900 caracteres, título e cinco palavras-chave em quatro idiomas, citações e referências ABNT, títulos de seção sem numeração, arquivo .doc. A auditoria automatizada do manuscrito v05 concluiu: **7.967 palavras, 611 caracteres no resumo, título com 15 palavras, seis tabelas com fontes e nenhuma falha nas verificações programadas**. Ainda é necessário preparar o arquivo .doc com tabelas formatadas, completar dados de cadastro de autoria e realizar revisão visual final; não foi efetuada submissão.
+
+- [Manuscrito v05](docs/MANUSCRITO_COMPETITIVIDADE_V05_REVISAO_EDITORIAL.md)
+- [Leitura crítica dos cinco antecedentes](docs/REVISAO_INTEGRAL_ANTECEDENTES_2026-10-10.md)
+- [Parecer metodológico espacial](docs/PARECER_METODOLOGICO_FINAL_2026-10-10.md)
+- [Checklist editorial da Opinião Pública](docs/AUDITORIA_EDITORIAL_REVISTA_OPINIAO_PUBLICA_2026-10-10.md)
+- [Relatório automático de auditoria v05](outputs/auditoria_editorial_v05/resultado_auditoria.json)
+- [Intervalos por UF](outputs/inferencia_espacial_final_v01/incerteza_rmse_bootstrap_uf.csv)
+- [Testes Wald UF e Conley HAC](outputs/inferencia_espacial_final_v01/wald_contexto_cluster_e_conley.json)
+
