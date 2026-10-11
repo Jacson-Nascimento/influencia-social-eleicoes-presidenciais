@@ -1,0 +1,59 @@
+name: Reanalise formal espacial SEM GMM e SAR IV v02
+
+on:
+  push:
+    paths:
+      - '.github/workflows/modelos_espaciais_formais_v02.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  espacial:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: pip
+      - name: Dependências
+        run: |
+          python -m pip install -r requirements.txt
+          python -m pip install "spreg>=1.7,<2" "libpysal>=4.10,<5"
+      - name: GMM espacial de erro e defasagem
+        run: |
+          OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 NUMBA_NUM_THREADS=1 python scripts/24_modelos_espaciais_formais_v02.py \
+            --mapa outputs/municipal_v01/chaves_tse_ibge_5570_centroides.csv \
+            --hhi outputs/municipal_v01/hhi_municipal_2018_2022.csv \
+            --ibge data/ibge_tratados/controles_pre_eleitorais_v02.csv \
+            --competitividade outputs/competitividade_v02/competitividade_e_margem_assinada_segundo_turno.csv \
+            --output outputs/modelos_espaciais_formais_v02
+      - name: Auditoria de 8 especificacoes
+        run: |
+          python - <<'PY'
+          import pandas as pd
+          d=pd.read_csv('outputs/modelos_espaciais_formais_v02/modelos_espaciais_gmm.csv')
+          assert len(d)==8 and (d.status=='concluido').all()
+          assert set(d.metodo)=={'GM_Error','SAR_IV_2SLS'}
+          assert d.coeficiente_espacial.between(-1.1,1.1).all()
+          assert d.moran_residual_k8.notna().all()
+          print(d.to_string(index=False))
+          PY
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: modelos-formais-GMM-erro-SAR-IV-v02
+          path: outputs/modelos_espaciais_formais_v02/
+          retention-days: 90
+      - name: Publicar resultados verificados
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add -f outputs/modelos_espaciais_formais_v02/*.csv
+          git add outputs/modelos_espaciais_formais_v02/*.json
+          git commit -m 'Publicar GMM espacial de erro e defasagem de segundo turno'
+          git pull --rebase origin main
+          git push origin HEAD:main
