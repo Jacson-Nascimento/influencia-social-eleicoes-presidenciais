@@ -1,0 +1,51 @@
+name: Padronizar bootstrap regional em 4999 reamostragens v03
+
+on:
+  push:
+    paths:
+      - '.github/workflows/benchmark_geografico_bootstrap_v03.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  reamostragem:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: {python-version: '3.11'}
+      - run: pip install pandas numpy
+      - name: Intervalos corrigidos sem reestimação
+        run: |
+          python scripts/25_bootstrap_regional_4999.py \
+            --bench outputs/benchmark_geografico_v02/comparacao_benchmarks_regionais.csv \
+            --sse outputs/benchmark_geografico_v02/sse_por_uf_e_modelo.csv \
+            --out outputs/benchmark_geografico_v03
+      - name: Controle dos oito valores exibidos na Tabela 7
+        run: |
+          python - <<'PY'
+          import pandas as pd
+          d=pd.read_csv('outputs/benchmark_geografico_v03/comparacao_benchmarks_uf_bootstrap_4999.csv')
+          assert len(d)==48
+          a=d[(d.benchmark=='socio_mais_macrorregiao')&(d.familia=='linear')]
+          assert len(a)==8
+          assert abs(a[(a.ano==2022)&(a.desfecho=='direcao_pt13')&(a.ponderacao=='uniforme')].iloc[0].bootstrap_uf_ci95_inf-1.081012)<0.00005
+          print(a[['ano','desfecho','ponderacao','reducao_rmse_pct','bootstrap_uf_ci95_inf','bootstrap_uf_ci95_sup']])
+          PY
+      - uses: actions/upload-artifact@v4
+        with:
+          name: benchmark-geografico-bootstrap-4999-v03
+          path: outputs/benchmark_geografico_v03/
+          retention-days: 90
+      - name: Versionar novos intervalos sem apagar versões
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add -f outputs/benchmark_geografico_v03/*.csv
+          git add outputs/benchmark_geografico_v03/*.json
+          git commit -m 'Registrar reamostragem pareada por 27 UFs com 4.999 repetições v03'
+          git pull --rebase origin main
+          git push origin HEAD:main
