@@ -1,0 +1,9 @@
+{
+  "versao": "v03",
+  "repeticoes_uf": 4999,
+  "n_ufs": 27,
+  "origem": "outputs/benchmark_geografico_v02/sse_por_uf_e_modelo.csv",
+  "modificacao": "somente limites de bootstrap de 95%, pontos estimados preservados",
+  "nota": "A rotina original de inferência espacial usa 4.999 repetições; a rodada benchmark v02 usava 1.999. v03 padroniza ambas em 4.999.",
+  "ressalva": "UFs limítrofes não necessariamente independentes; intervalos exploratórios."
+}
