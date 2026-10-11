@@ -1,0 +1,65 @@
+name: Benchmarks geograficos com bootstrap corrigido v02
+
+on:
+  push:
+    paths:
+      - '.github/workflows/benchmark_geografico_v02.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  benchmarks:
+    runs-on: ubuntu-latest
+    timeout-minutes: 55
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: pip
+      - name: Dependencies
+        run: python -m pip install -r requirements.txt
+      - name: Calcular CV por UF com macrorregiao e coordenadas
+        run: |
+          OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 python scripts/22_benchmark_geografico_competitividade.py \
+            --mapa outputs/municipal_v01/chaves_tse_ibge_5570_centroides.csv \
+            --hhi outputs/municipal_v01/hhi_municipal_2018_2022.csv \
+            --ibge data/ibge_tratados/controles_pre_eleitorais_v02.csv \
+            --competitividade outputs/competitividade_v02/competitividade_e_margem_assinada_segundo_turno.csv \
+            --bootstrap 1999 \
+            --output outputs/benchmark_geografico_v02
+      - name: Validar 48 especificacoes sem selecao por resultado
+        run: |
+          python - <<'PY'
+          import pandas as pd
+          d=pd.read_csv("outputs/benchmark_geografico_v02/comparacao_benchmarks_regionais.csv")
+          r=pd.read_csv("outputs/benchmark_geografico_v02/sse_por_uf_e_modelo.csv")
+          assert len(d)==48 and len(r)==48*27
+          assert d.n_municipios.eq(5565).all()
+          assert set(d.ano)=={2018,2022}
+          assert d.rmse_local.gt(0).all() and d.rmse_com_contexto.gt(0).all()
+          assert set(d.desfecho)=={"competitividade","direcao_pt13"}
+          assert d.reducao_rmse_pct.notna().all()
+          assert (d.bootstrap_uf_ci95_inf < d.reducao_rmse_pct).all()
+          assert (d.bootstrap_uf_ci95_sup > d.reducao_rmse_pct).all()
+          print(d.to_string(index=False))
+          PY
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: benchmark-geografico-regioes-coordenadas-logit-v02
+          path: outputs/benchmark_geografico_v02/
+          retention-days: 90
+      - name: Publicar apenas depois da auditoria
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add -f outputs/benchmark_geografico_v02/*.csv
+          git add outputs/benchmark_geografico_v02/*.json
+          git commit -m 'Publicar benchmarks regionais e fractional logit com validacao por UF'
+          git pull --rebase origin main
+          git push origin HEAD:main
