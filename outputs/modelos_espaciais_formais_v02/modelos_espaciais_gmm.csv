@@ -1,0 +1,9 @@
+ano,desfecho,metodo,n,n_regressores,coeficiente_espacial,nome_coeficiente,pseudo_r2,iv_primeiro_estagio_r2_parcial,moran_residual_k8,tipo_analise,status
+2018,competitividade,GM_Error,5565,17,0.7605353497036466,lambda,0.3288686315730649,,0.5488327117861971,"in_sample exploratoria, não CV, não causal",concluido
+2018,competitividade,SAR_IV_2SLS,5565,17,1.0169004713663523,rho,,0.08652498089818117,-0.11574926978912607,"in_sample exploratoria, não CV, não causal",concluido
+2018,direcao_pt13,GM_Error,5565,17,0.8218539756018901,lambda,0.7738696124260469,,0.6397622076338491,"in_sample exploratoria, não CV, não causal",concluido
+2018,direcao_pt13,SAR_IV_2SLS,5565,17,0.9630169643128892,rho,,0.10256574010507957,-0.08360654380844126,"in_sample exploratoria, não CV, não causal",concluido
+2022,competitividade,GM_Error,5565,17,0.7559969097835489,lambda,0.4657096218412224,,0.5286984790807933,"in_sample exploratoria, não CV, não causal",concluido
+2022,competitividade,SAR_IV_2SLS,5565,17,1.0028985063104903,rho,,0.06915125083053342,-0.11119741380072679,"in_sample exploratoria, não CV, não causal",concluido
+2022,direcao_pt13,GM_Error,5565,17,0.8237414192612712,lambda,0.7263746187627111,,0.6304062971366249,"in_sample exploratoria, não CV, não causal",concluido
+2022,direcao_pt13,SAR_IV_2SLS,5565,17,0.9782130811976251,rho,,0.10522434852353602,-0.08421312301062493,"in_sample exploratoria, não CV, não causal",concluido

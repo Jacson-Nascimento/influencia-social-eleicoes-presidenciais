@@ -1,0 +1,17 @@
+{
+  "amostra": "5.565 municipios para cada eleicao",
+  "anos": [
+    2018,
+    2022
+  ],
+  "metodos": "spreg.GM_Error GMM e SAR_IV_2SLS instrumentando Wy com W²X, Matriz kNN8 por centroides IBGE2022",
+  "covariaveis": "4 controles socioeconomicos + 4 dummies macroregionais + polinomio de coordenadas (5) + 4 médias de vizinhança",
+  "restricoes": [
+    "SAR_IV_2SLS depende de restrições de exclusão e instrumentos que não foram validados causalmente; observar força parcial de primeiro estágio.",
+    "GMM espacial não equivale a experimento causal.",
+    "Lag espacial do desfecho não pode servir de regressor de previsão ex ante em UF de teste.",
+    "Pseudo-R2 do spreg não comparar diretamente ao R2 convencional ou ao RMSE de validação.",
+    "Coeficientes espaciais refletem especificações associativas e possível estrutura não observada.",
+    "Registros com status erro sinalizam execução incompleta e não podem ser tratados como evidência positiva."
+  ]
+}
