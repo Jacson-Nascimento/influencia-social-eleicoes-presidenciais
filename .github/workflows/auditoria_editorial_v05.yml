@@ -1,4 +1,5 @@
 name: Auditoria editorial final do manuscrito v05
+# Reexecução após correção dos delimitadores LaTeX nas equações
 
 on:
   push:
