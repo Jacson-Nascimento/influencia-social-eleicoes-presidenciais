@@ -1,0 +1,59 @@
+name: Robustez buffer espacial CV por UF 0 100 250 km
+
+on:
+  push:
+    paths:
+      - '.github/workflows/robustez_buffer_espacial_v13.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  buffer:
+    runs-on: ubuntu-latest
+    timeout-minutes: 35
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: {python-version: '3.11', cache: pip}
+      - run: python -m pip install -r requirements.txt
+      - name: Validacao UF inteira com buffers espaciais
+        run: |
+          OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 python scripts/27_validacao_buffer_espacial.py \
+            --mapa outputs/municipal_v01/chaves_tse_ibge_5570_centroides.csv \
+            --hhi outputs/municipal_v01/hhi_municipal_2018_2022.csv \
+            --ibge data/ibge_tratados/controles_pre_eleitorais_v02.csv \
+            --competitividade outputs/competitividade_v02/competitividade_e_margem_assinada_segundo_turno.csv \
+            --out outputs/robustez_buffer_espacial_v13
+      - name: Validar amostras, intervalos e fold 0 de referência
+        run: |
+          python - <<'PY'
+          import pandas as pd
+          d=pd.read_csv("outputs/robustez_buffer_espacial_v13/validacao_uf_buffer_espacial.csv")
+          folds=pd.read_csv("outputs/robustez_buffer_espacial_v13/folds_buffer_espacial.csv")
+          assert len(d)==36 and len(folds)==36*5
+          assert set(d.buffer_km)=={0,100,250}
+          assert d.municipios_teste_total.eq(5565).all()
+          assert d.n_train_min.gt(1000).all()
+          assert d.ganho_rmse_pct.between(-100,100).all()
+          assert (d.ic_uf_inf<d.ic_uf_sup).all()
+          assert folds[folds.buffer_km==0].n_buffer_excluded.eq(0).all()
+          assert (folds[folds.buffer_km==250].n_buffer_excluded>=folds[folds.buffer_km==100].n_buffer_excluded.to_numpy()).all()
+          print(d.to_string(index=False))
+          PY
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: robustez-buffer-espacial-uf-v13
+          path: outputs/robustez_buffer_espacial_v13/
+          retention-days: 90
+      - name: Versionar resultados auditados por verificacoes automaticas
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add -f outputs/robustez_buffer_espacial_v13/*.csv
+          git add outputs/robustez_buffer_espacial_v13/*.json
+          git commit -m 'Documentar validacao geográfica com buffers 0, 100 e 250 km v13'
+          git pull --rebase origin main
+          git push origin HEAD:main
