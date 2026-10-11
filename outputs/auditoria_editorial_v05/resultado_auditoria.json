@@ -1,0 +1,27 @@
+{
+  "status": "APROVADA NA AUDITORIA AUTOMÁTICA",
+  "texto_palavras_separadas_espacos": 7967,
+  "titulo_palavras": 15,
+  "resumo_caracteres": 611,
+  "numero_tabelas": 6,
+  "cinco_palavras_chave_em_quatro_idiomas": true,
+  "titulos": {
+    "Português": "Geografia da competitividade eleitoral no Brasil: contexto socioeconômico e eleições presidenciais de 2018 e 2022",
+    "English": "Geography of Electoral Competitiveness in Brazil: Socioeconomic Context and the 2018 and 2022 Presidential Elections",
+    "Español": "Geografía de la competitividad electoral en Brasil: contexto socioeconómico y elecciones presidenciales de 2018 y 2022",
+    "Français": "Géographie de la compétitivité électorale au Brésil : contexte socioéconomique et élections présidentielles de 2018 et 2022"
+  },
+  "notas": {
+    "76_votos": "RESSALVA EXPLÍCITA SEM CAUSA IDENTIFICADA"
+  },
+  "periodo": "2018 e 2022",
+  "arquivo_manuscrito_sha256": "22a7c57d897dc7b9120f6bbbd7914d4b3ebabbc3233dfdf47be4839936a12e46",
+  "falhas": [],
+  "nao_auditado": [
+    "Antiplágio",
+    "integridade de trabalhos de terceiros além das referências verificadas",
+    "formatacao final .doc e figuras",
+    "políticas editoriais no ato da submissão",
+    "checagem humana de cada linha de narrativa"
+  ]
+}
