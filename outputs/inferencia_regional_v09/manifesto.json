@@ -1,0 +1,46 @@
+{
+  "metodo": "OLS/WLS, regressoras socioeconômicas locais + macrorregiões + WX(k8)",
+  "diferenca_para_A2_original": "A tabela A2 original usa efeitos fixos de UF e não inclui a macrorregião como controle distinto. Esta nova tabela usa quatro dummies regionais no modelo e UF somente para agrupamento dos erros.",
+  "n": 5565,
+  "unidades_uf": 27,
+  "anos": [
+    2018,
+    2022
+  ],
+  "familia": "linear OLS/WLS; testes Wald dos quatro parâmetros de WX",
+  "inferencias": "CR1 cluster UF com F(4,26); HAC Conley Bartlett 100 e 250 km com Qui-quadrado(4)",
+  "peso": "uniforme ou IBGE população anterior, versões recuperadas em 2026",
+  "restricoes": [
+    "Não interpretar valores-p como ganho fora da amostra.",
+    "UFs vizinhas continuam dependentes apesar de cluster UF.",
+    "Distância por centroides e dois anos eleitorais apenas.",
+    "Resultados não estabelecem causalidade, difusão ou contágio."
+  ],
+  "excluidos": [
+    {
+      "SG_UF": "MS",
+      "CD_MUNICIPIO": 55050,
+      "CD_MUNICIPIO_IBGE": "5006275"
+    },
+    {
+      "SG_UF": "PA",
+      "CD_MUNICIPIO": 4863,
+      "CD_MUNICIPIO_IBGE": "1504752"
+    },
+    {
+      "SG_UF": "RS",
+      "CD_MUNICIPIO": 89540,
+      "CD_MUNICIPIO_IBGE": "4314548"
+    },
+    {
+      "SG_UF": "SC",
+      "CD_MUNICIPIO": 83909,
+      "CD_MUNICIPIO_IBGE": "4220000"
+    },
+    {
+      "SG_UF": "SC",
+      "CD_MUNICIPIO": 83925,
+      "CD_MUNICIPIO_IBGE": "4212650"
+    }
+  ]
+}
