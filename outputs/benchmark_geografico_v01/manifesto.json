@@ -1,0 +1,59 @@
+{
+  "n_municipios": 5565,
+  "anos": [
+    2018,
+    2022
+  ],
+  "vizinhos": 8,
+  "covariaveis_ibge": [
+    "log_pop",
+    "log_pibpc_proxy",
+    "urbanizacao_2010",
+    "fracao_feminina_2010"
+  ],
+  "benchmark": [
+    "quatro controles locais",
+    "controles + dummies cinco macrorregioes",
+    "controles + latitude longitude e termos quadraticos",
+    "controles + macrorregiao + polinomio de latitude longitude"
+  ],
+  "geografia_projecao": "centroides IBGE 2022, graus decimais, sem uso de votos como feature",
+  "pesos": [
+    "iguais por municipio",
+    "estimativa IBGE anterior (2017/2021) obtida em 2026"
+  ],
+  "modelos": [
+    "OLS/WLS com mesmo k folds de UF completa",
+    "fractional logit quase-verossimilhança apenas para competitividade em [0,1]"
+  ],
+  "bootstrap": "UF reamostrada após CV, IC percentil exploratorio, nem UFs vizinhas independentes nem temporal",
+  "importante": "Comparar RMSE apenas dentro do MESMO desfecho/ano/ponderação, nunca C e M diretamente.",
+  "disclaimer": "Sem resultados eleitorais dos vizinhos como regressores; sem causalidade; region e coordenadas são controles observados; locacional não equivale a transmissão social.",
+  "municipios_excluidos": [
+    {
+      "SG_UF": "MS",
+      "CD_MUNICIPIO": 55050,
+      "CD_MUNICIPIO_IBGE": "5006275"
+    },
+    {
+      "SG_UF": "PA",
+      "CD_MUNICIPIO": 4863,
+      "CD_MUNICIPIO_IBGE": "1504752"
+    },
+    {
+      "SG_UF": "RS",
+      "CD_MUNICIPIO": 89540,
+      "CD_MUNICIPIO_IBGE": "4314548"
+    },
+    {
+      "SG_UF": "SC",
+      "CD_MUNICIPIO": 83909,
+      "CD_MUNICIPIO_IBGE": "4220000"
+    },
+    {
+      "SG_UF": "SC",
+      "CD_MUNICIPIO": 83925,
+      "CD_MUNICIPIO_IBGE": "4212650"
+    }
+  ]
+}
