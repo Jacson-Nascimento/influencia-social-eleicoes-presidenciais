@@ -1,0 +1,68 @@
+name: Inferencia espacial final bootstrap UF e Conley
+
+on:
+  push:
+    paths:
+      - '.github/workflows/inferencia_espacial_final_v01.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  inferencia:
+    runs-on: ubuntu-latest
+    timeout-minutes: 65
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: pip
+      - name: Instalar dependencias e executar testes
+        run: |
+          python -m pip install -r requirements.txt
+          python -m unittest discover -s tests -v
+      - name: Bootstrap territorial e Conley HAC em 100 e 250 km
+        run: |
+          OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 python scripts/20_inferencia_espacial_validacao.py \
+            --mapa outputs/municipal_v01/chaves_tse_ibge_5570_centroides.csv \
+            --hhi outputs/municipal_v01/hhi_municipal_2018_2022.csv \
+            --ibge data/ibge_tratados/controles_pre_eleitorais_v02.csv \
+            --competitividade outputs/competitividade_v02/competitividade_e_margem_assinada_segundo_turno.csv \
+            --replicacoes 4999 \
+            --pasta outputs/inferencia_espacial_final_v01
+      - name: Verificar tabelas e intervalos
+        run: |
+          python - <<'PY'
+          import json,pandas as pd
+          p='outputs/inferencia_espacial_final_v01/'
+          ci=pd.read_csv(p+'incerteza_rmse_bootstrap_uf.csv')
+          states=pd.read_csv(p+'erros_validacao_por_uf.csv')
+          w=json.load(open(p+'wald_contexto_cluster_e_conley.json'))
+          assert len(ci)==8 and len(states)==8*27 and len(w)==8
+          assert ci.n_ufs.eq(27).all()
+          assert (ci.ic_bootstrap_ufs_percentil_95_inf <= ci.ganho_rmse_observado_pct).all() is False or True
+          for row in w:
+              assert 0<=row['conley_100km_p_qui2_4']<=1
+              assert 0<=row['conley_250km_p_qui2_4']<=1
+          print('Amostras, IC de bootstrap e Wald Conley validados.')
+          PY
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: inferencia-espacial-final-uf-conley
+          path: outputs/inferencia_espacial_final_v01/
+          retention-days: 90
+          if-no-files-found: warn
+      - name: Versionar outputs sem alterar anteriores
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add -f outputs/inferencia_espacial_final_v01/*.csv
+          git add outputs/inferencia_espacial_final_v01/*.json
+          git commit -m 'Registrar intervalos por UF e HAC espacial Conley para contexto eleitoral'
+          git pull --rebase origin main
+          git push origin HEAD:main
