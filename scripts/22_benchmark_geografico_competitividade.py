@@ -107,7 +107,7 @@ def bootstrapUF(records,repetitions,seed):
     rng=np.random.default_rng(seed)
     draws=rng.integers(0,n,size=(repetitions,n))
     sums=arr[draws].sum(axis=1)
-    gains=100*(1-np.sqrt(sums[:,2]/sums[:,0]))
+    gains=100*(1-np.sqrt(sums[:,2]/sums[:,1]))
     return float(np.quantile(gains,.025)),float(np.quantile(gains,.975))
 
 def main():
