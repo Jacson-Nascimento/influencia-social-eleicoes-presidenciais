@@ -1,0 +1,51 @@
+{
+  "autor": "Jacson Cruz do Nascimento",
+  "status": "ESTUDO_EXPLORATORIO_2014_SEM_ALTERAR_ARTIGO_V14",
+  "anos": [
+    2014,
+    2018,
+    2022
+  ],
+  "amostra_municipal_comum": 5564,
+  "n_observacoes": 16692,
+  "controle_2014": {
+    "PIB": 2012,
+    "populacao": 2013,
+    "demografia_censitaria": 2010
+  },
+  "controle_2018": {
+    "PIB": 2016,
+    "populacao": 2017,
+    "demografia_censitaria": 2010
+  },
+  "controle_2022": {
+    "PIB": 2020,
+    "populacao": 2021,
+    "demografia_censitaria": 2010
+  },
+  "geografia": "centroides IBGE2022 e 8 vizinhos mais próximos",
+  "familias": [
+    "OLS/WLS linear C e M",
+    "logit fracionario para C"
+  ],
+  "modelos": "quatro controles locais + quatro dummies macrorregião vs adição de WX(k8)",
+  "tempo": "2014=>2018, 2018=>2022, 2014+2018=>2022; treino contém apenas eleições anteriores.",
+  "variavel_M": "candidatura do PT número13 menos candidatura adversária: Dilma (2014), Haddad (2018), Lula (2022); identidade partidária não implica a mesma candidatura",
+  "regras": [
+    "Mesmos 5564 municípios presentes nas três eleições: 2014 possui um PIB 2012 adicionalmente ausente.",
+    "WX de IBGE está disponível para todos os municípios no ano de referência; abordagem transdutiva somente para covariáveis, não desfechos.",
+    "Nenhum treino incorpora votos de eleições cronologicamente posteriores ao teste temporal.",
+    "Testes temporais não garantem previsão eleitoral em tempo real, pois IBGE publicado pode ser revisado a posteriori.",
+    "Nacional 2014 inclui votos no exterior, não atribuídos a municípios brasileiros.",
+    "Ganhos percentuais de RMSE são comparáveis apenas dentro do mesmo desfecho, ponderação e teste.",
+    "Treino de 2014+2018 reusa municipios em dois anos e não equivale a independência entre unidades.",
+    "Inferência por UF por bootstrap 4999 é exploratória: UFs vizinhas podem ser dependentes.",
+    "Resultados não identificam causalidade nem contágio social."
+  ],
+  "fontes": [
+    "outputs/piloto_2014_v01",
+    "outputs/piloto_2014_ibge_v01",
+    "outputs/competitividade_v02",
+    "data/ibge_tratados/controles_pre_eleitorais_v02.csv"
+  ]
+}
