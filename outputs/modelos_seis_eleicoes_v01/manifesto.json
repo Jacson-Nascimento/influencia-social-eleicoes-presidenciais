@@ -1,0 +1,89 @@
+{
+  "status": "EXPLORATORIO_NAO_SUBMETIDO",
+  "autor": "Jacson Cruz do Nascimento",
+  "anos": [
+    2002,
+    2006,
+    2010,
+    2014,
+    2018,
+    2022
+  ],
+  "municipios_amostra_comum": 5506,
+  "observacoes": 33036,
+  "controles_comuns": [
+    "log população prévia",
+    "urbanização Censo2000 antes 2014, Censo2010 depois",
+    "fração feminina Censo2000 antes 2014, Censo2010 depois"
+  ],
+  "pib": "EXCLUIDO DO BENCHMARK COMUM DE SEIS ELEICOES porque indisponivel 2000 SIDRA 5938",
+  "ano_censo_2002_2010": 2000,
+  "ano_censo_2014_2022": 2010,
+  "vizinhos": "oito centroides municipais IBGE2022, mudancas territoriais anteriores requerem cautela",
+  "1998": "EXCLUIDO: sem segundo turno e fonte TSE incompleta",
+  "validacao": "5 folds UF inteiras omitidas e treino temporal em anos anteriores, bootstrap 4999 UFs",
+  "historicos_TSE_nacional": [
+    {
+      "ano": 2002,
+      "soma_nacional": 86164103,
+      "total_nacional_de_referencia": 86164103,
+      "votos_nao_municipais_ZZ_VT": 34514,
+      "municipios_territoriais": 5565,
+      "municipios_associados_mapa2022": 5564,
+      "municipios_nao_associados": 1,
+      "chaves_nao_associadas": [
+        {
+          "SG_UF": "MT",
+          "CD_MUNICIPIO": 91065
+        }
+      ]
+    },
+    {
+      "ano": 2006,
+      "soma_nacional": 95838220,
+      "total_nacional_de_referencia": 95838220,
+      "votos_nao_municipais_ZZ_VT": 38860,
+      "municipios_territoriais": 5565,
+      "municipios_associados_mapa2022": 5565,
+      "municipios_nao_associados": 0,
+      "chaves_nao_associadas": []
+    },
+    {
+      "ano": 2010,
+      "soma_nacional": 99463917,
+      "total_nacional_de_referencia": 99463917,
+      "votos_nao_municipais_ZZ_VT": 134060,
+      "municipios_territoriais": 5567,
+      "municipios_associados_mapa2022": 5567,
+      "municipios_nao_associados": 0,
+      "chaves_nao_associadas": []
+    },
+    {
+      "ano": 2014,
+      "municipios_territoriais": 5570,
+      "municipios_associados_mapa2022": 5570,
+      "municipios_nao_associados": 0
+    },
+    {
+      "ano": 2018,
+      "municipios_territoriais": 5570,
+      "municipios_associados_mapa2022": 5570,
+      "municipios_nao_associados": 0
+    },
+    {
+      "ano": 2022,
+      "municipios_territoriais": 5570,
+      "municipios_associados_mapa2022": 5570,
+      "municipios_nao_associados": 0
+    }
+  ],
+  "alertas": [
+    "Diferenças de amostra e regressoras impedem comparar numericamente novos RMSE com v14/v15 sem refazer modelos na amostra nova.",
+    "Macroregioes constantes; covariaveis demograficas Censo2000/Censo2010 mudam de vintage a partir 2014.",
+    "O efeito de transferir parametros entre pleitos não é causal, e a leitura dos votos do PT não indica voto individual em partido.",
+    "IBGE baixado em 2026 com eventuais revisoes a posteriori; não é previsao em tempo real.",
+    "1998 excluido, sem segundo turno e TSE reconhece incompletude.",
+    "Centroides de 2022 nao sao geometria historica.",
+    "UFs vizinhas podem ser dependentes; ICs percentis exploratorios."
+  ]
+}
