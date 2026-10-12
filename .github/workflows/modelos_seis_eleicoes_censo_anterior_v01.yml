@@ -1,0 +1,73 @@
+name: Painel historico 2002-2022 com Censo precedente
+
+on:
+  push:
+    paths:
+      - '.github/workflows/modelos_seis_eleicoes_censo_anterior_v01.yml'
+      - 'scripts/36_modelos_seis_eleicoes_censo_anterior.py'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  estimar:
+    runs-on: ubuntu-latest
+    timeout-minutes: 55
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: {python-version: '3.11', cache: pip}
+      - run: pip install -r requirements.txt
+      - name: Validar e executar seis eleicoes com Censo precedente
+        run: |
+          OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 python scripts/36_modelos_seis_eleicoes_censo_anterior.py \
+            --mapa outputs/municipal_v01/chaves_tse_ibge_5570_centroides.csv \
+            --ibge_historico outputs/controles_ibge_historicos_v01/controles_2002_2006_2010.csv \
+            --ibge_2014 outputs/piloto_2014_ibge_v01/controles_IBGE_para_eleicao_2014.csv \
+            --ibge_2018_2022 data/ibge_tratados/controles_pre_eleitorais_v02.csv \
+            --votos_2002 outputs/inventario_tse_historico_v01/2002/votos_presidenciais_municipais_2002.csv \
+            --votos_2006 outputs/inventario_tse_historico_v01/2006/votos_presidenciais_municipais_2006.csv \
+            --votos_2010 outputs/inventario_tse_historico_v01/2010/votos_presidenciais_municipais_2010.csv \
+            --votos_2014 outputs/piloto_2014_v01/votos_2014_segundo_turno_municipios.csv \
+            --votos_2018_2022 outputs/competitividade_v02/competitividade_e_margem_assinada_segundo_turno.csv \
+            --saida outputs/modelos_seis_eleicoes_censo_precedente_v01
+      - name: Testes de integridade
+        run: |
+          python - <<'PY'
+          import json,pandas as pd
+          from pathlib import Path
+          p=Path('outputs/modelos_seis_eleicoes_censo_precedente_v01')
+          m=json.loads((p/'manifesto.json').read_text())
+          a=pd.read_csv(p/'validacao_geografica_2002_2022.csv')
+          b=pd.read_csv(p/'validacao_temporal_2002_2022.csv')
+          assert m['anos']==[2002,2006,2010,2014,2018,2022]
+          assert m['n_municipios']>=5400
+          assert m['n_observacoes']==m['n_municipios']*6
+          assert len(a)==36 and len(b)==30
+          assert a.ano.nunique()==6
+          assert b.teste_ano.nunique()==5
+          assert all(a.ic95_uf_inf < a.ic95_uf_sup)
+          assert all(b.ic95_uf_inf < b.ic95_uf_sup)
+          print(a.to_string(index=False))
+          print(b.to_string(index=False))
+          PY
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: painel-2002-2022-censo-anterior-v01
+          path: outputs/modelos_seis_eleicoes_censo_precedente_v01/
+          retention-days: 90
+      - name: Publicar somente resultados aprovados
+        if: success()
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add -f outputs/modelos_seis_eleicoes_censo_precedente_v01/*.csv
+          git add outputs/modelos_seis_eleicoes_censo_precedente_v01/*.json
+          git commit -m 'Versionar 2002–2022 com Censo anterior e testes geograficos temporais'
+          for attempt in 1 2 3 4 5; do
+            git pull --rebase origin main && git push origin HEAD:main && exit 0
+            sleep 5
+          done
+          exit 1
