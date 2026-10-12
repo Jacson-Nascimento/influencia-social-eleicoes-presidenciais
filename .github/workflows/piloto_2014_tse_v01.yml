@@ -1,0 +1,58 @@
+name: Conciliar votação presidencial de 2014 com TSE definitivo
+
+on:
+  push:
+    paths:
+      - '.github/workflows/piloto_2014_tse_v01.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  conciliar:
+    runs-on: ubuntu-latest
+    timeout-minutes: 35
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: {python-version: '3.11', cache: pip}
+      - run: pip install pandas numpy
+      - name: Baixar ZIP original TSE e validar ZIP
+        run: |
+          mkdir -p /tmp/eleicoes2014
+          curl -fSL --retry 3 --retry-delay 5 --connect-timeout 30 --max-time 900 \
+            'https://cdn.tse.jus.br/estatistica/sead/odsele/votacao_candidato_munzona/votacao_candidato_munzona_2014.zip' \
+            -o /tmp/eleicoes2014/votacao_candidato_munzona_2014.zip
+          python - <<'PY'
+          import zipfile
+          p='/tmp/eleicoes2014/votacao_candidato_munzona_2014.zip'
+          with zipfile.ZipFile(p) as z:
+              assert z.testzip() is None
+              print("Membros relevantes:")
+              for x in z.infolist():
+                  if x.filename.lower().endswith('.csv'):
+                      print(x.filename,x.file_size)
+          PY
+      - name: Consolidar votos por município e conciliar totais definitivos
+        run: |
+          python scripts/28_conciliar_segundo_turno_2014.py \
+            --arquivo /tmp/eleicoes2014/votacao_candidato_munzona_2014.zip \
+            --mapa outputs/municipal_v01/chaves_tse_ibge_5570_centroides.csv \
+            --saida outputs/piloto_2014_v01/votos_2014_segundo_turno_municipios.csv \
+            --manifesto outputs/piloto_2014_v01/manifesto_conciliacao_2014.json
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: piloto-2014-conciliacao-tse-v01
+          path: outputs/piloto_2014_v01/
+          retention-days: 90
+      - name: Versionar somente se conciliado
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add -f outputs/piloto_2014_v01/*.csv
+          git add outputs/piloto_2014_v01/*.json
+          git commit -m 'Registrar votação presidencial municipal 2014 reconciliada com TSE'
+          git pull --rebase origin main
+          git push origin HEAD:main
