@@ -4,6 +4,7 @@ on:
   push:
     paths:
       - '.github/workflows/piloto_2014_tse_v01.yml'
+      - 'scripts/28_conciliar_segundo_turno_2014.py'
   workflow_dispatch:
 
 permissions:
