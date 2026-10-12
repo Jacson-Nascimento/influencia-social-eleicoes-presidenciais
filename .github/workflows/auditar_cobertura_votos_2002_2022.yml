@@ -1,0 +1,49 @@
+name: Conferir votos preservados na amostra seis eleicoes
+
+on:
+  push:
+    paths:
+      - '.github/workflows/auditar_cobertura_votos_2002_2022.yml'
+      - 'scripts/38_auditar_cobertura_municipal.py'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  cobertura:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: {python-version: '3.11'}
+      - run: pip install pandas
+      - name: Auditar porcentagem de votos do painel comum
+        run: |
+          python scripts/38_auditar_cobertura_municipal.py \
+            --panel outputs/modelos_seis_eleicoes_censo_precedente_v01/municipios_amostra_comum.csv \
+            --votos_2002 outputs/inventario_tse_historico_v01/2002/votos_presidenciais_municipais_2002.csv \
+            --votos_2006 outputs/inventario_tse_historico_v01/2006/votos_presidenciais_municipais_2006.csv \
+            --votos_2010 outputs/inventario_tse_historico_v01/2010/votos_presidenciais_municipais_2010.csv \
+            --votos_2014 outputs/piloto_2014_v01/votos_2014_segundo_turno_municipios.csv \
+            --votos_2018_2022 outputs/competitividade_v02/competitividade_e_margem_assinada_segundo_turno.csv \
+            --out outputs/cobertura_amostra_2002_2022_v01
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: cobertura-votos-2002-2022-v01
+          path: outputs/cobertura_amostra_2002_2022_v01/
+      - name: Commitar após checks
+        if: success()
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add -f outputs/cobertura_amostra_2002_2022_v01/*.csv
+          git add outputs/cobertura_amostra_2002_2022_v01/*.json
+          git commit -m 'Publicar percentuais eleitorais retidos no painel histórico 5506'
+          for n in 1 2 3 4 5; do
+            git pull --rebase origin main && git push origin HEAD:main && exit 0
+            sleep 5
+          done
+          exit 1
