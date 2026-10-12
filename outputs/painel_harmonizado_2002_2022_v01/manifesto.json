@@ -1,0 +1,154 @@
+{
+  "anos": [
+    2002,
+    2006,
+    2010,
+    2014,
+    2018,
+    2022
+  ],
+  "ano_excluido_explicitamente": 1998,
+  "autor": "Jacson Cruz do Nascimento",
+  "status": "PAINEL_EXPLORATORIO_SEM_ESTIMACAO",
+  "censo_2000": [
+    2002,
+    2006,
+    2010
+  ],
+  "censo_2010": [
+    2014,
+    2018,
+    2022
+  ],
+  "amostra_3_controles": 5506,
+  "observacoes_6_eleicoes": 33036,
+  "amostra_4_controles": 5505,
+  "observacoes_5_eleicoes": 27525,
+  "chaves_e_totais_historicos": {
+    "2002": {
+      "n_municipios_tse_sem_ZZ_VT": 5565,
+      "n_chaves_no_mapa_atual": 5564,
+      "chaves_historicas_sem_correspondencia": [
+        {
+          "SG_UF": "MT",
+          "CD_MUNICIPIO": 91065
+        }
+      ],
+      "votos_nacionais_nominais_com_ZZ_VT": {
+        "13": 52793364,
+        "45": 33370739
+      },
+      "votos_separados_ZZ_VT": {
+        "('ZZ', 13)": 20772,
+        "('ZZ', 45)": 13742
+      },
+      "n_controles_3_completos": 5506,
+      "n_controles_4_completos": 0
+    },
+    "2006": {
+      "n_municipios_tse_sem_ZZ_VT": 5565,
+      "n_chaves_no_mapa_atual": 5565,
+      "chaves_historicas_sem_correspondencia": [],
+      "votos_nacionais_nominais_com_ZZ_VT": {
+        "13": 58295042,
+        "45": 37543178
+      },
+      "votos_separados_ZZ_VT": {
+        "('ZZ', 13)": 17948,
+        "('ZZ', 45)": 20912
+      },
+      "n_controles_3_completos": 5506,
+      "n_controles_4_completos": 5506
+    },
+    "2010": {
+      "n_municipios_tse_sem_ZZ_VT": 5567,
+      "n_chaves_no_mapa_atual": 5567,
+      "chaves_historicas_sem_correspondencia": [],
+      "votos_nacionais_nominais_com_ZZ_VT": {
+        "13": 55752529,
+        "45": 43711388
+      },
+      "votos_separados_ZZ_VT": {
+        "('VT', 13)": 28018,
+        "('VT', 45)": 25017,
+        "('ZZ', 13)": 33112,
+        "('ZZ', 45)": 47913
+      },
+      "n_controles_3_completos": 5506,
+      "n_controles_4_completos": 5506
+    }
+  },
+  "cobertura": [
+    {
+      "ano": 2002,
+      "n_tse_municipios_mapeados": 5564,
+      "complete_3": 5506,
+      "complete_4": 0,
+      "censo_demografico": 2000,
+      "populacao_ano": 2001,
+      "pib_ano": null
+    },
+    {
+      "ano": 2006,
+      "n_tse_municipios_mapeados": 5565,
+      "complete_3": 5506,
+      "complete_4": 5506,
+      "censo_demografico": 2000,
+      "populacao_ano": 2005,
+      "pib_ano": 2004
+    },
+    {
+      "ano": 2010,
+      "n_tse_municipios_mapeados": 5567,
+      "complete_3": 5506,
+      "complete_4": 5506,
+      "censo_demografico": 2000,
+      "populacao_ano": 2009,
+      "pib_ano": 2008
+    },
+    {
+      "ano": 2014,
+      "n_tse_municipios_mapeados": 5570,
+      "complete_3": 5565,
+      "complete_4": 5564,
+      "censo_demografico": 2010,
+      "populacao_ano": 2013,
+      "pib_ano": 2012
+    },
+    {
+      "ano": 2018,
+      "n_tse_municipios_mapeados": 5570,
+      "complete_3": 5565,
+      "complete_4": 5565,
+      "censo_demografico": 2010,
+      "populacao_ano": 2017,
+      "pib_ano": 2016
+    },
+    {
+      "ano": 2022,
+      "n_tse_municipios_mapeados": 5570,
+      "complete_3": 5565,
+      "complete_4": 5565,
+      "censo_demografico": 2010,
+      "populacao_ano": 2021,
+      "pib_ano": 2020
+    }
+  ],
+  "restricoes": [
+    "Censo demográfico anterior ao pleito, não posterior.",
+    "2010 utiliza Censo 2000 como série inteiramente anterior, não os dados da coleta do ano da eleição.",
+    "PIB para 2002 não obtido da série SIDRA5938, não imputado.",
+    "2002 contém chave histórica TSE não conciliada ao mapa atual; município fica excluído com contagem documentada.",
+    "2010 inclui chaves especiais VT; não são tratadas como municípios brasileiros.",
+    "Pontos espaciais são centroides IBGE2022 e geometria histórica pode divergir.",
+    "Não representa previsão ex ante em tempo real, pois séries IBGE podem ter sido revisadas.",
+    "1998 foi expressamente excluída por decisão do autor.",
+    "Sem inferência individual, causal ou de contágio social."
+  ],
+  "sha256_arquivos": {
+    "painel_nao_balanceado_2002_2022.csv": "fb56c3d90b844c67111942c36ef980ff71f0bfb806d374f5db6639425d6ba65c",
+    "painel_balanceado_6_eleicoes_3_controles.csv": "bee33baba3f7449296b80c017194756d887a84f6ce423db46e176d570794ea84",
+    "painel_balanceado_5_eleicoes_4_controles.csv": "8193c04530ac5a8c72f138d080b43ec37631fcd486365ffd8c98290b03bf0779",
+    "cobertura_por_eleicao.csv": "d329856baa64d3069d68ac92268cb8358c08e00cab41e47982662c90edd9d59d"
+  }
+}
