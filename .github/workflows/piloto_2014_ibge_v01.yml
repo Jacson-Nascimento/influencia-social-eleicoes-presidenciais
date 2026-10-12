@@ -1,0 +1,42 @@
+name: Controles pre eleitorais IBGE para analise de 2014
+
+on:
+  push:
+    paths:
+      - '.github/workflows/piloto_2014_ibge_v01.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  ibge:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: {python-version: '3.11', cache: pip}
+      - run: pip install -r requirements.txt
+      - name: Coletar PIB 2012 e população 2013 SIDRA
+        run: |
+          python scripts/29_controles_ibge_2014.py \
+            --controles data/ibge_tratados/controles_pre_eleitorais_v02.csv \
+            --mapa outputs/municipal_v01/chaves_tse_ibge_5570_centroides.csv \
+            --saida outputs/piloto_2014_ibge_v01/controles_IBGE_para_eleicao_2014.csv \
+            --manifesto outputs/piloto_2014_ibge_v01/manifesto_ibge_2014.json
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: piloto-2014-ibge-controles
+          path: outputs/piloto_2014_ibge_v01/
+          retention-days: 90
+      - name: Preservar resultados em novo diretório
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add -f outputs/piloto_2014_ibge_v01/*.csv
+          git add outputs/piloto_2014_ibge_v01/*.json
+          git commit -m 'Versionar controles municipais PIB 2012 população 2013 para piloto 2014'
+          git pull --rebase origin main
+          git push origin HEAD:main
