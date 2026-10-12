@@ -1,0 +1,55 @@
+{
+  "origem": "https://cdn.tse.jus.br/estatistica/sead/odsele/votacao_secao/votacao_secao_1998_BR.zip",
+  "criado_em": "2026-10-12T03:50:51.890567+00:00",
+  "status": "AGREGADO_COM_RESSALVA_DOCUMENTAL_1998_NAO_CONCILIADO",
+  "advertencia": "TSE reconhece incompletude dos resultados de 1998.",
+  "sha256_arquivo_tse": "5a40305f7038643cacac4c57c6b28ccb3779b2700034cea4f283d3087528a197",
+  "linhas_lidas": 481078,
+  "campo6_igual_cod_municipio_linhas": 481078,
+  "abrangencias": [
+    "BR"
+  ],
+  "cargos": [
+    "PRESIDENTE"
+  ],
+  "votaveis": [
+    13,
+    16,
+    19,
+    20,
+    23,
+    27,
+    31,
+    33,
+    43,
+    45,
+    56,
+    70,
+    95,
+    96
+  ],
+  "municipios_unicos": 27,
+  "n_sem_chave_tse_atual": 0,
+  "codigo_nao_correspondente_exemplos": [],
+  "total_por_numero_votavel": {
+    "45": 8441142,
+    "13": 6450661,
+    "23": 2434830,
+    "96": 2203367,
+    "95": 761410,
+    "56": 440054,
+    "43": 41734,
+    "19": 38026,
+    "33": 29651,
+    "16": 28603,
+    "20": 21679,
+    "27": 20645,
+    "70": 19050,
+    "31": 14550
+  },
+  "votacao_PT13": 6450661,
+  "votacao_PSDB45": 8441142,
+  "total_todos_codigos_inclui_nao_candidatos": 20945402,
+  "n_cidades_com_registro_na_malha_atual": 27,
+  "saida_sha256": "218b163342bba333e1306152876968b2b17c6b0c125c242668deaafac63c8a42"
+}
