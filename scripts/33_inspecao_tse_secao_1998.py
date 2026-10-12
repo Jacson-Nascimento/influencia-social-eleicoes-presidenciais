@@ -5,7 +5,7 @@ from pathlib import Path
 from urllib.request import urlopen,Request
 from datetime import datetime,timezone
 URL="https://cdn.tse.jus.br/estatistica/sead/odsele/votacao_secao/votacao_secao_1998_BR.zip"
-OUT=Path("outputs/alternativa_tse_1998_secao_v01")
+OUT=Path("outputs/alternativa_tse_1998_secao_v02")
 def main():
  if OUT.exists() and any(OUT.iterdir()):raise SystemExit("Arquivos anteriores preservados")
  OUT.mkdir(parents=True,exist_ok=True)
