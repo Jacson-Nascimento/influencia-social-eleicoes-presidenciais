@@ -1,0 +1,60 @@
+name: Estudo exploratorio 2014 comparacoes espaciais e temporais
+
+on:
+  push:
+    paths:
+      - '.github/workflows/piloto_2014_modelos_v01.yml'
+      - 'scripts/30_comparar_2014_2018_2022.py'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  modelos:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: {python-version: '3.11', cache: pip}
+      - run: pip install -r requirements.txt
+      - name: Estimar novos modelos e testar generalização geográfica e temporal
+        run: |
+          OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 python scripts/30_comparar_2014_2018_2022.py \
+            --votos2014 outputs/piloto_2014_v01/votos_2014_segundo_turno_municipios.csv \
+            --controles2014 outputs/piloto_2014_ibge_v01/controles_IBGE_para_eleicao_2014.csv \
+            --votos2018_2022 outputs/competitividade_v02/competitividade_e_margem_assinada_segundo_turno.csv \
+            --controles2018_2022 data/ibge_tratados/controles_pre_eleitorais_v02.csv \
+            --mapa outputs/municipal_v01/chaves_tse_ibge_5570_centroides.csv \
+            --out outputs/piloto_2014_comparacao_v01
+      - name: Validar replicabilidade e amostra constante
+        run: |
+          python - <<'PY'
+          import pandas as pd
+          root="outputs/piloto_2014_comparacao_v01/"
+          g=pd.read_csv(root+"validacao_geografica_por_eleicao_2014_2018_2022.csv")
+          t=pd.read_csv(root+"validacao_temporal_out_of_time.csv")
+          assert len(g)==18 and len(t)==18
+          assert g.n.eq(5564).all()
+          assert t.n_teste.eq(5564).all()
+          assert t.teste_ano.isin([2018,2022]).all()
+          assert t[["ganho_rmse_pct","ic95_uf_inf","ic95_uf_sup"]].notna().all().all()
+          print(g.to_string(index=False))
+          print(t.to_string(index=False))
+          PY
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: piloto-2014-modelos-geograficos-temporais-v01
+          path: outputs/piloto_2014_comparacao_v01/
+          retention-days: 90
+      - name: Versionar resultados novos apenas após validação
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add -f outputs/piloto_2014_comparacao_v01/*.csv
+          git add outputs/piloto_2014_comparacao_v01/*.json
+          git commit -m 'Registrar analises exploratorias 2014 e testes temporais sem modificar v14'
+          git pull --rebase origin main
+          git push origin HEAD:main
