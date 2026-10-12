@@ -1,0 +1,68 @@
+name: Sensibilidade Censo 2000 2010 e três quatro controles
+
+on:
+  push:
+    paths:
+      - '.github/workflows/robustez_censo_e_pib_2006_2022.yml'
+      - 'scripts/37_sensibilidade_censo_pib.py'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  teste:
+    runs-on: ubuntu-latest
+    timeout-minutes: 50
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: {python-version: '3.11', cache: pip}
+      - run: pip install -r requirements.txt
+      - name: Estimar 3 e 4 controles e censo alternativo 2014
+        run: |
+          OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 python scripts/37_sensibilidade_censo_pib.py \
+            --mapa outputs/municipal_v01/chaves_tse_ibge_5570_centroides.csv \
+            --ibge_historico outputs/controles_ibge_historicos_v01/controles_2002_2006_2010.csv \
+            --ibge_2014 outputs/piloto_2014_ibge_v01/controles_IBGE_para_eleicao_2014.csv \
+            --ibge_2018_2022 data/ibge_tratados/controles_pre_eleitorais_v02.csv \
+            --votos_2002 outputs/inventario_tse_historico_v01/2002/votos_presidenciais_municipais_2002.csv \
+            --votos_2006 outputs/inventario_tse_historico_v01/2006/votos_presidenciais_municipais_2006.csv \
+            --votos_2010 outputs/inventario_tse_historico_v01/2010/votos_presidenciais_municipais_2010.csv \
+            --votos_2014 outputs/piloto_2014_v01/votos_2014_segundo_turno_municipios.csv \
+            --votos_2018_2022 outputs/competitividade_v02/competitividade_e_margem_assinada_segundo_turno.csv \
+            --saida outputs/robustez_censo_pib_2006_2022_v01
+      - name: Verificar resultados
+        run: |
+          python - <<'PY'
+          import pandas as pd
+          p='outputs/robustez_censo_pib_2006_2022_v01/'
+          g=pd.read_csv(p+'geo_tres_quatro_controles.csv')
+          t=pd.read_csv(p+'temporal_tres_quatro_controles.csv')
+          v=pd.read_csv(p+'censo_vintage_2014.csv')
+          assert len(g)==60 and len(t)==48 and len(v)==48
+          assert g.ano.nunique()==5
+          assert v.censo2014.nunique()==2
+          assert v.teste.nunique()==2
+          assert all(g.ic95_uf_inf<g.ic95_uf_sup)
+          print(g[['ano','especificacao','desfecho','ponderacao','ganho_rmse_pct']].to_string(index=False))
+          PY
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: robustez-censo-e-pib-2006-2022-v01
+          path: outputs/robustez_censo_pib_2006_2022_v01/
+          retention-days: 90
+      - name: Versionar após passar no controle
+        if: success()
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add -f outputs/robustez_censo_pib_2006_2022_v01/*.csv
+          git add outputs/robustez_censo_pib_2006_2022_v01/*.json
+          git commit -m 'Registrar sensibilidade censo e PIB 2006–2022 sem modificar resultados anteriores'
+          for i in 1 2 3 4 5; do
+            git pull --rebase origin main && git push origin HEAD:main && exit 0
+            sleep 5
+          done
+          exit 1
