@@ -1,0 +1,145 @@
+{
+  "autor": "Jacson Cruz do Nascimento",
+  "carater": "ESTUDO EXPLORATORIO 2002-2022, 1998 EXCLUIDO, SEM SUBMISSAO",
+  "referencia_metodologica": "CRUZ, Rafael Georges da (2019), UnB, escolha do Censo anterior ao pleito",
+  "anos": [
+    2002,
+    2006,
+    2010,
+    2014,
+    2018,
+    2022
+  ],
+  "censo_por_ano": {
+    "2002": 2000,
+    "2006": 2000,
+    "2010": 2000,
+    "2014": 2010,
+    "2018": 2010,
+    "2022": 2010
+  },
+  "n_municipios": 5506,
+  "n_observacoes": 33036,
+  "total_cenarios_validacao_geografica": 36,
+  "total_cenarios_validacao_temporal": 30,
+  "controles": "log população anterior, proporção urbana Censo anterior e proporção feminina Censo anterior",
+  "pib": "Sem PIB no modelo principal comum a seis pleitos, devido à ausência de mesma série oficial para 2002. Não imputado.",
+  "benchmark": "3 controles locais + 4 indicadores macrorregionais; alternativa acrescenta médias IBGE de 8 vizinhos",
+  "variavel_dependente": "C=1−|M| e M=(votos_PT13−votos_outro_finalista)/votos_validos",
+  "cinco_folds_uf": true,
+  "bootstrap_uf": 4999,
+  "cautelas": [
+    "Municípios do passado sem correspondência atual são excluídos, sem imputação.",
+    "M representa candidaturas diferentes do PT ao longo dos anos.",
+    "Troca 2000/2010 cria quebra de vintage dos indicadores demográficos.",
+    "Populações e contas retrospectivamente recuperadas em 2026, não previsão em tempo real.",
+    "UFs limítrofes podem ter dependência espacial residual.",
+    "Unidades repetidas em anos distintos não são independentes.",
+    "O estudo não demonstra causalidade ou contágio social."
+  ],
+  "cobertura_por_eleicao": {
+    "2002": {
+      "votos_municipios_antes_da_correspondencia": 5565,
+      "municipios_sem_chave_atual": 1,
+      "exemplos_sem_chave": [
+        {
+          "SG_UF": "MT",
+          "CD_MUNICIPIO": 91065
+        }
+      ]
+    },
+    "2006": {
+      "votos_municipios_antes_da_correspondencia": 5565,
+      "municipios_sem_chave_atual": 0,
+      "exemplos_sem_chave": []
+    },
+    "2010": {
+      "votos_municipios_antes_da_correspondencia": 5567,
+      "municipios_sem_chave_atual": 0,
+      "exemplos_sem_chave": []
+    },
+    "2014": {
+      "votos_municipios_antes_da_correspondencia": 5570,
+      "municipios_sem_chave_atual": 0,
+      "exemplos_sem_chave": []
+    },
+    "2018": {
+      "votos_municipios_antes_da_correspondencia": 5570,
+      "municipios_sem_chave_atual": 0,
+      "exemplos_sem_chave": []
+    },
+    "2022": {
+      "votos_municipios_antes_da_correspondencia": 5570,
+      "municipios_sem_chave_atual": 0,
+      "exemplos_sem_chave": []
+    },
+    "amostra_comum_seis_eleicoes": 5506,
+    "observacoes_balanceadas": 33036,
+    "excluidos_sem_amostra_comum": [
+      "1504752",
+      "2200954",
+      "2206720",
+      "2207793",
+      "2406155",
+      "2703759",
+      "2903276",
+      "2919553",
+      "3202256",
+      "3302858",
+      "4212650",
+      "4220000",
+      "4300034",
+      "4300471",
+      "4301073",
+      "4302220",
+      "4302238",
+      "4302584",
+      "4304614",
+      "4304622",
+      "4304655",
+      "4305835",
+      "4305934",
+      "4306130",
+      "4308433",
+      "4310652",
+      "4310876",
+      "4311239",
+      "4312179",
+      "4313334",
+      "4313466",
+      "4314134",
+      "4314175",
+      "4314464",
+      "4314548",
+      "4315313",
+      "4315958",
+      "4316733",
+      "4316972",
+      "4318614",
+      "4319364",
+      "4321469",
+      "4323770",
+      "5003900",
+      "5006275",
+      "5101852",
+      "5103254",
+      "5103361",
+      "5103437",
+      "5104526",
+      "5104542",
+      "5106174",
+      "5106190",
+      "5106315",
+      "5107578",
+      "5107743",
+      "5107768",
+      "5107792",
+      "5107883",
+      "5108352",
+      "5204854",
+      "5208152",
+      "5210158",
+      "5212253"
+    ]
+  }
+}
