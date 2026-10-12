@@ -1,0 +1,63 @@
+name: Validacao espacial e temporal seis eleicoes com censos anteriores
+
+on:
+  push:
+    paths:
+      - '.github/workflows/modelos_seis_eleicoes_2002_2022_v01.yml'
+      - 'scripts/37_modelos_seis_eleicoes.py'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  comparar:
+    runs-on: ubuntu-latest
+    timeout-minutes: 50
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: {python-version: '3.11'}
+      - run: pip install -r requirements.txt
+      - name: Reestimar modelos com duas amostras e validar fora da UF e do ano
+        run: |
+          OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 python scripts/37_modelos_seis_eleicoes.py \
+            --panel3 outputs/painel_harmonizado_2002_2022_v01/painel_balanceado_6_eleicoes_3_controles.csv \
+            --panel4 outputs/painel_harmonizado_2002_2022_v01/painel_balanceado_5_eleicoes_4_controles.csv \
+            --out outputs/modelos_seis_eleicoes_2002_2022_v01
+      - name: Validar dimensões das estimações sem misturar amostras
+        run: |
+          python - <<'PY'
+          import pandas as pd
+          p="outputs/modelos_seis_eleicoes_2002_2022_v01/"
+          g=pd.read_csv(p+"validacao_geografica_6_e_5_eleicoes.csv")
+          t=pd.read_csv(p+"validacao_temporal_2002_2022.csv")
+          u=pd.read_csv(p+"erros_por_uf_validacao_temporal.csv")
+          assert len(g)==66 and len(t)==108 and len(u)==2916
+          assert g.ano.between(2002,2022).all() and 1998 not in g.ano.unique()
+          assert t.n_treino.gt(5000).all() and (t.n_teste>5000).all()
+          assert (g.ic95_uf_sup>g.ic95_uf_inf).all() and (t.ic95_uf_sup>t.ic95_uf_inf).all()
+          for a in [g,t]:
+              assert a.rmse_local.gt(0).all() and a.rmse_contexto.gt(0).all()
+          print(g.to_string(index=False))
+          print(t.to_string(index=False))
+          PY
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: modelos-presidenciais-2002-2022-temporais-v01
+          path: outputs/modelos_seis_eleicoes_2002_2022_v01/
+          retention-days: 90
+      - name: Registrar só novos resultados aprovados
+        if: success()
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add -f outputs/modelos_seis_eleicoes_2002_2022_v01/*.csv
+          git add outputs/modelos_seis_eleicoes_2002_2022_v01/*.json
+          git commit -m 'Registrar comparações temporais/geográficas eleições 2002–2022'
+          for i in 1 2 3 4 5; do
+            git pull --rebase origin main && git push origin HEAD:main && exit 0
+            sleep 5
+          done
+          exit 1
