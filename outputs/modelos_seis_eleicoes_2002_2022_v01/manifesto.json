@@ -1,0 +1,51 @@
+{
+  "status": "ESTIMATIVAS_EXPLORATORIAS_SEM_SUBMISSAO",
+  "anos_seis": [
+    2002,
+    2006,
+    2010,
+    2014,
+    2018,
+    2022
+  ],
+  "anos_cinco": [
+    2006,
+    2010,
+    2014,
+    2018,
+    2022
+  ],
+  "n_municipios_amostra_seis": 5506,
+  "n_municipios_amostra_cinco": 5505,
+  "n_cv_geo": 66,
+  "n_cv_temporal": 108,
+  "regressores_3": [
+    "log_pop",
+    "urbanizacao_censo",
+    "fracao_feminina_censo"
+  ],
+  "regressores_4": [
+    "log_pop",
+    "urbanizacao_censo",
+    "fracao_feminina_censo",
+    "log_pibpc_proxy"
+  ],
+  "estimadores": [
+    "OLS/WLS",
+    "logit fracionario apenas C"
+  ],
+  "tempo": "Treino: eleições anteriores ao teste, sem compartilhamento dos votos do futuro.",
+  "censo": "Censo2000 para 2002/2006/2010, Censo2010 para 2014/2018/2022",
+  "pontos_de_cuidado": [
+    "Testes três e quatro controles têm amostras distintas; comparar mudanças somente em especificações e universos coincidentes.",
+    "Dados IBGE foram recuperados em 2026, podem ter revisão temporal e não são previsões com dados disponíveis à época.",
+    "Códigos TSE antigos mapeados à malha 2022 não tratam perfeitamente mudanças territoriais.",
+    "2010 contém registros especiais VT; incluídos em total TSE histórico, excluídos do município.",
+    "M define vantagem PT13 com candidatos distintos por ano.",
+    "Bootstrap 4999 UFs, IC exploratório com correlação residual entre UFs fronteiriças.",
+    "C e M diferem em escala e distribuição; não comparar RMSE bruto entre eles.",
+    "Nenhuma identificação causal de contágio social ou preferência individual."
+  ],
+  "codigo": "scripts/37_modelos_seis_eleicoes.py",
+  "fontes_painel": "outputs/painel_harmonizado_2002_2022_v01"
+}
