@@ -4,6 +4,7 @@ on:
   push:
     paths:
       - '.github/workflows/piloto_2014_ibge_v01.yml'
+      - 'scripts/29_controles_ibge_2014.py'
   workflow_dispatch:
 
 permissions:
