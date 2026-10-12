@@ -1,0 +1,20 @@
+{
+  "uf": "SP",
+  "url": "https://cdn.tse.jus.br/estatistica/sead/odsele/votacao_secao/votacao_secao_1998_SP.zip",
+  "coleta_utc": "2026-10-12T12:04:52.547882+00:00",
+  "status": "AUSENCIA_PRESIDENTE_NO_ARQUIVO_UF",
+  "zip_sha256": "6750ac6625ad99b8c80acc307c6b4df7754add488016748c8b35438265a02817",
+  "n_linhas": 8178231,
+  "cargos": {
+    "Deputado Federal": 3476501,
+    "Deputado Estadual": 3666967,
+    "Senador": 454082,
+    "Governador": 580681
+  },
+  "n_linhas_presidente": 0,
+  "municipios_presidente_distintos": 0,
+  "turnos_presidente": [],
+  "total_votos_por_numero": {},
+  "votos_presidente_cod13": 0,
+  "votos_presidente_cod45": 0
+}
