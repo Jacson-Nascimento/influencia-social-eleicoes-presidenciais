@@ -1,0 +1,21 @@
+{
+  "metodo": "Contrafactual descritivo com composição demográfica de 2000 fixa para todos os pleitos",
+  "amostra_municipios": 5506,
+  "anos": [
+    2002,
+    2006,
+    2010,
+    2014,
+    2018,
+    2022
+  ],
+  "controles": "log_pop_variavel_no_tempo, urbanizacao_Censo2000 fixa, fracao_feminina_Censo2000 fixa",
+  "censo_2010_deslocado_para_apos_2022": "não, somente cenário de congelamento 2000",
+  "inferencias": [
+    "Comparação de sensibilidade de mensuração censitária, não previsão real nem causalidade.",
+    "Uso da composição de 2000 em eleições posteriores é defasagem deliberada e potencialmente imprecisa.",
+    "Diferenças de ganho percentual não são testes pareados formais da significância da troca de Censo."
+  ],
+  "principal": "outputs/modelos_seis_eleicoes_2002_2022_v01",
+  "teste_auditoria": "Modelos 2002/2006/2010 preservam resultados exatamente (mesmo Censo2000)"
+}
