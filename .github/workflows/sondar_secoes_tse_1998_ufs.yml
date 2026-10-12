@@ -1,0 +1,46 @@
+name: Sondar seção 1998 por UF, viabilidade cobertura municipal
+
+on:
+  push:
+    paths:
+      - '.github/workflows/sondar_secoes_tse_1998_ufs.yml'
+      - 'scripts/38_sondagem_tse_1998_por_uf.py'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  uf:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    strategy:
+      fail-fast: false
+      matrix:
+        uf: [AC, RS, SP]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: {python-version: '3.11'}
+      - name: Diagnosticar arquivo por UF sem alterar modelos
+        run: |
+          python scripts/38_sondagem_tse_1998_por_uf.py \
+            --uf ${{ matrix.uf }} \
+            --out outputs/sondagem_tse_1998_ufs_v01/${{ matrix.uf }}.json
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: sondagem-1998-${{ matrix.uf }}
+          path: outputs/sondagem_tse_1998_ufs_v01/${{ matrix.uf }}.json
+          retention-days: 90
+      - name: Versionar somente diagnóstico
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add outputs/sondagem_tse_1998_ufs_v01/${{ matrix.uf }}.json
+          git commit -m 'Diagnosticar cobertura TSE votação 1998 ${{ matrix.uf }}'
+          for i in 1 2 3 4 5; do
+            git pull --rebase origin main && git push origin HEAD:main && exit 0
+            sleep 5
+          done
+          exit 1
