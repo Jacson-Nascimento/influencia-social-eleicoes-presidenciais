@@ -1,0 +1,69 @@
+name: Validacao seis eleicoes 2002 a 2022 modelos reduzidos
+
+on:
+  push:
+    paths:
+      - '.github/workflows/modelos_historicos_reduzidos_v01.yml'
+      - 'scripts/36_modelos_historicos_reduzidos.py'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  econometria:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: {python-version: '3.11'}
+      - run: pip install -r requirements.txt
+      - name: Construir amostra municipal comum e testar generalizacao geográfica e temporal
+        run: |
+          OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 python scripts/36_modelos_historicos_reduzidos.py \
+            --mapa outputs/municipal_v01/chaves_tse_ibge_5570_centroides.csv \
+            --historicos outputs/inventario_tse_historico_v01 \
+            --ibgeantigo outputs/controles_ibge_historicos_v01/controles_2002_2006_2010.csv \
+            --votos2014 outputs/piloto_2014_v01/votos_2014_segundo_turno_municipios.csv \
+            --ibge2014 outputs/piloto_2014_ibge_v01/controles_IBGE_para_eleicao_2014.csv \
+            --votos2018_22 outputs/competitividade_v02/competitividade_e_margem_assinada_segundo_turno.csv \
+            --ibge2018_22 data/ibge_tratados/controles_pre_eleitorais_v02.csv \
+            --out outputs/analises_sistema_eleitoral_2002_2022_v01
+      - name: Validar especificações sem valores faltantes
+        run: |
+          python - <<'PY'
+          import pandas as pd,json
+          root="outputs/analises_sistema_eleitoral_2002_2022_v01/"
+          m=json.load(open(root+"manifesto.json"))
+          a=pd.read_csv(root+"validacao_geografica_2002_2022.csv")
+          b=pd.read_csv(root+"validacao_temporal_expansiva_2002_2022.csv")
+          assert len(a)==36 and len(b)==30
+          assert m["municipios_comuns"]>=5300
+          assert set(a.ano)=={2002,2006,2010,2014,2018,2022}
+          assert a["ganho_rmse_pct"].notna().all()
+          assert b["ganho_rmse_pct"].notna().all()
+          for col in ["ci_inf","ci_sup"]:
+              assert a[col].notna().all() and b[col].notna().all()
+          print(a.to_string(index=False))
+          print(b.to_string(index=False))
+          PY
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: modelos-historicos-reduzidos-2002-2022
+          path: outputs/analises_sistema_eleitoral_2002_2022_v01/
+          retention-days: 90
+      - name: Versionar resultados apenas após validacao
+        if: success()
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add -f outputs/analises_sistema_eleitoral_2002_2022_v01/*.csv
+          git add outputs/analises_sistema_eleitoral_2002_2022_v01/*.json
+          git commit -m 'Registrar análise temporal de seis eleições com três controles antecedentes'
+          for i in 1 2 3 4 5; do
+            git pull --rebase origin main && git push origin HEAD:main && exit 0
+            sleep 5
+          done
+          exit 1
