@@ -1,0 +1,20 @@
+{
+  "uf": "RS",
+  "url": "https://cdn.tse.jus.br/estatistica/sead/odsele/votacao_secao/votacao_secao_1998_RS.zip",
+  "coleta_utc": "2026-10-12T12:04:48.874198+00:00",
+  "status": "AUSENCIA_PRESIDENTE_NO_ARQUIVO_UF",
+  "zip_sha256": "8e0eb283ee771da47fb0062de018ae0d732dc4af99dcb7c463fdb0a4ed955c25",
+  "n_linhas": 2386588,
+  "cargos": {
+    "Deputado Estadual": 1032550,
+    "Deputado Federal": 915904,
+    "Senador": 195067,
+    "Governador": 243067
+  },
+  "n_linhas_presidente": 0,
+  "municipios_presidente_distintos": 0,
+  "turnos_presidente": [],
+  "total_votos_por_numero": {},
+  "votos_presidente_cod13": 0,
+  "votos_presidente_cod45": 0
+}
