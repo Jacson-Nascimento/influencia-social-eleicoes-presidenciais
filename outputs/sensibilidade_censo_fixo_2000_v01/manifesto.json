@@ -1,0 +1,19 @@
+{
+  "tipo": "sensibilidade sem recomputação das séries nominais de voto",
+  "anos": [
+    2002,
+    2006,
+    2010,
+    2014,
+    2018,
+    2022
+  ],
+  "amostra": 5506,
+  "n_observacoes": 33036,
+  "censo_principal": "2000 2002/2006/2010; 2010 2014/2018/2022",
+  "censo_alternativo": "2000 fixo em TODOS os pleitos",
+  "criterio": "mesma amostra, mesmos folds e controles (3), mesmas macrorregiões, k=8",
+  "cautela": "Censo 2000 fixo evita quebra de vintage mas perde atualização demográfica ao longo do tempo; não escolher resultado mais favorável.",
+  "inferencias": "bootstrap de 4.999 reamostragens por UF, UFs fronteiriças dependentes; não causal.",
+  "referencia": "https://doi.org/10.1590/0101-416147182phe"
+}
