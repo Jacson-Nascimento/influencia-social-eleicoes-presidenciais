@@ -1,0 +1,63 @@
+{
+  "status": "ESTUDO_EXPLORATORIO_NAO_SUBMETIDO",
+  "anos": [
+    2006,
+    2010,
+    2014,
+    2018,
+    2022
+  ],
+  "municipios_comuns": 5505,
+  "observacoes_municipio_ano": 27525,
+  "variaveis_comuns": [
+    "log da população no ano anterior",
+    "log da proxy PIB do ano anterior ao ano da população",
+    "urbanização e proporção de mulheres no censo anterior"
+  ],
+  "PIB": "2006: PIB2004/pop2005; 2010: PIB2008/pop2009; 2014: PIB2012/pop2013; 2018: PIB2016/pop2017; 2022: PIB2020/pop2021",
+  "censos": {
+    "2006_2010": 2000,
+    "2014_2018_2022": 2010
+  },
+  "finalistas_segundo_turno": {
+    "2002": "Lula/PT13 e Serra/PSDB45",
+    "2006": "Lula/PT13 e Alckmin/PSDB45",
+    "2010": "Dilma/PT13 e Serra/PSDB45",
+    "2014": "Dilma/PT13 e Aécio/PSDB45",
+    "2018": "Haddad/PT13 e Bolsonaro/PSL17",
+    "2022": "Lula/PT13 e Bolsonaro/PL22"
+  },
+  "geografia": "kNN8 centroides IBGE2022 e macrorregiões; observações com fronteiras e códigos validáveis somente na amostra comum",
+  "2006_2010_chaves_registros": {
+    "2006": {
+      "chaves_nao_correspondentes": 0,
+      "extraterritoriais_codigos": [
+        "ZZ"
+      ],
+      "votos_extraterritoriais": 38860,
+      "municipios_arquivo": 5565,
+      "municipios_atuais_com_chave": 5565
+    },
+    "2010": {
+      "chaves_nao_correspondentes": 0,
+      "extraterritoriais_codigos": [
+        "VT",
+        "ZZ"
+      ],
+      "votos_extraterritoriais": 134060,
+      "municipios_arquivo": 5567,
+      "municipios_atuais_com_chave": 5567
+    }
+  },
+  "intervalos": "4.999 bootstrap pareado de UFs; limitados pela dependencia espacial",
+  "limites": [
+    "Não há 1998 nem 2002 neste painel: 1998 somente primeiro turno; PIB municipal pré-2002 sem série equivalente disponível no SIDRA5938.",
+    "Os seis pleitos têm candidatos/oponentes diferentes; M representa sempre número 13 versus o outro finalista.",
+    "Modelos são avaliados retrospectivamente; controle IBGE revisado não corresponde a disponibilidade em tempo real.",
+    "Municípios com códigos estáveis não garantem perímetro espacial perfeitamente idêntico.",
+    "Treinos temporais empilham os mesmos municípios em eleições diferentes.",
+    "Não demonstrar causalidade nem contágio social.",
+    "Comparar ganhos relativos só dentro do mesmo desfecho/ponderação/horizonte."
+  ],
+  "implementacao": "scripts/37_modelos_historicos_full4_2006_2022.py"
+}
