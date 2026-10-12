@@ -1,0 +1,72 @@
+{
+  "status": "ESTUDO_EXPLORATORIO_NAO_SUBMETIDO",
+  "anos": [
+    2002,
+    2006,
+    2010,
+    2014,
+    2018,
+    2022
+  ],
+  "municipios_comuns": 5506,
+  "observacoes_municipio_ano": 33036,
+  "variaveis_comuns": [
+    "log da população no ano anterior",
+    "urbanização e proporção de mulheres no censo anterior"
+  ],
+  "ausencia_PIB_2000": "modelo reduzido de tres covariáveis, NÃO equivalente ao original de quatro covariáveis",
+  "censos": {
+    "2002_2006_2010": 2000,
+    "2014_2018_2022": 2010
+  },
+  "finalistas_segundo_turno": {
+    "2002": "Lula/PT13 e Serra/PSDB45",
+    "2006": "Lula/PT13 e Alckmin/PSDB45",
+    "2010": "Dilma/PT13 e Serra/PSDB45",
+    "2014": "Dilma/PT13 e Aécio/PSDB45",
+    "2018": "Haddad/PT13 e Bolsonaro/PSL17",
+    "2022": "Lula/PT13 e Bolsonaro/PL22"
+  },
+  "geografia": "kNN8 centroides IBGE2022 e macrorregiões; observações com fronteiras e códigos validáveis somente na amostra comum",
+  "2002_2006_2010_chaves_registros": {
+    "2002": {
+      "chaves_nao_correspondentes": 1,
+      "extraterritoriais_codigos": [
+        "ZZ"
+      ],
+      "votos_extraterritoriais": 34514,
+      "municipios_arquivo": 5565,
+      "municipios_atuais_com_chave": 5564
+    },
+    "2006": {
+      "chaves_nao_correspondentes": 0,
+      "extraterritoriais_codigos": [
+        "ZZ"
+      ],
+      "votos_extraterritoriais": 38860,
+      "municipios_arquivo": 5565,
+      "municipios_atuais_com_chave": 5565
+    },
+    "2010": {
+      "chaves_nao_correspondentes": 0,
+      "extraterritoriais_codigos": [
+        "VT",
+        "ZZ"
+      ],
+      "votos_extraterritoriais": 134060,
+      "municipios_arquivo": 5567,
+      "municipios_atuais_com_chave": 5567
+    }
+  },
+  "intervalos": "4.999 bootstrap pareado de UFs; limitados pela dependencia espacial",
+  "limites": [
+    "Não há 1998 neste painel: eleição apenas de 1º turno e dados incompletos.",
+    "Os seis pleitos têm candidatos/oponentes diferentes; M representa sempre número 13 versus o outro finalista.",
+    "Modelos são avaliados retrospectivamente; controle IBGE revisado não corresponde a disponibilidade em tempo real.",
+    "Municípios com códigos estáveis não garantem perímetro espacial perfeitamente idêntico.",
+    "Treinos temporais empilham os mesmos municípios em eleições diferentes.",
+    "Não demonstrar causalidade nem contágio social.",
+    "Comparar ganhos relativos só dentro do mesmo desfecho/ponderação/horizonte."
+  ],
+  "implementacao": "scripts/36_modelos_historicos_reduzidos.py"
+}
