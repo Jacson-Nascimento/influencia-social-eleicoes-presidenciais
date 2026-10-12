@@ -1,0 +1,76 @@
+{
+  "ano": 2014,
+  "fonte_oficial": "https://dadosabertos.tse.jus.br/dataset/resultados-2014",
+  "arquivo_url": "https://cdn.tse.jus.br/estatistica/sead/odsele/votacao_candidato_munzona/votacao_candidato_munzona_2014.zip",
+  "arquivo_zip_sha256": "f41bceb427820c068b2b14b87befa69d8c333638644eea0e8337534f9b349fd3",
+  "colunas_pivot": [
+    13,
+    45
+  ],
+  "auditoria_arquivo": {
+    "arquivo_csv_no_zip": "votacao_candidato_munzona_2014_BR.csv",
+    "linhas_csv_lidas": 78425,
+    "linhas_presidenciais_lidas": 78425,
+    "linhas_consolidadas": 68327,
+    "votos_nominais_somados_ambos_turnos": 209566075,
+    "unidades_uf": [
+      "AC",
+      "AL",
+      "AM",
+      "AP",
+      "BA",
+      "CE",
+      "DF",
+      "ES",
+      "GO",
+      "MA",
+      "MG",
+      "MS",
+      "MT",
+      "PA",
+      "PB",
+      "PE",
+      "PI",
+      "PR",
+      "RJ",
+      "RN",
+      "RO",
+      "RR",
+      "RS",
+      "SC",
+      "SE",
+      "SP",
+      "TO",
+      "ZZ"
+    ],
+    "turnos": [
+      1,
+      2
+    ]
+  },
+  "votos_municipios_brasil_sem_exterior": {
+    "13": 54470059,
+    "45": 50937034
+  },
+  "votos_exterior_ZZ": {
+    "13": 31059,
+    "45": 104121
+  },
+  "votos_nacionais_incluindo_exterior": {
+    "13": 54501118,
+    "45": 51041155
+  },
+  "referencia_TSE_definitivo": {
+    "13": 54501118,
+    "45": 51041155,
+    "total": 105542273
+  },
+  "municipios_votos": 5570,
+  "sem_correspondencia_mapa": 0,
+  "status": "CONCILIADO_NACIONAL_BRASIL_EXTERIOR",
+  "municipios": 5570,
+  "soma_votos_validos_municipais_brasil": 105407093,
+  "soma_votos_validos_nacionais_com_exterior": 105542273,
+  "saida_sha256": "176ae7b4345a351e3cd71b5bd428af4381e3d4307aa169b2f16d7d8ce354e8fd",
+  "advertencia": "Brasil 5570 municipios (sem ZZ) e votacao no exterior (ZZ) conferidos separadamente; 2014 Dilma e Aecio, não equivale aos candidatos de 2018/2022."
+}
