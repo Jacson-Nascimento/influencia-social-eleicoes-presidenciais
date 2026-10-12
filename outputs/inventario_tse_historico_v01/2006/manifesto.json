@@ -1,0 +1,98 @@
+{
+  "ano": 2006,
+  "origem_url": "https://cdn.tse.jus.br/estatistica/sead/odsele/votacao_candidato_munzona/votacao_candidato_munzona_2006.zip",
+  "consulta_utc": "2026-10-12T03:41:54.122860+00:00",
+  "observacoes": [
+    "Dados 1998 declarados incompletos pelo TSE, não imputar ausências.",
+    "1998: sem segundo turno presidencial; resultado em primeiro turno somente.",
+    "Exterior identificado como UF ZZ, excluído de atributos municipais.",
+    "Código TSE igual em anos distintos não prova estabilidade das fronteiras municipais.",
+    "Registros e valores brutos não alterados."
+  ],
+  "sha256_zip_original": "9bd23c339924ee761347a80590deff8bbbe2f483ff5a5b3d478998ce59ec929e",
+  "bytes_zip": 130940089,
+  "consolidacao": {
+    "arquivo_csv_no_zip": "votacao_candidato_munzona_2006_BR.csv",
+    "linhas_csv_lidas": 54027,
+    "linhas_presidenciais_lidas": 54027,
+    "linhas_consolidadas": 48184,
+    "votos_nominais_somados_ambos_turnos": 191834953,
+    "unidades_uf": [
+      "AC",
+      "AL",
+      "AM",
+      "AP",
+      "BA",
+      "CE",
+      "DF",
+      "ES",
+      "GO",
+      "MA",
+      "MG",
+      "MS",
+      "MT",
+      "PA",
+      "PB",
+      "PE",
+      "PI",
+      "PR",
+      "RJ",
+      "RN",
+      "RO",
+      "RR",
+      "RS",
+      "SC",
+      "SE",
+      "SP",
+      "TO",
+      "ZZ"
+    ],
+    "turnos": [
+      1,
+      2
+    ]
+  },
+  "turnos": [
+    {
+      "turno": 1,
+      "total_votos_nominais": 95996733,
+      "municipios_distintos_sem_exterior": 5565,
+      "ufs_territoriais": 27,
+      "votos_municipais": 95957656,
+      "votos_exterior": 39077,
+      "n_candidaturas_registradas": 7,
+      "candidatos_votos": {
+        "13": 46662365,
+        "45": 39968369,
+        "50": 6575393,
+        "12": 2538844,
+        "44": 126404,
+        "27": 63294,
+        "17": 62064
+      },
+      "numero_13_votos": 46662365
+    },
+    {
+      "turno": 2,
+      "total_votos_nominais": 95838220,
+      "municipios_distintos_sem_exterior": 5565,
+      "ufs_territoriais": 27,
+      "votos_municipais": 95799360,
+      "votos_exterior": 38860,
+      "n_candidaturas_registradas": 2,
+      "candidatos_votos": {
+        "13": 58295042,
+        "45": 37543178
+      },
+      "numero_13_votos": 58295042
+    }
+  ],
+  "municipios_distintos_total_arquivo": 5565,
+  "chaves_com_mapa_atual": 5565,
+  "chaves_sem_mapa_atual": 0,
+  "municipios_mais_recentes_ausentes_no_ano": 5,
+  "exemplos_sem_correspondencia": [],
+  "total_nao_implicado_validacao": "Os totais lidos precisam ser confrontados com totalização oficial de cada eleição e condições dos arquivos.",
+  "tratamento_pesquisa": "CANDIDATO_13_VS_FINALISTA_NO_SEGUNDO_TURNO_APOS_IDENTIFICAR_VENCEDORES",
+  "status": "INVENTARIADO_NAO_CONCILIADO_COM_TOTAL_TSE"
+}
