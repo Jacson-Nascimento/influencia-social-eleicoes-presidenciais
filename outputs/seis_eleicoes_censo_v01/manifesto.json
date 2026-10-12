@@ -1,0 +1,35 @@
+{
+  "autor": "Jacson Cruz do Nascimento",
+  "status": "EXPLORATORIO_SEM_ALTERAR_V15",
+  "anos": [
+    2002,
+    2006,
+    2010,
+    2014,
+    2018,
+    2022
+  ],
+  "excluido": 1998,
+  "n_municipios": 5506,
+  "n_observacoes": 33036,
+  "regra_censo": {
+    "2002": 2000,
+    "2006": 2000,
+    "2010": 2010,
+    "2014": 2010,
+    "2018": 2010,
+    "2022": 2010
+  },
+  "sensibilidade_2010": "Censo 2000 substitui Censo 2010 sem alterar outros regressores ou amostra",
+  "modelo_nucleo": "log pop pré-pleito, proporção urbana, proporção feminina, 4 dummies macrorregião; + médias 8 vizinhos",
+  "periodo_economico": "PIB NÃO usado para garantir mesmas covariáveis nos seis pleitos",
+  "regras": [
+    "2010 Censo 2010 retrospectivo e não necessariamente disponível antes da votação",
+    "AMCs históricas não implementadas, geocódigos e centroides são aproximações",
+    "Anos e candidatos diferentes; M vantagem da candidatura PT13 por pleito",
+    "UF VT e exterior ZZ excluídos dos municípios, mantidos nos inventários",
+    "Dados públicos revisados depois do pleito não representam previsão em tempo real",
+    "Intervalos bootstrap 4999 UFs amostradas não eliminam dependência entre UFs vizinhas",
+    "Associação não equivale a efeito causal nem demonstra contágio eleitoral"
+  ]
+}
