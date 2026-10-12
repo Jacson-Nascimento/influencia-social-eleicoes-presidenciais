@@ -1,0 +1,19 @@
+{
+  "nota": "2014/2018/2022 já se encontram sem exterior, enquanto 2002/2006/2010 contêm ZZ e, em 2010, VT. Não comparar o campo de totais brutos entre períodos sem separar recortes.",
+  "anos": [
+    2002,
+    2006,
+    2010,
+    2014,
+    2018,
+    2022
+  ],
+  "n_comum": 5506,
+  "n_cidades_atual": 5570,
+  "cautelas": [
+    "Áreas municipais e código TSE podem mudar; cadastro de 2022 é proxy para correspondência histórica.",
+    "Percentual de votos retidos não substitui checagem de concentração territorial das exclusões.",
+    "Não imputar votos de VT/exterior em municípios."
+  ],
+  "sha256_saida": "1b758a50b60843caee20890b2134ed3231d9ea76328d9e9b1cee6ea187e4c666"
+}
