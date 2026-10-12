@@ -1,0 +1,121 @@
+{
+  "url": "https://cdn.tse.jus.br/estatistica/sead/odsele/votacao_secao/votacao_secao_1998_AC.zip",
+  "uf": "AC",
+  "criacao_utc": "2026-10-12T11:57:44.673614+00:00",
+  "status": "ESQUEMA_AMOSTRADO_SEM_TOTALIZACAO",
+  "primeiros_bytes_txt": "\"DT_GERACAO\";\"HH_GERACAO\";\"ANO_ELEICAO\";\"CD_TIPO_ELEICAO\";\"NM_TIPO_ELEICAO\";\"NR_TURNO\";\"CD_ELEICAO\";\"DS_ELEICAO\";\"DT_ELEICAO\";\"TP_ABRANGENCIA\";\"SG_UF\";\"SG_UE\";\"NM_UE\";\"CD_MUNICIPIO\";\"NM_MUNICIPIO\";\"NR_ZONA\";\"NR_SECAO\";\"CD_CARGO\";\"DS_CARGO\";\"NR_VOTAVEL\";\"NM_VOTAVEL\";\"QT_VOTOS\";\"NR_LOCAL_VOTACAO\"\r\n\"20/04/2022\";\"10:20:45\";1998;2;\"Eleição Ordinária\";1;1998001;\"Eleições Ordinárias - 1998\";\"04/10/1998\";\"F\";\"AC\";\"01120\";\"ACRELANDIA\";1120;\"ACRELANDIA\";8;8;3;\"Governador\";25;\"ALERCIO DIAS\";38;-3\r\n\"20/04/2022\";\"10:20:45\";1998;2;\"Eleição Ordinária\";1;1998001;\"Eleições Ordinárias - 1998\";\"04/10/1998\";\"F\";\"AC\";\"01120\";\"ACRELANDIA\";1120;\"ACRELANDIA\";8;8;3;\"Governador\";56;\"DUARTE JOSE DO COUTO NETO\";2;-3\r\n\"20/04/2022\";\"10:20:45\";1998;2;\"Eleição Ordinária\";1;1998001;\"Eleições Ordinárias - 1998\";\"04/10/1998\";\"F\";\"AC\";\"01120\";\"ACRELANDIA\";1120;\"ACRELANDIA\";8;8;3;\"Governador\";15;\"FRANCISCO BRíGIDO DA COSTA\";8;-3\r\n\"20/04/2022\";\"10:20:45\";1998;2;\"Eleição Ordinária\";1;1998001;\"Eleições Ordinárias - 1998\";\"04/10/1998\";\"F\";\"AC\";\"01120\";\"ACRELANDIA\";1120;\"ACRELANDIA\";8;8;3;\"Governador\";13;\"JORGE NEY VIANA MACEDO NEVES\";58;-3\r\n\"20/04/2022\";\"10:20:45\";1998;2;\"Eleição Ordinária\";1;1998001;\"Eleições Ordinárias - 1998\";\"04/10/1998\";\"F\";\"AC\";\"01120\";\"ACRELANDIA\";1120;\"ACRELANDIA\";8;8;3;\"Governador\";95;\"VOTO BRANCO\";65;-3\r\n\"20/04/2022\";\"10:20:45\";1998;2;\"Eleição Ordinária\";1;1998001;\"Eleições Ordinárias - 1998\";\"04/10/1998\";\"F\";\"AC\";\"01120\";\"ACRELANDIA\";1120;\"ACRELANDIA\";8;8;3;\"Governador\";96;\"VOTO NULO\";16;-3\r\n\"20/04/2022\";\"10:20:45\";1998;2;\"Eleição Ordinária\";1;1998001;\"Eleições Ordinárias - 1998\";\"04/10/1998\";\"F\";\"AC\";\"01120\";\"ACRELANDIA\";1120;\"ACRELANDIA\";8;8;5;\"Senador\";11;\"AURICÉLIA FREITAS DE ASSI",
+  "primeira_linha_bytes_hex": "2244545f4745524143414f223b2248485f4745524143414f223b22414e4f5f454c454943414f223b2243445f5449504f5f454c454943414f223b224e4d5f5449504f5f454c454943414f223b224e525f5455524e4f223b2243445f454c454943414f223b2244535f454c454943414f223b2244545f454c454943414f223b2254505f414252414e47454e434941223b2253475f5546223b2253475f5545223b224e4d5f5545223b2243445f4d554e49434950494f223b224e4d5f4d554e49434950494f223b224e525f5a4f4e41223b224e525f534543414f223b2243445f434152474f223b2244535f434152474f223b224e525f564f54415645",
+  "n_linhas_amostradas": 66,
+  "possivel_delimitador_';'": {
+    "campos": [
+      23,
+      23,
+      23,
+      23,
+      23
+    ],
+    "linhas": [
+      [
+        "DT_GERACAO",
+        "HH_GERACAO",
+        "ANO_ELEICAO",
+        "CD_TIPO_ELEICAO",
+        "NM_TIPO_ELEICAO",
+        "NR_TURNO",
+        "CD_ELEICAO",
+        "DS_ELEICAO",
+        "DT_ELEICAO",
+        "TP_ABRANGENCIA",
+        "SG_UF",
+        "SG_UE",
+        "NM_UE",
+        "CD_MUNICIPIO",
+        "NM_MUNICIPIO",
+        "NR_ZONA",
+        "NR_SECAO",
+        "CD_CARGO",
+        "DS_CARGO",
+        "NR_VOTAVEL",
+        "NM_VOTAVEL",
+        "QT_VOTOS",
+        "NR_LOCAL_VOTACAO"
+      ],
+      [
+        "20/04/2022",
+        "10:20:45",
+        "1998",
+        "2",
+        "Eleição Ordinária",
+        "1",
+        "1998001",
+        "Eleições Ordinárias - 1998",
+        "04/10/1998",
+        "F",
+        "AC",
+        "01120",
+        "ACRELANDIA",
+        "1120",
+        "ACRELANDIA",
+        "8",
+        "8",
+        "3",
+        "Governador",
+        "25",
+        "ALERCIO DIAS",
+        "38",
+        "-3"
+      ]
+    ]
+  },
+  "possivel_delimitador_','": {
+    "campos": [
+      1,
+      1,
+      1,
+      1,
+      1
+    ],
+    "linhas": [
+      [
+        "DT_GERACAO;\"HH_GERACAO\";\"ANO_ELEICAO\";\"CD_TIPO_ELEICAO\";\"NM_TIPO_ELEICAO\";\"NR_TURNO\";\"CD_ELEICAO\";\"DS_ELEICAO\";\"DT_ELEICAO\";\"TP_ABRANGENCIA\";\"SG_UF\";\"SG_UE\";\"NM_UE\";\"CD_MUNICIPIO\";\"NM_MUNICIPIO\";\"NR_ZONA\";\"NR_SECAO\";\"CD_CARGO\";\"DS_CARGO\";\"NR_VOTAVEL\";\"NM_VOTAVEL\";\"QT_VOTOS\";\"NR_LOCAL_VOTACAO\""
+      ],
+      [
+        "20/04/2022;\"10:20:45\";1998;2;\"Eleição Ordinária\";1;1998001;\"Eleições Ordinárias - 1998\";\"04/10/1998\";\"F\";\"AC\";\"01120\";\"ACRELANDIA\";1120;\"ACRELANDIA\";8;8;3;\"Governador\";25;\"ALERCIO DIAS\";38;-3"
+      ]
+    ]
+  },
+  "possivel_delimitador_'\\t'": {
+    "campos": [
+      1,
+      1,
+      1,
+      1,
+      1
+    ],
+    "linhas": [
+      [
+        "DT_GERACAO;\"HH_GERACAO\";\"ANO_ELEICAO\";\"CD_TIPO_ELEICAO\";\"NM_TIPO_ELEICAO\";\"NR_TURNO\";\"CD_ELEICAO\";\"DS_ELEICAO\";\"DT_ELEICAO\";\"TP_ABRANGENCIA\";\"SG_UF\";\"SG_UE\";\"NM_UE\";\"CD_MUNICIPIO\";\"NM_MUNICIPIO\";\"NR_ZONA\";\"NR_SECAO\";\"CD_CARGO\";\"DS_CARGO\";\"NR_VOTAVEL\";\"NM_VOTAVEL\";\"QT_VOTOS\";\"NR_LOCAL_VOTACAO\""
+      ],
+      [
+        "20/04/2022;\"10:20:45\";1998;2;\"Eleição Ordinária\";1;1998001;\"Eleições Ordinárias - 1998\";\"04/10/1998\";\"F\";\"AC\";\"01120\";\"ACRELANDIA\";1120;\"ACRELANDIA\";8;8;3;\"Governador\";25;\"ALERCIO DIAS\";38;-3"
+      ]
+    ]
+  },
+  "possivel_delimitador_'|'": {
+    "campos": [
+      1,
+      1,
+      1,
+      1,
+      1
+    ],
+    "linhas": [
+      [
+        "DT_GERACAO;\"HH_GERACAO\";\"ANO_ELEICAO\";\"CD_TIPO_ELEICAO\";\"NM_TIPO_ELEICAO\";\"NR_TURNO\";\"CD_ELEICAO\";\"DS_ELEICAO\";\"DT_ELEICAO\";\"TP_ABRANGENCIA\";\"SG_UF\";\"SG_UE\";\"NM_UE\";\"CD_MUNICIPIO\";\"NM_MUNICIPIO\";\"NR_ZONA\";\"NR_SECAO\";\"CD_CARGO\";\"DS_CARGO\";\"NR_VOTAVEL\";\"NM_VOTAVEL\";\"QT_VOTOS\";\"NR_LOCAL_VOTACAO\""
+      ],
+      [
+        "20/04/2022;\"10:20:45\";1998;2;\"Eleição Ordinária\";1;1998001;\"Eleições Ordinárias - 1998\";\"04/10/1998\";\"F\";\"AC\";\"01120\";\"ACRELANDIA\";1120;\"ACRELANDIA\";8;8;3;\"Governador\";25;\"ALERCIO DIAS\";38;-3"
+      ]
+    ]
+  }
+}
