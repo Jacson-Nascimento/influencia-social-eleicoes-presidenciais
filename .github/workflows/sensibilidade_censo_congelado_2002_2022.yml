@@ -1,0 +1,47 @@
+name: Sensibilidade demografica censos 2000 fixo vs 2010 anterior
+
+on:
+  push:
+    paths:
+      - '.github/workflows/sensibilidade_censo_congelado_2002_2022.yml'
+      - 'scripts/38_sensibilidade_censo_congelado.py'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  comparar_censo:
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: {python-version: '3.11'}
+      - run: pip install -r requirements.txt
+      - name: Testar estabilidade quando Censo 2000 permanece fixo
+        run: |
+          OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 python scripts/38_sensibilidade_censo_congelado.py \
+            --panel3 outputs/painel_harmonizado_2002_2022_v01/painel_balanceado_6_eleicoes_3_controles.csv \
+            --ibge2000 outputs/controles_ibge_historicos_v01/controles_2002_2006_2010.csv \
+            --base_geo outputs/modelos_seis_eleicoes_2002_2022_v01/validacao_geografica_6_e_5_eleicoes.csv \
+            --base_temporal outputs/modelos_seis_eleicoes_2002_2022_v01/validacao_temporal_2002_2022.csv \
+            --out outputs/sensibilidade_censo_congelado_2002_2022_v01
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: sensibilidade-censo-2000-fixo-2002-2022
+          path: outputs/sensibilidade_censo_congelado_2002_2022_v01/
+      - name: Registrar estudo de sensibilidade sem alterar o principal
+        if: success()
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add -f outputs/sensibilidade_censo_congelado_2002_2022_v01/*.csv
+          git add outputs/sensibilidade_censo_congelado_2002_2022_v01/*.json
+          git commit -m 'Documentar impacto da mudança do Censo em modelos temporais 2002–2022'
+          for i in 1 2 3 4 5; do
+            git pull --rebase origin main && git push origin HEAD:main && exit 0
+            sleep 5
+          done
+          exit 1
