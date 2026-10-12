@@ -19,7 +19,7 @@ def main():
    with zipfile.ZipFile(p) as z:
     report["zip_ok"]=z.testzip() is None
     report["arquivos"]=[{"nome":v.filename,"bytes":v.file_size} for v in z.infolist()]
-    csvs=[v.filename for v in z.infolist() if v.filename.lower().endswith(".csv")]
+    csvs=[v.filename for v in z.infolist() if v.filename.lower().endswith((".csv",".txt"))]
     samples=[]
     for name in csvs[:6]:
      with z.open(name) as raw:
