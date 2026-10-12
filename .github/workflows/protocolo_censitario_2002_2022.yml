@@ -1,0 +1,64 @@
+name: Aplicar protocolo censitario da literatura 2002 a 2022
+
+on:
+  push:
+    paths:
+      - '.github/workflows/protocolo_censitario_2002_2022.yml'
+      - 'scripts/36_protocolo_censitario_literatura.py'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  censos:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: {python-version: '3.11'}
+      - run: pip install numpy pandas
+      - name: Cruzar IBGE 2000 e 2010 mantendo referencia censitaria em cada eleicao
+        run: |
+          OPENBLAS_NUM_THREADS=1 python scripts/36_protocolo_censitario_literatura.py \
+            --mapa outputs/municipal_v01/chaves_tse_ibge_5570_centroides.csv \
+            --historicos outputs/controles_ibge_historicos_v01/controles_2002_2006_2010.csv \
+            --controles2014 outputs/piloto_2014_ibge_v01/controles_IBGE_para_eleicao_2014.csv \
+            --controles2018_2022 data/ibge_tratados/controles_pre_eleitorais_v02.csv \
+            --saida outputs/protocolo_censitario_2002_2022_v01/controles_municipais_censo_2000_2010.csv \
+            --manifesto outputs/protocolo_censitario_2002_2022_v01/manifesto_metodologico.json
+      - name: Validar 6 pleitos e as 2 referencias censitarias
+        run: |
+          python - <<'PY'
+          import pandas as pd
+          p="outputs/protocolo_censitario_2002_2022_v01/controles_municipais_censo_2000_2010.csv"
+          d=pd.read_csv(p)
+          main=d[d.especificacao=="literatura_retrospectiva"]
+          assert set(main.ano)=={2002,2006,2010,2014,2018,2022}
+          assert len(main)==5570*6
+          assert dict(main.groupby("ano").censo_demografico.first())=={2002:2000,2006:2000,2010:2010,2014:2010,2018:2010,2022:2010}
+          assert d[(d.ano==2010)&(d.especificacao=="sensibilidade_2010_censo2000")].censo_demografico.eq(2000).all()
+          assert not main[main.ano==2002].completo_modelo_4.any()
+          assert not main.censo_demografico.isna().any()
+          print(main.groupby("ano")[["completo_modelo_3","completo_modelo_4"]].sum())
+          PY
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: protocolo-censo-literatura-2002-2022
+          path: outputs/protocolo_censitario_2002_2022_v01/
+          retention-days: 90
+      - name: Versionar protocolo sem regravar bases originais
+        if: success()
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add -f outputs/protocolo_censitario_2002_2022_v01/*.csv
+          git add outputs/protocolo_censitario_2002_2022_v01/*.json
+          git commit -m 'Documentar uso longitudinal censos 2000 2010 em seis pleitos'
+          for i in 1 2 3 4 5; do
+            git pull --rebase origin main && git push origin HEAD:main && exit 0
+            sleep 5
+          done
+          exit 1
