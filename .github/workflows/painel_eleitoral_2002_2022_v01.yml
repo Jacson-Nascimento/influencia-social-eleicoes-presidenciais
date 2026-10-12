@@ -1,0 +1,68 @@
+name: Painel harmonizado presidenciais 2002 a 2022 com Censos anteriores
+
+on:
+  push:
+    paths:
+      - '.github/workflows/painel_eleitoral_2002_2022_v01.yml'
+      - 'scripts/36_painel_presidencial_2002_2022.py'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  painel:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: {python-version: '3.11'}
+      - run: pip install pandas numpy
+      - name: Construir 2002-2022 com ultimo Censo anterior e conferir chaves
+        run: |
+          OPENBLAS_NUM_THREADS=1 python scripts/36_painel_presidencial_2002_2022.py \
+            --historico outputs/inventario_tse_historico_v01 \
+            --controles_historicos outputs/controles_ibge_historicos_v01/controles_2002_2006_2010.csv \
+            --votos2014 outputs/piloto_2014_v01/votos_2014_segundo_turno_municipios.csv \
+            --controles2014 outputs/piloto_2014_ibge_v01/controles_IBGE_para_eleicao_2014.csv \
+            --votos2018_2022 outputs/competitividade_v02/competitividade_e_margem_assinada_segundo_turno.csv \
+            --controles2018_2022 data/ibge_tratados/controles_pre_eleitorais_v02.csv \
+            --mapa outputs/municipal_v01/chaves_tse_ibge_5570_centroides.csv \
+            --saida outputs/painel_harmonizado_2002_2022_v01
+      - name: Conferir consistência e cobertura
+        run: |
+          python - <<'PY'
+          import pandas as pd,json
+          root="outputs/painel_harmonizado_2002_2022_v01/"
+          m=json.load(open(root+"manifesto.json"))
+          x=pd.read_csv(root+"painel_balanceado_6_eleicoes_3_controles.csv")
+          y=pd.read_csv(root+"painel_balanceado_5_eleicoes_4_controles.csv")
+          assert x.ano.nunique()==6 and set(x.ano)=={2002,2006,2010,2014,2018,2022}
+          assert len(x)==6*m["amostra_3_controles"]
+          assert len(y)==5*m["amostra_4_controles"]
+          assert x["complete_3"].all() and y["complete_4"].all()
+          assert 1998 not in x.ano.unique()
+          for a in [x,y]:
+              assert (a.competitividade_2t-(1-a.margem_assinada_pt13.abs())).abs().max()<1e-10
+          print("Painel:",m["amostra_3_controles"],m["amostra_4_controles"])
+          PY
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: painel-presidencial-2002-2022-censos-anteriores-v01
+          path: outputs/painel_harmonizado_2002_2022_v01/
+          retention-days: 90
+      - name: Preservar dados e scripts anteriores; commit novas saídas
+        if: success()
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add -f outputs/painel_harmonizado_2002_2022_v01/*.csv
+          git add outputs/painel_harmonizado_2002_2022_v01/*.json
+          git commit -m 'Documentar painel seis eleições 2002–2022 Censos 2000/2010'
+          for i in 1 2 3 4 5; do
+            git pull --rebase origin main && git push origin HEAD:main && exit 0
+            sleep 5
+          done
+          exit 1
