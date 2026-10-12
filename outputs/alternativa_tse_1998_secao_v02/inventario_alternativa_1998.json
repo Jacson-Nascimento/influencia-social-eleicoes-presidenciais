@@ -1,0 +1,128 @@
+{
+  "fonte_url": "https://cdn.tse.jus.br/estatistica/sead/odsele/votacao_secao/votacao_secao_1998_BR.zip",
+  "coleta_utc": "2026-10-12T03:48:23.497397+00:00",
+  "objetivo": "Identificar alternativa válida ao arquivo nominal 1998 com votos zerados.",
+  "sha256_zip": "5a40305f7038643cacac4c57c6b28ccb3779b2700034cea4f283d3087528a197",
+  "bytes_zip": 2841465,
+  "zip_ok": true,
+  "arquivos": [
+    {
+      "nome": "LEIAME.pdf",
+      "bytes": 2708386
+    },
+    {
+      "nome": "votacao_secao_1998_BR.txt",
+      "bytes": 59221178
+    }
+  ],
+  "amostras_csv": [
+    {
+      "arquivo": "votacao_secao_1998_BR.txt",
+      "colunas": [
+        "16/02/2016",
+        "14:15:12",
+        "1998",
+        "1",
+        "ELEICOES 1998",
+        "BR",
+        "88013",
+        "88013",
+        "PORTO ALEGRE",
+        "1",
+        "195",
+        "1",
+        "PRESIDENTE",
+        "13",
+        "245"
+      ],
+      "primeiros_registros": [
+        [
+          "16/02/2016",
+          "14:15:12",
+          "1998",
+          "1",
+          "ELEICOES 1998",
+          "BR",
+          "88013",
+          "88013",
+          "PORTO ALEGRE",
+          "1",
+          "195",
+          "1",
+          "PRESIDENTE",
+          "16",
+          "1"
+        ],
+        [
+          "16/02/2016",
+          "14:15:12",
+          "1998",
+          "1",
+          "ELEICOES 1998",
+          "BR",
+          "88013",
+          "88013",
+          "PORTO ALEGRE",
+          "1",
+          "195",
+          "1",
+          "PRESIDENTE",
+          "23",
+          "15"
+        ],
+        [
+          "16/02/2016",
+          "14:15:12",
+          "1998",
+          "1",
+          "ELEICOES 1998",
+          "BR",
+          "88013",
+          "88013",
+          "PORTO ALEGRE",
+          "1",
+          "195",
+          "1",
+          "PRESIDENTE",
+          "33",
+          "1"
+        ],
+        [
+          "16/02/2016",
+          "14:15:12",
+          "1998",
+          "1",
+          "ELEICOES 1998",
+          "BR",
+          "88013",
+          "88013",
+          "PORTO ALEGRE",
+          "1",
+          "195",
+          "1",
+          "PRESIDENTE",
+          "43",
+          "1"
+        ],
+        [
+          "16/02/2016",
+          "14:15:12",
+          "1998",
+          "1",
+          "ELEICOES 1998",
+          "BR",
+          "88013",
+          "88013",
+          "PORTO ALEGRE",
+          "1",
+          "195",
+          "1",
+          "PRESIDENTE",
+          "45",
+          "110"
+        ]
+      ]
+    }
+  ],
+  "status": "SCHEMA_IDENTIFICADO_SEM_VALIDACAO_COMPLETUDE"
+}
