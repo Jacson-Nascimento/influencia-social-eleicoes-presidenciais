@@ -47,8 +47,8 @@ def main():
     a.manifesto.parent.mkdir(parents=True,exist_ok=True)
     if len(x)!=5570 or x.isna().any().any() or totals!={13:DILMA,45:AECIO}:
         notes["status"]="BLOQUEADO_DIVERGENCIA_TSE"
-        a.manifesto.write_text(json.dumps(notes,ensure_ascii=False,indent=2)+"\n")
-        raise ValueError("Conciliação 2014 rejeitada; conferência: "+json.dumps(notes,ensure_ascii=False)[:2400])
+        a.manifesto.write_text(json.dumps(notes,ensure_ascii=False,indent=2,default=lambda x:int(x) if isinstance(x,np.integer) else str(x))+"\n")
+        raise ValueError("Conciliação 2014 rejeitada; conferência: "+json.dumps(notes,ensure_ascii=False,default=lambda x:int(x) if isinstance(x,np.integer) else str(x))[:2400])
     x=x.reset_index()
     mapa=pd.read_csv(a.mapa,dtype={"SG_UF":str,"CD_MUNICIPIO":str,"CD_MUNICIPIO_IBGE":str})
     mapa["CD_MUNICIPIO"]=pd.to_numeric(mapa.CD_MUNICIPIO,errors="raise").astype("int64")
@@ -58,7 +58,7 @@ def main():
     if len(d)!=5570 or len(missing) or d.CD_MUNICIPIO_IBGE.duplicated().any():
         notes["status"]="BLOQUEADO_CHAVES_GEOGRAFICAS"
         notes["exemplos_sem_chave"]=missing.head(20).to_dict("records")
-        a.manifesto.write_text(json.dumps(notes,ensure_ascii=False,indent=2)+"\n")
+        a.manifesto.write_text(json.dumps(notes,ensure_ascii=False,indent=2,default=lambda x:int(x) if isinstance(x,np.integer) else str(x))+"\n")
         raise ValueError("Falha na correspondência 2014/2018 dos códigos TSE")
     n13=d[13].astype("int64");n45=d[45].astype("int64")
     validos=n13+n45
@@ -79,6 +79,6 @@ def main():
        "soma_votos_validos":int(out.total_validos.sum()),
        "saida_sha256":hashlib.sha256(a.saida.read_bytes()).hexdigest(),
        "advertencia":"2014 Dilma e Aecio; não equivale à mesma configuração de candidatos de 2018 e 2022."})
-    a.manifesto.write_text(json.dumps(notes,ensure_ascii=False,indent=2)+"\n")
-    print(json.dumps(notes,ensure_ascii=False,indent=2))
+    a.manifesto.write_text(json.dumps(notes,ensure_ascii=False,indent=2,default=lambda x:int(x) if isinstance(x,np.integer) else str(x))+"\n")
+    print(json.dumps(notes,ensure_ascii=False,indent=2,default=lambda x:int(x) if isinstance(x,np.integer) else str(x)))
 if __name__=="__main__":main()
