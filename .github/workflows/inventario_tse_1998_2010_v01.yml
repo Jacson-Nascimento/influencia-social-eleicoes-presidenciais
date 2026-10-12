@@ -1,0 +1,50 @@
+name: Inventariar TSE presidencial historico 1998 2002 2006 2010
+
+on:
+  push:
+    paths:
+      - '.github/workflows/inventario_tse_1998_2010_v01.yml'
+      - 'scripts/31_inventario_tse_historico.py'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  ano:
+    runs-on: ubuntu-latest
+    timeout-minutes: 35
+    strategy:
+      fail-fast: false
+      matrix:
+        ano: [1998, 2002, 2006, 2010]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: {python-version: '3.11'}
+      - run: pip install pandas numpy
+      - name: Baixar e inventariar arquivo TSE por ano
+        run: |
+          python scripts/31_inventario_tse_historico.py \
+            --ano ${{ matrix.ano }} \
+            --mapa outputs/municipal_v01/chaves_tse_ibge_5570_centroides.csv \
+            --saida outputs/inventario_tse_historico_v01/${{ matrix.ano }}
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: inventario-tse-${{ matrix.ano }}-v01
+          path: outputs/inventario_tse_historico_v01/${{ matrix.ano }}/
+          retention-days: 90
+      - name: Versionar sem alterar anteriores
+        if: success()
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add -f outputs/inventario_tse_historico_v01/${{ matrix.ano }}/*.csv
+          git add outputs/inventario_tse_historico_v01/${{ matrix.ano }}/*.json
+          git commit -m 'Inventariar arquivo original TSE de ${{ matrix.ano }} sem inferencia'
+          for i in 1 2 3 4 5; do
+            git pull --rebase origin main && git push origin HEAD:main && exit 0
+            sleep 5
+          done
+          exit 1
