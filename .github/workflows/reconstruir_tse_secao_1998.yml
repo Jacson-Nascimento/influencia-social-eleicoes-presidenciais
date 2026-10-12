@@ -1,0 +1,43 @@
+name: Reconstruir votação por seção presidencial TSE 1998
+
+on:
+  push:
+    paths:
+      - '.github/workflows/reconstruir_tse_secao_1998.yml'
+      - 'scripts/35_reconstruir_tse_secao_1998.py'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  rebuild:
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: {python-version: '3.11'}
+      - run: pip install numpy pandas
+      - name: Agregar TXT por seção (1998), conferir candidatos e municípios
+        run: |
+          OPENBLAS_NUM_THREADS=1 python scripts/35_reconstruir_tse_secao_1998.py
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: reconstrucao-1998-tse-secoes
+          path: outputs/reconstrucao_1998_secao_v01/
+          retention-days: 90
+      - name: Versionar resultados com ressalva documental
+        if: success()
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add -f outputs/reconstrucao_1998_secao_v01/*.csv
+          git add outputs/reconstrucao_1998_secao_v01/*.json
+          git commit -m 'Registrar reconstrução descritiva de 1998 com ressalva TSE'
+          for i in 1 2 3 4 5; do
+            git pull --rebase origin main && git push origin HEAD:main && exit 0
+            sleep 5
+          done
+          exit 1
