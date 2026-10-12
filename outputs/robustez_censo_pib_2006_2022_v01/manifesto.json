@@ -1,0 +1,27 @@
+{
+  "autor": "Jacson Cruz do Nascimento",
+  "anos": [
+    2006,
+    2010,
+    2014,
+    2018,
+    2022
+  ],
+  "amostra_municipios_fixa": 5505,
+  "objetivo": "isolar efeito da inclusão do PIB vs três controles e efeito dos Censos 2000/2010 na validação de 2014",
+  "regras": [
+    "Os resultados 2002–2022 usam censo anterior 2000/2010; 1998 foi excluído.",
+    "Modelos com 4 controles não incluem 2002; série PIB em vintage homogêneo ausente para pleito de 2002.",
+    "Para 2014 o uso alternativo do Censo 2000 é apenas sensibilidade, não especificação preferida.",
+    "Mesmo universo após exclusão completa do PIB faltante para todos os anos 2006–2022; comparação interna três vs quatro controles.",
+    "PIB 2004 2008 2012 2016 2020 dividido por estimativa de população do ano seguinte são proxies, não PIB per capita oficial.",
+    "Treino de validação temporal só tem votos de pleitos anteriores.",
+    "UF bootstrap 4999 condicionais, não corrigem correlação espacial entre UFs limítrofes.",
+    "Nenhum resultado identifica causalidade ou contágio social."
+  ],
+  "pontos_de_sensibilidade": [
+    "quebra no ano 2014 de variáveis censitárias",
+    "diferença entre modelos com três e quatro regressores",
+    "comparabilidade temporal das eleições com candidatos distintos"
+  ]
+}
