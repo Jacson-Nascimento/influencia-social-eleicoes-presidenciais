@@ -1,0 +1,61 @@
+{
+  "censo2000": {
+    "url": "https://apisidra.ibge.gov.br/values/t/202/n6/all/v/93/p/2000/c1/0,1/c2/0,5?formato=json",
+    "status_http": 200,
+    "sha256_resposta": "8602b8573134af9c5d6c655d8a5977350eae4f815c6a5bd0c62fcce77802848d",
+    "n_registros": 22260,
+    "obtido_em": "2026-10-12T03:47:47.019046+00:00"
+  },
+  "pop2001": {
+    "url": "https://apisidra.ibge.gov.br/values/t/6579/n6/all/v/9324/p/2001?formato=json",
+    "status_http": 200,
+    "sha256_resposta": "d31e3f06b64c286bf310b3cc6ce73e8c3d161d2a4cd3c12ec27535c9a16ed56d",
+    "n_registros": 5571,
+    "obtido_em": "2026-10-12T03:47:47.956433+00:00"
+  },
+  "pop2005": {
+    "url": "https://apisidra.ibge.gov.br/values/t/6579/n6/all/v/9324/p/2005?formato=json",
+    "status_http": 200,
+    "sha256_resposta": "f5d594231d412da699558af1c25ae84a0e878290cdeb02f8dbccca1f5990969f",
+    "n_registros": 5571,
+    "obtido_em": "2026-10-12T03:47:54.954265+00:00"
+  },
+  "pop2009": {
+    "url": "https://apisidra.ibge.gov.br/values/t/6579/n6/all/v/9324/p/2009?formato=json",
+    "status_http": 200,
+    "sha256_resposta": "87a9713b0d31bdb0c08aa8d081ba8c69c4872d37e2bc0f5f5653ff6d48c8aa58",
+    "n_registros": 5571,
+    "obtido_em": "2026-10-12T03:47:55.549251+00:00"
+  },
+  "pib2004": {
+    "url": "https://apisidra.ibge.gov.br/values/t/5938/n6/all/v/37/p/2004?formato=json",
+    "status_http": 200,
+    "sha256_resposta": "8bd3d0d125538f223cc9b08e87f3d5f28e05e19b133616e96b975e87ac05b5d4",
+    "n_registros": 5570,
+    "obtido_em": "2026-10-12T03:47:56.430089+00:00"
+  },
+  "pib2008": {
+    "url": "https://apisidra.ibge.gov.br/values/t/5938/n6/all/v/37/p/2008?formato=json",
+    "status_http": 200,
+    "sha256_resposta": "a8d62fe38e6919a5896721a58ef0aaa5b63a83c79b6644109e995e093153e25c",
+    "n_registros": 5570,
+    "obtido_em": "2026-10-12T03:47:57.378002+00:00"
+  },
+  "n_controles_completos_2002": 5506,
+  "n_controles_completos_2006": 5506,
+  "n_controles_completos_2010": 5506,
+  "censo": 2000,
+  "pop_ref": [
+    2001,
+    2005,
+    2009
+  ],
+  "pib_ref": [
+    2004,
+    2008
+  ],
+  "pib_2000": "Indisponível no SIDRA5938, não imputado",
+  "efeito": "Para 2002 estimar modelo demográfico reduzido com três regressores; 2006/2010 comportam quatro",
+  "ressalva": "Base revisada retrospectivamente pode não refletir valores publicados antes de cada eleição",
+  "arquivo_sha256": "fb20cb753f4026344f6f2b34bf669f54d2ad347d29c1c949040f4b385493bd3f"
+}
