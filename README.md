@@ -6,6 +6,14 @@
 **Início:** 8 de outubro de 2026  
 **Situação:** artigo de competitividade eleitoral, versão v04 com testes executados de ponderação populacional anterior às eleições, influência de capitais e grandes municípios, confronto bibliográfico e auditoria eleitoral final; trabalho editorial e inferência espacial mais exigente ainda pendentes.
 
+## Recorte empírico atualizado — 12/10/2026
+
+**Ampliação autorizada: seis eleições presidenciais com segundo turno, 2002, 2006, 2010, 2014, 2018 e 2022. A eleição de 1998 está excluída das análises atuais por decisão do autor.** As tentativas e artefatos históricos de 1998 foram preservados somente para rastreabilidade, sem qualquer uso em regressões ou conclusões.
+
+A mudança de censo segue a periodização explicitamente publicada por Silva, Santos e Silva (2022, *Opinião Pública*): **Censo 2000 para 2002/2006 e Censo 2010 para 2010/2014/2018**; para 2022, o Censo 2010 é mantido como extensão coerente com os modelos de 2014–2022 já concluídos. Como 2010 é o mesmo ano da eleição, **o Censo 2010 só permite interpretação retrospectiva**; haverá sensibilidade com Censo 2000 para 2010. Foi construída a grade IBGE (5.506 municípios com três controles completos nos seis pleitos) e ainda resta conciliar as chaves TSE antigas e estimar regressões comparativas antes de modificar a v15.
+
+[Ver protocolo censitário com referências, scripts e manifesto](docs/PROTOCOLO_CENSITARIO_LITERATURA_2002_2022_2026-10-12.md).
+
 ## Objetivo
 Investigar padrões de concentração, interação territorial e mudanças agregadas de preferências entre turnos presidenciais, avaliando se medidas espaciais acrescentam capacidade explicativa em relação a modelos simples.
 
