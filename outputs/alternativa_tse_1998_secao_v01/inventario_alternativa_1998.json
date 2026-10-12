@@ -1,0 +1,20 @@
+{
+  "fonte_url": "https://cdn.tse.jus.br/estatistica/sead/odsele/votacao_secao/votacao_secao_1998_BR.zip",
+  "coleta_utc": "2026-10-12T03:45:16.362081+00:00",
+  "objetivo": "Identificar alternativa válida ao arquivo nominal 1998 com votos zerados.",
+  "sha256_zip": "5a40305f7038643cacac4c57c6b28ccb3779b2700034cea4f283d3087528a197",
+  "bytes_zip": 2841465,
+  "zip_ok": true,
+  "arquivos": [
+    {
+      "nome": "LEIAME.pdf",
+      "bytes": 2708386
+    },
+    {
+      "nome": "votacao_secao_1998_BR.txt",
+      "bytes": 59221178
+    }
+  ],
+  "amostras_csv": [],
+  "status": "SCHEMA_IDENTIFICADO_SEM_VALIDACAO_COMPLETUDE"
+}
