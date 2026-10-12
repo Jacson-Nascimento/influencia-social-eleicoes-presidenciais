@@ -1,0 +1,66 @@
+name: Robustez seis pleitos originais com PIB - cinco eleições 2006 a 2022
+
+on:
+  push:
+    paths:
+      - '.github/workflows/modelos_historicos_full4_2006_2022.yml'
+      - 'scripts/37_modelos_historicos_full4_2006_2022.py'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  estimar:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: {python-version: '3.11'}
+      - run: pip install -r requirements.txt
+      - name: Validar modelos com PIB em cinco eleições
+        run: |
+          OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 python scripts/37_modelos_historicos_full4_2006_2022.py \
+            --mapa outputs/municipal_v01/chaves_tse_ibge_5570_centroides.csv \
+            --historicos outputs/inventario_tse_historico_v01 \
+            --ibgeantigo outputs/controles_ibge_historicos_v01/controles_2002_2006_2010.csv \
+            --votos2014 outputs/piloto_2014_v01/votos_2014_segundo_turno_municipios.csv \
+            --ibge2014 outputs/piloto_2014_ibge_v01/controles_IBGE_para_eleicao_2014.csv \
+            --votos2018_22 outputs/competitividade_v02/competitividade_e_margem_assinada_segundo_turno.csv \
+            --ibge2018_22 data/ibge_tratados/controles_pre_eleitorais_v02.csv \
+            --out outputs/robustez_historica_full4_2006_2022_v01
+      - name: Conferir amostras e matrizes
+        run: |
+          python - <<'PY'
+          import pandas as pd,json
+          p="outputs/robustez_historica_full4_2006_2022_v01/"
+          m=json.load(open(p+"manifesto.json"))
+          x=pd.read_csv(p+"validacao_geografica_2006_2022_full4.csv")
+          y=pd.read_csv(p+"validacao_temporal_expansiva_2006_2022_full4.csv")
+          assert len(x)==30 and len(y)==24
+          assert set(x.ano)=={2006,2010,2014,2018,2022}
+          assert m["municipios_comuns"]>=5300
+          assert x.ganho_rmse_pct.notna().all() and y.ganho_rmse_pct.notna().all()
+          print(x.to_string(index=False))
+          print(y.to_string(index=False))
+          PY
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: robustez-com-pib-cinco-pleitos
+          path: outputs/robustez_historica_full4_2006_2022_v01/
+          retention-days: 90
+      - name: Versionar nova robustez sem substituir arquivo reduzido
+        if: success()
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add -f outputs/robustez_historica_full4_2006_2022_v01/*.csv
+          git add outputs/robustez_historica_full4_2006_2022_v01/*.json
+          git commit -m 'Versionar sensibilidade com PIB em cinco eleições 2006 a 2022'
+          for i in 1 2 3 4 5; do
+            git pull --rebase origin main && git push origin HEAD:main && exit 0
+            sleep 5
+          done
+          exit 1
