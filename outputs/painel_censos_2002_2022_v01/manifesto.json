@@ -1,0 +1,94 @@
+{
+  "escopo": "Estudo 2002–2022 (sem 1998), seis segundos turnos",
+  "amostra_comum": 5506,
+  "n_observacoes": 33036,
+  "nao_usar_1998": true,
+  "modelo_principal": "Três regressoras locais: log população no ano anterior, urbanização e fração feminina do censo antecedente",
+  "vintages": {
+    "2002,2006,2010": "Censo 2000",
+    "2014,2018,2022": "Censo 2010"
+  },
+  "sensibilidade": "Fixar Censo 2000 em todos os seis pleitos para avaliar ruptura das variáveis demográficas",
+  "pib": "Não incluir PIB no modelo principal porque SIDRA 5938 não devolveu 2000; PIB apenas na sensibilidade 2006–2022",
+  "geografia": "Unidades com códigos estáveis e cobertura em todos os pleitos; NÃO equivalem a áreas mínimas comparáveis completas (AMC).",
+  "atencao": "Uma amostra municipal comum não neutraliza desmembramentos de áreas; agregar em AMCs somente com crosswalk oficial verificado.",
+  "modelagem": "Eleições diferentes e candidaturas PT #13 distintas. Modelos descritivos, sem inferência causal.",
+  "tse_conciliacao_pendente": "2002 2006 2010 inventariados, extrair VT/ZZ e comparar com registros oficiais antes de considerá-los plenamente auditados",
+  "desvio_2002": "Código TSE 91065/MT sem mapa 2018, excluído do painel e documentado.",
+  "fontes": {
+    "Ehrl2017": "https://doi.org/10.1590/0101-416147182phe",
+    "Sousa2019": "https://doi.org/10.5380/recp.v10i1.70422",
+    "IpeaGEO": "https://portalantigo.ipea.gov.br/ipeageo/arquivos/Tutorial_IpeaGEO_VF.pdf"
+  },
+  "insumos_sha256": {
+    "tse2002": "e79d783c4c337cbc468875784b738443b5962af847bcccbb29d9af0a6db85ea1",
+    "tse2006": "55d0d3743bb38d09193cb55cfba29555091b862159d39b3fb939fce1b8d78c8e",
+    "tse2010": "beae5df39ba4dc28f9ced1b9b51755c6fcaf81505918e40cb88f01361342adf1",
+    "votos2014": "176ae7b4345a351e3cd71b5bd428af4381e3d4307aa169b2f16d7d8ce354e8fd",
+    "votos2018_2022": "b931e2e2bbb87888ab97993725e892900626dc29c8bc66b0f78ce94d71b4d2cf",
+    "ibge_historico": "fb20cb753f4026344f6f2b34bf669f54d2ad347d29c1c949040f4b385493bd3f",
+    "ibge_2014": "6b0e6396a52030205d19907dc3974d7cdf2676649bf1f9cfd84b8a047379dbef",
+    "ibge_recente": "acc47aec45045cffc2facb49b6608cd4a52c77c4fbe738b050d37194b1f60ce5",
+    "mapa": "c9fce07d2568ad58bef9e5c69664e8aa3b80f309dfba38a672cc1ed1cc293f8e"
+  },
+  "origens": [
+    {
+      "ano": 2002,
+      "n_municipios_no_arquivo": 5565,
+      "n_chaves_mapa": 5564,
+      "sem_correspondencia": [
+        {
+          "SG_UF": "MT",
+          "CD_MUNICIPIO": 91065
+        }
+      ],
+      "votos_nacionais_candidato": {
+        "13": 52793364,
+        "45": 33370739
+      },
+      "votos_especiais": {
+        "ZZ_13": 20772,
+        "ZZ_45": 13742
+      },
+      "votos_municipais": 86129589,
+      "n_municipios_excluidos_por_chave": 1,
+      "documentacao": "Exclui ZZ exterior e VT voto em trânsito do nível municipal; totais nacionais preservados nos relatórios."
+    },
+    {
+      "ano": 2006,
+      "n_municipios_no_arquivo": 5565,
+      "n_chaves_mapa": 5565,
+      "sem_correspondencia": [],
+      "votos_nacionais_candidato": {
+        "13": 58295042,
+        "45": 37543178
+      },
+      "votos_especiais": {
+        "ZZ_13": 17948,
+        "ZZ_45": 20912
+      },
+      "votos_municipais": 95799360,
+      "n_municipios_excluidos_por_chave": 0,
+      "documentacao": "Exclui ZZ exterior e VT voto em trânsito do nível municipal; totais nacionais preservados nos relatórios."
+    },
+    {
+      "ano": 2010,
+      "n_municipios_no_arquivo": 5567,
+      "n_chaves_mapa": 5567,
+      "sem_correspondencia": [],
+      "votos_nacionais_candidato": {
+        "13": 55752529,
+        "45": 43711388
+      },
+      "votos_especiais": {
+        "VT_13": 28018,
+        "VT_45": 25017,
+        "ZZ_13": 33112,
+        "ZZ_45": 47913
+      },
+      "votos_municipais": 99329857,
+      "n_municipios_excluidos_por_chave": 0,
+      "documentacao": "Exclui ZZ exterior e VT voto em trânsito do nível municipal; totais nacionais preservados nos relatórios."
+    }
+  ]
+}
