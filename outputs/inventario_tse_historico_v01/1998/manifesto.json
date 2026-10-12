@@ -1,0 +1,88 @@
+{
+  "ano": 1998,
+  "origem_url": "https://cdn.tse.jus.br/estatistica/sead/odsele/votacao_candidato_munzona/votacao_candidato_munzona_1998.zip",
+  "consulta_utc": "2026-10-12T03:41:54.946624+00:00",
+  "observacoes": [
+    "Dados 1998 declarados incompletos pelo TSE, não imputar ausências.",
+    "1998: sem segundo turno presidencial; resultado em primeiro turno somente.",
+    "Exterior identificado como UF ZZ, excluído de atributos municipais.",
+    "Código TSE igual em anos distintos não prova estabilidade das fronteiras municipais.",
+    "Registros e valores brutos não alterados."
+  ],
+  "sha256_zip_original": "8cb16d1c4901efdb46334df5f534712c1d36eea379725d68e33b9f3534963ab4",
+  "bytes_zip": 106050738,
+  "consolidacao": {
+    "arquivo_csv_no_zip": "votacao_candidato_munzona_1998_BRASIL.csv",
+    "linhas_csv_lidas": 1694751,
+    "linhas_presidenciais_lidas": 73284,
+    "linhas_consolidadas": 66185,
+    "votos_nominais_somados_ambos_turnos": 0,
+    "unidades_uf": [
+      "AC",
+      "AL",
+      "AM",
+      "AP",
+      "BA",
+      "CE",
+      "DF",
+      "ES",
+      "GO",
+      "MA",
+      "MG",
+      "MS",
+      "MT",
+      "PA",
+      "PB",
+      "PE",
+      "PI",
+      "PR",
+      "RJ",
+      "RN",
+      "RO",
+      "RR",
+      "RS",
+      "SC",
+      "SE",
+      "SP",
+      "TO",
+      "ZZ"
+    ],
+    "turnos": [
+      1
+    ]
+  },
+  "turnos": [
+    {
+      "turno": 1,
+      "total_votos_nominais": 0,
+      "municipios_distintos_sem_exterior": 5513,
+      "ufs_territoriais": 27,
+      "votos_municipais": 0,
+      "votos_exterior": 0,
+      "n_candidaturas_registradas": 12,
+      "candidatos_votos": {
+        "13": 0,
+        "16": 0,
+        "19": 0,
+        "20": 0,
+        "23": 0,
+        "27": 0,
+        "31": 0,
+        "33": 0,
+        "43": 0,
+        "45": 0,
+        "56": 0,
+        "70": 0
+      },
+      "numero_13_votos": 0
+    }
+  ],
+  "municipios_distintos_total_arquivo": 5513,
+  "chaves_com_mapa_atual": 5513,
+  "chaves_sem_mapa_atual": 0,
+  "municipios_mais_recentes_ausentes_no_ano": 57,
+  "exemplos_sem_correspondencia": [],
+  "total_nao_implicado_validacao": "Os totais lidos precisam ser confrontados com totalização oficial de cada eleição e condições dos arquivos.",
+  "tratamento_pesquisa": "SOMENTE PRIMEIRO TURNO, COM COBERTURA TSE POTENCIALMENTE INCOMPLETA",
+  "status": "INVENTARIADO_NAO_CONCILIADO_COM_TOTAL_TSE"
+}
