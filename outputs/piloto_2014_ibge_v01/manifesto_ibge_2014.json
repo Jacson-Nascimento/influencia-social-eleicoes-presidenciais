@@ -1,0 +1,40 @@
+{
+  "escopo": "Dados anteriores ao ano eleitoral para exercício exploratório 2014",
+  "fontes_sidra": {
+    "pib_2012": {
+      "url": "https://apisidra.ibge.gov.br/values/t/5938/n6/all/v/37/p/2012?formato=json",
+      "sha256_resposta_http": "d86d749f9b1a56352a177eed221944337b0012cc7612a5bc9dc897d71c4e5014",
+      "n_linhas_recebidas": 5570,
+      "municipios_com_valor": 5565,
+      "coleta_utc": "2026-10-12T02:59:42.528967+00:00"
+    },
+    "pop_2013": {
+      "url": "https://apisidra.ibge.gov.br/values/t/6579/n6/all/v/9324/p/2013?formato=json",
+      "sha256_resposta_http": "2263ae69efc63d913d36c6ee30d2ce5449ca9a6dbba6a87c481ababdd6c046c1",
+      "n_linhas_recebidas": 5571,
+      "municipios_com_valor": 5570,
+      "coleta_utc": "2026-10-12T02:59:47.357255+00:00"
+    }
+  },
+  "controle_censo2010": "fonte já tratada no repositório (dados/ibge_tratados/controles_pre_eleitorais_v02.csv)",
+  "n_municipios": 5570,
+  "controles_completos": 5564,
+  "sem_controles_completos": [
+    "5006275",
+    "1504752",
+    "2404507",
+    "4314548",
+    "4220000",
+    "4212650"
+  ],
+  "defasagem": {
+    "2014": {
+      "pib": 2012,
+      "pop": 2013,
+      "censo": 2010
+    }
+  },
+  "proxy_pib_per_capita": "PIB nominal 2012 R$ / população estimada 2013; NÃO é PIB per capita oficial",
+  "cautela": "Séries recuperadas em 2026 podem ter sido revisadas; nenhum desempenho preditivo em tempo real.",
+  "arquivo_saida_sha256": "6b0e6396a52030205d19907dc3974d7cdf2676649bf1f9cfd84b8a047379dbef"
+}
