@@ -1,0 +1,29 @@
+{
+  "UF": "RS",
+  "origem": "https://cdn.tse.jus.br/estatistica/sead/odsele/votacao_secao/votacao_secao_1998_RS.zip",
+  "acesso_utc": "2026-10-12T11:54:37.750980+00:00",
+  "status": "COBERTURA_UF_EXPLORATORIA_SEM_TOTALIZACAO_OFICIAL",
+  "sha256": "8e0eb283ee771da47fb0062de018ae0d732dc4af99dcb7c463fdb0a4ed955c25",
+  "bytes_zip": 26500999,
+  "arquivos_zip": [
+    {
+      "name": "votacao_secao_1998_RS.csv",
+      "bytes": 509650620
+    },
+    {
+      "name": "leiame.pdf",
+      "bytes": 351180
+    }
+  ],
+  "n_linhas": 2386589,
+  "n_linhas_presidente": 0,
+  "municipios_codigo_distintos": 0,
+  "municipios_nome_distintos": 0,
+  "turnos": [],
+  "municipios_exemplos": [],
+  "votos_cod13": 0,
+  "votos_cod45": 0,
+  "total_todos_codigos": 0,
+  "codigos_votaveis": 0,
+  "linhas_incompletas_ou_erro": 2386589
+}
