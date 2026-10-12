@@ -1,0 +1,46 @@
+name: Coletar controles históricos IBGE 2002 2006 2010
+
+on:
+  push:
+    paths:
+      - '.github/workflows/coleta_ibge_2002_2010_v01.yml'
+      - 'scripts/34_coletar_ibge_2002_2010.py'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  coleta:
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: {python-version: '3.11'}
+      - run: pip install numpy pandas requests
+      - name: Coletar Censo 2000, estimativas de população e PIB antecedentes
+        run: |
+          OPENBLAS_NUM_THREADS=1 python scripts/34_coletar_ibge_2002_2010.py \
+            --mapa outputs/municipal_v01/chaves_tse_ibge_5570_centroides.csv \
+            --saida outputs/controles_ibge_historicos_v01/controles_2002_2006_2010.csv \
+            --manifesto outputs/controles_ibge_historicos_v01/manifesto.json
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: ibge-controles-historicos-v01
+          path: outputs/controles_ibge_historicos_v01/
+          retention-days: 90
+      - name: Versionar somente novos dados com fonte validada
+        if: success()
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add -f outputs/controles_ibge_historicos_v01/*.csv
+          git add outputs/controles_ibge_historicos_v01/*.json
+          git commit -m 'Versionar controles IBGE Censo 2000 e PIB população antecedentes'
+          for i in 1 2 3 4 5; do
+            git pull --rebase origin main && git push origin HEAD:main && exit 0
+            sleep 5
+          done
+          exit 1
