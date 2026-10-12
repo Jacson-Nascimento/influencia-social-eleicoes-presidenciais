@@ -1,0 +1,39 @@
+name: Identificar campos CSV estaduais TSE 1998
+
+on:
+  push:
+    paths:
+      - '.github/workflows/leiaute_tse_1998_uf_v01.yml'
+      - 'scripts/39_leiaute_tse_1998_uf.py'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    strategy:
+      fail-fast: false
+      matrix:
+        uf: [AC, RS]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: {python-version: '3.11'}
+      - run: python scripts/39_leiaute_tse_1998_uf.py --uf ${{ matrix.uf }} --out outputs/leiaute_tse_1998_ufs_v01/${{ matrix.uf }}.json
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: leiaute-1998-${{ matrix.uf }}
+          path: outputs/leiaute_tse_1998_ufs_v01/${{ matrix.uf }}.json
+      - name: Documentar campos para parser posterior
+        if: success()
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add outputs/leiaute_tse_1998_ufs_v01/${{ matrix.uf }}.json
+          git commit -m 'Inspecionar leiaute CSV 1998 ${{ matrix.uf }} sem modificar dados'
+          for i in 1 2 3 4; do git pull --rebase origin main && git push origin HEAD:main && exit 0; sleep 5; done
+          exit 1
