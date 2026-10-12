@@ -1,0 +1,46 @@
+name: Testar censo de 2010 contemporaneo versus anterior
+
+on:
+  push:
+    paths:
+      - 'scripts/42_censo_2010_contemporaneo.py'
+      - '.github/workflows/sensibilidade_censo_2010_contemporaneo.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  estimar:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: {python-version: '3.11'}
+      - run: pip install -r requirements.txt
+      - name: Sensibilidade com base histórica fixa sem regravar versões
+        run: |
+          OPENBLAS_NUM_THREADS=1 python scripts/42_censo_2010_contemporaneo.py \
+            --painel outputs/painel_censos_2002_2022_v01/painel_seis_eleicoes_2002_2022.csv \
+            --censo2010 data/ibge_tratados/controles_pre_eleitorais_v02.csv \
+            --referencia outputs/modelos_seis_eleicoes_censo_precedente_v01/validacao_geografica_2002_2022.csv \
+            --out outputs/sensibilidade_censo2010_contemporaneo_v01
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: censo-2010-contemporaneo-sensibilidade
+          path: outputs/sensibilidade_censo2010_contemporaneo_v01/
+      - name: Versionar novos resultados apenas
+        if: success()
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add -f outputs/sensibilidade_censo2010_contemporaneo_v01/*.csv
+          git add outputs/sensibilidade_censo2010_contemporaneo_v01/*.json
+          git commit -m 'Registrar teste contemporâneo Censo 2010 versus 2000 antecedente'
+          for i in 1 2 3 4 5; do
+            git pull --rebase origin main && git push origin HEAD:main && exit 0
+            sleep 5
+          done
+          exit 1
