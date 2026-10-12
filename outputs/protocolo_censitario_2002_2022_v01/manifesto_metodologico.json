@@ -1,0 +1,87 @@
+{
+  "nome": "Protocolo longitudinal municipal IBGE/TSE 2002–2022",
+  "anos_eleitorais": [
+    2002,
+    2006,
+    2010,
+    2014,
+    2018,
+    2022
+  ],
+  "exclusoes": [
+    "1998 descartado por decisão do autor"
+  ],
+  "fontes_pesquisa": {
+    "principal": "Silva, Santos e Silva. Do Leme a Santa Cruz: a territorialização eleitoral de Jair Bolsonaro no município do Rio de Janeiro. Opinião Pública 28(1), 2022. DOI 10.1590/1807-0191202228192",
+    "municipal": "Soares; Terron. Dois Lulas: a geografia eleitoral da reeleição. Opinião Pública 14(2), 2008. DOI 10.1590/S0104-62762008000200001",
+    "porte": "Nicolau (2026), Estudos Avançados 40(117), usa Censo 2022 para faixas de porte na análise retrospectiva, não para os 4 controles socioeconômicos utilizados aqui."
+  },
+  "regra_replicada": "2000 Censo para 2002/2006; 2010 Censo para 2010/2014/2018. Estendido 2010 Censo para 2022 a fim de manter urbanização/fração feminina comparáveis às outras eleições do bloco.",
+  "nota_2010": "Censo 2010 e pleito 2010 no mesmo ano = contextualização retrospectiva. Não declarar ex-ante. Modelo 2010 com Censo 2000 registrado como sensibilidade.",
+  "modelo_comum": "3 controles: log população do ano anterior, urbanização e fração feminina censitárias. PIB municipal de 2000 ausente do SIDRA5938 impede modelo 4 controles para 2002.",
+  "modelo_quatro": "4 controles: acrescentar log PIB2012/pop2013 etc. de 2006 a 2022, por períodos, como análise restrita.",
+  "sem_imputacao": "Municípios sem censo não recebem valores de origem nem médias inventadas; excluir da amostra principal até crosswalk de distritos oficialmente validada.",
+  "nao_calculado": "Nenhum voto ou regressão foi reestimado nesta rotina. Indicadores completos ainda dependem de conciliação eleitoral 2002 2006 2010 com exclusão ZZ e VT.",
+  "regra_total": [
+    {
+      "eleicao": 2002,
+      "censo_primario": 2000,
+      "populacao": 2001,
+      "pib": null,
+      "linhas_cadastro_5570": 5570,
+      "completos_tres_controles": 5506,
+      "completos_quatro_controles": 0
+    },
+    {
+      "eleicao": 2006,
+      "censo_primario": 2000,
+      "populacao": 2005,
+      "pib": 2004,
+      "linhas_cadastro_5570": 5570,
+      "completos_tres_controles": 5506,
+      "completos_quatro_controles": 5506
+    },
+    {
+      "eleicao": 2010,
+      "censo_primario": 2010,
+      "populacao": 2009,
+      "pib": 2008,
+      "linhas_cadastro_5570": 5570,
+      "completos_tres_controles": 5565,
+      "completos_quatro_controles": 5564
+    },
+    {
+      "eleicao": 2014,
+      "censo_primario": 2010,
+      "populacao": 2013,
+      "pib": 2012,
+      "linhas_cadastro_5570": 5570,
+      "completos_tres_controles": 5565,
+      "completos_quatro_controles": 5564
+    },
+    {
+      "eleicao": 2018,
+      "censo_primario": 2010,
+      "populacao": 2017,
+      "pib": 2016,
+      "linhas_cadastro_5570": 5570,
+      "completos_tres_controles": 5565,
+      "completos_quatro_controles": 5565
+    },
+    {
+      "eleicao": 2022,
+      "censo_primario": 2010,
+      "populacao": 2021,
+      "pib": 2020,
+      "linhas_cadastro_5570": 5570,
+      "completos_tres_controles": 5565,
+      "completos_quatro_controles": 5565
+    }
+  ],
+  "municipios_com_modelo_3_completo_todos_6_anos_na_grade_IBGE": 5506,
+  "contraste_sensibilidade_2010": {
+    "principal_completos_3": 5565,
+    "2000_completos_3": 5506
+  },
+  "saida_sha256": "37717d1e319ecb1a3d4bcfa9116bd9c248dd6fed1b4759fd5a3def34034fc7f6"
+}
