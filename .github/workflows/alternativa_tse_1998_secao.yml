@@ -1,0 +1,37 @@
+name: Diagnosticar votacao por secao TSE 1998 alternativa
+
+on:
+  push:
+    paths:
+      - '.github/workflows/alternativa_tse_1998_secao.yml'
+      - 'scripts/33_inspecao_tse_secao_1998.py'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  inspect:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: {python-version: '3.11'}
+      - run: python scripts/33_inspecao_tse_secao_1998.py
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: alternativa-tse-secao-1998
+          path: outputs/alternativa_tse_1998_secao_v01/
+      - name: Salvar diagnóstico sem resultados não validados
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add outputs/alternativa_tse_1998_secao_v01/*.json
+          git commit -m 'Registrar diagnóstico de alternativa TSE seção 1998 sem agregar votos'
+          for i in 1 2 3 4 5; do
+            git pull --rebase origin main && git push origin HEAD:main && exit 0
+            sleep 5
+          done
+          exit 1
