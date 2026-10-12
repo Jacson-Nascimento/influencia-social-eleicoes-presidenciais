@@ -1,0 +1,7 @@
+ano,desfecho,ponderacao,familia,censo2000_anterior,censo2010_contemporaneo,delta_pontos_percentuais
+2010,competitividade,populacao_anterior,linear,0.5568354107,0.1834329088,-0.3734025019
+2010,competitividade,populacao_anterior,logit_fracionario,0.4278247713,0.1810299372,-0.2467948341
+2010,competitividade,uniforme,linear,-0.5898059603,-0.3074895310,0.2823164293
+2010,competitividade,uniforme,logit_fracionario,0.1825839442,0.2140826510,0.0314987068
+2010,direcao_pt13,populacao_anterior,linear,5.9938714782,5.2508240291,-0.7430474490
+2010,direcao_pt13,uniforme,linear,0.0771073774,0.1405370868,0.0634297094

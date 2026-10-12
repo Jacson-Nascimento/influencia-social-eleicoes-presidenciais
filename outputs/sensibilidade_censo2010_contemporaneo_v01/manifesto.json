@@ -1,0 +1,12 @@
+{
+  "ano": 2010,
+  "amostra": 5506,
+  "principal": "Censo 2000, estritamente anterior à eleição",
+  "sensibilidade": "Censo 2010, simultâneo ao ano do pleito e potencialmente publicado depois",
+  "nao_previsao_ex_ante": true,
+  "notas": [
+    "Apenas 2010 alterado, 2014-2022 já adotam Censo 2010.",
+    "Diferença nos ganhos não é parâmetro causal.",
+    "Valores 2010 com Censo 2010 devem ser reportados apenas como robustez retrospectiva."
+  ]
+}
