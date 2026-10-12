@@ -1,0 +1,70 @@
+name: Seis eleições 2002–2022 modelo demográfico e sensibilidade censitária
+
+on:
+  push:
+    paths:
+      - '.github/workflows/estudo_seis_eleicoes_censo_v01.yml'
+      - 'scripts/36_seis_eleicoes_censo_2000_2010.py'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  estudo:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: pip
+      - run: pip install -r requirements.txt
+      - name: Estimar modelos geográficos e testes cronológicos
+        run: |
+          OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 python scripts/36_seis_eleicoes_censo_2000_2010.py \
+            --historicos outputs/inventario_tse_historico_v01 \
+            --mapa outputs/municipal_v01/chaves_tse_ibge_5570_centroides.csv \
+            --controles2000 outputs/controles_ibge_historicos_v01/controles_2002_2006_2010.csv \
+            --controles2010 data/ibge_tratados/controles_pre_eleitorais_v02.csv \
+            --controles2014 outputs/piloto_2014_ibge_v01/controles_IBGE_para_eleicao_2014.csv \
+            --votos2014 outputs/piloto_2014_v01/votos_2014_segundo_turno_municipios.csv \
+            --votos2018_2022 outputs/competitividade_v02/competitividade_e_margem_assinada_segundo_turno.csv \
+            --out outputs/seis_eleicoes_censo_v01
+      - name: Testar tabelas e amostra longitudinal
+        run: |
+          python - <<'PY'
+          import pandas as pd,json
+          root="outputs/seis_eleicoes_censo_v01/"
+          meta=json.load(open(root+"manifesto.json"))
+          a=pd.read_csv(root+"validacao_geografica.csv")
+          b=pd.read_csv(root+"validacao_temporal.csv")
+          c=pd.read_csv(root+"sensibilidade_censo_2010.csv")
+          assert 5300<=meta["n_municipios"]<=5570
+          assert len(a)==36 and len(b)==36 and len(c)==6
+          assert a.n_municipios.eq(meta["n_municipios"]).all()
+          assert b.n_teste.eq(meta["n_municipios"]).all()
+          assert set(a.ano)=={2002,2006,2010,2014,2018,2022}
+          assert a[["ganho_rmse_pct","ic95_uf_inf","ic95_uf_sup"]].notna().all().all()
+          assert b[["ganho_rmse_pct","ic95_uf_inf","ic95_uf_sup"]].notna().all().all()
+          print(meta)
+          PY
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: estudo-seis-eleicoes-censo-v01
+          path: outputs/seis_eleicoes_censo_v01/
+          retention-days: 90
+      - name: Commitar apenas após verificações
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add -f outputs/seis_eleicoes_censo_v01/*.csv
+          git add outputs/seis_eleicoes_censo_v01/*.json
+          git commit -m 'Registrar painel de seis eleições e sensibilidade Censo 2000/2010'
+          for i in 1 2 3 4 5; do
+            git pull --rebase origin main && git push origin HEAD:main && exit 0
+            sleep 5
+          done
+          exit 1
