@@ -81,6 +81,7 @@ def main():
     complete=joined[required].notna().all(axis=1)
     if joined.CD_MUNICIPIO_IBGE.duplicated().any() or len(joined)!=5570 or complete.sum()<5500:
         raise ValueError("Insuficiência de dados limpos: "+str(complete.sum()))
+    args.saida.parent.mkdir(parents=True,exist_ok=True)
     joined.to_csv(args.saida,index=False,float_format="%.12f")
     info={"escopo":"Dados anteriores ao ano eleitoral para exercício exploratório 2014",
         "fontes_sidra":meta,"controle_censo2010":"fonte já tratada no repositório (dados/ibge_tratados/controles_pre_eleitorais_v02.csv)",
