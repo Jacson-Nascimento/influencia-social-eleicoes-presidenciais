@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Sensibilidade com 3 vs 4 regressores e ruptura 2000/2010.
 
-Amostra fixa de 5.506 municípios já validada em 2002–2022.
+Usar interseção completa do PIB para cinco eleições, sem imputar.
 Janela 2006–2022 com PIB nominal prévio existente para todos os pleitos.
 2014 recalculado em duas versões censitárias, somente como DIAGNÓSTICO:
 Censo 2000 vs. Censo 2010 (principal).
@@ -41,8 +41,16 @@ def enhanced(panel,args):
             d["log_pibpc_proxy"]=np.log(ib18.loc[ids,pib].to_numpy(float))
         result.append(d)
     combined=pd.concat(result,ignore_index=True)
-    if combined.log_pibpc_proxy.isna().any() or not np.isfinite(combined.log_pibpc_proxy).all():
-        raise ValueError("As 5 eleições perderam PIB na amostra fixa 5506; não imputar.")
+    # A amostra de seis eleições (5506) contém uma cidade sem PIB comparável.
+    # Excluí-la de TODOS os anos 2006-2022; não imputar.
+    eligibility=combined.groupby("CD_MUNICIPIO_IBGE").log_pibpc_proxy.apply(
+        lambda v: len(v)==5 and np.isfinite(v).all())
+    valid_ids=set(eligibility[eligibility].index)
+    combined=combined[combined.CD_MUNICIPIO_IBGE.isin(valid_ids)].copy()
+    if len(valid_ids)<5400 or len(combined)!=5*len(valid_ids):
+        raise ValueError(f"Amostra 2006–2022 com PIB insuficiente: {len(valid_ids)}.")
+    if not np.isfinite(combined.log_pibpc_proxy).all():
+        raise ValueError("Valores econômicos não finitos.")
     return combined,lookup_hist
 
 def mats(frame,fields):
@@ -82,6 +90,8 @@ def main():
     allpanel,coverage=m.build_panel(a)
     if coverage["amostra_comum_seis_eleicoes"]!=5506:raise ValueError("Amostra balanceada mudou.")
     enriched,lookup_hist=enhanced(allpanel,a)
+    n_keep=enriched.CD_MUNICIPIO_IBGE.nunique()
+    assert 5400<=n_keep<=5506
     fields={"tres_controles":["log_pop","urbanizacao","fracao_feminina"],
             "quatro_controles":["log_pop","log_pibpc_proxy","urbanizacao","fracao_feminina"]}
     geo=[];time=[];vintage=[]
@@ -108,7 +118,7 @@ def main():
                         time.append({"teste_ano":target,"treino_anos":"+".join(map(str,train)),
                             "especificacao":variant,"desfecho":outcome,"ponderacao":weight,
                             "familia":"logit_fracionario" if logit else "linear",
-                            "n_treino":len(train)*5506,"n_teste":5506,**b})
+                            "n_treino":len(train)*n_keep,"n_teste":n_keep,**b})
         # 2014 counterfactual vintage diagnostic: compare old vs contemporary census for test
         old=enriched[enriched.ano==2014].copy()
         ids=old.CD_MUNICIPIO_IBGE.tolist()
@@ -143,13 +153,13 @@ def main():
     pd.DataFrame(vintage).to_csv(a.saida/"censo_vintage_2014.csv",index=False,float_format="%.10f")
     manifest={"autor":"Jacson Cruz do Nascimento",
       "anos":[2006,2010,2014,2018,2022],
-      "amostra_municipios_fixa":5506,
+      "amostra_municipios_fixa":n_keep,
       "objetivo":"isolar efeito da inclusão do PIB vs três controles e efeito dos Censos 2000/2010 na validação de 2014",
       "regras":[
         "Os resultados 2002–2022 usam censo anterior 2000/2010; 1998 foi excluído.",
         "Modelos com 4 controles não incluem 2002; série PIB em vintage homogêneo ausente para pleito de 2002.",
         "Para 2014 o uso alternativo do Censo 2000 é apenas sensibilidade, não especificação preferida.",
-        "Mesmo universo de 5506 municípios entre todos cenários; variações devem-se aos regressores/censo e não à amostra.",
+        "Mesmo universo após exclusão completa do PIB faltante para todos os anos 2006–2022; comparação interna três vs quatro controles.",
         "PIB 2004 2008 2012 2016 2020 dividido por estimativa de população do ano seguinte são proxies, não PIB per capita oficial.",
         "Treino de validação temporal só tem votos de pleitos anteriores.",
         "UF bootstrap 4999 condicionais, não corrigem correlação espacial entre UFs limítrofes.",
