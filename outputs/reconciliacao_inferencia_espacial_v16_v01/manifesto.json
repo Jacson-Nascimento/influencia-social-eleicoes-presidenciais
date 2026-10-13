@@ -1,0 +1,52 @@
+{
+  "autor": "Jacson Cruz do Nascimento",
+  "tipo": "Reavaliacao da inferencia espacial: v16 de 2002-2022, sem 1998",
+  "n_municipios": 5506,
+  "n_obs": 33036,
+  "n_uf": 27,
+  "anos": [
+    2002,
+    2006,
+    2010,
+    2014,
+    2018,
+    2022
+  ],
+  "anos_buffer": [
+    2018,
+    2022
+  ],
+  "outcomes": [
+    "competitividade",
+    "direcao_pt13"
+  ],
+  "censo": "2000 para 2002/2006/2010; 2010 para 2014/2018/2022",
+  "regressoras": "3 locais + 4 macrorregiao + 3 medias k8",
+  "contraste": "teste conjunto de 3 medias contextuais, nao causal",
+  "infer_CR1": "WLS transformado, cluster UF (27), correcao CR1, F(3,26)",
+  "infer_Conley": "Bartlett arco grande circulo com centroides IBGE 2022, 100/250km; Wald chi2(3) assintotico",
+  "cv_espacial": "5 folds fixos por UF; buffer 0/100/250 km no treino; todas as UFs de teste fora",
+  "bootstrap": "4.999 reamostragens condicionais das 27 contribuicoes estaduais com folds fixos",
+  "integridade": "Buffer 0km cotejado com outputs/modelos_seis_eleicoes_censo_precedente_v01/validacao_geografica_2002_2022.csv",
+  "vintage": "Atributos IBGE do repositorio recuperados retrospectivamente; nenhuma previsao ex ante",
+  "entradas_sha256": {
+    "mapa": "c9fce07d2568ad58bef9e5c69664e8aa3b80f309dfba38a672cc1ed1cc293f8e",
+    "ibge_historico": "fb20cb753f4026344f6f2b34bf669f54d2ad347d29c1c949040f4b385493bd3f",
+    "ibge_2014": "6b0e6396a52030205d19907dc3974d7cdf2676649bf1f9cfd84b8a047379dbef",
+    "ibge_2018_2022": "acc47aec45045cffc2facb49b6608cd4a52c77c4fbe738b050d37194b1f60ce5",
+    "votos_2002": "e79d783c4c337cbc468875784b738443b5962af847bcccbb29d9af0a6db85ea1",
+    "votos_2006": "55d0d3743bb38d09193cb55cfba29555091b862159d39b3fb939fce1b8d78c8e",
+    "votos_2010": "beae5df39ba4dc28f9ced1b9b51755c6fcaf81505918e40cb88f01361342adf1",
+    "votos_2014": "176ae7b4345a351e3cd71b5bd428af4381e3d4307aa169b2f16d7d8ce354e8fd",
+    "votos_2018_2022": "b931e2e2bbb87888ab97993725e892900626dc29c8bc66b0f78ce94d71b4d2cf"
+  },
+  "limitacoes": [
+    "CR1 pressupoe independencia entre estados distintos",
+    "Conley depende do raio e nao corrige endogeneidade, seletividade ou unidade territorial",
+    "A mesma cidade aparece em eleicoes diferentes, mas inferencia aplicada POR PLEITO",
+    "WX usa covariaveis IBGE de UFs de teste (informacao transdutiva), nunca os votos dessas UFs",
+    "1998 excluido, nenhum voto externo ou VT imputado, sem causalidade social",
+    "Multiplos testes sao exploratorios sem correcao por multiplicidade",
+    "Conley nao corrige sozinho inferencia dos ganhos fora da amostra"
+  ]
+}
