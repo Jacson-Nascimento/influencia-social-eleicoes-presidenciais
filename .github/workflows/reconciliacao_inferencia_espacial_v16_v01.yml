@@ -1,0 +1,65 @@
+name: V16 reconciliacao e inferencia espacial CR1 Conley buffers
+
+on:
+  push:
+    paths:
+      - 'scripts/43_reconciliacao_inferencia_espacial_v16.py'
+      - '.github/workflows/reconciliacao_inferencia_espacial_v16_v01.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  calcular:
+    runs-on: ubuntu-latest
+    timeout-minutes: 55
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: pip
+      - name: Dependencias
+        run: pip install -r requirements.txt
+      - name: CR1 Conley 100 250 km e buffers 2018 2022, amostra de seis eleicoes
+        env:
+          OPENBLAS_NUM_THREADS: '1'
+          OMP_NUM_THREADS: '1'
+        run: python scripts/43_reconciliacao_inferencia_espacial_v16.py
+      - name: Verificar contagens e resultados
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import json, pandas as pd
+          out=Path('outputs/reconciliacao_inferencia_espacial_v16_v01')
+          d=json.loads((out/'manifesto.json').read_text())
+          s=pd.read_csv(out/'wald_cr1_conley_v16.csv')
+          b=pd.read_csv(out/'buffer_geografico_v16.csv')
+          assert d['n_municipios']==5506 and d['n_obs']==33036
+          assert len(s)==24 and s.ano.nunique()==6
+          assert len(b)==24 and set(b.buffer_km)=={0,100,250}
+          assert s.p_uf_CR1.between(0,1).all()
+          assert s.p_conley_100.between(0,1).all()
+          assert s.p_conley_250.between(0,1).all()
+          print(s[['ano','desfecho','ponderacao','p_uf_CR1','p_conley_100','p_conley_250']].to_string(index=False))
+          print(b[['ano','desfecho','ponderacao','buffer_km','ganho_rmse_pct','ic95_inf','ic95_sup']].to_string(index=False))
+          PY
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: inferencia-espacial-v16-v01
+          path: outputs/reconciliacao_inferencia_espacial_v16_v01/
+          retention-days: 90
+      - name: Versionar resultados sem modificar originais
+        if: success()
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add -f outputs/reconciliacao_inferencia_espacial_v16_v01/*
+          git commit -m 'Versionar reconciliacao e inferencia espacial da v16 em pasta nova'
+          for attempt in 1 2 3 4 5; do
+            git pull --rebase origin main && git push origin HEAD:main && exit 0
+            sleep 5
+          done
+          exit 1
